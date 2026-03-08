@@ -1,7 +1,8 @@
-# Documento de diseño - Roguelite táctico por turnos
+# Documento de diseño
 
 ## 1. Concepto general
 
+- **Título:** *pendiente*
 - **Género:** Roguelite táctico por turnos
 - **Estética:** Medieval fantasía
 - **Vista:** Cuadrícula isométrica (2D pixel art)
@@ -14,7 +15,7 @@ La progresión de la run se organiza en un **mapa de nodos** (inspirado en *Slay
 
 ## 2. Composición del equipo
 
-Al iniciar la run, el jugador elige un equipo compuesto por **3 unidades** repetibles.
+Al iniciar la run, el jugador elige un equipo compuesto por **3 unidades** pudiendo repetir clases de unidades.
 
 ### 2.1 Clases 
 
@@ -32,11 +33,10 @@ Al iniciar la run, el jugador elige un equipo compuesto por **3 unidades** repet
 | **MP máx** | - | - | 4 |
 | **Reg MP** | - | - | +1 por turno |
 | **Rango básico** | 1 | 5 | 4 |
+| **SPEED** | 1 | 3 | 2 |
 
 ### 2.2 Habilidades por clase
-Pendiente
-
-> Nota: se podrían añadir más clases disponibles, incluso que se fueran desbloqueando al pasar cierto número de runs a modo de logro para fomentar la rejugabilidad.
+*pendiente*
 
 ---
 
@@ -99,7 +99,7 @@ La altura afecta al daño aunque solo cuando la diferencia es de 1 nivel.
 ### 5.4 Ataque en equipo (cooperación)
 Existe una ventaja táctica basada en posicionamiento:
 
-- Si una unidad realiza un ataque físico a un enemigo y el objetivo está **rodeado** por otro u otros alidso, los **compañeros también atacan** (ataque adicional).
+- Si una unidad realiza un ataque físico a un enemigo y el objetivo está **rodeado** por otro u otros aliados, los **compañeros también atacan** (ataque adicional).
 
 ---
 
