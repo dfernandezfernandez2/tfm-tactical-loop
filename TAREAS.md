@@ -1,0 +1,25 @@
+- Sistema de turnos y control de puntos de acción por turno.
+- Clases de unidades.
+- Movimiento en el grid.
+- Path finding.
+- Ataque básico (melee y rango) - con hit, miss y dmg
+- Habilidades.
+- Sistema de maná.
+- Sistema de efectos y estados.
+- Condiciones de victoria/derrota
+- Spawns
+- IA Enemigos
+- Generador de mapa por nodos.
+- Navegación por el mapa de nodos.
+- Generador de mapas procedural.
+- Validación del mapa generado.
+- Inventario (pociones)
+- Guardado (seed) en mitad de la run.
+- Gestión alturas.
+- Gestión LoS.
+- Ataques en equipo.
+- Pantalla de inicio.
+- Layout in game, panel de juego + barra de orden de unidades
+- UI pausa.
+- Fin del juego.
+- Selector de tropas de incio.
