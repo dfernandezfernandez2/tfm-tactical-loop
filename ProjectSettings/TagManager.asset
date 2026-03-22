@@ -44,11 +44,8 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Ground
+  - name: MapScene
     uniqueID: 817018007
-    locked: 0
-  - name: Wall
-    uniqueID: 1631770685
     locked: 0
   m_RenderingLayers:
   - Default

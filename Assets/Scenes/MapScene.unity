@@ -290,7 +290,7 @@ MonoBehaviour:
   gridConfiguration:
     tileWidth: 1
     tileHeight: 0.5
-    heightStep: 0.5
+    heightStep: 0.45
 --- !u!4 &1141395808
 Transform:
   m_ObjectHideFlags: 0
