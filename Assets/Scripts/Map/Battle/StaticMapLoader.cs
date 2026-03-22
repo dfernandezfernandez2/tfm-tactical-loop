@@ -7,13 +7,13 @@
     public class StaticMapLoader : MonoBehaviour, IMapLoader {
         [SerializeField] private TextAsset mapFile;
         [SerializeField] private TileRenderSet tileRenderSet;
-        [SerializeField] private GridConfiguration gridConfiguration;
+        [SerializeField] private WorldRender worldRender;
         private IMapParser _mapParser;
 
         private IMapRenderer _mapRenderer;
 
         public void Awake() {
-            this._mapRenderer = new BattleMapRenderer(this.tileRenderSet, this.gridConfiguration);
+            this._mapRenderer = new BattleMapRenderer(this.tileRenderSet, this.worldRender);
             this._mapParser = new TxtMapParser();
         }
 
