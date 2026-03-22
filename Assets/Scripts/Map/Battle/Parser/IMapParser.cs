@@ -1,7 +1,7 @@
-﻿namespace Map.Battle.Parser;
+﻿namespace Map.Battle.Parser {
+    using Data;
 
-using Data;
-
-public interface IMapParser {
-    public BattleMapData Parse(string mapTextContent);
+    public interface IMapParser {
+        public BattleMapData Parse(string mapTextContent);
+    }
 }

@@ -1,7 +1,7 @@
-﻿namespace Map.Battle.Renderer;
+﻿namespace Map.Battle.Renderer {
+    using Data;
 
-using Data;
-
-public interface IMapRenderer {
-    public void Render(BattleMapData data);
+    public interface IMapRenderer {
+        public void Render(BattleMapData data);
+    }
 }

@@ -1,17 +1,25 @@
-﻿namespace Map.Battle.Parser;
+﻿namespace Map.Battle.Parser {
+    using Data;
 
-using Data;
+    public class TxtMapLegend {
+        private TxtMapLegend() {
+        }
 
-public class TxtMapLegend {
+        public static TileType GetTileType(string symbol) =>
+            symbol[^1] switch {
+                'F' => TileType.Floor,
+                'W' => TileType.Wall,
+                _ => TileType.Empty
+            };
 
-    private TxtMapLegend() {}
+        public static int GetTileHeight(string symbol) {
+            string numberPart = symbol[..^1];
 
-    public static TileType GetTileTypeFromChar(char symbol) =>
-        symbol switch {
-            '_' => TileType.Floor,
-            '-' => TileType.Wall,
-            'P' => TileType.PlayerSpawn,
-            'E' => TileType.EnemySpawn,
-            _ => TileType.Empty
-        };
+            if (int.TryParse(numberPart, out int height)) {
+                return height;
+            }
+
+            return 0;
+        }
+    }
 }

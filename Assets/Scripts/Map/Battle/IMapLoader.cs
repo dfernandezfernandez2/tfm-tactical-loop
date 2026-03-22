@@ -1,5 +1,5 @@
-﻿namespace Map.Battle;
-
-public interface IMapLoader {
-    public void Load();
+﻿namespace Map.Battle {
+    public interface IMapLoader {
+        public void Load();
+    }
 }
