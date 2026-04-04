@@ -4,7 +4,7 @@
     [CreateAssetMenu(menuName = "Units/Unit Data")]
     public class UnitData : ScriptableObject {
         [Range(1, 50)] public int hp;
-        [Range(1, 50)] public int mp;
+        [Range(0, 50)] public int mp;
         [Range(0, 5)] public int mpRegen;
         [Range(0, 10)] public int movement;
         [Range(1, 5)] public int ap;
