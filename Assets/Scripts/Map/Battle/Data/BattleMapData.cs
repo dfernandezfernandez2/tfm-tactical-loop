@@ -42,7 +42,7 @@
                 TileData[,] tileDatas = new TileData[this._width, this._height];
 
                 foreach (TileData tile in this._tiles) {
-                    tileDatas[tile.Position.x, tile.Position.y] = tile;
+                    tileDatas[tile.TileGridPosition.Position.x, tile.TileGridPosition.Position.y] = tile;
                 }
 
                 return new BattleMapData(this._width, this._height, tileDatas);

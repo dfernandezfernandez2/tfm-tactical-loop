@@ -1,4 +1,4 @@
-﻿namespace Map.Battle.Renderer {
+﻿namespace Map {
     using System;
     using UnityEngine;
 

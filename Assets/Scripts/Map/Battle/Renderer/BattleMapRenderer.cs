@@ -8,9 +8,9 @@
         private readonly Dictionary<TileType, TileRenderElement> _tileRenderElements;
         private readonly WorldRender _worldRender;
 
-        public BattleMapRenderer(TileRenderSet tileRenderSet, GridConfiguration gridConfiguration) {
+        public BattleMapRenderer(TileRenderSet tileRenderSet, WorldRender worldRender) {
             this._tileRenderElements = tileRenderSet.ToDict();
-            this._worldRender = new WorldRender(gridConfiguration);
+            this._worldRender = worldRender;
             this._parentGameObject = new GameObject("Map");
         }
 
@@ -19,31 +19,31 @@
         private void RenderTile(TileData tileData) {
             if (!this._tileRenderElements.TryGetValue(tileData.Type, out TileRenderElement tileRenderElement)) {
                 Debug.LogWarning(
-                    $"{tileData.Type} defined in position {tileData.Position.x}, {tileData.Position.y} is missing on render elements, will be skipped");
+                    $"{tileData.Type} defined in position {tileData.TileGridPosition.Position.x}, {tileData.TileGridPosition.Position.y} is missing on render elements, will be skipped");
                 return;
             }
 
-            GameObject parentGameObject = new($"tile_{tileData.Position.x}_{tileData.Position.y}");
+            GameObject parentGameObject =
+                new($"tile_{tileData.TileGridPosition.Position.x}_{tileData.TileGridPosition.Position.y}");
             parentGameObject.transform.SetParent(this._parentGameObject.transform);
 
 
             if (tileData.Type.IsRenderBellow()) {
-                for (int i = 0; i <= tileData.Height; i++) {
-                    this.RenderTile(tileRenderElement.Prefab, parentGameObject.transform, tileData.Position.x,
-                        tileData.Position.y, i);
+                for (int i = 0; i <= tileData.TileGridPosition.Height; i++) {
+                    this.RenderTile(tileRenderElement.Prefab, parentGameObject.transform,
+                        new GridPosition(tileData.TileGridPosition.Position, i));
                 }
             }
             else {
-                this.RenderTile(tileRenderElement.Prefab, parentGameObject.transform, tileData.Position.x,
-                    tileData.Position.y, tileData.Height);
+                this.RenderTile(tileRenderElement.Prefab, parentGameObject.transform, tileData.TileGridPosition);
             }
         }
 
-        private void RenderTile(GameObject gameObject, Transform parent, int x, int y, int height) {
+        private void RenderTile(GameObject gameObject, Transform parent, GridPosition gridPosition) {
             Vector3 tilePosition =
-                this._worldRender.GridToWorld(x, y, height);
+                this._worldRender.GridToWorld(gridPosition);
             GameObject createdObject = Object.Instantiate(gameObject, tilePosition, Quaternion.identity, parent);
-            createdObject.name = $"tile_{height}";
+            createdObject.name = $"tile_{gridPosition.Height}";
         }
     }
 }

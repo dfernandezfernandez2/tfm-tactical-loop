@@ -7,6 +7,7 @@ TagManager:
   - Ground
   - Wall
   - Empty
+  - Unit
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - Ground
   - Wall
   - Empty
-  - 
+  - Unit
   - 
   - 
   - 
@@ -46,6 +47,9 @@ TagManager:
     locked: 0
   - name: MapScene
     uniqueID: 817018007
+    locked: 0
+  - name: Unit
+    uniqueID: 3421894621
     locked: 0
   m_RenderingLayers:
   - Default
