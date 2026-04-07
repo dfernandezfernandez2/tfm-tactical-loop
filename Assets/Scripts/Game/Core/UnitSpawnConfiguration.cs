@@ -1,8 +1,8 @@
 ﻿namespace Game.Core {
     namespace Game.Core {
         using System;
-        using UnityEngine;
         using Unit;
+        using UnityEngine;
 
         [Serializable]
         public class UnitSpawnConfiguration {

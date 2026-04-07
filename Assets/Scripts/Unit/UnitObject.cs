@@ -45,7 +45,8 @@
         }
 
         private IEnumerator MoveRoutine(Vector3 target) {
-            const float duration = 0.2f; // todo: la duracion deberia ser en funcion de las posiciones o distancia, esto lo validamos en la tarea de movimiento
+            const float
+                duration = 0.2f; // todo: la duracion deberia ser en funcion de las posiciones o distancia, esto lo validamos en la tarea de movimiento
             float time = 0f;
             Vector3 start = this.transform.position;
             while (time < duration) {
@@ -71,5 +72,11 @@
 
         private void OnHit(int i) {
         }
+
+        public bool CanUseAp(int ap) => this._unit.CanUseAp(ap);
+
+        public int GetCurrentMovement() => this._unit.GetCurrentMovement();
+
+        public GridPosition GetGridPosition() => this._unit.GetGridPosition();
     }
 }

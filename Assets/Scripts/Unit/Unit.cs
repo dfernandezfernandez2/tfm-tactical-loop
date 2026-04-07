@@ -82,5 +82,11 @@
         public event Action<int> OnHit;
 
         public event Action<GridPosition> OnMove;
+
+        public bool CanUseAp(int ap) => this._stats[StatType.AP].Current >= ap;
+
+        public int GetCurrentMovement() => (int)this._stats[StatType.Movement].Current;
+
+        public GridPosition GetGridPosition() => this._gridPosition;
     }
 }

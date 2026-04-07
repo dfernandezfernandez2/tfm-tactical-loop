@@ -8,8 +8,8 @@
         [SerializeField] private TextAsset mapFile;
         [SerializeField] private TileRenderSet tileRenderSet;
         [SerializeField] private WorldRender worldRender;
-        private IMapParser _mapParser;
 
+        private IMapParser _mapParser;
         private IMapRenderer _mapRenderer;
 
         public void Awake() {
