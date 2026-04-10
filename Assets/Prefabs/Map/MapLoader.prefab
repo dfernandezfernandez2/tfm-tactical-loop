@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 885255915723115191}
   - component: {fileID: 4165472419801951417}
   m_Layer: 0
-  m_Name: StaticMapLoader
+  m_Name: MapLoader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

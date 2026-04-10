@@ -1,11 +1,12 @@
-﻿namespace Map.Battle.Data {
+﻿namespace Game.Map.Battle.Data {
     using System;
     using System.Collections.Generic;
+    using UnityEngine;
 
     public class BattleMapData {
         private readonly int _height;
-        private readonly TileData[,] _tiles;
 
+        private readonly TileData[,] _tiles;
         private readonly int _width;
 
         private BattleMapData(int width, int height, TileData[,] tiles) {
@@ -21,6 +22,40 @@
                 }
             }
         }
+
+        public TileData GetTile(int x, int y) => !this.IsInside(x, y) ? null : this._tiles[x, y];
+
+        public IReadOnlyCollection<GridPosition> GetNeighbours(GridPosition origin) {
+            List<GridPosition> neighbours = new();
+            Vector2Int originPosition = origin.Position;
+            int originHeight = origin.Height;
+
+            Vector2Int[] directions = {
+                Vector2Int.right,
+                Vector2Int.left,
+                Vector2Int.up,
+                Vector2Int.down
+            };
+
+            foreach (Vector2Int direction in directions) {
+                int x = originPosition.x + direction.x;
+                int y = originPosition.y + direction.y;
+                if (!this.IsInside(x, y)) {
+                    continue;
+                }
+
+                TileData tile = this._tiles[x, y];
+                int heightDifference = Math.Abs(tile.TileGridPosition.Height - originHeight);
+
+                if (heightDifference <= 1) {
+                    neighbours.Add(tile.TileGridPosition);
+                }
+            }
+
+            return neighbours;
+        }
+
+        public bool IsInside(int x, int y) => x >= 0 && x < this._width && y >= 0 && y < this._height;
 
         public class Builder {
             private readonly int _height;

@@ -1,7 +1,7 @@
-﻿namespace Unit {
+﻿namespace Game.Unit {
     using System;
-    using Data;
-    using Map;
+    using global::Unit.Data;
+    using Map.Battle;
     using UnityEngine;
     using Random = UnityEngine.Random;
 
@@ -82,6 +82,12 @@
         public event Action<int> OnHit;
 
         public event Action<GridPosition> OnMove;
+
+        public void UseAp(int ap) => this._stats[StatType.AP].Reduce(ap);
+
+        public void RecoverAp(int ap) => this._stats[StatType.AP].Add(ap);
+
+        public void RestoreAp() => this._stats[StatType.AP].Restore();
 
         public bool CanUseAp(int ap) => this._stats[StatType.AP].Current >= ap;
 

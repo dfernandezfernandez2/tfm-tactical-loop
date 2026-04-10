@@ -1,4 +1,4 @@
-﻿namespace Map.Battle.Parser {
+﻿namespace Game.Map.Battle.Parser {
     using Data;
 
     public class TxtMapLegend {
@@ -14,12 +14,7 @@
 
         public static int GetTileHeight(string symbol) {
             string numberPart = symbol[..^1];
-
-            if (int.TryParse(numberPart, out int height)) {
-                return height;
-            }
-
-            return 0;
+            return int.TryParse(numberPart, out int height) ? height : 0;
         }
     }
 }

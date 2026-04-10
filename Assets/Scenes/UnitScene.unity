@@ -232,6 +232,8 @@ GameObject:
   - component: {fileID: 422319656}
   - component: {fileID: 422319657}
   - component: {fileID: 422319658}
+  - component: {fileID: 422319659}
+  - component: {fileID: 422319660}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -266,16 +268,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19103276488b45ffb02750b0af9ee2bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Core.GameManager
+  battleMapLoader: {fileID: 1714853825}
   gridConverter: {fileID: 396172803108293899, guid: 48e0b3554fdf9b040b383e267d5e6b36, type: 3}
+  battleMapManager: {fileID: 422319659}
   unitsPrefab:
   - unitPrefab: {fileID: 7550251793013227126, guid: 0f9314bda15613f46a373aebc4e82822, type: 3}
     gridPosition: {x: 0, y: 0}
-    height: 0
-  - unitPrefab: {fileID: 7550251793013227126, guid: 5c9c7fd168630e04bb52012ecf2987a4, type: 3}
-    gridPosition: {x: 3, y: 3}
-    height: 0
-  - unitPrefab: {fileID: 7550251793013227126, guid: 2813b5337bfae444c9f8222858ac5204, type: 3}
-    gridPosition: {x: 4, y: 4}
     height: 0
   gameUnits: []
 --- !u!114 &422319658
@@ -291,6 +289,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Battle.TurnManager
   unitActionPanelUI: {fileID: 1785364205}
+  battleMapManager: {fileID: 422319659}
+  userSelectionManager: {fileID: 422319660}
+--- !u!114 &422319659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 422319655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b747495d60564aee8ec27e3b4b1403b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Map.Battle.BattleMapManager
+--- !u!114 &422319660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 422319655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21a0cf99810a47d7b988dba803027253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Battle.UserSelectionManager
+  battleMapManager: {fileID: 422319659}
+  mainCamera: {fileID: 2086373357}
+  worldRender: {fileID: 396172803108293899, guid: 48e0b3554fdf9b040b383e267d5e6b36, type: 3}
 --- !u!1001 &674182461
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -345,7 +372,7 @@ PrefabInstance:
       objectReference: {fileID: 4900000, guid: 75a84aaa154838f49a82570e56d2f48a, type: 3}
     - target: {fileID: 8281424929858886619, guid: 043cd33c895ee3b4c9ed281c86e3f4aa, type: 3}
       propertyPath: m_Name
-      value: StaticMapLoader
+      value: MapLoader
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -699,6 +726,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1690432710}
   m_CullTransparentMesh: 1
+--- !u!114 &1714853825 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4165472419801951417, guid: 043cd33c895ee3b4c9ed281c86e3f4aa, type: 3}
+  m_PrefabInstance: {fileID: 674182461}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e94d9036f2d494f828428b570728a74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Map.Battle.StaticMapLoader
 --- !u!1 &1785364204
 GameObject:
   m_ObjectHideFlags: 0
@@ -825,6 +863,7 @@ GameObject:
   - component: {fileID: 2086373358}
   - component: {fileID: 2086373357}
   - component: {fileID: 2086373356}
+  - component: {fileID: 2086373359}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -906,6 +945,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2086373359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2086373355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalCameraData
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_TaaSettings:
+    m_Quality: 3
+    m_FrameInfluence: 0.1
+    m_JitterScale: 1
+    m_MipBias: 0
+    m_VarianceClampScale: 0.9
+    m_ContrastAdaptiveSharpening: 0
+  m_Version: 2
 --- !u!1001 &7938639503969142530
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,11 +1,10 @@
-﻿namespace Map.Battle {
+﻿namespace Game.Map.Battle {
     using Data;
     using Parser;
     using Renderer;
     using UnityEngine;
 
-    public class StaticMapLoader : MonoBehaviour, IMapLoader {
-        [SerializeField] private TextAsset mapFile;
+    public class BattleMapLoader : MonoBehaviour {
         [SerializeField] private TileRenderSet tileRenderSet;
         [SerializeField] private WorldRender worldRender;
 
@@ -17,11 +16,10 @@
             this._mapParser = new TxtMapParser();
         }
 
-        public void Start() => this.Load();
-
-        public void Load() {
-            BattleMapData data = this._mapParser.Parse(this.mapFile.text);
+        public BattleMapData Load(string mapTextContent) {
+            BattleMapData data = this._mapParser.Parse(mapTextContent);
             this._mapRenderer.Render(data);
+            return data;
         }
     }
 }

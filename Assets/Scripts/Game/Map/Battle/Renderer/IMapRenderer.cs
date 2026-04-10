@@ -1,4 +1,4 @@
-﻿namespace Map.Battle.Renderer {
+﻿namespace Game.Map.Battle.Renderer {
     using Data;
 
     public interface IMapRenderer {

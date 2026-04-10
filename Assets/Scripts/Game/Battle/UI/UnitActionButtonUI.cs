@@ -27,22 +27,26 @@ namespace Game.Battle.UI {
         public void Init(ActionType actionType, Action<ActionType> onClick, bool isAvailable) {
             this.ActionType = actionType;
             this._onClick = onClick;
-            this.IsAvailable = isAvailable;
+            this.SetAvailable(isAvailable);
             this._isSelected = false;
             this.label.text = actionType.GetName();
-
-            this._button.onClick.RemoveAllListeners();
-            this._button.onClick.AddListener(() => this._onClick(actionType));
         }
 
         public void SetSelected(bool isSelected) {
             this._isSelected = isSelected;
-            this._button.image.sprite = this._isSelected ? this.selectedButtonImage : this.defaultButtonImage;
+            this._button.image.sprite = this._isSelected ? this.selectedButtonImage : this.GetAvailableButtonImage();
         }
 
         public void SetAvailable(bool isAvailable) {
             this.IsAvailable = isAvailable;
-            this._button.image.sprite = this.IsAvailable ? this.defaultButtonImage : this.disabledButtonImage;
+            this._button.onClick.RemoveAllListeners();
+            this._button.image.sprite = this.GetAvailableButtonImage();
+            if (isAvailable) {
+                this._button.onClick.AddListener(() => this._onClick(this.ActionType));
+            }
         }
+
+        private Sprite GetAvailableButtonImage() =>
+            this.IsAvailable ? this.defaultButtonImage : this.disabledButtonImage;
     }
 }

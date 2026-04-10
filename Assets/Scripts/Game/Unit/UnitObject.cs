@@ -1,7 +1,9 @@
-﻿namespace Unit {
+﻿namespace Game.Unit {
+    using System;
     using System.Collections;
-    using Data;
-    using Map;
+    using System.Collections.Generic;
+    using global::Unit.Data;
+    using Map.Battle;
     using UnityEngine;
 
     public class UnitObject : MonoBehaviour {
@@ -39,16 +41,37 @@
             this._unit.Move(gridPosition);
         }
 
+        public IEnumerator MoveOnPath(IReadOnlyList<GridPosition> path) {
+            foreach (GridPosition pos in path) {
+                bool finished = false;
+
+                this.OnMoveEnd += Handler;
+                this._unit.Move(pos);
+                this.OnMove(pos);
+
+                yield return new WaitUntil(() => finished);
+
+                this.OnMoveEnd -= Handler;
+                yield return null;
+                continue;
+
+                void Handler() {
+                    finished = true;
+                }
+            }
+        }
+
         private void OnMove(GridPosition gridPosition) {
             Vector3 position = this._worldRender.GridToWorld(gridPosition);
             this.StartCoroutine(this.MoveRoutine(position));
         }
 
         private IEnumerator MoveRoutine(Vector3 target) {
-            const float
-                duration = 0.2f; // todo: la duracion deberia ser en funcion de las posiciones o distancia, esto lo validamos en la tarea de movimiento
+            const float speed = 4f;
             float time = 0f;
             Vector3 start = this.transform.position;
+            float distance = Vector3.Distance(start, target);
+            float duration = distance / speed;
             while (time < duration) {
                 time += Time.deltaTime;
                 this.transform.position = Vector3.Lerp(start, target, time / duration);
@@ -56,7 +79,10 @@
             }
 
             this.transform.position = target;
+            this.OnMoveEnd?.Invoke();
         }
+
+        private event Action OnMoveEnd;
 
         private void OnDeath() {
         }
@@ -73,7 +99,13 @@
         private void OnHit(int i) {
         }
 
+        public void UseAp(int ap) => this._unit.UseAp(ap);
+
+        public void RecoverAp(int ap) => this._unit.RecoverAp(ap);
+
         public bool CanUseAp(int ap) => this._unit.CanUseAp(ap);
+
+        public void RestoreAp() => this._unit.RestoreAp();
 
         public int GetCurrentMovement() => this._unit.GetCurrentMovement();
 

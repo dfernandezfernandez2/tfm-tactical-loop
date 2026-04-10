@@ -3,7 +3,7 @@ namespace Game.Battle.Actions {
         public ActionType GetActionType() => ActionType.Movement;
         public int GetApCost() => 1;
 
-        public void Start(UnitTurnState unitTurnState, IBattleContext battleContext) =>
+        public void Start(IBattleContext battleContext) =>
             battleContext.EnterMovementSelection();
     }
 }

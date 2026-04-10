@@ -48,3 +48,4 @@ MonoBehaviour:
     tileWidth: 1
     tileHeight: 0.5
     heightStep: 0.45
+    unitAnchorYOffset: 0.65

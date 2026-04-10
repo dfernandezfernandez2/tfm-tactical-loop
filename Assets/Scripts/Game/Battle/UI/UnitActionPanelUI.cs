@@ -2,6 +2,7 @@ namespace Game.Battle.UI {
     using System;
     using System.Collections.Generic;
     using Actions;
+    using Core;
     using UnityEngine;
 
     public class UnitActionPanelUI : MonoBehaviour {
@@ -11,13 +12,14 @@ namespace Game.Battle.UI {
         [SerializeField] private TurnManager turnManager;
 
         private readonly List<UnitActionButtonUI> _buttons = new();
+        private bool _isActive;
 
         private int _selectedIndexButton = -1;
 
         private void Awake() => this.Hide();
 
         private void Update() {
-            if (!this.unitActionPanel.activeSelf) {
+            if (!this._isActive) {
                 return;
             }
 
@@ -28,12 +30,14 @@ namespace Game.Battle.UI {
             this.unitActionPanel.SetActive(true);
             this.BuildButtons();
             this.SelectFirstAvailable();
+            this._isActive = true;
         }
 
         public void Hide() {
             this.ClearButtons();
             this.unitActionPanel.SetActive(false);
             this._selectedIndexButton = -1;
+            this._isActive = false;
         }
 
         private void RefreshButtons() {
@@ -64,15 +68,15 @@ namespace Game.Battle.UI {
         }
 
         private void HandleKeyboardInput() {
-            if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) {
+            if (InputUtils.IsUpSelected()) {
                 this.SelectPreviousAvailable();
             }
 
-            if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S)) {
+            if (InputUtils.IsDownSelected()) {
                 this.SelectNextAvailable();
             }
 
-            if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space)) {
+            if (InputUtils.IsEnterSelected()) {
                 this.ExecuteSelected();
             }
         }
@@ -83,6 +87,10 @@ namespace Game.Battle.UI {
         }
 
         private void SelectFirstAvailable(int startIndex = 0) {
+            if (startIndex == -1) {
+                return;
+            }
+
             this.ClearSelection();
             int index = this._buttons.FindIndex(startIndex, b => b.IsAvailable);
             if (index != -1) {

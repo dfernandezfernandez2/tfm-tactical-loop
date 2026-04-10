@@ -1,4 +1,4 @@
-﻿namespace Map.Battle.Renderer {
+﻿namespace Game.Map.Battle.Renderer {
     using System.Collections.Generic;
     using Data;
     using UnityEngine;
@@ -30,19 +30,22 @@
 
             if (tileData.Type.IsRenderBellow()) {
                 for (int i = 0; i <= tileData.TileGridPosition.Height; i++) {
-                    this.RenderTile(tileRenderElement.Prefab, parentGameObject.transform,
+                    this.RenderTile(tileData, tileRenderElement.Prefab, parentGameObject.transform,
                         new GridPosition(tileData.TileGridPosition.Position, i));
                 }
             }
             else {
-                this.RenderTile(tileRenderElement.Prefab, parentGameObject.transform, tileData.TileGridPosition);
+                this.RenderTile(tileData, tileRenderElement.Prefab, parentGameObject.transform,
+                    tileData.TileGridPosition);
             }
         }
 
-        private void RenderTile(GameObject gameObject, Transform parent, GridPosition gridPosition) {
+        private void RenderTile(TileData tileData, GameObject gameObject, Transform parent, GridPosition gridPosition) {
             Vector3 tilePosition =
-                this._worldRender.GridToWorld(gridPosition);
+                this._worldRender.GridToWorldTiles(gridPosition);
             GameObject createdObject = Object.Instantiate(gameObject, tilePosition, Quaternion.identity, parent);
+            TileView tileView = createdObject.GetComponent<TileView>();
+            tileData.TileView = tileView;
             createdObject.name = $"tile_{gridPosition.Height}";
         }
     }

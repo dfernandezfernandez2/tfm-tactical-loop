@@ -1,5 +1,6 @@
-﻿namespace Map.Battle.Renderer {
+﻿namespace Game.Map.Battle.Renderer {
     using System.Collections.Generic;
+    using System.Linq;
     using Data;
     using UnityEngine;
 
@@ -9,10 +10,8 @@
 
         public Dictionary<TileType, TileRenderElement> ToDict() {
             Dictionary<TileType, TileRenderElement> dict = new();
-            foreach (TileRenderElement entry in this.entries) {
-                if (!dict.TryAdd(entry.Type, entry)) {
-                    Debug.LogWarning($"Skip duplicated enty type {entry.Type}");
-                }
+            foreach (TileRenderElement entry in this.entries.Where(entry => !dict.TryAdd(entry.Type, entry))) {
+                Debug.LogWarning($"Skip duplicated enty type {entry.Type}");
             }
 
             return dict;
