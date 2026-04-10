@@ -22,7 +22,7 @@ namespace Game.Map.Battle.Renderer {
             this._currentHighlightColor = highlightColor;
             Color color = highlightColor switch {
                 HighlightColor.Blue => new Color(0.0f, 0.5f, 1f, 1f),
-                HighlightColor.Red => new Color(0.7f, 0.0f, 0.0f, 1f),
+                HighlightColor.Red => new Color(1f, 0.0f, 0.0f, 1f),
                 _ => this._defaultColor
             };
             this.spriteRenderer.color = color;
@@ -31,7 +31,7 @@ namespace Game.Map.Battle.Renderer {
         public void Select() {
             Color color = this._currentHighlightColor switch {
                 HighlightColor.Blue => new Color(0.0f, 0.0f, 1f, 1f),
-                HighlightColor.Red => new Color(1f, 0.0f, 0.0f, 1f),
+                HighlightColor.Red => new Color(0.7f, 0.0f, 0.0f, 1f),
                 _ => this._defaultColor
             };
             this.spriteRenderer.color = color;

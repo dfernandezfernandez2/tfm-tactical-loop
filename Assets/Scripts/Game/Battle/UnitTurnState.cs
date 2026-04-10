@@ -12,7 +12,7 @@ namespace Game.Battle {
         public UnitTurnState(UnitObject unitObject) => this._unitObject = unitObject;
 
         public bool CanDoAction(IBattleAction action) => !this._actionsDone.Contains(action.GetActionType()) &&
-                                                         this._unitObject.CanUseAp(action.GetApCost());
+                                                         this._unitObject.GetUnit().CanUseAp(action.GetApCost());
 
         public void ExecuteAction(IBattleAction action, IBattleContext battleContext) {
             this._actionsDone.Add(action.GetActionType());

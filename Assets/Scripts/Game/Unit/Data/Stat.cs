@@ -11,7 +11,11 @@
 
         public float Current { get; private set; }
 
-        public void Add(float amount) => this.Current = Math.Min(this._max, this.Current + amount);
+        public float Add(float amount) {
+            this.Current = Math.Min(this._max, this.Current + amount);
+            return this._max - amount;
+        }
+
         public void Reduce(float amount) => this.Current = Math.Max(0, this.Current - amount);
         public void Restore() => this.Current = this._max;
         public bool IsEmpty() => this.Current == 0;

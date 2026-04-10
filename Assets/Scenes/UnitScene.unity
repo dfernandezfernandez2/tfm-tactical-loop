@@ -275,6 +275,9 @@ MonoBehaviour:
   - unitPrefab: {fileID: 7550251793013227126, guid: 0f9314bda15613f46a373aebc4e82822, type: 3}
     gridPosition: {x: 0, y: 0}
     height: 0
+  - unitPrefab: {fileID: 7550251793013227126, guid: 0f9314bda15613f46a373aebc4e82822, type: 3}
+    gridPosition: {x: 3, y: 3}
+    height: 0
   gameUnits: []
 --- !u!114 &422319658
 MonoBehaviour:

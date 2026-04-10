@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1387922398885762680}
   - component: {fileID: 935149435260891625}
   - component: {fileID: 7550251793013227126}
+  - component: {fileID: 2912868034345408835}
   m_Layer: 9
   m_Name: Archer
   m_TagString: Unit
@@ -28,9 +29,10 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.89958, y: 2.67736, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 5614081387717584264}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &935149435260891625
@@ -105,3 +107,100 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Unit.UnitObject
   data: {fileID: 11400000, guid: 149f8c37e4431fe40a924a99f575489b, type: 2}
+  combatTextUI: {fileID: 404241024768974738}
+  worldRender: {fileID: 396172803108293899, guid: 48e0b3554fdf9b040b383e267d5e6b36, type: 3}
+--- !u!95 &2912868034345408835
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6536407249645980296}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d131081349d4814438991735a5bd8861, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!1001 &3437357955989498743
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1387922398885762680}
+    m_Modifications:
+    - target: {fileID: 2538824057119995976, guid: 50db3bb475bfc824b8c5cd984f3a0afd, type: 3}
+      propertyPath: m_Name
+      value: TextCombat
+      objectReference: {fileID: 0}
+    - target: {fileID: 7087200844622597887, guid: 50db3bb475bfc824b8c5cd984f3a0afd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7087200844622597887, guid: 50db3bb475bfc824b8c5cd984f3a0afd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.18499994
+      objectReference: {fileID: 0}
+    - target: {fileID: 7087200844622597887, guid: 50db3bb475bfc824b8c5cd984f3a0afd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7087200844622597887, guid: 50db3bb475bfc824b8c5cd984f3a0afd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7087200844622597887, guid: 50db3bb475bfc824b8c5cd984f3a0afd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7087200844622597887, guid: 50db3bb475bfc824b8c5cd984f3a0afd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7087200844622597887, guid: 50db3bb475bfc824b8c5cd984f3a0afd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7087200844622597887, guid: 50db3bb475bfc824b8c5cd984f3a0afd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7087200844622597887, guid: 50db3bb475bfc824b8c5cd984f3a0afd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7087200844622597887, guid: 50db3bb475bfc824b8c5cd984f3a0afd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 50db3bb475bfc824b8c5cd984f3a0afd, type: 3}
+--- !u!114 &404241024768974738 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -6183488705695353627, guid: 50db3bb475bfc824b8c5cd984f3a0afd, type: 3}
+  m_PrefabInstance: {fileID: 3437357955989498743}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58aac1cf72c146a8baa31bb2abc12038, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Battle.UI.CombatTextUI
+--- !u!4 &5614081387717584264 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7087200844622597887, guid: 50db3bb475bfc824b8c5cd984f3a0afd, type: 3}
+  m_PrefabInstance: {fileID: 3437357955989498743}
+  m_PrefabAsset: {fileID: 0}

@@ -1,5 +1,4 @@
 ﻿namespace Game.Unit {
-    using System;
     using global::Unit.Data;
     using Map.Battle;
     using UnityEngine;
@@ -11,38 +10,32 @@
 
         public Unit(Stats stats) => this._stats = stats;
 
-        public void Move(GridPosition gridPosition) {
-            this._gridPosition = gridPosition;
-            this.OnMove?.Invoke(gridPosition);
-        }
+        public void Move(GridPosition gridPosition) => this._gridPosition = gridPosition;
 
-        public void TakeDamage(int amount) {
-            this._stats[StatType.Hp].Reduce(amount);
-            if (this.IsDead()) {
-                this.OnDeath?.Invoke();
+        public AttackResult DoBasicAttack(Unit objective) {
+            if (objective == null) {
+                return AttackResult.Miss();
             }
-            else {
-                this.OnDamage?.Invoke(amount);
+            if (objective.IsDead()) {
+                return AttackResult.Miss(true);
             }
-        }
 
-        public void Heal(int amount) {
-            this._stats[StatType.Hp].Add(amount);
-            this.OnHeal?.Invoke(amount);
-        }
-
-        public void DoBasicAttack(Unit objective) {
             if (!this.RollHit(objective)) {
-                this.OnMiss?.Invoke();
-                return;
+                return AttackResult.Miss();
             }
 
             bool isCrit = this.RollCrit();
             int damage = this.CalculateDamage(objective, isCrit);
-
             objective.TakeDamage(damage);
-            this.OnHit?.Invoke(damage);
+            return AttackResult.Hit(damage, isCrit, objective.IsDead());
         }
+
+        public HealResult Heal(int amount) {
+            int healed = (int)this._stats[StatType.Hp].Add(amount);
+            return new HealResult(healed);
+        }
+
+        private void TakeDamage(int amount) => this._stats[StatType.Hp].Reduce(amount);
 
         private bool RollHit(Unit target) {
             float accuracy = this._stats[StatType.Accuracy].Current;
@@ -69,19 +62,7 @@
             return final <= 0 ? 1 : Mathf.RoundToInt(final);
         }
 
-        private bool IsDead() => this._stats[StatType.Hp].IsEmpty();
-
-        public event Action OnDeath;
-
-        public event Action<int> OnDamage;
-
-        public event Action<int> OnHeal;
-
-        public event Action OnMiss;
-
-        public event Action<int> OnHit;
-
-        public event Action<GridPosition> OnMove;
+        public bool IsDead() => this._stats[StatType.Hp].IsEmpty();
 
         public void UseAp(int ap) => this._stats[StatType.AP].Reduce(ap);
 
@@ -94,5 +75,7 @@
         public int GetCurrentMovement() => (int)this._stats[StatType.Movement].Current;
 
         public GridPosition GetGridPosition() => this._gridPosition;
+
+        public int GetAttackRange() => (int)this._stats[StatType.Range].Current;
     }
 }

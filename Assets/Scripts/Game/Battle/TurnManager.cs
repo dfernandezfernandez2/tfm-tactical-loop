@@ -29,8 +29,8 @@ namespace Game.Battle {
          * Communicates to UI
          */
         public void EnterMovementSelection() {
-            int currentUnitMovement = this._unitTurnObject.GetCurrentMovement();
-            GridPosition currentUnitGridPosition = this._unitTurnObject.GetGridPosition();
+            int currentUnitMovement = this._unitTurnObject.GetUnit().GetCurrentMovement();
+            GridPosition currentUnitGridPosition = this._unitTurnObject.GetUnit().GetGridPosition();
             IReadOnlyList<TileData> reachableTiles =
                 this.battleMapManager.GetReachableTiles(currentUnitGridPosition, currentUnitMovement);
             this.userSelectionManager.OnSelect +=
@@ -39,7 +39,16 @@ namespace Game.Battle {
             this.userSelectionManager.StartSelection(SelectionType.Movement, reachableTiles, currentUnitGridPosition);
         }
 
-        public void EnterAttackTargetSelection() => throw new NotImplementedException();
+        public void EnterAttackTargetSelection() {
+            int attackRange = this._unitTurnObject.GetUnit().GetAttackRange();
+            GridPosition currentUnitGridPosition = this._unitTurnObject.GetUnit().GetGridPosition();
+            IReadOnlyList<TileData> reachableTiles =
+                this.battleMapManager.GetReachableTiles(currentUnitGridPosition, attackRange, false);
+            this.userSelectionManager.OnSelect +=
+                position => this.StartCoroutine(this.HandleAttackSelected(position));
+            this.userSelectionManager.OnCancel += this.HandleCancelAction;
+            this.userSelectionManager.StartSelection(SelectionType.Attack, reachableTiles, currentUnitGridPosition);
+        }
 
         public void EndTurn() => this.unitActionPanelUI.Hide();
 
@@ -47,14 +56,24 @@ namespace Game.Battle {
 
         public void EnterSkillSelection() => throw new NotImplementedException();
 
-        public void ApCostApply(IBattleAction action) => this._unitTurnObject.UseAp(action.GetApCost());
+        public void ApCostApply(IBattleAction action) => this._unitTurnObject.GetUnit().UseAp(action.GetApCost());
 
-        public void ApCostRevert(IBattleAction action) => this._unitTurnObject.RecoverAp(action.GetApCost());
+        public void ApCostRevert(IBattleAction action) => this._unitTurnObject.GetUnit().RecoverAp(action.GetApCost());
 
         private IEnumerator HandleMovementSelection(GridPosition target) {
+            GridPosition currentUnitGridPosition = this._unitTurnObject.GetUnit().GetGridPosition();
             IReadOnlyList<GridPosition> path =
-                this.battleMapManager.FindPath(this._unitTurnObject.GetGridPosition(), target);
-            yield return this.StartCoroutine(this._unitTurnObject.MoveOnPath(path));
+                this.battleMapManager.FindPath(currentUnitGridPosition, target);
+            yield return this.StartCoroutine(BattleSequenceExecutor.ExecuteMovement(this._unitTurnObject, path));
+            this.battleMapManager.UnitMove(currentUnitGridPosition, target);
+            this.unitActionPanelUI.Show();
+        }
+
+        private IEnumerator HandleAttackSelected(GridPosition target) {
+            UnitObject targetUnit = this.battleMapManager.GetUnit(target);
+            yield return this.StartCoroutine(
+                BattleSequenceExecutor.ExecuteBasicAttack(this._unitTurnObject, targetUnit)
+            );
             this.unitActionPanelUI.Show();
         }
 
@@ -65,7 +84,7 @@ namespace Game.Battle {
 
         public void StartTurn(UnitObject unit) {
             this._unitTurnObject = unit;
-            this._unitTurnObject.RestoreAp();
+            this._unitTurnObject.GetUnit().RestoreAp();
             this._unitTurnState = new UnitTurnState(unit);
             this.unitActionPanelUI.Show();
         }
