@@ -11,6 +11,7 @@ namespace Game.Map.Battle {
 
         private bool IsOccupied() => this._occupantUnit != null;
         public bool IsWalkable() => this._tileData.Type.IsWalkable() && !this.IsOccupied();
+        public UnitObject GetOccupantUnit() => this._occupantUnit;
         public void SetOccupantUnit(UnitObject unit) => this._occupantUnit = unit;
         public void ClearOccupantUnit() => this._occupantUnit = null;
         public void HighlightCell(HighlightColor color) => this._tileData?.TileView.Highlight(color);

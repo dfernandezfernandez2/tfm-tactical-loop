@@ -39,7 +39,16 @@ namespace Game.Battle {
             this.userSelectionManager.StartSelection(SelectionType.Movement, reachableTiles, currentUnitGridPosition);
         }
 
-        public void EnterAttackTargetSelection() => throw new NotImplementedException();
+        public void EnterAttackTargetSelection() {
+            int attackRange = this._unitTurnObject.GetAttackRange();
+            GridPosition currentUnitGridPosition = this._unitTurnObject.GetGridPosition();
+            IReadOnlyList<TileData> reachableTiles =
+                this.battleMapManager.GetReachableTiles(currentUnitGridPosition, attackRange);
+            this.userSelectionManager.OnSelect +=
+                position => this.StartCoroutine(this.HandleAttackSelected(position));
+            this.userSelectionManager.OnCancel += this.HandleCancelAction;
+            this.userSelectionManager.StartSelection(SelectionType.Attack, reachableTiles, currentUnitGridPosition);
+        }
 
         public void EndTurn() => this.unitActionPanelUI.Hide();
 
@@ -52,9 +61,17 @@ namespace Game.Battle {
         public void ApCostRevert(IBattleAction action) => this._unitTurnObject.RecoverAp(action.GetApCost());
 
         private IEnumerator HandleMovementSelection(GridPosition target) {
+            GridPosition currentUnitGridPosition = this._unitTurnObject.GetGridPosition();
             IReadOnlyList<GridPosition> path =
-                this.battleMapManager.FindPath(this._unitTurnObject.GetGridPosition(), target);
+                this.battleMapManager.FindPath(currentUnitGridPosition, target);
             yield return this.StartCoroutine(this._unitTurnObject.MoveOnPath(path));
+            this.battleMapManager.UnitMove(currentUnitGridPosition, target);
+            this.unitActionPanelUI.Show();
+        }
+
+        private IEnumerator HandleAttackSelected(GridPosition target) {
+            UnitObject targetUnit = this.battleMapManager.GetUnit(target);
+            yield return this.StartCoroutine(this._unitTurnObject.DoBasicAttack(targetUnit));
             this.unitActionPanelUI.Show();
         }
 

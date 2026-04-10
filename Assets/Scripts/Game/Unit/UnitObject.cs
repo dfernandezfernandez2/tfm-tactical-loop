@@ -2,12 +2,14 @@
     using System;
     using System.Collections;
     using System.Collections.Generic;
+    using Battle.UI;
     using global::Unit.Data;
     using Map.Battle;
     using UnityEngine;
 
     public class UnitObject : MonoBehaviour {
         [SerializeField] private UnitData data;
+        [SerializeField] private CombatTextUI combatTextUI;
 
         private Unit _unit;
         private WorldRender _worldRender;
@@ -29,7 +31,6 @@
                 .Build();
             this._unit = new Unit(stats);
             this._unit.OnMove += this.OnMove;
-            this._unit.OnDeath += this.OnDeath;
             this._unit.OnDamage += this.OnDamage;
             this._unit.OnHeal += this.OnHeal;
             this._unit.OnMiss += this.OnMiss;
@@ -47,7 +48,6 @@
 
                 this.OnMoveEnd += Handler;
                 this._unit.Move(pos);
-                this.OnMove(pos);
 
                 yield return new WaitUntil(() => finished);
 
@@ -59,6 +59,11 @@
                     finished = true;
                 }
             }
+        }
+
+        public IEnumerator DoBasicAttack(UnitObject target) {
+            this._unit.DoBasicAttack(target?._unit);
+            yield return null;
         }
 
         private void OnMove(GridPosition gridPosition) {
@@ -84,19 +89,23 @@
 
         private event Action OnMoveEnd;
 
-        private void OnDeath() {
-        }
-
-        private void OnDamage(int damage) {
+        private void OnDamage(int damage, bool isCritical) {
+            // animacion de recibir daño y por el final mostrar texto
+            this.combatTextUI.Init(damage.ToString(), isCritical ? CombatTextType.Crit : CombatTextType.Hit);
+            // falta calcular si está muerto tbn para al final tener la animacion de muerte
         }
 
         private void OnHeal(int heal) {
+            // animacion de cura
         }
 
         private void OnMiss() {
+            // animacion de golpe básico y al termina el texto o al estar terminando
+            this.combatTextUI.Init(CombatTextType.Miss);
         }
 
-        private void OnHit(int i) {
+        private void OnHit() {
+            // animacion de golpe básico
         }
 
         public void UseAp(int ap) => this._unit.UseAp(ap);
@@ -110,5 +119,7 @@
         public int GetCurrentMovement() => this._unit.GetCurrentMovement();
 
         public GridPosition GetGridPosition() => this._unit.GetGridPosition();
+
+        public int GetAttackRange() => this._unit.GetAttackRange();
     }
 }

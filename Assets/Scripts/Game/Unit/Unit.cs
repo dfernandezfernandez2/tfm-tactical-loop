@@ -16,14 +16,9 @@
             this.OnMove?.Invoke(gridPosition);
         }
 
-        public void TakeDamage(int amount) {
+        private void TakeDamage(int amount, bool isCritical) {
             this._stats[StatType.Hp].Reduce(amount);
-            if (this.IsDead()) {
-                this.OnDeath?.Invoke();
-            }
-            else {
-                this.OnDamage?.Invoke(amount);
-            }
+            this.OnDamage?.Invoke(amount, isCritical);
         }
 
         public void Heal(int amount) {
@@ -32,7 +27,7 @@
         }
 
         public void DoBasicAttack(Unit objective) {
-            if (!this.RollHit(objective)) {
+            if (objective == null || !this.RollHit(objective)) {
                 this.OnMiss?.Invoke();
                 return;
             }
@@ -40,8 +35,8 @@
             bool isCrit = this.RollCrit();
             int damage = this.CalculateDamage(objective, isCrit);
 
-            objective.TakeDamage(damage);
-            this.OnHit?.Invoke(damage);
+            objective.TakeDamage(damage, isCrit);
+            this.OnHit?.Invoke();
         }
 
         private bool RollHit(Unit target) {
@@ -69,17 +64,15 @@
             return final <= 0 ? 1 : Mathf.RoundToInt(final);
         }
 
-        private bool IsDead() => this._stats[StatType.Hp].IsEmpty();
+        public bool IsDead() => this._stats[StatType.Hp].IsEmpty();
 
-        public event Action OnDeath;
-
-        public event Action<int> OnDamage;
+        public event Action<int, bool> OnDamage;
 
         public event Action<int> OnHeal;
 
         public event Action OnMiss;
 
-        public event Action<int> OnHit;
+        public event Action OnHit;
 
         public event Action<GridPosition> OnMove;
 
@@ -91,8 +84,10 @@
 
         public bool CanUseAp(int ap) => this._stats[StatType.AP].Current >= ap;
 
-        public int GetCurrentMovement() => (int)this._stats[StatType.Movement].Current;
+        public int GetCurrentMovement() => (int) this._stats[StatType.Movement].Current;
 
         public GridPosition GetGridPosition() => this._gridPosition;
+
+        public int GetAttackRange() => (int) this._stats[StatType.Range].Current;
     }
 }
