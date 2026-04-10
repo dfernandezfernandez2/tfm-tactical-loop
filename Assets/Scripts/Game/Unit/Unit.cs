@@ -27,7 +27,7 @@
         }
 
         public void DoBasicAttack(Unit objective) {
-            if (objective == null || !this.RollHit(objective)) {
+            if (objective == null || objective.IsDead() || !this.RollHit(objective)) {
                 this.OnMiss?.Invoke();
                 return;
             }

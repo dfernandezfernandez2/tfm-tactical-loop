@@ -7,14 +7,25 @@
     using Map.Battle;
     using UnityEngine;
 
+    [RequireComponent(typeof(Animator))]
     public class UnitObject : MonoBehaviour {
+
+        private static readonly int _damageAnimation = Animator.StringToHash("Damage");
+        private static readonly int _deathAnimation = Animator.StringToHash("Death");
+        private static readonly int _healAnimation = Animator.StringToHash("Heal");
+
         [SerializeField] private UnitData data;
         [SerializeField] private CombatTextUI combatTextUI;
+        [SerializeField] private WorldRender worldRender;
+
+        private Animator _animator;
 
         private Unit _unit;
-        private WorldRender _worldRender;
+        private readonly Queue<UnitDamage> _pendingDamages = new();
+        private readonly Queue<int> _pendingHeals = new();
 
         public void Awake() {
+            this._animator = this.GetComponent<Animator>();
             Stats stats = new Stats.Builder()
                 .With(StatType.Hp, this.data.hp)
                 .With(StatType.Mp, this.data.mp)
@@ -37,10 +48,7 @@
             this._unit.OnHit += this.OnHit;
         }
 
-        public void Init(GridPosition gridPosition, WorldRender worldRender) {
-            this._worldRender = worldRender;
-            this._unit.Move(gridPosition);
-        }
+        public void Init(GridPosition gridPosition) => this._unit.Move(gridPosition);
 
         public IEnumerator MoveOnPath(IReadOnlyList<GridPosition> path) {
             foreach (GridPosition pos in path) {
@@ -67,7 +75,7 @@
         }
 
         private void OnMove(GridPosition gridPosition) {
-            Vector3 position = this._worldRender.GridToWorld(gridPosition);
+            Vector3 position = this.worldRender.GridToWorld(gridPosition);
             this.StartCoroutine(this.MoveRoutine(position));
         }
 
@@ -90,13 +98,31 @@
         private event Action OnMoveEnd;
 
         private void OnDamage(int damage, bool isCritical) {
-            // animacion de recibir daño y por el final mostrar texto
-            this.combatTextUI.Init(damage.ToString(), isCritical ? CombatTextType.Crit : CombatTextType.Hit);
-            // falta calcular si está muerto tbn para al final tener la animacion de muerte
+            this._pendingDamages.Enqueue(new UnitDamage {
+                Damage = damage,
+                IsCritical = isCritical
+            });
+            this._animator.SetTrigger(_damageAnimation);
+        }
+
+        // this will be called from animation hit event
+        public void OnDamageImpact() {
+            UnitDamage damage = this._pendingDamages.Dequeue();
+            this.combatTextUI.Init(damage.Damage.ToString(), damage.IsCritical ? CombatTextType.Crit : CombatTextType.Hit);
+            if (this._unit.IsDead()) {
+                this._animator.SetTrigger(_deathAnimation);
+            }
         }
 
         private void OnHeal(int heal) {
-            // animacion de cura
+            this._pendingHeals.Enqueue(heal);
+            this._animator.SetTrigger(_healAnimation);
+        }
+
+        // this will be called from animation heal event
+        public void OnHealApplied() {
+            int heal = this._pendingHeals.Dequeue();
+            this.combatTextUI.Init(heal.ToString(), CombatTextType.Heal);
         }
 
         private void OnMiss() {
@@ -108,18 +134,6 @@
             // animacion de golpe básico
         }
 
-        public void UseAp(int ap) => this._unit.UseAp(ap);
-
-        public void RecoverAp(int ap) => this._unit.RecoverAp(ap);
-
-        public bool CanUseAp(int ap) => this._unit.CanUseAp(ap);
-
-        public void RestoreAp() => this._unit.RestoreAp();
-
-        public int GetCurrentMovement() => this._unit.GetCurrentMovement();
-
-        public GridPosition GetGridPosition() => this._unit.GetGridPosition();
-
-        public int GetAttackRange() => this._unit.GetAttackRange();
+        public Unit GetUnit() => this._unit;
     }
 }

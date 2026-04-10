@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1387922398885762680}
   - component: {fileID: 935149435260891625}
   - component: {fileID: 7550251793013227126}
+  - component: {fileID: 2912868034345408835}
   m_Layer: 9
   m_Name: Mage
   m_TagString: Unit
@@ -107,6 +108,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Unit.UnitObject
   data: {fileID: 11400000, guid: 33c3cbfc9a830334b83dab9abc004dab, type: 2}
   combatTextUI: {fileID: 9029946223452142526}
+  worldRender: {fileID: 396172803108293899, guid: 48e0b3554fdf9b040b383e267d5e6b36, type: 3}
+--- !u!95 &2912868034345408835
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6536407249645980296}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &6304764566016216923
 PrefabInstance:
   m_ObjectHideFlags: 0

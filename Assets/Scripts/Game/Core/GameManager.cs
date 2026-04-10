@@ -37,7 +37,7 @@
         private void SpawnUnit(UnitSpawnConfiguration unitSpawnConfiguration) {
             GridPosition gridPosition = new(unitSpawnConfiguration.GridPosition, unitSpawnConfiguration.Height);
             UnitObject unit = Instantiate(unitSpawnConfiguration.UnitPrefab);
-            unit.Init(gridPosition, this.gridConverter);
+            unit.Init(gridPosition);
             this.gameUnits.Add(unit);
         }
     }
