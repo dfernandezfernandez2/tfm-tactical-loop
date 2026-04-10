@@ -7,22 +7,29 @@
     using Map.Battle;
     using UnityEngine;
 
+    public enum AnimationType {
+        Attack, Damage, Death, Dodge
+    }
+
+    public static class AnimationTypeExtensions {
+        public static string GetAnimationEndName(this AnimationType animationType) =>
+            "signal.end." + animationType.ToString().ToLower();
+        public static string GetAnimationText(this AnimationType animationType) =>
+            "signal.text." + animationType.ToString().ToLower();
+    }
+
     [RequireComponent(typeof(Animator))]
     public class UnitObject : MonoBehaviour {
-
-        private static readonly int _damageAnimation = Animator.StringToHash("Damage");
-        private static readonly int _deathAnimation = Animator.StringToHash("Death");
-        private static readonly int _healAnimation = Animator.StringToHash("Heal");
+        private static readonly int _isMoving = Animator.StringToHash("isMoving");
 
         [SerializeField] private UnitData data;
         [SerializeField] private CombatTextUI combatTextUI;
         [SerializeField] private WorldRender worldRender;
 
         private Animator _animator;
-
         private Unit _unit;
-        private readonly Queue<UnitDamage> _pendingDamages = new();
-        private readonly Queue<int> _pendingHeals = new();
+
+        private readonly Dictionary<string, int> _signalCounters = new();
 
         public void Awake() {
             this._animator = this.GetComponent<Animator>();
@@ -41,42 +48,21 @@
                 .With(StatType.Speed, this.data.speed)
                 .Build();
             this._unit = new Unit(stats);
-            this._unit.OnMove += this.OnMove;
-            this._unit.OnDamage += this.OnDamage;
-            this._unit.OnHeal += this.OnHeal;
-            this._unit.OnMiss += this.OnMiss;
-            this._unit.OnHit += this.OnHit;
         }
 
-        public void Init(GridPosition gridPosition) => this._unit.Move(gridPosition);
+        public void Init(GridPosition gridPosition) {
+            this._unit.Move(gridPosition);
+            this.transform.position = this.worldRender.GridToWorld(gridPosition);
+        }
+
+        public Unit GetUnit() => this._unit;
 
         public IEnumerator MoveOnPath(IReadOnlyList<GridPosition> path) {
             foreach (GridPosition pos in path) {
-                bool finished = false;
-
-                this.OnMoveEnd += Handler;
                 this._unit.Move(pos);
-
-                yield return new WaitUntil(() => finished);
-
-                this.OnMoveEnd -= Handler;
-                yield return null;
-                continue;
-
-                void Handler() {
-                    finished = true;
-                }
+                Vector3 target = this.worldRender.GridToWorld(pos);
+                yield return this.StartCoroutine(this.MoveRoutine(target));
             }
-        }
-
-        public IEnumerator DoBasicAttack(UnitObject target) {
-            this._unit.DoBasicAttack(target?._unit);
-            yield return null;
-        }
-
-        private void OnMove(GridPosition gridPosition) {
-            Vector3 position = this.worldRender.GridToWorld(gridPosition);
-            this.StartCoroutine(this.MoveRoutine(position));
         }
 
         private IEnumerator MoveRoutine(Vector3 target) {
@@ -85,6 +71,7 @@
             Vector3 start = this.transform.position;
             float distance = Vector3.Distance(start, target);
             float duration = distance / speed;
+            this._animator.SetBool(_isMoving, true);
             while (time < duration) {
                 time += Time.deltaTime;
                 this.transform.position = Vector3.Lerp(start, target, time / duration);
@@ -92,48 +79,62 @@
             }
 
             this.transform.position = target;
-            this.OnMoveEnd?.Invoke();
+            this._animator.SetBool(_isMoving, false);
         }
 
-        private event Action OnMoveEnd;
+        public void Signal(string signalId) => this._signalCounters[signalId] = this._signalCounters.GetValueOrDefault(signalId, 0) + 1;
 
-        private void OnDamage(int damage, bool isCritical) {
-            this._pendingDamages.Enqueue(new UnitDamage {
-                Damage = damage,
-                IsCritical = isCritical
-            });
-            this._animator.SetTrigger(_damageAnimation);
+        private IEnumerator WaitForSignal(string signalId, int version) {
+            yield return new WaitUntil(() => this._signalCounters.GetValueOrDefault(signalId, 0) > version);
         }
 
-        // this will be called from animation hit event
-        public void OnDamageImpact() {
-            UnitDamage damage = this._pendingDamages.Dequeue();
-            this.combatTextUI.Init(damage.Damage.ToString(), damage.IsCritical ? CombatTextType.Crit : CombatTextType.Hit);
+        private int GetSignalVersion(string signalId) => this._signalCounters.GetValueOrDefault(signalId, 0);
+
+        public IEnumerator PlayBasicAttack() {
+            const AnimationType animationType = AnimationType.Attack;
+            int endVersion = this.GetSignalVersion(animationType.GetAnimationEndName());
+            this._animator.ResetTrigger(animationType.ToString());
+            this._animator.SetTrigger(animationType.ToString());
+            yield return this.WaitForSignal(animationType.GetAnimationEndName(), endVersion);
+        }
+
+        public IEnumerator PlayDamage(AttackResult attackResult) {
+            const AnimationType animationType = AnimationType.Damage;
+            int signalTextVersion = this.GetSignalVersion(animationType.GetAnimationText());
+            int signalEndVersion = this.GetSignalVersion(animationType.GetAnimationEndName());
+            this._animator.ResetTrigger(animationType.ToString());
+            this._animator.SetTrigger(animationType.ToString());
+            yield return this.WaitForSignal(animationType.GetAnimationText(), signalTextVersion);
+            this.combatTextUI.Init(attackResult.GetDamage().ToString(), attackResult.IsCritical() ? CombatTextType.Crit : CombatTextType.Hit);
+            yield return this.WaitForSignal(animationType.GetAnimationEndName(), signalEndVersion);
             if (this._unit.IsDead()) {
-                this._animator.SetTrigger(_deathAnimation);
+                yield return this.PlayDeath();
             }
         }
 
-        private void OnHeal(int heal) {
-            this._pendingHeals.Enqueue(heal);
-            this._animator.SetTrigger(_healAnimation);
-        }
-
-        // this will be called from animation heal event
-        public void OnHealApplied() {
-            int heal = this._pendingHeals.Dequeue();
-            this.combatTextUI.Init(heal.ToString(), CombatTextType.Heal);
-        }
-
-        private void OnMiss() {
-            // animacion de golpe básico y al termina el texto o al estar terminando
+        public IEnumerator PlayMiss() {
             this.combatTextUI.Init(CombatTextType.Miss);
+            yield return null;
         }
 
-        private void OnHit() {
-            // animacion de golpe básico
+        public IEnumerator PlayDeath() {
+            const AnimationType animationType = AnimationType.Death;
+            int signalEndVersion = this.GetSignalVersion(animationType.GetAnimationEndName());
+            this._animator.ResetTrigger(animationType.ToString());
+            this._animator.SetTrigger(animationType.ToString());
+            yield return this.WaitForSignal(animationType.GetAnimationEndName(), signalEndVersion);
         }
 
-        public Unit GetUnit() => this._unit;
+        public IEnumerator PlayDodge(Action onDodge) {
+            const AnimationType animationType = AnimationType.Dodge;
+            int signalTextVersion = this.GetSignalVersion(animationType.GetAnimationText());
+            int signalEndVersion = this.GetSignalVersion(animationType.GetAnimationEndName());
+            this._animator.ResetTrigger(animationType.ToString());
+            this._animator.SetTrigger(animationType.ToString());
+            yield return this.WaitForSignal(animationType.GetAnimationText(), signalTextVersion);
+            onDodge();
+            yield return this.WaitForSignal(animationType.GetAnimationEndName(), signalEndVersion);
+        }
+
     }
 }

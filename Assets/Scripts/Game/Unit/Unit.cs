@@ -1,5 +1,4 @@
 ﻿namespace Game.Unit {
-    using System;
     using global::Unit.Data;
     using Map.Battle;
     using UnityEngine;
@@ -11,33 +10,32 @@
 
         public Unit(Stats stats) => this._stats = stats;
 
-        public void Move(GridPosition gridPosition) {
-            this._gridPosition = gridPosition;
-            this.OnMove?.Invoke(gridPosition);
-        }
+        public void Move(GridPosition gridPosition) => this._gridPosition = gridPosition;
 
-        private void TakeDamage(int amount, bool isCritical) {
-            this._stats[StatType.Hp].Reduce(amount);
-            this.OnDamage?.Invoke(amount, isCritical);
-        }
+        public AttackResult DoBasicAttack(Unit objective) {
+            if (objective == null) {
+                return AttackResult.Miss();
+            }
+            if (objective.IsDead()) {
+                return AttackResult.Miss(true);
+            }
 
-        public void Heal(int amount) {
-            this._stats[StatType.Hp].Add(amount);
-            this.OnHeal?.Invoke(amount);
-        }
-
-        public void DoBasicAttack(Unit objective) {
-            if (objective == null || objective.IsDead() || !this.RollHit(objective)) {
-                this.OnMiss?.Invoke();
-                return;
+            if (!this.RollHit(objective)) {
+                return AttackResult.Miss();
             }
 
             bool isCrit = this.RollCrit();
             int damage = this.CalculateDamage(objective, isCrit);
-
-            objective.TakeDamage(damage, isCrit);
-            this.OnHit?.Invoke();
+            objective.TakeDamage(damage);
+            return AttackResult.Hit(damage, isCrit, objective.IsDead());
         }
+
+        public HealResult Heal(int amount) {
+            int healed = (int)this._stats[StatType.Hp].Add(amount);
+            return new HealResult(healed);
+        }
+
+        private void TakeDamage(int amount) => this._stats[StatType.Hp].Reduce(amount);
 
         private bool RollHit(Unit target) {
             float accuracy = this._stats[StatType.Accuracy].Current;
@@ -66,16 +64,6 @@
 
         public bool IsDead() => this._stats[StatType.Hp].IsEmpty();
 
-        public event Action<int, bool> OnDamage;
-
-        public event Action<int> OnHeal;
-
-        public event Action OnMiss;
-
-        public event Action OnHit;
-
-        public event Action<GridPosition> OnMove;
-
         public void UseAp(int ap) => this._stats[StatType.AP].Reduce(ap);
 
         public void RecoverAp(int ap) => this._stats[StatType.AP].Add(ap);
@@ -84,10 +72,10 @@
 
         public bool CanUseAp(int ap) => this._stats[StatType.AP].Current >= ap;
 
-        public int GetCurrentMovement() => (int) this._stats[StatType.Movement].Current;
+        public int GetCurrentMovement() => (int)this._stats[StatType.Movement].Current;
 
         public GridPosition GetGridPosition() => this._gridPosition;
 
-        public int GetAttackRange() => (int) this._stats[StatType.Range].Current;
+        public int GetAttackRange() => (int)this._stats[StatType.Range].Current;
     }
 }

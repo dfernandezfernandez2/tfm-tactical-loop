@@ -17,6 +17,12 @@ namespace Game.Map.Battle {
             this._mapData.ForEach(data => this._cells[data.TileGridPosition] = new MapCell(data));
         }
 
+        public void InitUnit(UnitObject unitObject) {
+            GridPosition unitPosition = unitObject.GetUnit().GetGridPosition();
+            MapCell cell = this._cells.GetValueOrDefault(unitPosition);
+            cell.SetOccupantUnit(unitObject);
+        }
+
         public void UnitMove(GridPosition from, GridPosition to) {
             MapCell cell = this._cells.GetValueOrDefault(from);
             MapCell toCell = this._cells.GetValueOrDefault(to);
@@ -25,7 +31,7 @@ namespace Game.Map.Battle {
             toCell.SetOccupantUnit(unitObject);
         }
 
-        public IReadOnlyList<TileData> GetReachableTiles(GridPosition origin, int movement) {
+        public IReadOnlyList<TileData> GetReachableTiles(GridPosition origin, int movement, bool canEnterCheck = true) {
             Queue<TileData> queue = new();
 
             Dictionary<TileData, int> costs = new();
@@ -43,7 +49,7 @@ namespace Game.Map.Battle {
                 foreach (GridPosition neighbourPos in this._mapData.GetNeighbours(current.TileGridPosition)) {
                     TileData next = this._mapData.GetTile(neighbourPos.Position.x, neighbourPos.Position.y);
 
-                    if (!this.CanEnter(next.TileGridPosition)) {
+                    if (canEnterCheck && !this.CanEnter(next.TileGridPosition)) {
                         continue;
                     }
 

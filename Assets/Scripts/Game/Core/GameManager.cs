@@ -7,6 +7,7 @@
     using Unit;
     using UnityEngine;
 
+    [RequireComponent(typeof(TurnManager))]
     public class GameManager : MonoBehaviour {
         [SerializeField] private BattleMapLoader battleMapLoader;
         [SerializeField] private WorldRender gridConverter;
@@ -15,17 +16,15 @@
         [SerializeField] private List<UnitObject> gameUnits = new();
         private TurnManager _turnManager;
 
-        public void Awake() {
-            this._turnManager = this.GetComponent<TurnManager>();
-            foreach (UnitSpawnConfiguration unitSpawnConfiguration in this.unitsPrefab) {
-                this.SpawnUnit(unitSpawnConfiguration);
-            }
-        }
+        public void Awake() => this._turnManager = this.GetComponent<TurnManager>();
 
         public void Start() {
             TextAsset map = Resources.Load<TextAsset>("Map/Battle/map_plain");
             BattleMapData battleMapData = this.battleMapLoader.Load(map.text);
             this.battleMapManager.Initialize(battleMapData);
+            foreach (UnitSpawnConfiguration unitSpawnConfiguration in this.unitsPrefab) {
+                this.SpawnUnit(unitSpawnConfiguration);
+            }
         }
 
         private void Update() {
@@ -39,6 +38,7 @@
             UnitObject unit = Instantiate(unitSpawnConfiguration.UnitPrefab);
             unit.Init(gridPosition);
             this.gameUnits.Add(unit);
+            this.battleMapManager.InitUnit(unit);
         }
     }
 }

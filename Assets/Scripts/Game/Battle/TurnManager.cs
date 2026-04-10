@@ -43,7 +43,7 @@ namespace Game.Battle {
             int attackRange = this._unitTurnObject.GetUnit().GetAttackRange();
             GridPosition currentUnitGridPosition = this._unitTurnObject.GetUnit().GetGridPosition();
             IReadOnlyList<TileData> reachableTiles =
-                this.battleMapManager.GetReachableTiles(currentUnitGridPosition, attackRange);
+                this.battleMapManager.GetReachableTiles(currentUnitGridPosition, attackRange, false);
             this.userSelectionManager.OnSelect +=
                 position => this.StartCoroutine(this.HandleAttackSelected(position));
             this.userSelectionManager.OnCancel += this.HandleCancelAction;
@@ -64,14 +64,16 @@ namespace Game.Battle {
             GridPosition currentUnitGridPosition = this._unitTurnObject.GetUnit().GetGridPosition();
             IReadOnlyList<GridPosition> path =
                 this.battleMapManager.FindPath(currentUnitGridPosition, target);
-            yield return this.StartCoroutine(this._unitTurnObject.MoveOnPath(path));
+            yield return this.StartCoroutine(BattleSequenceExecutor.ExecuteMovement(this._unitTurnObject, path));
             this.battleMapManager.UnitMove(currentUnitGridPosition, target);
             this.unitActionPanelUI.Show();
         }
 
         private IEnumerator HandleAttackSelected(GridPosition target) {
             UnitObject targetUnit = this.battleMapManager.GetUnit(target);
-            yield return this.StartCoroutine(this._unitTurnObject.DoBasicAttack(targetUnit));
+            yield return this.StartCoroutine(
+                BattleSequenceExecutor.ExecuteBasicAttack(this._unitTurnObject, targetUnit)
+            );
             this.unitActionPanelUI.Show();
         }
 
