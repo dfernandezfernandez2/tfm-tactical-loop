@@ -1,4 +1,4 @@
-﻿F F F F F F F F F F F F
+﻿F#P F#P F#P F#P F#P F#P F#P F#P F#P F#P F#P F#P
 F F F F F F F F F F F F
 F F F F F F F F F F F F
 F F F F F F F F F F F F
@@ -9,4 +9,4 @@ F F F F F F F F F F F F
 F F F F F F F F F F F F
 F F F F F F F F F F F F
 F F F F F F F F F F F F
-F F F F F F F F F F F F
+F#E F#E F#E F#E F#E F#E F#E F#E F#E F#E F#E F#E

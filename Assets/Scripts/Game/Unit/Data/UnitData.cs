@@ -1,8 +1,10 @@
-﻿namespace Unit.Data {
+﻿namespace Game.Unit.Data {
     using UnityEngine;
 
     [CreateAssetMenu(menuName = "Units/Unit Data")]
     public class UnitData : ScriptableObject {
+        public string unitName;
+        public Sprite unitSprite;
         [Range(1, 50)] public int hp;
         [Range(0, 50)] public int mp;
         [Range(0, 5)] public int mpRegen;

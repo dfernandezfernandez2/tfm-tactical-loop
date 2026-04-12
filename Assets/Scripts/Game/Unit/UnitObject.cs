@@ -3,17 +3,23 @@
     using System.Collections;
     using System.Collections.Generic;
     using Battle.UI;
+    using Core;
+    using Data;
     using global::Unit.Data;
     using Map.Battle;
     using UnityEngine;
 
     public enum AnimationType {
-        Attack, Damage, Death, Dodge
+        Attack,
+        Damage,
+        Death,
+        Dodge
     }
 
     public static class AnimationTypeExtensions {
         public static string GetAnimationEndName(this AnimationType animationType) =>
             "signal.end." + animationType.ToString().ToLower();
+
         public static string GetAnimationText(this AnimationType animationType) =>
             "signal.text." + animationType.ToString().ToLower();
     }
@@ -26,10 +32,11 @@
         [SerializeField] private CombatTextUI combatTextUI;
         [SerializeField] private WorldRender worldRender;
 
-        private Animator _animator;
-        private Unit _unit;
-
         private readonly Dictionary<string, int> _signalCounters = new();
+
+        private Animator _animator;
+        private Team _team;
+        private Unit _unit;
 
         public void Awake() {
             this._animator = this.GetComponent<Animator>();
@@ -57,24 +64,33 @@
 
         public Unit GetUnit() => this._unit;
 
-        public IEnumerator MoveOnPath(IReadOnlyList<GridPosition> path) {
+        public IEnumerator MoveOnPath(IReadOnlyList<GridPosition> path, Action<GridPosition, GridPosition> onMove) {
+            GridPosition currentPosition = this._unit.GetGridPosition();
             foreach (GridPosition pos in path) {
                 this._unit.Move(pos);
                 Vector3 target = this.worldRender.GridToWorld(pos);
-                yield return this.StartCoroutine(this.MoveRoutine(target));
+                yield return this.StartCoroutine(this.MoveRoutine(target, () => onMove(currentPosition, pos)));
+                currentPosition = pos;
             }
         }
 
-        private IEnumerator MoveRoutine(Vector3 target) {
+        private IEnumerator MoveRoutine(Vector3 target, Action onHalfMovement) {
             const float speed = 4f;
             float time = 0f;
             Vector3 start = this.transform.position;
             float distance = Vector3.Distance(start, target);
             float duration = distance / speed;
             this._animator.SetBool(_isMoving, true);
+
+            bool halfTriggered = false;
             while (time < duration) {
                 time += Time.deltaTime;
                 this.transform.position = Vector3.Lerp(start, target, time / duration);
+                if (!halfTriggered && time >= duration / 2f) {
+                    halfTriggered = true;
+                    onHalfMovement.Invoke();
+                }
+
                 yield return null;
             }
 
@@ -82,7 +98,8 @@
             this._animator.SetBool(_isMoving, false);
         }
 
-        public void Signal(string signalId) => this._signalCounters[signalId] = this._signalCounters.GetValueOrDefault(signalId, 0) + 1;
+        public void Signal(string signalId) =>
+            this._signalCounters[signalId] = this._signalCounters.GetValueOrDefault(signalId, 0) + 1;
 
         private IEnumerator WaitForSignal(string signalId, int version) {
             yield return new WaitUntil(() => this._signalCounters.GetValueOrDefault(signalId, 0) > version);
@@ -105,7 +122,8 @@
             this._animator.ResetTrigger(animationType.ToString());
             this._animator.SetTrigger(animationType.ToString());
             yield return this.WaitForSignal(animationType.GetAnimationText(), signalTextVersion);
-            this.combatTextUI.Init(attackResult.GetDamage().ToString(), attackResult.IsCritical() ? CombatTextType.Crit : CombatTextType.Hit);
+            this.combatTextUI.Init(attackResult.GetDamage().ToString(),
+                attackResult.IsCritical() ? CombatTextType.Crit : CombatTextType.Hit);
             yield return this.WaitForSignal(animationType.GetAnimationEndName(), signalEndVersion);
             if (this._unit.IsDead()) {
                 yield return this.PlayDeath();
@@ -136,5 +154,27 @@
             yield return this.WaitForSignal(animationType.GetAnimationEndName(), signalEndVersion);
         }
 
+        public Team GetTeam() => this._team;
+        public void SetTeam(Team team) => this._team = team;
+        public string GetName() => this.data.unitName;
+        public Sprite GetSprite() => this.data.unitSprite;
+
+        public List<KeyValuePair<StatType, float>> GetStats() {
+            List<KeyValuePair<StatType, float>> stats = new() {
+                new KeyValuePair<StatType, float>(StatType.Hp, this.data.hp),
+                new KeyValuePair<StatType, float>(StatType.Mp, this.data.mp),
+                new KeyValuePair<StatType, float>(StatType.MpRegen, this.data.mpRegen),
+                new KeyValuePair<StatType, float>(StatType.Movement, this.data.movement),
+                new KeyValuePair<StatType, float>(StatType.AP, this.data.ap),
+                new KeyValuePair<StatType, float>(StatType.Atk, this.data.atk),
+                new KeyValuePair<StatType, float>(StatType.Def, this.data.defense),
+                new KeyValuePair<StatType, float>(StatType.Accuracy, this.data.accuracy),
+                new KeyValuePair<StatType, float>(StatType.Evasion, this.data.evasion),
+                new KeyValuePair<StatType, float>(StatType.CritChance, this.data.critChance),
+                new KeyValuePair<StatType, float>(StatType.Range, this.data.range),
+                new KeyValuePair<StatType, float>(StatType.Speed, this.data.speed)
+            };
+            return stats;
+        }
     }
 }

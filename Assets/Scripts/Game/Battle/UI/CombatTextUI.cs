@@ -4,7 +4,10 @@ namespace Game.Battle.UI {
     using UnityEngine;
 
     public enum CombatTextType {
-        Crit, Hit, Miss, Heal
+        Crit,
+        Hit,
+        Miss,
+        Heal
     }
 
     public static class CombatTextTypeExtensions {
@@ -45,6 +48,7 @@ namespace Game.Battle.UI {
                 this.text.color = color;
                 yield return null;
             }
+
             color.a = 0f;
             this.text.color = color;
         }

@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd5af83e4ec341bc93fbe338da2fcbc5, type: 3}
   m_Name: KnightUnitData
   m_EditorClassIdentifier: Assembly-CSharp::Unit.Data.UnitData
+  unitName: Knight
+  unitSprite: {fileID: 815424164945274260, guid: edc65aaf1bfc9d141ac9e8ed3a8e0456, type: 3}
   hp: 10
   mp: 1
   mpRegen: 0
