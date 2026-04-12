@@ -157,5 +157,24 @@
         public Team GetTeam() => this._team;
         public void SetTeam(Team team) => this._team = team;
         public string GetName() => this.data.unitName;
+        public Sprite GetSprite() => this.data.unitSprite;
+
+        public List<KeyValuePair<StatType, float>> GetStats() {
+            List<KeyValuePair<StatType, float>> stats = new() {
+                new KeyValuePair<StatType, float>(StatType.Hp, this.data.hp),
+                new KeyValuePair<StatType, float>(StatType.Mp, this.data.mp),
+                new KeyValuePair<StatType, float>(StatType.MpRegen, this.data.mpRegen),
+                new KeyValuePair<StatType, float>(StatType.Movement, this.data.movement),
+                new KeyValuePair<StatType, float>(StatType.AP, this.data.ap),
+                new KeyValuePair<StatType, float>(StatType.Atk, this.data.atk),
+                new KeyValuePair<StatType, float>(StatType.Def, this.data.defense),
+                new KeyValuePair<StatType, float>(StatType.Accuracy, this.data.accuracy),
+                new KeyValuePair<StatType, float>(StatType.Evasion, this.data.evasion),
+                new KeyValuePair<StatType, float>(StatType.CritChance, this.data.critChance),
+                new KeyValuePair<StatType, float>(StatType.Range, this.data.range),
+                new KeyValuePair<StatType, float>(StatType.Speed, this.data.speed)
+            };
+            return stats;
+        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿namespace Game.Core {
     using System.Collections.Generic;
     using Battle;
+    using Data;
     using Map.Battle;
     using Map.Battle.Data;
     using Unit;
@@ -24,7 +25,7 @@
         public void Start() {
             TextAsset map = Resources.Load<TextAsset>("Map/Battle/map_plain");
             UnitObject unitObject = Resources.Load<UnitObject>("Knight");
-            Team playerTeam = new(new List<UnitObject> { unitObject, unitObject, unitObject }, BattleTeam.Player);
+            Team playerTeam = RunData.GetInstance().Team;
             Team enemyTeam = new(new List<UnitObject> { unitObject }, BattleTeam.Enemy);
             this.StartMap(playerTeam, enemyTeam, map.text);
         }
