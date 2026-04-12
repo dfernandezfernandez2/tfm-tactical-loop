@@ -22,10 +22,15 @@
                 for (int x = 0; x < width; x++) {
                     string symbol = symbols[x];
                     TileType type = TxtMapLegend.GetTileType(symbol);
+                    SpawnType spawnType = TxtMapLegend.GetSpawnType(symbol);
                     Vector2Int position = new(x, height - 1 - y);
                     int tileHeight = TxtMapLegend.GetTileHeight(symbol);
                     TileData tileData = new(position, type, tileHeight);
-                    battleMapDataBuilder.AddTile(tileData);
+                    _ = spawnType switch {
+                        SpawnType.Player => battleMapDataBuilder.AddPlayerSpawn(tileData),
+                        SpawnType.Enemy => battleMapDataBuilder.AddEnemySpawn(tileData),
+                        _ => battleMapDataBuilder.AddTile(tileData)
+                    };
                 }
             }
 

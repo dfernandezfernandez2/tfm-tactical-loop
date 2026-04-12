@@ -3,6 +3,8 @@
     using System.Collections;
     using System.Collections.Generic;
     using Battle.UI;
+    using Core;
+    using Data;
     using global::Unit.Data;
     using Map.Battle;
     using UnityEngine;
@@ -28,6 +30,7 @@
 
         private Animator _animator;
         private Unit _unit;
+        private Team _team;
 
         private readonly Dictionary<string, int> _signalCounters = new();
 
@@ -57,24 +60,32 @@
 
         public Unit GetUnit() => this._unit;
 
-        public IEnumerator MoveOnPath(IReadOnlyList<GridPosition> path) {
+        public IEnumerator MoveOnPath(IReadOnlyList<GridPosition> path, Action<GridPosition, GridPosition> onMove) {
+            GridPosition currentPosition = this._unit.GetGridPosition();
             foreach (GridPosition pos in path) {
                 this._unit.Move(pos);
                 Vector3 target = this.worldRender.GridToWorld(pos);
-                yield return this.StartCoroutine(this.MoveRoutine(target));
+                yield return this.StartCoroutine(this.MoveRoutine(target, () => onMove(currentPosition, pos)));
+                currentPosition = pos;
             }
         }
 
-        private IEnumerator MoveRoutine(Vector3 target) {
+        private IEnumerator MoveRoutine(Vector3 target, Action onHalfMovement) {
             const float speed = 4f;
             float time = 0f;
             Vector3 start = this.transform.position;
             float distance = Vector3.Distance(start, target);
             float duration = distance / speed;
             this._animator.SetBool(_isMoving, true);
+
+            bool halfTriggered = false;
             while (time < duration) {
                 time += Time.deltaTime;
                 this.transform.position = Vector3.Lerp(start, target, time / duration);
+                if (!halfTriggered && time >= duration / 2f) {
+                    halfTriggered = true;
+                    onHalfMovement.Invoke();
+                }
                 yield return null;
             }
 
@@ -135,6 +146,10 @@
             onDodge();
             yield return this.WaitForSignal(animationType.GetAnimationEndName(), signalEndVersion);
         }
+
+        public Team GetTeam() => this._team;
+        public void SetTeam(Team team) => this._team = team;
+        public string GetName() => this.data.unitName;
 
     }
 }

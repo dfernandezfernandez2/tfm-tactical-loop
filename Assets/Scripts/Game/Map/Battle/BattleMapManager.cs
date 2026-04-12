@@ -2,7 +2,9 @@ namespace Game.Map.Battle {
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using Core;
     using Data;
+    using Renderer;
     using Unit;
     using UnityEngine;
 
@@ -17,10 +19,25 @@ namespace Game.Map.Battle {
             this._mapData.ForEach(data => this._cells[data.TileGridPosition] = new MapCell(data));
         }
 
+        public GridPosition GetMapCenterPosition() => this._mapData.GetCenter();
+
         public void InitUnit(UnitObject unitObject) {
             GridPosition unitPosition = unitObject.GetUnit().GetGridPosition();
             MapCell cell = this._cells.GetValueOrDefault(unitPosition);
             cell.SetOccupantUnit(unitObject);
+        }
+
+        public void DespawnUnit(UnitObject unitObject) {
+            GridPosition unitPosition = unitObject.GetUnit().GetGridPosition();
+            MapCell cell = this._cells.GetValueOrDefault(unitPosition);
+            cell.ClearOccupantUnit();
+            UnHighlightCell(cell);
+        }
+
+        public void HighlightUnits() {
+            foreach (MapCell cell in this._cells.Values.Where(cell => cell.GetOccupantUnit() != null)) {
+                HighlightUnitCell(cell);
+            }
         }
 
         public void UnitMove(GridPosition from, GridPosition to) {
@@ -28,8 +45,14 @@ namespace Game.Map.Battle {
             MapCell toCell = this._cells.GetValueOrDefault(to);
             UnitObject unitObject = cell.GetOccupantUnit();
             cell.ClearOccupantUnit();
+            UnHighlightCell(cell);
             toCell.SetOccupantUnit(unitObject);
+            HighlightUnitCell(toCell);
         }
+
+        private static void HighlightUnitCell(MapCell cell) => cell.HighlightCell(cell.GetOccupantUnit().GetTeam().GetBattleTeam() == BattleTeam.Player ? HighlightColor.Yellow : HighlightColor.Orange);
+
+        private static void UnHighlightCell(MapCell cell) => cell.UnHighlightCell();
 
         public IReadOnlyList<TileData> GetReachableTiles(GridPosition origin, int movement, bool canEnterCheck = true) {
             Queue<TileData> queue = new();
@@ -168,6 +191,8 @@ namespace Game.Map.Battle {
             MapCell cell = this._cells.GetValueOrDefault(gridPosition);
             return cell?.GetOccupantUnit();
         }
+
+        public IReadOnlyList<TileData> GetTeamTileSpawns(BattleTeam team) => this._mapData.GetTeamSpawns(team);
 
         private class NodeGrid : IEquatable<NodeGrid> {
             public readonly GridPosition GridPosition;

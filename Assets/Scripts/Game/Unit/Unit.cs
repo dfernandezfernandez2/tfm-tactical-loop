@@ -77,5 +77,7 @@
         public GridPosition GetGridPosition() => this._gridPosition;
 
         public int GetAttackRange() => (int)this._stats[StatType.Range].Current;
+
+        public float GetSpeed() => this._stats[StatType.Speed].Current;
     }
 }
