@@ -8,20 +8,21 @@ namespace Game.Core {
     using UnityEngine;
 
     public class UserSelector {
-        private readonly Camera _mainCamera;
-        private readonly WorldRender _worldRender;
         private readonly bool _enableCancel;
-        private readonly Action<GridPosition> _onSelect;
+        private readonly Camera _mainCamera;
         private readonly Action _onCancel;
-
-        private Vector3 _lastClickPosition;
+        private readonly Action<GridPosition> _onSelect;
+        private readonly WorldRender _worldRender;
         private IReadOnlyList<TileData> _availablePositions;
-        private GridPosition _currentUnitPosition;
-        private List<GridPosition> _reachablePositions;
 
         private TileData _currentTileData;
+        private GridPosition _currentUnitPosition;
 
-        public UserSelector(Camera mainCamera, WorldRender worldRender, bool enableCancel, Action<GridPosition> onSelect, Action onCancel) {
+        private Vector3 _lastClickPosition;
+        private List<GridPosition> _reachablePositions;
+
+        public UserSelector(Camera mainCamera, WorldRender worldRender, bool enableCancel,
+            Action<GridPosition> onSelect, Action onCancel) {
             this._mainCamera = mainCamera;
             this._worldRender = worldRender;
             this._enableCancel = enableCancel;
@@ -133,7 +134,7 @@ namespace Game.Core {
         }
 
         private void HandleConfirm() {
-            if ((InputUtils.IsEnterClickSelected() || InputUtils.IsEnterSelected())) {
+            if (InputUtils.IsEnterClickSelected() || InputUtils.IsEnterSelected()) {
                 this._onSelect(this._currentUnitPosition);
             }
         }

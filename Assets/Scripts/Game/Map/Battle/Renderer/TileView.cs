@@ -29,7 +29,8 @@ namespace Game.Map.Battle.Renderer {
             if (this._highlightStack.Count > 0) {
                 HighlightColor previous = this._highlightStack.Peek();
                 this.ApplyColor(previous);
-            } else {
+            }
+            else {
                 this.ApplyColor(HighlightColor.None);
             }
         }

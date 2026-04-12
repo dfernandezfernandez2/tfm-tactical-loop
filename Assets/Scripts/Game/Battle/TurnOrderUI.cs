@@ -4,7 +4,6 @@ namespace Game.Battle {
     using UnityEngine;
 
     public class TurnOrderUI : MonoBehaviour {
-
         [SerializeField] private GameObject turnOrderPanel;
         [SerializeField] private OrderUnitUI orderUnitUIPrefab;
 
@@ -14,6 +13,12 @@ namespace Game.Battle {
 
         private void Awake() => this.turnOrderPanel.SetActive(false);
 
+        public void Reset() {
+            this._currentTurnIndex = 0;
+            this._units.Clear();
+            this._unitsUI.Clear();
+        }
+
         public void Show(List<UnitObject> units) {
             this.Reset();
             this._units.AddRange(units);
@@ -22,6 +27,7 @@ namespace Game.Battle {
                 orderUnitUI.SetUnit(unit);
                 this._unitsUI.Add(orderUnitUI);
             }
+
             this.turnOrderPanel.SetActive(true);
         }
 
@@ -32,11 +38,5 @@ namespace Game.Battle {
         }
 
         public void Hide() => this.turnOrderPanel.SetActive(false);
-
-        public void Reset() {
-            this._currentTurnIndex = 0;
-            this._units.Clear();
-            this._unitsUI.Clear();
-        }
     }
 }

@@ -2,7 +2,6 @@
     using Data;
 
     public static class TxtMapLegend {
-
         public static TileType GetTileType(string symbol) {
             string cleanSymbol = symbol.Split('#')[0];
             return cleanSymbol[^1] switch {
@@ -17,6 +16,7 @@
             if (index == -1) {
                 return SpawnType.None;
             }
+
             char spawnChar = symbol[index + 1];
             return spawnChar switch {
                 'P' => SpawnType.Player,

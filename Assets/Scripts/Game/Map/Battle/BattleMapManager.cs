@@ -50,7 +50,10 @@ namespace Game.Map.Battle {
             HighlightUnitCell(toCell);
         }
 
-        private static void HighlightUnitCell(MapCell cell) => cell.HighlightCell(cell.GetOccupantUnit().GetTeam().GetBattleTeam() == BattleTeam.Player ? HighlightColor.Yellow : HighlightColor.Orange);
+        private static void HighlightUnitCell(MapCell cell) => cell.HighlightCell(
+            cell.GetOccupantUnit().GetTeam().GetBattleTeam() == BattleTeam.Player
+                ? HighlightColor.Yellow
+                : HighlightColor.Orange);
 
         private static void UnHighlightCell(MapCell cell) => cell.UnHighlightCell();
 

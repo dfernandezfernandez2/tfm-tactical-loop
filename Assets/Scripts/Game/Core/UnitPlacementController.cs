@@ -12,30 +12,33 @@ namespace Game.Core {
         [SerializeField] private BattleMapManager battleMapManager;
         [SerializeField] private Camera mainCamera;
         [SerializeField] private WorldRender worldRender;
-
-        private UserSelector _userSelector;
-
-        private Team _playerTeam;
+        private readonly Dictionary<GridPosition, UnitObject> _placements = new();
         private IReadOnlyList<TileData> _availablePositions;
-        private IReadOnlyList<UnitObject> _unitsPrefabToPlace;
-        private Dictionary<GridPosition, UnitObject> _placements = new();
         private int _currentUnitIndex;
+        private Action<GridPosition> _despawnUnit;
         private bool _isInitialized;
 
         private Action _onPlacementFinish;
-        private Action<UnitObject, GridPosition> _spawnUnit;
-        private Action<GridPosition> _despawnUnit;
 
-        private void Awake() => this._userSelector = new UserSelector(this.mainCamera, this.worldRender, false, this.SelectPosition, null);
+        private Team _playerTeam;
+        private Action<UnitObject, GridPosition> _spawnUnit;
+        private IReadOnlyList<UnitObject> _unitsPrefabToPlace;
+
+        private UserSelector _userSelector;
+
+        private void Awake() => this._userSelector =
+            new UserSelector(this.mainCamera, this.worldRender, false, this.SelectPosition, null);
 
         private void Update() {
             if (!this._isInitialized) {
                 return;
             }
+
             this._userSelector.Update();
         }
 
-        public void Init(Team playerTeam, Action onPlacementFinish, Action<UnitObject, GridPosition> spawnUnit, Action<GridPosition> despawnUnit) {
+        public void Init(Team playerTeam, Action onPlacementFinish, Action<UnitObject, GridPosition> spawnUnit,
+            Action<GridPosition> despawnUnit) {
             this._playerTeam = playerTeam;
             this._unitsPrefabToPlace = playerTeam.GetUnitObjectsPrefabs();
             this._availablePositions = this.battleMapManager.GetTeamTileSpawns(this._playerTeam.GetBattleTeam());
@@ -66,7 +69,10 @@ namespace Game.Core {
             }
         }
 
-        private void MoveOnNextUnitIndex() => this._currentUnitIndex  = (this._currentUnitIndex + 1) % this._unitsPrefabToPlace.Count;
-        private void MoveOnPreviousUnitIndex() => this._currentUnitIndex = (this._currentUnitIndex - 1 + this._unitsPrefabToPlace.Count) % this._unitsPrefabToPlace.Count;
+        private void MoveOnNextUnitIndex() =>
+            this._currentUnitIndex = (this._currentUnitIndex + 1) % this._unitsPrefabToPlace.Count;
+
+        private void MoveOnPreviousUnitIndex() => this._currentUnitIndex =
+            (this._currentUnitIndex - 1 + this._unitsPrefabToPlace.Count) % this._unitsPrefabToPlace.Count;
     }
 }

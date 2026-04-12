@@ -3,10 +3,10 @@ namespace Game.Core {
     using Unit;
 
     public class Team {
-
-        private readonly IReadOnlyList<UnitObject> _unitObjectsPrefabs;
         private readonly BattleTeam _battleTeam;
         private readonly List<UnitObject> _unitObjects;
+
+        private readonly IReadOnlyList<UnitObject> _unitObjectsPrefabs;
 
         public Team(List<UnitObject> unitObjectsPrefabs, BattleTeam battleTeam) {
             this._unitObjectsPrefabs = unitObjectsPrefabs.AsReadOnly();

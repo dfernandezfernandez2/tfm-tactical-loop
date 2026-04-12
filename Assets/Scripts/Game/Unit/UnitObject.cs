@@ -10,12 +10,16 @@
     using UnityEngine;
 
     public enum AnimationType {
-        Attack, Damage, Death, Dodge
+        Attack,
+        Damage,
+        Death,
+        Dodge
     }
 
     public static class AnimationTypeExtensions {
         public static string GetAnimationEndName(this AnimationType animationType) =>
             "signal.end." + animationType.ToString().ToLower();
+
         public static string GetAnimationText(this AnimationType animationType) =>
             "signal.text." + animationType.ToString().ToLower();
     }
@@ -28,11 +32,11 @@
         [SerializeField] private CombatTextUI combatTextUI;
         [SerializeField] private WorldRender worldRender;
 
-        private Animator _animator;
-        private Unit _unit;
-        private Team _team;
-
         private readonly Dictionary<string, int> _signalCounters = new();
+
+        private Animator _animator;
+        private Team _team;
+        private Unit _unit;
 
         public void Awake() {
             this._animator = this.GetComponent<Animator>();
@@ -86,6 +90,7 @@
                     halfTriggered = true;
                     onHalfMovement.Invoke();
                 }
+
                 yield return null;
             }
 
@@ -93,7 +98,8 @@
             this._animator.SetBool(_isMoving, false);
         }
 
-        public void Signal(string signalId) => this._signalCounters[signalId] = this._signalCounters.GetValueOrDefault(signalId, 0) + 1;
+        public void Signal(string signalId) =>
+            this._signalCounters[signalId] = this._signalCounters.GetValueOrDefault(signalId, 0) + 1;
 
         private IEnumerator WaitForSignal(string signalId, int version) {
             yield return new WaitUntil(() => this._signalCounters.GetValueOrDefault(signalId, 0) > version);
@@ -116,7 +122,8 @@
             this._animator.ResetTrigger(animationType.ToString());
             this._animator.SetTrigger(animationType.ToString());
             yield return this.WaitForSignal(animationType.GetAnimationText(), signalTextVersion);
-            this.combatTextUI.Init(attackResult.GetDamage().ToString(), attackResult.IsCritical() ? CombatTextType.Crit : CombatTextType.Hit);
+            this.combatTextUI.Init(attackResult.GetDamage().ToString(),
+                attackResult.IsCritical() ? CombatTextType.Crit : CombatTextType.Hit);
             yield return this.WaitForSignal(animationType.GetAnimationEndName(), signalEndVersion);
             if (this._unit.IsDead()) {
                 yield return this.PlayDeath();
@@ -150,6 +157,5 @@
         public Team GetTeam() => this._team;
         public void SetTeam(Team team) => this._team = team;
         public string GetName() => this.data.unitName;
-
     }
 }

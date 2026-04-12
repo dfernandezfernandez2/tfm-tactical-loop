@@ -16,6 +16,7 @@
             if (objective == null) {
                 return AttackResult.Miss();
             }
+
             if (objective.IsDead()) {
                 return AttackResult.Miss(true);
             }

@@ -33,12 +33,14 @@ namespace Game.Battle {
         private GridPosition _startPosition;
         private UserSelector _userSelector;
 
-        private void Awake() => this._userSelector = new UserSelector(this.mainCamera, this.worldRender, true, this.SelectPosition, this.CancelSelection);
+        private void Awake() => this._userSelector = new UserSelector(this.mainCamera, this.worldRender, true,
+            this.SelectPosition, this.CancelSelection);
 
         private void Update() {
             if (this._currentSelectionType == SelectionType.None) {
                 return;
             }
+
             this._userSelector.Update();
         }
 
@@ -62,6 +64,7 @@ namespace Game.Battle {
             if (Equals(this._startPosition, position)) {
                 return;
             }
+
             this.EndSelection();
             this.OnSelect?.Invoke(position);
             this.ClearEvents();

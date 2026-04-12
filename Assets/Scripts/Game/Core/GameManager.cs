@@ -13,10 +13,13 @@
         [SerializeField] private BattleMapManager battleMapManager;
         [SerializeField] private UnitPlacementController unitPlacementController;
         [SerializeField] private Camera mainCamera;
+        private Team _enemyTeam;
+        private Team _playerTeam;
 
         private TurnManager _turnManager;
-        private Team _playerTeam;
-        private Team _enemyTeam;
+
+
+        public void Awake() => this._turnManager = this.GetComponent<TurnManager>();
 
         public void Start() {
             TextAsset map = Resources.Load<TextAsset>("Map/Battle/map_plain");
@@ -26,16 +29,14 @@
             this.StartMap(playerTeam, enemyTeam, map.text);
         }
 
-
-        public void Awake() => this._turnManager = this.GetComponent<TurnManager>();
-
         public void StartMap(Team playerTeam, Team enemyTeam, string map) {
             this._playerTeam = playerTeam;
             this._enemyTeam = enemyTeam;
 
             this.InitMap(map);
             this.SpawnEnemies();
-            this.unitPlacementController.Init(playerTeam, this.OnPlacementFinished, this.SpawnPlayerUnit, this.DespawnUnit);
+            this.unitPlacementController.Init(playerTeam, this.OnPlacementFinished, this.SpawnPlayerUnit,
+                this.DespawnUnit);
         }
 
         private void OnPlacementFinished() {
@@ -53,18 +54,21 @@
             GridPosition centerMapPosition = this.battleMapManager.GetMapCenterPosition();
             Vector3 centerMap = this.gridConverter.GridToWorld(centerMapPosition);
             this.mainCamera.transform.position = new Vector3(
-                                                        centerMap.x,
-                                                        centerMap.y,
-                                                        this.mainCamera.transform.position.z
-                                                    );
+                centerMap.x,
+                centerMap.y,
+                this.mainCamera.transform.position.z
+            );
         }
 
-        private void SpawnPlayerUnit(UnitObject unitPrefab, GridPosition position) => this.SpawnUnit(unitPrefab, position, this._playerTeam);
+        private void SpawnPlayerUnit(UnitObject unitPrefab, GridPosition position) =>
+            this.SpawnUnit(unitPrefab, position, this._playerTeam);
 
         private void SpawnEnemies() {
             IReadOnlyList<TileData> enemyAvailableSpawnsPositions =
                 this.battleMapManager.GetTeamTileSpawns(this._enemyTeam.GetBattleTeam());
-            for (int i = 0; i < this._enemyTeam.GetUnitObjectsPrefabs().Count && i < enemyAvailableSpawnsPositions.Count; i++) {
+            for (int i = 0;
+                 i < this._enemyTeam.GetUnitObjectsPrefabs().Count && i < enemyAvailableSpawnsPositions.Count;
+                 i++) {
                 this.SpawnUnit(
                     this._enemyTeam.GetUnitObjectsPrefabs()[i],
                     enemyAvailableSpawnsPositions[i].TileGridPosition,

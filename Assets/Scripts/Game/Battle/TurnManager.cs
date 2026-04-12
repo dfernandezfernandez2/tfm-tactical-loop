@@ -10,6 +10,7 @@ namespace Game.Battle {
     using UI;
     using Unit;
     using UnityEngine;
+    using Random = UnityEngine.Random;
 
     public class TurnManager : MonoBehaviour, IBattleContext {
         [SerializeField] private UnitActionPanelUI unitActionPanelUI;
@@ -27,6 +28,45 @@ namespace Game.Battle {
                 this._actions.Add(actionType, actionType.GetBattleAction());
             }
         }
+
+        /**
+         * Communicates to UI
+         */
+        public void EnterMovementSelection() {
+            int currentUnitMovement = this._unitsTurnOrder[this._unitsTurnOrderIndex].GetUnit().GetCurrentMovement();
+            GridPosition currentUnitGridPosition =
+                this._unitsTurnOrder[this._unitsTurnOrderIndex].GetUnit().GetGridPosition();
+            IReadOnlyList<TileData> reachableTiles =
+                this.battleMapManager.GetReachableTiles(currentUnitGridPosition, currentUnitMovement);
+            this.userSelectionManager.OnSelect +=
+                position => this.StartCoroutine(this.HandleMovementSelection(position));
+            this.userSelectionManager.OnCancel += this.HandleCancelAction;
+            this.userSelectionManager.StartSelection(SelectionType.Movement, reachableTiles, currentUnitGridPosition);
+        }
+
+        public void EnterAttackTargetSelection() {
+            int attackRange = this._unitsTurnOrder[this._unitsTurnOrderIndex].GetUnit().GetAttackRange();
+            GridPosition currentUnitGridPosition =
+                this._unitsTurnOrder[this._unitsTurnOrderIndex].GetUnit().GetGridPosition();
+            IReadOnlyList<TileData> reachableTiles =
+                this.battleMapManager.GetReachableTiles(currentUnitGridPosition, attackRange, false);
+            this.userSelectionManager.OnSelect +=
+                position => this.StartCoroutine(this.HandleAttackSelected(position));
+            this.userSelectionManager.OnCancel += this.HandleCancelAction;
+            this.userSelectionManager.StartSelection(SelectionType.Attack, reachableTiles, currentUnitGridPosition);
+        }
+
+        public void EndTurn() => this.StartCoroutine(this.StartTurn());
+
+        public void EnterObjectSelection() => throw new NotImplementedException();
+
+        public void EnterSkillSelection() => throw new NotImplementedException();
+
+        public void ApCostApply(IBattleAction action) =>
+            this._unitsTurnOrder[this._unitsTurnOrderIndex].GetUnit().UseAp(action.GetApCost());
+
+        public void ApCostRevert(IBattleAction action) =>
+            this._unitsTurnOrder[this._unitsTurnOrderIndex].GetUnit().RecoverAp(action.GetApCost());
 
         public void StartMap(Team playerTeam, Team enemyTeam) {
             this.BuildTurnOrder(playerTeam, enemyTeam);
@@ -47,51 +87,18 @@ namespace Game.Battle {
             List<UnitObject> units = playerTeam.GetUnitObjects().Concat(enemyTeam.GetUnitObjects()).ToList();
             this._unitsTurnOrder.AddRange(
                 units.OrderByDescending(unit => unit.GetUnit().GetSpeed())
-                    .ThenBy(_ => UnityEngine.Random.value)
+                    .ThenBy(_ => Random.value)
                     .ToList());
             this.turnOrderUI.Show(this._unitsTurnOrder);
         }
 
-        /**
-         * Communicates to UI
-         */
-        public void EnterMovementSelection() {
-            int currentUnitMovement = this._unitsTurnOrder[this._unitsTurnOrderIndex].GetUnit().GetCurrentMovement();
-            GridPosition currentUnitGridPosition = this._unitsTurnOrder[this._unitsTurnOrderIndex].GetUnit().GetGridPosition();
-            IReadOnlyList<TileData> reachableTiles =
-                this.battleMapManager.GetReachableTiles(currentUnitGridPosition, currentUnitMovement);
-            this.userSelectionManager.OnSelect +=
-                position => this.StartCoroutine(this.HandleMovementSelection(position));
-            this.userSelectionManager.OnCancel += this.HandleCancelAction;
-            this.userSelectionManager.StartSelection(SelectionType.Movement, reachableTiles, currentUnitGridPosition);
-        }
-
-        public void EnterAttackTargetSelection() {
-            int attackRange = this._unitsTurnOrder[this._unitsTurnOrderIndex].GetUnit().GetAttackRange();
-            GridPosition currentUnitGridPosition = this._unitsTurnOrder[this._unitsTurnOrderIndex].GetUnit().GetGridPosition();
-            IReadOnlyList<TileData> reachableTiles =
-                this.battleMapManager.GetReachableTiles(currentUnitGridPosition, attackRange, false);
-            this.userSelectionManager.OnSelect +=
-                position => this.StartCoroutine(this.HandleAttackSelected(position));
-            this.userSelectionManager.OnCancel += this.HandleCancelAction;
-            this.userSelectionManager.StartSelection(SelectionType.Attack, reachableTiles, currentUnitGridPosition);
-        }
-
-        public void EndTurn() => this.StartCoroutine(this.StartTurn());
-
-        public void EnterObjectSelection() => throw new NotImplementedException();
-
-        public void EnterSkillSelection() => throw new NotImplementedException();
-
-        public void ApCostApply(IBattleAction action) => this._unitsTurnOrder[this._unitsTurnOrderIndex].GetUnit().UseAp(action.GetApCost());
-
-        public void ApCostRevert(IBattleAction action) => this._unitsTurnOrder[this._unitsTurnOrderIndex].GetUnit().RecoverAp(action.GetApCost());
-
         private IEnumerator HandleMovementSelection(GridPosition target) {
-            GridPosition currentUnitGridPosition = this._unitsTurnOrder[this._unitsTurnOrderIndex].GetUnit().GetGridPosition();
+            GridPosition currentUnitGridPosition =
+                this._unitsTurnOrder[this._unitsTurnOrderIndex].GetUnit().GetGridPosition();
             IReadOnlyList<GridPosition> path =
                 this.battleMapManager.FindPath(currentUnitGridPosition, target);
-            yield return this.StartCoroutine(BattleSequenceExecutor.ExecuteMovement(this._unitsTurnOrder[this._unitsTurnOrderIndex], path, this.battleMapManager.UnitMove));
+            yield return this.StartCoroutine(BattleSequenceExecutor.ExecuteMovement(
+                this._unitsTurnOrder[this._unitsTurnOrderIndex], path, this.battleMapManager.UnitMove));
 
             this.unitActionPanelUI.Show();
         }
@@ -125,8 +132,11 @@ namespace Game.Battle {
             if (allDead) {
                 return -1; // should never happen
             }
+
             int nextIndex = (currentIndex + 1) % this._unitsTurnOrder.Count;
-            return this._unitsTurnOrder[nextIndex].GetUnit().IsDead() ? this.GetNextUnitTurnOrderIndex(nextIndex) : nextIndex;
+            return this._unitsTurnOrder[nextIndex].GetUnit().IsDead()
+                ? this.GetNextUnitTurnOrderIndex(nextIndex)
+                : nextIndex;
         }
 
         /**

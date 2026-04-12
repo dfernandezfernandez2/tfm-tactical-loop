@@ -6,7 +6,8 @@ namespace Game.Unit {
         private readonly bool _isCritical;
         private readonly bool _isTargetDead;
 
-        private AttackResult() : this(false) {}
+        private AttackResult() : this(false) {
+        }
 
         private AttackResult(bool isTargetDead) {
             this._hit = false;
@@ -34,6 +35,7 @@ namespace Game.Unit {
         public bool IsCritical() => this._isCritical;
         public bool IsTargetDead() => this._isTargetDead;
 
-        public override string ToString() => $"{this._damage} damage, {this._isCritical} critical, {this._isTargetDead}, is hit {this._hit}";
+        public override string ToString() =>
+            $"{this._damage} damage, {this._isCritical} critical, {this._isTargetDead}, is hit {this._hit}";
     }
 }
