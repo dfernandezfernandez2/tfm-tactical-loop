@@ -3,50 +3,48 @@ namespace Game.Battle.UI {
     using Actions;
     using TMPro;
     using UnityEngine;
+    using UnityEngine.EventSystems;
     using UnityEngine.UI;
 
-    public class UnitActionButtonUI : MonoBehaviour {
+    public class UnitActionButtonUI : MonoBehaviour, IPointerEnterHandler {
         [SerializeField] private TMP_Text label;
+        [SerializeField] private Image highLight;
 
-        [SerializeField] private Sprite defaultButtonImage;
-        [SerializeField] private Sprite selectedButtonImage;
-        [SerializeField] private Sprite disabledButtonImage;
         private Button _button;
 
-        private bool _isSelected;
-
         private Action<ActionType> _onClick;
+        private Action _onSelect;
         public ActionType ActionType { get; private set; }
         public bool IsAvailable { get; private set; }
 
-        private void Awake() {
-            this._button = this.GetComponent<Button>();
-            this._button.image.sprite = this.defaultButtonImage;
-        }
+        private void Awake() => this._button = this.GetComponent<Button>();
 
-        public void Init(ActionType actionType, Action<ActionType> onClick, bool isAvailable) {
+        public void Init(ActionType actionType, Action<ActionType> onClick, Action onSelect, bool isAvailable) {
             this.ActionType = actionType;
             this._onClick = onClick;
+            this._onSelect = onSelect;
             this.SetAvailable(isAvailable);
-            this._isSelected = false;
             this.label.text = actionType.GetName();
         }
 
-        public void SetSelected(bool isSelected) {
-            this._isSelected = isSelected;
-            this._button.image.sprite = this._isSelected ? this.selectedButtonImage : this.GetAvailableButtonImage();
-        }
+        public void SetSelected(bool isSelected) => this.highLight.gameObject.SetActive(isSelected);
 
         public void SetAvailable(bool isAvailable) {
             this.IsAvailable = isAvailable;
             this._button.onClick.RemoveAllListeners();
-            this._button.image.sprite = this.GetAvailableButtonImage();
+            Color color = this._button.image.color;
+            color.a = isAvailable ? 1f : 0.4f;
+            this._button.image.color = color;
             if (isAvailable) {
                 this._button.onClick.AddListener(() => this._onClick(this.ActionType));
             }
         }
 
-        private Sprite GetAvailableButtonImage() =>
-            this.IsAvailable ? this.defaultButtonImage : this.disabledButtonImage;
+        public void OnPointerEnter(PointerEventData eventData) {
+            if (this.IsAvailable) {
+                this._onSelect.Invoke();
+            }
+        }
+
     }
 }
