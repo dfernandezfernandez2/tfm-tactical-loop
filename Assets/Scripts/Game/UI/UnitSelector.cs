@@ -16,8 +16,6 @@ namespace Game.UI {
 
         private void Awake() => this._image = this.GetComponent<Image>();
 
-        private void Start() => this.DoUnSelect();
-
         public void OnPointerClick(PointerEventData eventData) => this.ConfirmSelect();
 
         public void OnPointerEnter(PointerEventData eventData) => this.Select();

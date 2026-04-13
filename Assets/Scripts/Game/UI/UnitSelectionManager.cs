@@ -54,7 +54,12 @@ namespace Game.UI {
             this.BuildTeamUnits();
         }
 
-        private void Start() => this.OnSelect(this._currentUnitIndex);
+        private void Start() {
+            this.OnSelect(0);
+            for (int i = 1; i < this._availableUnits.Count; i++) {
+                this._availableUnits[i].UnitSelector.DoUnSelect();
+            }
+        }
 
         private void Update() {
             if (InputUtils.IsCancelSelected()) {
