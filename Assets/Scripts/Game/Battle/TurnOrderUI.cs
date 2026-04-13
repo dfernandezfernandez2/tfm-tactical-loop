@@ -4,6 +4,7 @@ namespace Game.Battle {
     using UnityEngine;
 
     public class TurnOrderUI : MonoBehaviour {
+        [SerializeField] private GameObject turnOrderPanelView;
         [SerializeField] private GameObject turnOrderPanel;
         [SerializeField] private OrderUnitUI orderUnitUIPrefab;
 
@@ -11,7 +12,7 @@ namespace Game.Battle {
         private readonly List<OrderUnitUI> _unitsUI = new();
         private int _currentTurnIndex;
 
-        private void Awake() => this.turnOrderPanel.SetActive(false);
+        private void Awake() => this.turnOrderPanelView.SetActive(false);
 
         public void Reset() {
             this._currentTurnIndex = 0;
@@ -28,7 +29,7 @@ namespace Game.Battle {
                 this._unitsUI.Add(orderUnitUI);
             }
 
-            this.turnOrderPanel.SetActive(true);
+            this.turnOrderPanelView.SetActive(true);
         }
 
         public void UpdateCurrentTurn(int turn) {

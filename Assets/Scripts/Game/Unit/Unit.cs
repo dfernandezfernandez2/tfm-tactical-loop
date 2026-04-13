@@ -1,4 +1,6 @@
 ﻿namespace Game.Unit {
+    using System.Collections.Generic;
+    using System.Linq;
     using global::Unit.Data;
     using Map.Battle;
     using UnityEngine;
@@ -80,5 +82,7 @@
         public int GetAttackRange() => (int)this._stats[StatType.Range].Current;
 
         public float GetSpeed() => this._stats[StatType.Speed].Current;
+
+        public List<KeyValuePair<StatType, float>> GetCurrentStats(params StatType[] filter) => filter.Select(t => new KeyValuePair<StatType, float>(t, this._stats[t].Current)).ToList();
     }
 }

@@ -1,30 +1,20 @@
 namespace Game.Battle {
-    using TMPro;
+    using Core;
     using Unit;
     using UnityEngine;
+    using UnityEngine.UI;
 
     public class OrderUnitUI : MonoBehaviour {
-        [SerializeField] private TMP_Text labelText;
-        private bool _isSelected;
+        [SerializeField] private Image highlightImage;
+        [SerializeField] private Image unitImage;
+        [SerializeField] private Image unitBorderImage;
 
-        private UnitObject _unitObject;
-
-        private void Update() {
-            this.labelText.text = this._unitObject?.GetName() ?? "";
-            if (this._unitObject != null) {
-                this.labelText.text += " team " + this._unitObject.GetTeam().GetBattleTeam();
-            }
-
-            if (this._unitObject?.GetUnit()?.IsDead() ?? true) {
-                this.labelText.text += " - dead";
-            }
-
-            if (this._isSelected) {
-                this.labelText.text += " - selected";
-            }
+        public void SetUnit(UnitObject unit) {
+            this.unitImage.sprite = unit.GetSprite();
+            this.unitBorderImage.color = unit.GetTeam().GetBattleTeam().GetColor();
+            this.SetSelected(false);
         }
 
-        public void SetUnit(UnitObject unit) => this._unitObject = unit;
-        public bool SetSelected(bool isSelected) => this._isSelected = isSelected;
+        public void SetSelected(bool isSelected) => this.highlightImage.gameObject.SetActive(isSelected);
     }
 }

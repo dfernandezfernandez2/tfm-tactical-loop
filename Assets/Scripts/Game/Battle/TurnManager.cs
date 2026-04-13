@@ -14,6 +14,7 @@ namespace Game.Battle {
 
     public class TurnManager : MonoBehaviour, IBattleContext {
         [SerializeField] private UnitActionPanelUI unitActionPanelUI;
+        [SerializeField] private UnitInfoPanelUI unitInfoPanelUI;
         [SerializeField] private BattleMapManager battleMapManager;
         [SerializeField] private UserSelectionManager userSelectionManager;
         [SerializeField] private TurnOrderUI turnOrderUI;
@@ -122,6 +123,7 @@ namespace Game.Battle {
             this._unitsTurnOrder[this._unitsTurnOrderIndex].GetUnit().RestoreAp();
             this._unitTurnState = new UnitTurnState(this._unitsTurnOrder[this._unitsTurnOrderIndex]);
             this.turnOrderUI.UpdateCurrentTurn(this._unitsTurnOrderIndex);
+            this.unitInfoPanelUI.SetUnitInfo(this._unitsTurnOrder[this._unitsTurnOrderIndex]);
             // pendiente aqui de ver si es enemigo o jugador
             this.unitActionPanelUI.Show();
             yield return null;
