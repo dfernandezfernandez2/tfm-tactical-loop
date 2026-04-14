@@ -54,7 +54,12 @@ namespace Game.UI {
             this.BuildTeamUnits();
         }
 
-        private void Start() => this.OnSelect(this._currentUnitIndex);
+        private void Start() {
+            this.OnSelect(0);
+            for (int i = 1; i < this._availableUnits.Count; i++) {
+                this._availableUnits[i].UnitSelector.DoUnSelect();
+            }
+        }
 
         private void Update() {
             if (InputUtils.IsCancelSelected()) {
@@ -148,7 +153,7 @@ namespace Game.UI {
             this._unitSelectedStats.Clear();
             foreach ((StatType type, float value) in unitObject.GetStats()) {
                 TMP_Text text = Instantiate(this.statTextPrefab, this.unitStatsPanel.transform);
-                text.text = type + ": " + value.ToString("0.##");
+                text.text = type + ": " + FormatValue(value);
                 this._unitSelectedStats.Add(text);
             }
         }
@@ -161,5 +166,10 @@ namespace Game.UI {
             this._currentTeamIndex--;
             this._units[this._currentTeamIndex].SetUnit(null);
         }
+
+        private static string FormatValue(float value) =>
+            value % 1 != 0
+                ? (value * 100).ToString("0.##") + "%"
+                : value.ToString("0");
     }
 }

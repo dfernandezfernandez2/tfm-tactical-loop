@@ -51,10 +51,13 @@ namespace Game.Battle.UI {
 
         private void BuildButtons() {
             this.ClearButtons();
-            foreach (ActionType actionType in Enum.GetValues(typeof(ActionType))) {
+            Array actionsType = Enum.GetValues(typeof(ActionType));
+            for (int i = 0; i < actionsType.Length; i++) {
+                ActionType actionType = (ActionType)actionsType.GetValue(i);
                 UnitActionButtonUI button = Instantiate(this.buttonPrefab, this.unitActionButtonContainer);
                 bool canDoAction = this.turnManager.CanDoAction(actionType);
-                button.Init(actionType, type => this.turnManager.DoAction(type), canDoAction);
+                int index = i;
+                button.Init(actionType, type => this.turnManager.DoAction(type), () => this.SetSelectedIndex(index), canDoAction);
                 this._buttons.Add(button);
             }
         }

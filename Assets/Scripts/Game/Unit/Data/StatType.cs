@@ -31,5 +31,17 @@
                 StatType.Speed => 1f,
                 _ => 0f
             };
+
+        public static string GetName(this StatType statType) =>
+            statType switch {
+                StatType.Movement => "Mov",
+                StatType.Accuracy => "Acc",
+                StatType.Evasion => "Ev",
+                StatType.CritChance => "CC",
+                StatType.Range => "Range",
+                StatType.Speed => "Sp",
+                StatType.MpRegen => "Mp+",
+                _ => statType.ToString()
+            };
     }
 }

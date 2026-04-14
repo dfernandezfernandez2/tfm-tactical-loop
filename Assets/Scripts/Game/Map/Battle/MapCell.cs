@@ -16,5 +16,7 @@ namespace Game.Map.Battle {
         public void ClearOccupantUnit() => this._occupantUnit = null;
         public void HighlightCell(HighlightColor color) => this._tileData?.TileView.Highlight(color);
         public void UnHighlightCell() => this._tileData?.TileView.Unhighlight();
+        public void Select() => this._tileData?.TileView.Select();
+        public void UnSelect() => this._tileData?.TileView.UnSelect();
     }
 }

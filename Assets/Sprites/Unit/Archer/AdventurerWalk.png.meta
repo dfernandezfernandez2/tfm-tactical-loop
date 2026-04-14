@@ -1,0 +1,1783 @@
+fileFormatVersion: 2
+guid: f748f951c02c2454486adc71dadde4a1
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7662778373243875551
+    second: AdventurerWalk64x64_0
+  - first:
+      213: 8776727035060743721
+    second: AdventurerWalk64x64_1
+  - first:
+      213: 8977399919814285739
+    second: AdventurerWalk64x64_2
+  - first:
+      213: -5918702155510311107
+    second: AdventurerWalk64x64_3
+  - first:
+      213: 2058090722595300045
+    second: AdventurerWalk64x64_4
+  - first:
+      213: 1138452871797041573
+    second: AdventurerWalk64x64_5
+  - first:
+      213: -1987045545643991838
+    second: AdventurerWalk64x64_6
+  - first:
+      213: -8199341412866078888
+    second: AdventurerWalk64x64_7
+  - first:
+      213: -7639090639148401072
+    second: AdventurerWalk64x64_8
+  - first:
+      213: 6618008498295319412
+    second: AdventurerWalk64x64_9
+  - first:
+      213: 3388913707290106697
+    second: AdventurerWalk64x64_10
+  - first:
+      213: -1146330445246654411
+    second: AdventurerWalk64x64_11
+  - first:
+      213: -6472320295782901270
+    second: AdventurerWalk64x64_12
+  - first:
+      213: -5946133869615071327
+    second: AdventurerWalk64x64_13
+  - first:
+      213: -5093293843429280396
+    second: AdventurerWalk64x64_14
+  - first:
+      213: 3669826478315823011
+    second: AdventurerWalk64x64_15
+  - first:
+      213: 3089968287396999848
+    second: AdventurerWalk64x64_16
+  - first:
+      213: 8153136395393848490
+    second: AdventurerWalk64x64_17
+  - first:
+      213: 4989996409678310870
+    second: AdventurerWalk64x64_18
+  - first:
+      213: 200142944085761191
+    second: AdventurerWalk64x64_19
+  - first:
+      213: 9131082229108090137
+    second: AdventurerWalk64x64_20
+  - first:
+      213: -7880272165895128401
+    second: AdventurerWalk64x64_21
+  - first:
+      213: -2701706959665539427
+    second: AdventurerWalk64x64_22
+  - first:
+      213: 5870392693568411261
+    second: AdventurerWalk64x64_23
+  - first:
+      213: 9007867228685501313
+    second: AdventurerWalk64x64_24
+  - first:
+      213: -2957684419431640198
+    second: AdventurerWalk64x64_25
+  - first:
+      213: 8259751667012934093
+    second: AdventurerWalk64x64_26
+  - first:
+      213: 1011125147268558344
+    second: AdventurerWalk64x64_27
+  - first:
+      213: 2910702066445499354
+    second: AdventurerWalk64x64_28
+  - first:
+      213: 282920692602975478
+    second: AdventurerWalk64x64_29
+  - first:
+      213: -4652453629026285840
+    second: AdventurerWalk64x64_30
+  - first:
+      213: 5308210146674806432
+    second: AdventurerWalk64x64_31
+  - first:
+      213: -8553100591861683808
+    second: AdventurerWalk64x64_32
+  - first:
+      213: -5219849834323313198
+    second: AdventurerWalk64x64_33
+  - first:
+      213: -2508586409733908039
+    second: AdventurerWalk64x64_34
+  - first:
+      213: 4587270224380351667
+    second: AdventurerWalk64x64_35
+  - first:
+      213: 4478073531888149928
+    second: AdventurerWalk64x64_36
+  - first:
+      213: -65785149524343683
+    second: AdventurerWalk64x64_37
+  - first:
+      213: 7778607938305099638
+    second: AdventurerWalk64x64_38
+  - first:
+      213: 8229454141478120725
+    second: AdventurerWalk64x64_39
+  - first:
+      213: -7056856857523427427
+    second: AdventurerWalk64x64_40
+  - first:
+      213: -2887725047324537900
+    second: AdventurerWalk64x64_41
+  - first:
+      213: 314528985126964825
+    second: AdventurerWalk64x64_42
+  - first:
+      213: 7503161222437069145
+    second: AdventurerWalk64x64_43
+  - first:
+      213: 3845726423264852319
+    second: AdventurerWalk64x64_44
+  - first:
+      213: -2969235707883694541
+    second: AdventurerWalk64x64_45
+  - first:
+      213: 4852338584261983679
+    second: AdventurerWalk64x64_46
+  - first:
+      213: 2492819944700135352
+    second: AdventurerWalk64x64_47
+  - first:
+      213: 4303307076892227286
+    second: AdventurerWalk64x64_48
+  - first:
+      213: -5296151735695487515
+    second: AdventurerWalk64x64_49
+  - first:
+      213: -4706212245487542400
+    second: AdventurerWalk64x64_50
+  - first:
+      213: -3222632751952566411
+    second: AdventurerWalk64x64_51
+  - first:
+      213: -7215517844037059058
+    second: AdventurerWalk64x64_52
+  - first:
+      213: -1744819999507675452
+    second: AdventurerWalk64x64_53
+  - first:
+      213: -122835332822874078
+    second: AdventurerWalk64x64_54
+  - first:
+      213: 2863756235566095552
+    second: AdventurerWalk64x64_55
+  - first:
+      213: -4048474912935242324
+    second: AdventurerWalk64x64_56
+  - first:
+      213: -7063094682326776366
+    second: AdventurerWalk64x64_57
+  - first:
+      213: -3466328353114973198
+    second: AdventurerWalk64x64_58
+  - first:
+      213: 2520072491314822571
+    second: AdventurerWalk64x64_59
+  - first:
+      213: -2530454908204169665
+    second: AdventurerWalk64x64_60
+  - first:
+      213: 8480692945429175330
+    second: AdventurerWalk64x64_61
+  - first:
+      213: -2987141937499955236
+    second: AdventurerWalk64x64_62
+  - first:
+      213: -19598604282223291
+    second: AdventurerWalk64x64_63
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_0
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 462
+        width: 21
+        height: 37
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12fc04e2ba758a590800000000000000
+      internalID: -7662778373243875551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_1
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 461
+        width: 20
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92eec5fbcb23dc970800000000000000
+      internalID: 8776727035060743721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_2
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 461
+        width: 21
+        height: 37
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba9962ba9a1269c70800000000000000
+      internalID: 8977399919814285739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_3
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 461
+        width: 21
+        height: 38
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3718798fbb8cdda0800000000000000
+      internalID: -5918702155510311107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_4
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 461
+        width: 23
+        height: 37
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc2e1d3ab9ecf8c10800000000000000
+      internalID: 2058090722595300045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_5
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 463
+        width: 22
+        height: 34
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a96cf8ead89ccf00800000000000000
+      internalID: 1138452871797041573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_6
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 463
+        width: 19
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ec1e53aa989c64e0800000000000000
+      internalID: -1987045545643991838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_7
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 462
+        width: 20
+        height: 38
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 857c7fd4d66163e80800000000000000
+      internalID: -8199341412866078888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_8
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 397
+        width: 18
+        height: 37
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05e3c8e898f7cf590800000000000000
+      internalID: -7639090639148401072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_9
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 397
+        width: 20
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47ba86d5aa3e7db50800000000000000
+      internalID: 6618008498295319412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_10
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 397
+        width: 16
+        height: 37
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94b9a71cf07d70f20800000000000000
+      internalID: 3388913707290106697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_11
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 397
+        width: 17
+        height: 38
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5389bd7988a6710f0800000000000000
+      internalID: -1146330445246654411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_12
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 397
+        width: 18
+        height: 37
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae91f499bf2bd26a0800000000000000
+      internalID: -6472320295782901270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_13
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 397
+        width: 20
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1afbca2efb61b7da0800000000000000
+      internalID: -5946133869615071327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_14
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 399
+        width: 16
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 475b6bd1c3cf059b0800000000000000
+      internalID: -5093293843429280396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_15
+      rect:
+        serializedVersion: 2
+        x: 473
+        y: 399
+        width: 16
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3af565b0db7dde230800000000000000
+      internalID: 3669826478315823011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_16
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 335
+        width: 18
+        height: 37
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a2358939c5c1ea20800000000000000
+      internalID: 3089968287396999848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_17
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 334
+        width: 20
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa452ccba52c52170800000000000000
+      internalID: 8153136395393848490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_18
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 334
+        width: 19
+        height: 38
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6dda955eb47004540800000000000000
+      internalID: 4989996409678310870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_19
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 334
+        width: 19
+        height: 39
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ac588e72fc07c200800000000000000
+      internalID: 200142944085761191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_20
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 333
+        width: 20
+        height: 39
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 915aed8a8ee18be70800000000000000
+      internalID: 9131082229108090137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_21
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 334
+        width: 20
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: faa3c627736a3a290800000000000000
+      internalID: -7880272165895128401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_22
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 334
+        width: 19
+        height: 39
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d965fed95db918ad0800000000000000
+      internalID: -2701706959665539427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_23
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 336
+        width: 16
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7691385d03d77150800000000000000
+      internalID: 5870392693568411261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_24
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 268
+        width: 20
+        height: 40
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1838eadc48f520d70800000000000000
+      internalID: 9007867228685501313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_25
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 268
+        width: 20
+        height: 38
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a73d116e0b134f6d0800000000000000
+      internalID: -2957684419431640198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_26
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 269
+        width: 21
+        height: 39
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc91f3d016880a270800000000000000
+      internalID: 8259751667012934093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_27
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 269
+        width: 21
+        height: 40
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80e286ad6fc380e00800000000000000
+      internalID: 1011125147268558344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_28
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 268
+        width: 21
+        height: 40
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adbba7d9b14e46820800000000000000
+      internalID: 2910702066445499354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_29
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 267
+        width: 21
+        height: 39
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f43536fed22de300800000000000000
+      internalID: 282920692602975478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_30
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 269
+        width: 21
+        height: 39
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f649ebf21a2f6fb0800000000000000
+      internalID: -4652453629026285840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_31
+      rect:
+        serializedVersion: 2
+        x: 470
+        y: 270
+        width: 21
+        height: 39
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ae0da9110d8aa940800000000000000
+      internalID: 5308210146674806432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_32
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 207
+        width: 17
+        height: 37
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a9a6e5f3584d4980800000000000000
+      internalID: -8553100591861683808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_33
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 206
+        width: 20
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ddf64c4b3e5f87b0800000000000000
+      internalID: -5219849834323313198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_34
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 206
+        width: 19
+        height: 38
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b9107f83f5bf2dd0800000000000000
+      internalID: -2508586409733908039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_35
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 206
+        width: 19
+        height: 39
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b4dae4f6f149af30800000000000000
+      internalID: 4587270224380351667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_36
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 205
+        width: 20
+        height: 39
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a5a542c620552e30800000000000000
+      internalID: 4478073531888149928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_37
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 206
+        width: 20
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d740b1b41c8461ff0800000000000000
+      internalID: -65785149524343683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_38
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 206
+        width: 19
+        height: 39
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67785b105ba23fb60800000000000000
+      internalID: 7778607938305099638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_39
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 208
+        width: 17
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51dab2ea0f4e43270800000000000000
+      internalID: 8229454141478120725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_40
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 141
+        width: 18
+        height: 37
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d976980b312011e90800000000000000
+      internalID: -7056856857523427427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_41
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 141
+        width: 20
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4db09398e5dbce7d0800000000000000
+      internalID: -2887725047324537900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_42
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 141
+        width: 15
+        height: 37
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95e8e0e027e6d5400800000000000000
+      internalID: 314528985126964825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_43
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 141
+        width: 16
+        height: 38
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 951e8dbd065902860800000000000000
+      internalID: 7503161222437069145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_44
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 141
+        width: 18
+        height: 37
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f59f8027ec3ce5530800000000000000
+      internalID: 3845726423264852319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_45
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 141
+        width: 20
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 336df29fad72bc6d0800000000000000
+      internalID: -2969235707883694541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_46
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 143
+        width: 15
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbd7bdccb38f65340800000000000000
+      internalID: 4852338584261983679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_47
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 143
+        width: 15
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b74cdc3886489220800000000000000
+      internalID: 2492819944700135352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_48
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 78
+        width: 20
+        height: 37
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d6f59d8cfa68bb30800000000000000
+      internalID: 4303307076892227286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_49
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 77
+        width: 18
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ed4d4d7e0a4086b0800000000000000
+      internalID: -5296151735695487515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_50
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 77
+        width: 19
+        height: 37
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08f1f16b5ec20beb0800000000000000
+      internalID: -4706212245487542400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_51
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 77
+        width: 19
+        height: 38
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 577e35a1698e643d0800000000000000
+      internalID: -3222632751952566411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_52
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 77
+        width: 21
+        height: 37
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0ebda310c45ddb90800000000000000
+      internalID: -7215517844037059058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_53
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 79
+        width: 20
+        height: 34
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c60954747729c7e0800000000000000
+      internalID: -1744819999507675452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_54
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 79
+        width: 17
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 228c9356ae99b4ef0800000000000000
+      internalID: -122835332822874078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_55
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 78
+        width: 18
+        height: 38
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cc1a389f1b1eb720800000000000000
+      internalID: 2863756235566095552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_56
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 12
+        width: 22
+        height: 38
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca51a64348de0d7c0800000000000000
+      internalID: -4048474912935242324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_57
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 11
+        width: 22
+        height: 37
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d546fceec8dafd90800000000000000
+      internalID: -7063094682326776366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_58
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 13
+        width: 21
+        height: 37
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fb97bd6ab025efc0800000000000000
+      internalID: -3466328353114973198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_59
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 12
+        width: 20
+        height: 39
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: badbd05349819f220800000000000000
+      internalID: 2520072491314822571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_60
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 12
+        width: 21
+        height: 38
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f36c85cfaa402ecd0800000000000000
+      internalID: -2530454908204169665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_61
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 11
+        width: 21
+        height: 37
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22c977d1d4971b570800000000000000
+      internalID: 8480692945429175330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_62
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 13
+        width: 22
+        height: 37
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdf94a10c3a8b86d0800000000000000
+      internalID: -2987141937499955236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerWalk64x64_63
+      rect:
+        serializedVersion: 2
+        x: 470
+        y: 12
+        width: 22
+        height: 39
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5452aa95c2f5abff0800000000000000
+      internalID: -19598604282223291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: e91f619758d1c8d4fb92e84880514b97
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      AdventurerWalk64x64_0: -7662778373243875551
+      AdventurerWalk64x64_1: 8776727035060743721
+      AdventurerWalk64x64_10: 3388913707290106697
+      AdventurerWalk64x64_11: -1146330445246654411
+      AdventurerWalk64x64_12: -6472320295782901270
+      AdventurerWalk64x64_13: -5946133869615071327
+      AdventurerWalk64x64_14: -5093293843429280396
+      AdventurerWalk64x64_15: 3669826478315823011
+      AdventurerWalk64x64_16: 3089968287396999848
+      AdventurerWalk64x64_17: 8153136395393848490
+      AdventurerWalk64x64_18: 4989996409678310870
+      AdventurerWalk64x64_19: 200142944085761191
+      AdventurerWalk64x64_2: 8977399919814285739
+      AdventurerWalk64x64_20: 9131082229108090137
+      AdventurerWalk64x64_21: -7880272165895128401
+      AdventurerWalk64x64_22: -2701706959665539427
+      AdventurerWalk64x64_23: 5870392693568411261
+      AdventurerWalk64x64_24: 9007867228685501313
+      AdventurerWalk64x64_25: -2957684419431640198
+      AdventurerWalk64x64_26: 8259751667012934093
+      AdventurerWalk64x64_27: 1011125147268558344
+      AdventurerWalk64x64_28: 2910702066445499354
+      AdventurerWalk64x64_29: 282920692602975478
+      AdventurerWalk64x64_3: -5918702155510311107
+      AdventurerWalk64x64_30: -4652453629026285840
+      AdventurerWalk64x64_31: 5308210146674806432
+      AdventurerWalk64x64_32: -8553100591861683808
+      AdventurerWalk64x64_33: -5219849834323313198
+      AdventurerWalk64x64_34: -2508586409733908039
+      AdventurerWalk64x64_35: 4587270224380351667
+      AdventurerWalk64x64_36: 4478073531888149928
+      AdventurerWalk64x64_37: -65785149524343683
+      AdventurerWalk64x64_38: 7778607938305099638
+      AdventurerWalk64x64_39: 8229454141478120725
+      AdventurerWalk64x64_4: 2058090722595300045
+      AdventurerWalk64x64_40: -7056856857523427427
+      AdventurerWalk64x64_41: -2887725047324537900
+      AdventurerWalk64x64_42: 314528985126964825
+      AdventurerWalk64x64_43: 7503161222437069145
+      AdventurerWalk64x64_44: 3845726423264852319
+      AdventurerWalk64x64_45: -2969235707883694541
+      AdventurerWalk64x64_46: 4852338584261983679
+      AdventurerWalk64x64_47: 2492819944700135352
+      AdventurerWalk64x64_48: 4303307076892227286
+      AdventurerWalk64x64_49: -5296151735695487515
+      AdventurerWalk64x64_5: 1138452871797041573
+      AdventurerWalk64x64_50: -4706212245487542400
+      AdventurerWalk64x64_51: -3222632751952566411
+      AdventurerWalk64x64_52: -7215517844037059058
+      AdventurerWalk64x64_53: -1744819999507675452
+      AdventurerWalk64x64_54: -122835332822874078
+      AdventurerWalk64x64_55: 2863756235566095552
+      AdventurerWalk64x64_56: -4048474912935242324
+      AdventurerWalk64x64_57: -7063094682326776366
+      AdventurerWalk64x64_58: -3466328353114973198
+      AdventurerWalk64x64_59: 2520072491314822571
+      AdventurerWalk64x64_6: -1987045545643991838
+      AdventurerWalk64x64_60: -2530454908204169665
+      AdventurerWalk64x64_61: 8480692945429175330
+      AdventurerWalk64x64_62: -2987141937499955236
+      AdventurerWalk64x64_63: -19598604282223291
+      AdventurerWalk64x64_7: -8199341412866078888
+      AdventurerWalk64x64_8: -7639090639148401072
+      AdventurerWalk64x64_9: 6618008498295319412
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

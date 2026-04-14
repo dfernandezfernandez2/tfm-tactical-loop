@@ -31,7 +31,6 @@ namespace Game.Map.Battle {
             GridPosition unitPosition = unitObject.GetUnit().GetGridPosition();
             MapCell cell = this._cells.GetValueOrDefault(unitPosition);
             cell.ClearOccupantUnit();
-            UnHighlightCell(cell);
         }
 
         public void HighlightUnits() {
@@ -40,7 +39,13 @@ namespace Game.Map.Battle {
             }
         }
 
-        public void UnitMove(GridPosition from, GridPosition to) {
+        public void UnHighlightUnits() {
+            foreach (MapCell cell in this._cells.Values.Where(cell => cell.GetOccupantUnit() != null)) {
+                UnHighlightCell(cell);
+            }
+        }
+
+        public void UnitMove(GridPosition from, GridPosition to, bool select) {
             MapCell cell = this._cells.GetValueOrDefault(from);
             MapCell toCell = this._cells.GetValueOrDefault(to);
             UnitObject unitObject = cell.GetOccupantUnit();
@@ -48,7 +53,17 @@ namespace Game.Map.Battle {
             UnHighlightCell(cell);
             toCell.SetOccupantUnit(unitObject);
             HighlightUnitCell(toCell);
+            if (select) {
+                toCell.Select();
+            }
         }
+
+        public void Highlight(GridPosition position, HighlightColor color) => this._cells.GetValueOrDefault(position).HighlightCell(color);
+
+        public void UnHighlight(GridPosition position) => this._cells.GetValueOrDefault(position).UnHighlightCell();
+
+        public void Select(GridPosition position) => this._cells.GetValueOrDefault(position).Select();
+        public void UnSelect(GridPosition position) => this._cells.GetValueOrDefault(position).UnSelect();
 
         private static void HighlightUnitCell(MapCell cell) => cell.HighlightCell(
             cell.GetOccupantUnit().GetTeam().GetBattleTeam() == BattleTeam.Player

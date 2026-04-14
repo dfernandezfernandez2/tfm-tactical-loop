@@ -24,5 +24,10 @@ namespace Game.Core {
         public static bool IsDownSelected() => Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S);
 
         public static Vector3 GetClickPosition() => Input.mousePosition;
+
+        public static bool IsSwapNextSelected() => Input.GetKeyDown(KeyCode.E) || Input.mouseScrollDelta.y > 0.5f;
+
+        public static bool IsSwapPreviousSelected() => Input.GetKeyDown(KeyCode.Q) || Input.mouseScrollDelta.y < -0.5f;
+
     }
 }

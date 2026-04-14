@@ -1,4 +1,6 @@
 ﻿namespace Game.Unit {
+    using System.Collections.Generic;
+    using System.Linq;
     using global::Unit.Data;
     using Map.Battle;
     using UnityEngine;
@@ -7,10 +9,14 @@
     public class Unit {
         private readonly Stats _stats;
         private GridPosition _gridPosition;
+        private Vector2Int _direction;
 
         public Unit(Stats stats) => this._stats = stats;
 
-        public void Move(GridPosition gridPosition) => this._gridPosition = gridPosition;
+        public void Move(GridPosition gridPosition, Vector2Int direction) {
+            this._gridPosition = gridPosition;
+            this._direction = direction;
+        }
 
         public AttackResult DoBasicAttack(Unit objective) {
             if (objective == null) {
@@ -80,5 +86,9 @@
         public int GetAttackRange() => (int)this._stats[StatType.Range].Current;
 
         public float GetSpeed() => this._stats[StatType.Speed].Current;
+
+        public List<KeyValuePair<StatType, float>> GetCurrentStats(params StatType[] filter) => filter.Select(t => new KeyValuePair<StatType, float>(t, this._stats[t].Current)).ToList();
+
+        public void UpdateDirection(Vector2Int direction) => this._direction = direction;
     }
 }

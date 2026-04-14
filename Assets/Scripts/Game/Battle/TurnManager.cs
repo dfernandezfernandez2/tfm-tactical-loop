@@ -14,6 +14,7 @@ namespace Game.Battle {
 
     public class TurnManager : MonoBehaviour, IBattleContext {
         [SerializeField] private UnitActionPanelUI unitActionPanelUI;
+        [SerializeField] private UnitInfoPanelUI unitInfoPanelUI;
         [SerializeField] private BattleMapManager battleMapManager;
         [SerializeField] private UserSelectionManager userSelectionManager;
         [SerializeField] private TurnOrderUI turnOrderUI;
@@ -98,7 +99,7 @@ namespace Game.Battle {
             IReadOnlyList<GridPosition> path =
                 this.battleMapManager.FindPath(currentUnitGridPosition, target);
             yield return this.StartCoroutine(BattleSequenceExecutor.ExecuteMovement(
-                this._unitsTurnOrder[this._unitsTurnOrderIndex], path, this.battleMapManager.UnitMove));
+                this._unitsTurnOrder[this._unitsTurnOrderIndex], path, ((position, gridPosition) => this.battleMapManager.UnitMove(position, gridPosition, true))));
 
             this.unitActionPanelUI.Show();
         }
@@ -106,7 +107,7 @@ namespace Game.Battle {
         private IEnumerator HandleAttackSelected(GridPosition target) {
             UnitObject targetUnit = this.battleMapManager.GetUnit(target);
             yield return this.StartCoroutine(
-                BattleSequenceExecutor.ExecuteBasicAttack(this._unitsTurnOrder[this._unitsTurnOrderIndex], targetUnit)
+                BattleSequenceExecutor.ExecuteBasicAttack(this._unitsTurnOrder[this._unitsTurnOrderIndex], targetUnit, target)
             );
             this.unitActionPanelUI.Show();
         }
@@ -118,10 +119,13 @@ namespace Game.Battle {
 
         private IEnumerator StartTurn() {
             this.unitActionPanelUI.Hide();
+            this.battleMapManager.UnSelect(this._unitsTurnOrder[Math.Max(this._unitsTurnOrderIndex, 0)].GetUnit().GetGridPosition());
             this._unitsTurnOrderIndex = this.GetNextUnitTurnOrderIndex(this._unitsTurnOrderIndex);
             this._unitsTurnOrder[this._unitsTurnOrderIndex].GetUnit().RestoreAp();
             this._unitTurnState = new UnitTurnState(this._unitsTurnOrder[this._unitsTurnOrderIndex]);
             this.turnOrderUI.UpdateCurrentTurn(this._unitsTurnOrderIndex);
+            this.unitInfoPanelUI.SetUnitInfo(this._unitsTurnOrder[this._unitsTurnOrderIndex]);
+            this.battleMapManager.Select(this._unitsTurnOrder[this._unitsTurnOrderIndex].GetUnit().GetGridPosition());
             // pendiente aqui de ver si es enemigo o jugador
             this.unitActionPanelUI.Show();
             yield return null;
