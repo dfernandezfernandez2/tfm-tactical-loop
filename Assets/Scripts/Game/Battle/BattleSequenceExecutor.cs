@@ -11,8 +11,8 @@ namespace Game.Battle {
             yield return unit.StartCoroutine(unit.MoveOnPath(path, onMove));
         }
 
-        public static IEnumerator ExecuteBasicAttack(UnitObject attacker, UnitObject target) {
-            yield return attacker.PlayBasicAttack();
+        public static IEnumerator ExecuteBasicAttack(UnitObject attacker, UnitObject target, GridPosition targetPosition) {
+            yield return attacker.PlayBasicAttack(targetPosition);
             AttackResult result = attacker.GetUnit().DoBasicAttack(target?.GetUnit());
             if (!result.GetHit()) {
                 if (target != null && !result.IsTargetDead()) {

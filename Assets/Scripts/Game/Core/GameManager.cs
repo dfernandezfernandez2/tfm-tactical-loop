@@ -81,7 +81,7 @@
 
         private void SpawnUnit(UnitObject unitPrefab, GridPosition position, Team team) {
             UnitObject unit = Instantiate(unitPrefab);
-            unit.Init(position);
+            unit.Init(position, Vector2Int.down);
             team.AddUnit(unit);
             this.battleMapManager.InitUnit(unit);
         }

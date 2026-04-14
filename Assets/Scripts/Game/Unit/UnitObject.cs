@@ -2,6 +2,7 @@
     using System;
     using System.Collections;
     using System.Collections.Generic;
+    using System.Linq;
     using Battle.UI;
     using Core;
     using Data;
@@ -14,6 +15,19 @@
         Damage,
         Death,
         Dodge
+    }
+
+    internal readonly struct UnitLayer {
+        private readonly Dictionary<Vector2Int, int> _directionsLayers;
+
+        public UnitLayer(params KeyValuePair<int, Vector2Int>[] directionsLayers) {
+            this._directionsLayers = new Dictionary<Vector2Int, int>();
+            foreach (KeyValuePair<int, Vector2Int> directionsLayer in directionsLayers) {
+                this._directionsLayers.Add(directionsLayer.Value, directionsLayer.Key);
+            }
+        }
+
+        public List<KeyValuePair<int, float>> GetChangeLayer(Vector2Int direction) => this._directionsLayers.Select(keyValuePair => new KeyValuePair<int, float>(keyValuePair.Value, direction == keyValuePair.Key ? 1f : 0f)).ToList();
     }
 
     public static class AnimationTypeExtensions {
@@ -37,6 +51,7 @@
         private Animator _animator;
         private Team _team;
         private Unit _unit;
+        private UnitLayer _unitLayer;
 
         public void Awake() {
             this._animator = this.GetComponent<Animator>();
@@ -55,10 +70,17 @@
                 .With(StatType.Speed, this.data.speed)
                 .Build();
             this._unit = new Unit(stats);
+            this._unitLayer = new UnitLayer (
+                new KeyValuePair<int, Vector2Int>(this._animator.GetLayerIndex("Down"), Vector2Int.down),
+                new KeyValuePair<int, Vector2Int>(this._animator.GetLayerIndex("Up"), Vector2Int.up),
+                new KeyValuePair<int, Vector2Int>(this._animator.GetLayerIndex("Right"), Vector2Int.right),
+                new KeyValuePair<int, Vector2Int>(this._animator.GetLayerIndex("Left"), Vector2Int.left)
+            );
         }
 
-        public void Init(GridPosition gridPosition) {
-            this._unit.Move(gridPosition);
+        public void Init(GridPosition gridPosition, Vector2Int direction) {
+            this._unit.Move(gridPosition, direction);
+            this.UpdateDirection(direction);
             this.transform.position = this.worldRender.GridToWorld(gridPosition);
         }
 
@@ -67,15 +89,18 @@
         public IEnumerator MoveOnPath(IReadOnlyList<GridPosition> path, Action<GridPosition, GridPosition> onMove) {
             GridPosition currentPosition = this._unit.GetGridPosition();
             foreach (GridPosition pos in path) {
-                this._unit.Move(pos);
+                Vector2Int direction = currentPosition.GetDirectionTo(pos);
+                this.UpdateDirection(direction);
+                this._unit.Move(pos, direction);
                 Vector3 target = this.worldRender.GridToWorld(pos);
-                yield return this.StartCoroutine(this.MoveRoutine(target, () => onMove(currentPosition, pos)));
+                GridPosition position = currentPosition;
+                yield return this.StartCoroutine(this.MoveRoutine(target, () => onMove(position, pos)));
                 currentPosition = pos;
             }
         }
 
         private IEnumerator MoveRoutine(Vector3 target, Action onHalfMovement) {
-            const float speed = 4f;
+            const float speed = 2f;
             float time = 0f;
             Vector3 start = this.transform.position;
             float distance = Vector3.Distance(start, target);
@@ -107,7 +132,8 @@
 
         private int GetSignalVersion(string signalId) => this._signalCounters.GetValueOrDefault(signalId, 0);
 
-        public IEnumerator PlayBasicAttack() {
+        public IEnumerator PlayBasicAttack(GridPosition targetPosition) {
+            this.UpdateDirection(this._unit.GetGridPosition().GetDirectionTo(targetPosition));
             const AnimationType animationType = AnimationType.Attack;
             int endVersion = this.GetSignalVersion(animationType.GetAnimationEndName());
             this._animator.ResetTrigger(animationType.ToString());
@@ -175,6 +201,13 @@
                 new KeyValuePair<StatType, float>(StatType.Speed, this.data.speed)
             };
             return stats;
+        }
+
+        private void UpdateDirection(Vector2Int direction) {
+            foreach (KeyValuePair<int, float> keyValuePair in this._unitLayer.GetChangeLayer(direction)) {
+                this._animator.SetLayerWeight(keyValuePair.Key, keyValuePair.Value);
+            }
+            this._unit.UpdateDirection(direction);
         }
     }
 }

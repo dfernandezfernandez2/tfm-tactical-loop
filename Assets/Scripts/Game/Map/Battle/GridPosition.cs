@@ -11,6 +11,15 @@
         public Vector2Int Position { get; }
         public int Height { get; }
 
+        public Vector2Int GetDirectionTo(GridPosition target)
+        {
+            Vector2Int delta = target.Position - this.Position;
+            return new Vector2Int(
+                Math.Sign(delta.x),
+                Math.Sign(delta.y)
+            );
+        }
+
         private bool Equals(GridPosition other) => this.Position.Equals(other.Position) && this.Height == other.Height;
 
         public override bool Equals(object obj) {

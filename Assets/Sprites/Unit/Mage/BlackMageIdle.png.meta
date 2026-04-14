@@ -1,0 +1,535 @@
+fileFormatVersion: 2
+guid: 4161fad8900fbaa45bd097b4d9a951b5
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7505016164892404899
+    second: BlackMageIdle_0
+  - first:
+      213: 8834015703684448055
+    second: BlackMageIdle_1
+  - first:
+      213: 4674467300194826084
+    second: BlackMageIdle_2
+  - first:
+      213: -393844685161629692
+    second: BlackMageIdle_3
+  - first:
+      213: -324318820534290863
+    second: BlackMageIdle_4
+  - first:
+      213: 8872673206723917773
+    second: BlackMageIdle_5
+  - first:
+      213: -2536268540512694369
+    second: BlackMageIdle_6
+  - first:
+      213: -2145333037869981071
+    second: BlackMageIdle_7
+  - first:
+      213: -6462350745757689582
+    second: BlackMageIdle_8
+  - first:
+      213: -8141040797981783723
+    second: BlackMageIdle_9
+  - first:
+      213: 6504098347715899545
+    second: BlackMageIdle_10
+  - first:
+      213: -2115685358218615351
+    second: BlackMageIdle_11
+  - first:
+      213: 6114931184070142947
+    second: BlackMageIdle_12
+  - first:
+      213: 7832031314466062175
+    second: BlackMageIdle_13
+  - first:
+      213: 6885559346113269288
+    second: BlackMageIdle_14
+  - first:
+      213: -4757089762670665097
+    second: BlackMageIdle_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BlackMageIdle_0
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 208
+        width: 15
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ace9fd407c272860800000000000000
+      internalID: 7505016164892404899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlackMageIdle_1
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 208
+        width: 15
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73f75565a7ab89a70800000000000000
+      internalID: 8834015703684448055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlackMageIdle_2
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 208
+        width: 15
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 467ba4e3e3b0fd040800000000000000
+      internalID: 4674467300194826084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlackMageIdle_3
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 208
+        width: 15
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 408f3447858c88af0800000000000000
+      internalID: -393844685161629692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlackMageIdle_4
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 155
+        width: 17
+        height: 34
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 156741440c9cf7bf0800000000000000
+      internalID: -324318820534290863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlackMageIdle_5
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 156
+        width: 17
+        height: 34
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc7b7e6a541122b70800000000000000
+      internalID: 8872673206723917773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlackMageIdle_6
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 156
+        width: 17
+        height: 34
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9f0ebb333d5dccd0800000000000000
+      internalID: -2536268540512694369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlackMageIdle_7
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 156
+        width: 17
+        height: 34
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 172a9d0f7fe3a32e0800000000000000
+      internalID: -2145333037869981071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlackMageIdle_8
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 93
+        width: 16
+        height: 34
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 219d1295c3e1156a0800000000000000
+      internalID: -6462350745757689582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlackMageIdle_9
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 94
+        width: 16
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 559455ef686350f80800000000000000
+      internalID: -8141040797981783723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlackMageIdle_10
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 94
+        width: 16
+        height: 34
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 990bfcfacf2334a50800000000000000
+      internalID: 6504098347715899545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlackMageIdle_11
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 94
+        width: 16
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c562e6406393a2e0800000000000000
+      internalID: -2115685358218615351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlackMageIdle_12
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 31
+        width: 15
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3eba57c73899cd450800000000000000
+      internalID: 6114931184070142947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlackMageIdle_13
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 32
+        width: 15
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5f3c701cf6f0bc60800000000000000
+      internalID: 7832031314466062175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlackMageIdle_14
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 32
+        width: 15
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82ec3f87ebb6e8f50800000000000000
+      internalID: 6885559346113269288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlackMageIdle_15
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 32
+        width: 15
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7722e53a01c6bfdb0800000000000000
+      internalID: -4757089762670665097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 915d9879696d1fb4a9fd381a0a35d181
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      BlackMageIdle_0: 7505016164892404899
+      BlackMageIdle_1: 8834015703684448055
+      BlackMageIdle_10: 6504098347715899545
+      BlackMageIdle_11: -2115685358218615351
+      BlackMageIdle_12: 6114931184070142947
+      BlackMageIdle_13: 7832031314466062175
+      BlackMageIdle_14: 6885559346113269288
+      BlackMageIdle_15: -4757089762670665097
+      BlackMageIdle_2: 4674467300194826084
+      BlackMageIdle_3: -393844685161629692
+      BlackMageIdle_4: -324318820534290863
+      BlackMageIdle_5: 8872673206723917773
+      BlackMageIdle_6: -2536268540512694369
+      BlackMageIdle_7: -2145333037869981071
+      BlackMageIdle_8: -6462350745757689582
+      BlackMageIdle_9: -8141040797981783723
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

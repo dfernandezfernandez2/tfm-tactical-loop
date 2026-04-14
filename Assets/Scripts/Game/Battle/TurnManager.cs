@@ -107,7 +107,7 @@ namespace Game.Battle {
         private IEnumerator HandleAttackSelected(GridPosition target) {
             UnitObject targetUnit = this.battleMapManager.GetUnit(target);
             yield return this.StartCoroutine(
-                BattleSequenceExecutor.ExecuteBasicAttack(this._unitsTurnOrder[this._unitsTurnOrderIndex], targetUnit)
+                BattleSequenceExecutor.ExecuteBasicAttack(this._unitsTurnOrder[this._unitsTurnOrderIndex], targetUnit, target)
             );
             this.unitActionPanelUI.Show();
         }
