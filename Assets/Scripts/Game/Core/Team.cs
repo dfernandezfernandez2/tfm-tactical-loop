@@ -21,6 +21,11 @@ namespace Game.Core {
             this._unitObjects.Add(unitObject);
         }
 
+        public void RemoveUnit(UnitObject unitObject) {
+            unitObject.SetTeam(null);
+            this._unitObjects.Remove(unitObject);
+        }
+
         public IReadOnlyList<UnitObject> GetUnitObjects() => this._unitObjects.AsReadOnly();
         public BattleTeam GetBattleTeam() => this._battleTeam;
     }

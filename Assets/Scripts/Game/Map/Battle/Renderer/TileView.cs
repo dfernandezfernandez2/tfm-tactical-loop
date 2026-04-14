@@ -25,6 +25,9 @@ namespace Game.Map.Battle.Renderer {
         }
 
         public void Unhighlight() {
+            if (this._highlightStack.Count == 0) {
+                return;
+            }
             this._highlightStack.Pop();
             if (this._highlightStack.Count > 0) {
                 HighlightColor previous = this._highlightStack.Peek();
@@ -42,7 +45,7 @@ namespace Game.Map.Battle.Renderer {
                 HighlightColor.Red => new Color(1f, 0.0f, 0.0f, 1f),
                 HighlightColor.Green => new Color(0.4f, 1f, 0.2f, 1f),
                 HighlightColor.Yellow => Color.softYellow,
-                HighlightColor.Orange => Color.darkOrange,
+                HighlightColor.Orange => Color.pink,
                 _ => this._defaultColor
             };
             this.spriteRenderer.color = color;
@@ -53,6 +56,8 @@ namespace Game.Map.Battle.Renderer {
                 HighlightColor.Blue => new Color(0.0f, 0.0f, 1f, 1f),
                 HighlightColor.Red => new Color(0.7f, 0.0f, 0.0f, 1f),
                 HighlightColor.Green => Color.darkGreen,
+                HighlightColor.Yellow => Color.darkGoldenRod,
+                HighlightColor.Orange => Color.deepPink,
                 _ => this._defaultColor
             };
             this.spriteRenderer.color = color;

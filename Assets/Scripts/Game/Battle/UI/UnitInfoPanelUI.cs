@@ -25,6 +25,7 @@ namespace Game.Battle.UI {
             foreach (TMP_Text tmpText in this._unitStats) {
                 Destroy(tmpText.gameObject);
             }
+            this._unitStats.Clear();
             foreach ((StatType type, float value) in unitObject.GetUnit().GetCurrentStats(this._statsFilter)) {
                 TMP_Text text = Instantiate(this.statTextPrefab, this.unitStatsPanel.transform);
                 text.text = type.GetName() + ": " + FormatValue(value);

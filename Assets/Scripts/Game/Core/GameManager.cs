@@ -37,10 +37,11 @@
             this.InitMap(map);
             this.SpawnEnemies();
             this.unitPlacementController.Init(playerTeam, this.OnPlacementFinished, this.SpawnPlayerUnit,
-                this.DespawnUnit);
+                this.DespawnUnit, this.battleMapManager.Highlight, this.battleMapManager.UnHighlight);
         }
 
         private void OnPlacementFinished() {
+            this.battleMapManager.UnHighlightUnits();
             this.battleMapManager.HighlightUnits();
             this._turnManager.StartMap(this._playerTeam, this._enemyTeam);
         }
@@ -87,6 +88,7 @@
 
         private void DespawnUnit(GridPosition gridPosition) {
             UnitObject unitObject = this.battleMapManager.GetUnit(gridPosition);
+            this._playerTeam.RemoveUnit(unitObject);
             this.battleMapManager.DespawnUnit(unitObject);
             Destroy(unitObject.gameObject);
         }
