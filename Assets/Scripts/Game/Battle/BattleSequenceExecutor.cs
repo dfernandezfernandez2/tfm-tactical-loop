@@ -5,13 +5,14 @@ namespace Game.Battle {
     using Map.Battle;
     using Unit;
 
-    public static class BattleSequenceExecutor {
+    public class BattleSequenceExecutor {
         public static IEnumerator ExecuteMovement(UnitObject unit, IReadOnlyList<GridPosition> path,
             Action<GridPosition, GridPosition> onMove) {
             yield return unit.StartCoroutine(unit.MoveOnPath(path, onMove));
         }
 
-        public static IEnumerator ExecuteBasicAttack(UnitObject attacker, UnitObject target, GridPosition targetPosition) {
+        public static IEnumerator ExecuteBasicAttack(UnitObject attacker, UnitObject target,
+            GridPosition targetPosition) {
             yield return attacker.PlayBasicAttack(targetPosition);
             AttackResult result = attacker.GetUnit().DoBasicAttack(target?.GetUnit());
             if (!result.GetHit()) {

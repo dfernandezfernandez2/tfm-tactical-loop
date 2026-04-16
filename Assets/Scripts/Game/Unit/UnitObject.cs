@@ -27,7 +27,9 @@
             }
         }
 
-        public List<KeyValuePair<int, float>> GetChangeLayer(Vector2Int direction) => this._directionsLayers.Select(keyValuePair => new KeyValuePair<int, float>(keyValuePair.Value, direction == keyValuePair.Key ? 1f : 0f)).ToList();
+        public List<KeyValuePair<int, float>> GetChangeLayer(Vector2Int direction) => this._directionsLayers
+            .Select(keyValuePair =>
+                new KeyValuePair<int, float>(keyValuePair.Value, direction == keyValuePair.Key ? 1f : 0f)).ToList();
     }
 
     public static class AnimationTypeExtensions {
@@ -70,7 +72,7 @@
                 .With(StatType.Speed, this.data.speed)
                 .Build();
             this._unit = new Unit(stats);
-            this._unitLayer = new UnitLayer (
+            this._unitLayer = new UnitLayer(
                 new KeyValuePair<int, Vector2Int>(this._animator.GetLayerIndex("Down"), Vector2Int.down),
                 new KeyValuePair<int, Vector2Int>(this._animator.GetLayerIndex("Up"), Vector2Int.up),
                 new KeyValuePair<int, Vector2Int>(this._animator.GetLayerIndex("Right"), Vector2Int.right),
@@ -207,6 +209,7 @@
             foreach (KeyValuePair<int, float> keyValuePair in this._unitLayer.GetChangeLayer(direction)) {
                 this._animator.SetLayerWeight(keyValuePair.Key, keyValuePair.Value);
             }
+
             this._unit.UpdateDirection(direction);
         }
     }

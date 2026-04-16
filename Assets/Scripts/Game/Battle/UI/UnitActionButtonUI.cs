@@ -19,6 +19,12 @@ namespace Game.Battle.UI {
 
         private void Awake() => this._button = this.GetComponent<Button>();
 
+        public void OnPointerEnter(PointerEventData eventData) {
+            if (this.IsAvailable) {
+                this._onSelect.Invoke();
+            }
+        }
+
         public void Init(ActionType actionType, Action<ActionType> onClick, Action onSelect, bool isAvailable) {
             this.ActionType = actionType;
             this._onClick = onClick;
@@ -39,12 +45,5 @@ namespace Game.Battle.UI {
                 this._button.onClick.AddListener(() => this._onClick(this.ActionType));
             }
         }
-
-        public void OnPointerEnter(PointerEventData eventData) {
-            if (this.IsAvailable) {
-                this._onSelect.Invoke();
-            }
-        }
-
     }
 }

@@ -5,6 +5,7 @@ namespace Game.Battle {
     using System.Linq;
     using Actions;
     using Core;
+    using IA;
     using Map.Battle;
     using Map.Battle.Data;
     using UI;
@@ -21,6 +22,7 @@ namespace Game.Battle {
 
         private readonly Dictionary<ActionType, IBattleAction> _actions = new();
         private readonly List<UnitObject> _unitsTurnOrder = new();
+        private EnemyTurnController _enemyTurnController;
         private int _unitsTurnOrderIndex;
         private UnitTurnState _unitTurnState;
 
@@ -28,6 +30,8 @@ namespace Game.Battle {
             foreach (ActionType actionType in Enum.GetValues(typeof(ActionType))) {
                 this._actions.Add(actionType, actionType.GetBattleAction());
             }
+
+            this._enemyTurnController = new EnemyTurnController(this.battleMapManager);
         }
 
         /**
@@ -69,6 +73,8 @@ namespace Game.Battle {
         public void ApCostRevert(IBattleAction action) =>
             this._unitsTurnOrder[this._unitsTurnOrderIndex].GetUnit().RecoverAp(action.GetApCost());
 
+        public BattleSequenceExecutor GetSequenceExecutor() => throw new NotImplementedException();
+
         public void StartMap(Team playerTeam, Team enemyTeam) {
             this.BuildTurnOrder(playerTeam, enemyTeam);
             this.StartCoroutine(this.StartTurn());
@@ -90,7 +96,7 @@ namespace Game.Battle {
                 units.OrderByDescending(unit => unit.GetUnit().GetSpeed())
                     .ThenBy(_ => Random.value)
                     .ToList());
-            this.turnOrderUI.Show(this._unitsTurnOrder);
+            this.turnOrderUI.Show(this._unitsTurnOrder, 5);
         }
 
         private IEnumerator HandleMovementSelection(GridPosition target) {
@@ -99,7 +105,8 @@ namespace Game.Battle {
             IReadOnlyList<GridPosition> path =
                 this.battleMapManager.FindPath(currentUnitGridPosition, target);
             yield return this.StartCoroutine(BattleSequenceExecutor.ExecuteMovement(
-                this._unitsTurnOrder[this._unitsTurnOrderIndex], path, ((position, gridPosition) => this.battleMapManager.UnitMove(position, gridPosition, true))));
+                this._unitsTurnOrder[this._unitsTurnOrderIndex], path,
+                (position, gridPosition) => this.battleMapManager.UnitMove(position, gridPosition, true)));
 
             this.unitActionPanelUI.Show();
         }
@@ -107,7 +114,8 @@ namespace Game.Battle {
         private IEnumerator HandleAttackSelected(GridPosition target) {
             UnitObject targetUnit = this.battleMapManager.GetUnit(target);
             yield return this.StartCoroutine(
-                BattleSequenceExecutor.ExecuteBasicAttack(this._unitsTurnOrder[this._unitsTurnOrderIndex], targetUnit, target)
+                BattleSequenceExecutor.ExecuteBasicAttack(this._unitsTurnOrder[this._unitsTurnOrderIndex], targetUnit,
+                    target)
             );
             this.unitActionPanelUI.Show();
         }
@@ -119,15 +127,27 @@ namespace Game.Battle {
 
         private IEnumerator StartTurn() {
             this.unitActionPanelUI.Hide();
-            this.battleMapManager.UnSelect(this._unitsTurnOrder[Math.Max(this._unitsTurnOrderIndex, 0)].GetUnit().GetGridPosition());
+            this.battleMapManager.UnSelect(this._unitsTurnOrder[Math.Max(this._unitsTurnOrderIndex, 0)].GetUnit()
+                .GetGridPosition());
             this._unitsTurnOrderIndex = this.GetNextUnitTurnOrderIndex(this._unitsTurnOrderIndex);
-            this._unitsTurnOrder[this._unitsTurnOrderIndex].GetUnit().RestoreAp();
-            this._unitTurnState = new UnitTurnState(this._unitsTurnOrder[this._unitsTurnOrderIndex]);
+            UnitObject currentTurnUnit = this._unitsTurnOrder[this._unitsTurnOrderIndex];
+            currentTurnUnit.GetUnit().RestoreAp();
+            this._unitTurnState = new UnitTurnState(currentTurnUnit);
             this.turnOrderUI.UpdateCurrentTurn(this._unitsTurnOrderIndex);
-            this.unitInfoPanelUI.SetUnitInfo(this._unitsTurnOrder[this._unitsTurnOrderIndex]);
-            this.battleMapManager.Select(this._unitsTurnOrder[this._unitsTurnOrderIndex].GetUnit().GetGridPosition());
-            // pendiente aqui de ver si es enemigo o jugador
-            this.unitActionPanelUI.Show();
+            this.unitInfoPanelUI.SetUnitInfo(currentTurnUnit);
+            this.battleMapManager.Select(currentTurnUnit.GetUnit().GetGridPosition());
+            if (currentTurnUnit.GetTeam().GetBattleTeam().Equals(BattleTeam.Enemy)) {
+                IReadOnlyList<DecisionResult> decisionResults = this._enemyTurnController.CalculateTurn(currentTurnUnit,
+                    this._unitsTurnOrder, this._actions.Values.ToList().AsReadOnly());
+                foreach (DecisionResult decisionResult in decisionResults) {
+                    yield return decisionResult.Action.DoEnemyAction(this, currentTurnUnit, decisionResult,
+                        this.battleMapManager);
+                }
+            }
+            else {
+                this.unitActionPanelUI.Show();
+            }
+
             yield return null;
         }
 

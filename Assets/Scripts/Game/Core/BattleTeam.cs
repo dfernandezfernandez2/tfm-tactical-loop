@@ -14,6 +14,7 @@ namespace Game.Core {
                 BattleTeam.Enemy => Color.pink,
                 _ => Color.white
             };
+
         public static HighlightColor GetHighlightColor(this BattleTeam battleTeam) =>
             battleTeam switch {
                 BattleTeam.Player => HighlightColor.Yellow,

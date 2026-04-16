@@ -23,10 +23,10 @@ namespace Game.Core {
         private Action _onPlacementFinish;
 
         private Team _playerTeam;
-        private Action<UnitObject, GridPosition> _spawnUnit;
         private Action<GridPosition, HighlightColor> _selectUnit;
-        private Action<GridPosition> _unselectUnit;
+        private Action<UnitObject, GridPosition> _spawnUnit;
         private IReadOnlyList<UnitObject> _unitsPrefabToPlace;
+        private Action<GridPosition> _unselectUnit;
 
         private UserSelector _userSelector;
 
@@ -49,7 +49,8 @@ namespace Game.Core {
         }
 
         public void Init(Team playerTeam, Action onPlacementFinish, Action<UnitObject, GridPosition> spawnUnit,
-            Action<GridPosition> despawnUnit, Action<GridPosition, HighlightColor> selectUnit, Action<GridPosition> unselectUnit) {
+            Action<GridPosition> despawnUnit, Action<GridPosition, HighlightColor> selectUnit,
+            Action<GridPosition> unselectUnit) {
             this._playerTeam = playerTeam;
             this._unitsPrefabToPlace = playerTeam.GetUnitObjectsPrefabs();
             this._availablePositions = this.battleMapManager.GetTeamTileSpawns(this._playerTeam.GetBattleTeam());
@@ -74,6 +75,7 @@ namespace Game.Core {
             if (this._positionByUnitIndex.ContainsKey(this._currentUnitIndex)) {
                 this.CancelSelection();
             }
+
             // case player selected an occupied positon
             if (this._placementsByPosition.TryGetValue(position, out int index)) {
                 this.CancelSelection(index);
@@ -112,11 +114,11 @@ namespace Game.Core {
             if (!this._positionByUnitIndex.TryGetValue(index, out GridPosition position)) {
                 return;
             }
+
             this._unselectUnit.Invoke(position);
             this._despawnUnit(position);
             this._positionByUnitIndex.Remove(index);
             this._placementsByPosition.Remove(position);
         }
-
     }
 }

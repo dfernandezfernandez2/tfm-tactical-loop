@@ -58,7 +58,8 @@ namespace Game.Map.Battle {
             }
         }
 
-        public void Highlight(GridPosition position, HighlightColor color) => this._cells.GetValueOrDefault(position).HighlightCell(color);
+        public void Highlight(GridPosition position, HighlightColor color) =>
+            this._cells.GetValueOrDefault(position).HighlightCell(color);
 
         public void UnHighlight(GridPosition position) => this._cells.GetValueOrDefault(position).UnHighlightCell();
 

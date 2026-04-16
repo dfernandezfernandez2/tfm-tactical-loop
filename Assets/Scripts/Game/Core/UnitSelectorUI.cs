@@ -5,7 +5,6 @@ namespace Game.Core {
     using UnityEngine;
 
     public class UnitSelectorUI : MonoBehaviour {
-
         [SerializeField] private GameObject unitsPanel;
         [SerializeField] private OrderUnitUI unitPrefab;
 
@@ -23,6 +22,7 @@ namespace Game.Core {
             foreach (OrderUnitUI unit in this._units) {
                 Destroy(unit.gameObject);
             }
+
             this._units.Clear();
         }
 
@@ -30,6 +30,7 @@ namespace Game.Core {
             if (index < 0 || index >= this._units.Count) {
                 return;
             }
+
             this._units[index].SetSelected(selected);
         }
     }

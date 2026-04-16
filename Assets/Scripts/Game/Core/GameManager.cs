@@ -26,7 +26,7 @@
             TextAsset map = Resources.Load<TextAsset>("Map/Battle/map_plain");
             UnitObject unitObject = Resources.Load<UnitObject>("Knight");
             Team playerTeam = RunData.GetInstance().Team;
-            Team enemyTeam = new(new List<UnitObject> { unitObject }, BattleTeam.Enemy);
+            Team enemyTeam = new(new List<UnitObject> { unitObject, unitObject, unitObject }, BattleTeam.Enemy);
             this.StartMap(playerTeam, enemyTeam, map.text);
         }
 

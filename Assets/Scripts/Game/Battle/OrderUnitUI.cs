@@ -14,6 +14,7 @@ namespace Game.Battle {
             if (this.unitBorderImage != null) {
                 this.unitBorderImage.color = unit.GetTeam().GetBattleTeam().GetColor();
             }
+
             this.SetSelected(false);
         }
 
