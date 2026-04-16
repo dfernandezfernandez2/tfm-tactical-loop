@@ -14,7 +14,8 @@ namespace Game.Battle.Actions {
         public IEnumerator DoEnemyAction(IBattleContext battleContext, UnitObject enemy, DecisionResult decisionResult,
             BattleMapManager battleMapManager) {
             UnitObject target = battleMapManager.GetUnit(decisionResult.TargetPosition);
-            yield return BattleSequenceExecutor.ExecuteBasicAttack(enemy, target, decisionResult.TargetPosition);
+            yield return BattleSequenceExecutor.ExecuteBasicAttack(enemy, target, decisionResult.TargetPosition,
+                battleMapManager);
         }
     }
 }

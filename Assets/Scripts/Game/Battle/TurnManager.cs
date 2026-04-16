@@ -73,8 +73,6 @@ namespace Game.Battle {
         public void ApCostRevert(IBattleAction action) =>
             this._unitsTurnOrder[this._unitsTurnOrderIndex].GetUnit().RecoverAp(action.GetApCost());
 
-        public BattleSequenceExecutor GetSequenceExecutor() => throw new NotImplementedException();
-
         public void StartMap(Team playerTeam, Team enemyTeam) {
             this.BuildTurnOrder(playerTeam, enemyTeam);
             this.StartCoroutine(this.StartTurn());
@@ -115,7 +113,7 @@ namespace Game.Battle {
             UnitObject targetUnit = this.battleMapManager.GetUnit(target);
             yield return this.StartCoroutine(
                 BattleSequenceExecutor.ExecuteBasicAttack(this._unitsTurnOrder[this._unitsTurnOrderIndex], targetUnit,
-                    target)
+                    target, this.battleMapManager)
             );
             this.unitActionPanelUI.Show();
         }

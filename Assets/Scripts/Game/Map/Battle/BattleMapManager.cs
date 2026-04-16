@@ -66,6 +66,13 @@ namespace Game.Map.Battle {
         public void Select(GridPosition position) => this._cells.GetValueOrDefault(position).Select();
         public void UnSelect(GridPosition position) => this._cells.GetValueOrDefault(position).UnSelect();
 
+        public IReadOnlyList<UnitObject> GetUnitsAround(GridPosition position) {
+            IReadOnlyCollection<GridPosition> neighbours = this._mapData.GetNeighbours(position);
+            List<UnitObject> unitObjects = neighbours.Select(neighbour => this._cells.GetValueOrDefault(neighbour))
+                .Select(cell => cell.GetOccupantUnit()).Where(unitObject => unitObject != null).ToList();
+            return unitObjects.AsReadOnly();
+        }
+
         private static void HighlightUnitCell(MapCell cell) => cell.HighlightCell(
             cell.GetOccupantUnit().GetTeam().GetBattleTeam() == BattleTeam.Player
                 ? HighlightColor.Yellow
