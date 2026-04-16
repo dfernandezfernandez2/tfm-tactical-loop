@@ -57,7 +57,8 @@ namespace Game.Battle.UI {
                 UnitActionButtonUI button = Instantiate(this.buttonPrefab, this.unitActionButtonContainer);
                 bool canDoAction = this.turnManager.CanDoAction(actionType);
                 int index = i;
-                button.Init(actionType, type => this.turnManager.DoAction(type), () => this.SetSelectedIndex(index), canDoAction);
+                button.Init(actionType, type => this.turnManager.DoAction(type), () => this.SetSelectedIndex(index),
+                    canDoAction);
                 this._buttons.Add(button);
             }
         }

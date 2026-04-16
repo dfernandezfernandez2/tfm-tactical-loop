@@ -11,8 +11,7 @@
         public Vector2Int Position { get; }
         public int Height { get; }
 
-        public Vector2Int GetDirectionTo(GridPosition target)
-        {
+        public Vector2Int GetDirectionTo(GridPosition target) {
             Vector2Int delta = target.Position - this.Position;
             return new Vector2Int(
                 Math.Sign(delta.x),

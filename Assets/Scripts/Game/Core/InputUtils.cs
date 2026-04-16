@@ -29,5 +29,6 @@ namespace Game.Core {
 
         public static bool IsSwapPreviousSelected() => Input.GetKeyDown(KeyCode.Q) || Input.mouseScrollDelta.y < -0.5f;
 
+        public static bool IsRestoreSelected() => Input.GetKeyDown(KeyCode.R);
     }
 }

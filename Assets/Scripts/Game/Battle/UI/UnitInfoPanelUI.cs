@@ -11,8 +11,6 @@ namespace Game.Battle.UI {
         [SerializeField] private GameObject unitStatsPanel;
         [SerializeField] private TMP_Text statTextPrefab;
 
-        private readonly List<TMP_Text> _unitStats = new();
-
         private readonly StatType[] _statsFilter = {
             StatType.Hp, StatType.Atk, StatType.Def,
             StatType.Movement, StatType.Range, StatType.Speed,
@@ -20,11 +18,14 @@ namespace Game.Battle.UI {
             StatType.Mp, StatType.MpRegen
         };
 
+        private readonly List<TMP_Text> _unitStats = new();
+
         public void SetUnitInfo(UnitObject unitObject) {
             this.unitImage.sprite = unitObject.GetSprite();
             foreach (TMP_Text tmpText in this._unitStats) {
                 Destroy(tmpText.gameObject);
             }
+
             this._unitStats.Clear();
             foreach ((StatType type, float value) in unitObject.GetUnit().GetCurrentStats(this._statsFilter)) {
                 TMP_Text text = Instantiate(this.statTextPrefab, this.unitStatsPanel.transform);

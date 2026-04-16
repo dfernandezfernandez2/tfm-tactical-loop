@@ -8,8 +8,8 @@
 
     public class Unit {
         private readonly Stats _stats;
-        private GridPosition _gridPosition;
         private Vector2Int _direction;
+        private GridPosition _gridPosition;
 
         public Unit(Stats stats) => this._stats = stats;
 
@@ -87,8 +87,14 @@
 
         public float GetSpeed() => this._stats[StatType.Speed].Current;
 
-        public List<KeyValuePair<StatType, float>> GetCurrentStats(params StatType[] filter) => filter.Select(t => new KeyValuePair<StatType, float>(t, this._stats[t].Current)).ToList();
+        public List<KeyValuePair<StatType, float>> GetCurrentStats(params StatType[] filter) =>
+            filter.Select(t => new KeyValuePair<StatType, float>(t, this._stats[t].Current)).ToList();
 
         public void UpdateDirection(Vector2Int direction) => this._direction = direction;
+
+        public int GetCurrentAp() => (int)this._stats[StatType.AP].Current;
+
+        public int GetCurrentHp() => (int)this._stats[StatType.Hp].Current;
+        public int GetMaxHp() => (int)this._stats[StatType.Hp].Max;
     }
 }

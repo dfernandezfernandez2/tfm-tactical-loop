@@ -34,6 +34,7 @@ namespace Game.Core {
             this._lastClickPosition = InputUtils.GetClickPosition();
             this._availablePositions = availablePositions;
             this._currentUnitPosition = currentUnitPosition;
+            this._currentTileData = null;
             this._reachablePositions = this._availablePositions.Select(tileData => tileData.TileGridPosition).ToList();
         }
 
