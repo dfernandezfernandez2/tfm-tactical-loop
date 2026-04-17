@@ -98,7 +98,7 @@ namespace Game.IA {
 
             foreach (DecisionResult decision in plan) {
                 switch (decision.Action) {
-                    case AttackAction:
+                    case AttackSelectionAction:
                         UnitObject target = GetUnitAtPosition(turnOrder, decision.TargetPosition);
                         if (target == null) {
                             break;
@@ -118,7 +118,7 @@ namespace Game.IA {
 
                         break;
 
-                    case MovementAction:
+                    case MovementSelectionAction:
                         currentPosition = decision.TargetPosition;
                         break;
 
@@ -132,7 +132,7 @@ namespace Game.IA {
                 ? 0
                 : GetDistance(currentPosition, closestAfter.GetUnit().GetGridPosition());
             score += (distanceBefore - distanceAfter) * 5f;
-            bool attacked = plan.Any(x => x.Action is AttackAction);
+            bool attacked = plan.Any(x => x.Action is AttackSelectionAction);
             if (!attacked && closestAfter != null) {
                 score -= distanceAfter * 2f;
             }
@@ -146,7 +146,7 @@ namespace Game.IA {
 
             foreach (IBattleAction action in availableActions) {
                 switch (action) {
-                    case AttackAction attackAction:
+                    case AttackSelectionAction attackAction:
                         UnitObject killTarget = GetKillableTarget(enemy, turnOrder, currentPosition);
 
                         if (killTarget != null) {
@@ -158,7 +158,7 @@ namespace Game.IA {
                             select new DecisionResult(attackAction, target.GetUnit().GetGridPosition()));
                         break;
 
-                    case MovementAction movementAction:
+                    case MovementSelectionAction movementAction:
                         actions.AddRange(this.GetCandidateMovementPositions(enemy, turnOrder, currentPosition)
                             .Select(moveTarget => new DecisionResult(movementAction, moveTarget)));
                         break;

@@ -3,6 +3,7 @@
     using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
+    using Battle.Actions;
     using Battle.UI;
     using Core;
     using Data;
@@ -212,5 +213,9 @@
 
             this._unit.UpdateDirection(direction);
         }
+
+        public IReadOnlyList<IBattleAction> GetAllAvailableActions() => throw new NotImplementedException();
+        public IReadOnlyList<IBattleAction> GetBasicActions() => throw new NotImplementedException();
+        public IReadOnlyList<IBattleAction> GetSkillActions() => throw new NotImplementedException();
     }
 }

@@ -5,6 +5,7 @@ namespace Game.Battle {
     using System.Linq;
     using Actions;
     using Core;
+    using Core.Data;
     using IA;
     using Map.Battle;
     using Map.Battle.Data;
@@ -20,19 +21,12 @@ namespace Game.Battle {
         [SerializeField] private UserSelectionManager userSelectionManager;
         [SerializeField] private TurnOrderUI turnOrderUI;
 
-        private readonly Dictionary<ActionType, IBattleAction> _actions = new();
         private readonly List<UnitObject> _unitsTurnOrder = new();
         private EnemyTurnController _enemyTurnController;
         private int _unitsTurnOrderIndex;
         private UnitTurnState _unitTurnState;
 
-        public void Awake() {
-            foreach (ActionType actionType in Enum.GetValues(typeof(ActionType))) {
-                this._actions.Add(actionType, actionType.GetBattleAction());
-            }
-
-            this._enemyTurnController = new EnemyTurnController(this.battleMapManager);
-        }
+        public void Awake() => this._enemyTurnController = new EnemyTurnController(this.battleMapManager);
 
         /**
          * Communicates to UI
@@ -63,9 +57,25 @@ namespace Game.Battle {
 
         public void EndTurn() => this.StartCoroutine(this.StartTurn());
 
-        public void EnterObjectSelection() => throw new NotImplementedException();
+        public void EnterObjectSelection() {
+            this.unitActionPanelUI.Init(RunData.GetInstance().Inventory.Items.ToList().AsReadOnly());
+            this.unitActionPanelUI.OnBack += () => {
+                this.unitActionPanelUI.Init(this._unitsTurnOrder[Math.Max(this._unitsTurnOrderIndex, 0)]
+                    .GetBasicActions());
+                this.unitActionPanelUI.Show();
+            };
+            this.unitActionPanelUI.Show();
+        }
 
-        public void EnterSkillSelection() => throw new NotImplementedException();
+        public void EnterSkillSelection() {
+            UnitObject turnUnit = this._unitsTurnOrder[Math.Max(this._unitsTurnOrderIndex, 0)];
+            this.unitActionPanelUI.Init(turnUnit.GetSkillActions());
+            this.unitActionPanelUI.OnBack += () => {
+                this.unitActionPanelUI.Init(turnUnit.GetBasicActions());
+                this.unitActionPanelUI.Show();
+            };
+            this.unitActionPanelUI.Show();
+        }
 
         public void ApCostApply(IBattleAction action) =>
             this._unitsTurnOrder[this._unitsTurnOrderIndex].GetUnit().UseAp(action.GetApCost());
@@ -136,13 +146,14 @@ namespace Game.Battle {
             this.battleMapManager.Select(currentTurnUnit.GetUnit().GetGridPosition());
             if (currentTurnUnit.GetTeam().GetBattleTeam().Equals(BattleTeam.Enemy)) {
                 IReadOnlyList<DecisionResult> decisionResults = this._enemyTurnController.CalculateTurn(currentTurnUnit,
-                    this._unitsTurnOrder, this._actions.Values.ToList().AsReadOnly());
+                    this._unitsTurnOrder, currentTurnUnit.GetAllAvailableActions());
                 foreach (DecisionResult decisionResult in decisionResults) {
                     yield return decisionResult.Action.DoEnemyAction(this, currentTurnUnit, decisionResult,
                         this.battleMapManager);
                 }
             }
             else {
+                this.unitActionPanelUI.Init(currentTurnUnit.GetBasicActions());
                 this.unitActionPanelUI.Show();
             }
 
@@ -164,11 +175,11 @@ namespace Game.Battle {
         /**
          * Called from UI
          */
-        public void DoAction(ActionType actionType) {
+        public void DoAction(IBattleAction battleAction) {
             this.unitActionPanelUI.Hide();
-            this._unitTurnState.ExecuteAction(this._actions[actionType], this);
+            this._unitTurnState.ExecuteAction(battleAction, this);
         }
 
-        public bool CanDoAction(ActionType actionType) => this._unitTurnState.CanDoAction(this._actions[actionType]);
+        public bool CanDoAction(IBattleAction battleAction) => this._unitTurnState.CanDoAction(battleAction);
     }
 }

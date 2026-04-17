@@ -10,10 +10,10 @@ namespace Game.Battle.Actions {
     public static class ActionTypeExtensions {
         public static IBattleAction GetBattleAction(this ActionType actionType) =>
             actionType switch {
-                ActionType.Movement => new MovementAction(),
-                ActionType.Attack => new AttackAction(),
-                ActionType.Skill => new SkillAction(),
-                ActionType.Item => new ItemAction(),
+                ActionType.Movement => new MovementSelectionAction(),
+                ActionType.Attack => new AttackSelectionAction(),
+                ActionType.Skill => new SkillSelectionAction(),
+                ActionType.Item => new ItemSelectionAction(),
                 ActionType.Wait => new WaitAction(),
                 _ => null
             };

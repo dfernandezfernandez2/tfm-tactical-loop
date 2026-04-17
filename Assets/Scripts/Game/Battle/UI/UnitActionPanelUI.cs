@@ -12,6 +12,7 @@ namespace Game.Battle.UI {
         [SerializeField] private TurnManager turnManager;
 
         private readonly List<UnitActionButtonUI> _buttons = new();
+        private IReadOnlyList<IBattleAction> _currentActions;
         private bool _isActive;
 
         private int _selectedIndexButton = -1;
@@ -25,6 +26,10 @@ namespace Game.Battle.UI {
 
             this.HandleKeyboardInput();
         }
+
+        public event Action OnBack;
+
+        public void Init(IReadOnlyList<IBattleAction> actions) => this._currentActions = actions;
 
         public void Show() {
             this.unitActionPanel.SetActive(true);
@@ -42,8 +47,7 @@ namespace Game.Battle.UI {
 
         private void RefreshButtons() {
             foreach (UnitActionButtonUI button in this._buttons) {
-                bool canDoAction = this.turnManager.CanDoAction(button.ActionType);
-                button.SetAvailable(canDoAction);
+                button.RefreshIsAvailable();
             }
 
             this.SelectFirstAvailable(this._selectedIndexButton);
@@ -51,14 +55,13 @@ namespace Game.Battle.UI {
 
         private void BuildButtons() {
             this.ClearButtons();
-            Array actionsType = Enum.GetValues(typeof(ActionType));
-            for (int i = 0; i < actionsType.Length; i++) {
-                ActionType actionType = (ActionType)actionsType.GetValue(i);
+            for (int i = 0; i < this._currentActions.Count; i++) {
+                IBattleAction action = this._currentActions[i];
                 UnitActionButtonUI button = Instantiate(this.buttonPrefab, this.unitActionButtonContainer);
-                bool canDoAction = this.turnManager.CanDoAction(actionType);
                 int index = i;
-                button.Init(actionType, type => this.turnManager.DoAction(type), () => this.SetSelectedIndex(index),
-                    canDoAction);
+                button.Init(action.GetName(), () => this.turnManager.DoAction(action),
+                    () => this.SetSelectedIndex(index),
+                    () => this.turnManager.CanDoAction(action));
                 this._buttons.Add(button);
             }
         }
@@ -83,10 +86,14 @@ namespace Game.Battle.UI {
             if (InputUtils.IsEnterSelected()) {
                 this.ExecuteSelected();
             }
+
+            if (InputUtils.IsCancelSelected()) {
+                this.GoBack();
+            }
         }
 
         private void ExecuteSelected() {
-            this.turnManager.DoAction(this._buttons[this._selectedIndexButton].ActionType);
+            this._buttons[this._selectedIndexButton].OnEnter();
             this.RefreshButtons();
         }
 
@@ -135,6 +142,11 @@ namespace Game.Battle.UI {
             for (int i = 0; i < this._buttons.Count; i++) {
                 this._buttons[i].SetSelected(i == this._selectedIndexButton);
             }
+        }
+
+        private void GoBack() {
+            this.OnBack?.Invoke();
+            this.OnBack = null;
         }
     }
 }
