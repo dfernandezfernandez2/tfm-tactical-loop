@@ -33,16 +33,9 @@
 
             bool isCrit = this.RollCrit();
             int damage = this.CalculateDamage(objective, isCrit);
-            objective.TakeDamage(damage);
+            objective.GetStat(StatType.Hp).Reduce(damage);
             return AttackResult.Hit(damage, isCrit, objective.IsDead());
         }
-
-        public HealResult Heal(int amount) {
-            int healed = (int)this._stats[StatType.Hp].Add(amount);
-            return new HealResult(healed);
-        }
-
-        private void TakeDamage(int amount) => this._stats[StatType.Hp].Reduce(amount);
 
         private bool RollHit(Unit target) {
             float accuracy = this._stats[StatType.Accuracy].Current;
@@ -69,15 +62,9 @@
             return final <= 0 ? 1 : Mathf.RoundToInt(final);
         }
 
+        public Stat GetStat(StatType statType) => this._stats[statType];
+
         public bool IsDead() => this._stats[StatType.Hp].IsEmpty();
-
-        public void UseAp(int ap) => this._stats[StatType.AP].Reduce(ap);
-
-        public void RecoverAp(int ap) => this._stats[StatType.AP].Add(ap);
-
-        public void RestoreAp() => this._stats[StatType.AP].Restore();
-
-        public bool CanUseAp(int ap) => this._stats[StatType.AP].Current >= ap;
 
         public int GetCurrentMovement() => (int)this._stats[StatType.Movement].Current;
 
@@ -85,7 +72,7 @@
 
         public int GetAttackRange() => (int)this._stats[StatType.Range].Current;
 
-        public float GetSpeed() => this._stats[StatType.Speed].Current;
+        public bool IsStatFull(StatType statType) => this._stats[statType].IsFull();
 
         public List<KeyValuePair<StatType, float>> GetCurrentStats(params StatType[] filter) =>
             filter.Select(t => new KeyValuePair<StatType, float>(t, this._stats[t].Current)).ToList();
@@ -95,6 +82,7 @@
         public int GetCurrentAp() => (int)this._stats[StatType.AP].Current;
 
         public int GetCurrentHp() => (int)this._stats[StatType.Hp].Current;
-        public int GetMaxHp() => (int)this._stats[StatType.Hp].Max;
+
+        public Vector2Int GetDirection() => this._direction;
     }
 }

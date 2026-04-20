@@ -1,0 +1,763 @@
+fileFormatVersion: 2
+guid: ddb4c185f47499f4e8f021bc55313c2d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -290500017787306464
+    second: KnightBlock_0
+  - first:
+      213: -6384299190142200219
+    second: KnightBlock_1
+  - first:
+      213: -4090210233603569804
+    second: KnightBlock_2
+  - first:
+      213: -2737430279126703996
+    second: KnightBlock_3
+  - first:
+      213: 8982696500961456135
+    second: KnightBlock_4
+  - first:
+      213: -5233201050291479249
+    second: KnightBlock_5
+  - first:
+      213: -8847379928156740902
+    second: KnightBlock_6
+  - first:
+      213: -6899339289457876587
+    second: KnightBlock_7
+  - first:
+      213: -6747163658450949114
+    second: KnightBlock_8
+  - first:
+      213: 3248350535807803616
+    second: KnightBlock_9
+  - first:
+      213: 5168527872947921045
+    second: KnightBlock_10
+  - first:
+      213: -5928108334647784760
+    second: KnightBlock_11
+  - first:
+      213: 2318663946987660926
+    second: KnightBlock_12
+  - first:
+      213: 4588148619461394617
+    second: KnightBlock_13
+  - first:
+      213: 5297820253294903181
+    second: KnightBlock_14
+  - first:
+      213: -2348706757040721224
+    second: KnightBlock_15
+  - first:
+      213: 7933821870258738736
+    second: KnightBlock_16
+  - first:
+      213: 9061833207619550629
+    second: KnightBlock_17
+  - first:
+      213: -8694022731467084358
+    second: KnightBlock_18
+  - first:
+      213: 2183267994964759489
+    second: KnightBlock_19
+  - first:
+      213: -4659096790797132680
+    second: KnightBlock_20
+  - first:
+      213: -5010021607991929537
+    second: KnightBlock_21
+  - first:
+      213: 9122074934480792072
+    second: KnightBlock_22
+  - first:
+      213: 3237889919315728905
+    second: KnightBlock_23
+  - first:
+      213: -4392708405307714439
+    second: KnightBlock_24
+  - first:
+      213: -2139026660888868246
+    second: KnightBlock_25
+  - first:
+      213: 2694020829911645980
+    second: KnightBlock_26
+  - first:
+      213: -8858094717393188925
+    second: KnightBlock_27
+  - first:
+      213: -7675247921558445396
+    second: KnightBlock_28
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: KnightBlock_0
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 192
+        width: 22
+        height: 34
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02efa80e5cfe7fbf0800000000000000
+      internalID: -290500017787306464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnightBlock_1
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 193
+        width: 19
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56692c746b96667a0800000000000000
+      internalID: -6384299190142200219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnightBlock_2
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 192
+        width: 21
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4774461a677ac37c0800000000000000
+      internalID: -4090210233603569804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnightBlock_3
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 192
+        width: 21
+        height: 34
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48021472aa1b20ad0800000000000000
+      internalID: -2737430279126703996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnightBlock_4
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 192
+        width: 24
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 700b3f010e2f8ac70800000000000000
+      internalID: 8982696500961456135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnightBlock_5
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 193
+        width: 20
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2ddc271f5fef57b0800000000000000
+      internalID: -5233201050291479249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnightBlock_6
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 136
+        width: 18
+        height: 34
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad2eb4da4dac73580800000000000000
+      internalID: -8847379928156740902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnightBlock_7
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 137
+        width: 17
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 591a7f2787f9040a0800000000000000
+      internalID: -6899339289457876587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnightBlock_8
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 136
+        width: 20
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60c2b9096624d52a0800000000000000
+      internalID: -6747163658450949114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnightBlock_9
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 136
+        width: 22
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e026c01a95741d20800000000000000
+      internalID: 3248350535807803616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnightBlock_10
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 136
+        width: 26
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59024c667bc4ab740800000000000000
+      internalID: 5168527872947921045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnightBlock_11
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 137
+        width: 22
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ca494bc0e02bbda0800000000000000
+      internalID: -5928108334647784760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnightBlock_13
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 77
+        width: 17
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b002bf3cd06caf30800000000000000
+      internalID: 4588148619461394617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnightBlock_14
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 77
+        width: 19
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8f33898373a58940800000000000000
+      internalID: 5297820253294903181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnightBlock_15
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 77
+        width: 22
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b2370106a7b76fd0800000000000000
+      internalID: -2348706757040721224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnightBlock_16
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 77
+        width: 25
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0365fffa4f89a1e60800000000000000
+      internalID: 7933821870258738736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnightBlock_17
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 77
+        width: 29
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ad700a6a4912cd70800000000000000
+      internalID: 9061833207619550629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnightBlock_18
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 77
+        width: 25
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abdabbd7360a85780800000000000000
+      internalID: -8694022731467084358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnightBlock_20
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 17
+        width: 26
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87cdf5a5720975fb0800000000000000
+      internalID: -4659096790797132680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnightBlock_21
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 17
+        width: 19
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f351c9a44e3d87ab0800000000000000
+      internalID: -5010021607991929537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnightBlock_22
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 17
+        width: 22
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80ae83472de189e70800000000000000
+      internalID: 9122074934480792072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnightBlock_23
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 17
+        width: 26
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90ad1aef9bb4fec20800000000000000
+      internalID: 3237889919315728905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnightBlock_25
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 17
+        width: 30
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6a01a0c596a052e0800000000000000
+      internalID: -2139026660888868246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnightBlock_27
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 17
+        width: 29
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c7c30769c9b11580800000000000000
+      internalID: -8858094717393188925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 0e24c7548ef62094893bd4f98320c4fb
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      KnightBlock_0: -290500017787306464
+      KnightBlock_1: -6384299190142200219
+      KnightBlock_10: 5168527872947921045
+      KnightBlock_11: -5928108334647784760
+      KnightBlock_12: 2318663946987660926
+      KnightBlock_13: 4588148619461394617
+      KnightBlock_14: 5297820253294903181
+      KnightBlock_15: -2348706757040721224
+      KnightBlock_16: 7933821870258738736
+      KnightBlock_17: 9061833207619550629
+      KnightBlock_18: -8694022731467084358
+      KnightBlock_19: 2183267994964759489
+      KnightBlock_2: -4090210233603569804
+      KnightBlock_20: -4659096790797132680
+      KnightBlock_21: -5010021607991929537
+      KnightBlock_22: 9122074934480792072
+      KnightBlock_23: 3237889919315728905
+      KnightBlock_24: -4392708405307714439
+      KnightBlock_25: -2139026660888868246
+      KnightBlock_26: 2694020829911645980
+      KnightBlock_27: -8858094717393188925
+      KnightBlock_28: -7675247921558445396
+      KnightBlock_3: -2737430279126703996
+      KnightBlock_4: 8982696500961456135
+      KnightBlock_5: -5233201050291479249
+      KnightBlock_6: -8847379928156740902
+      KnightBlock_7: -6899339289457876587
+      KnightBlock_8: -6747163658450949114
+      KnightBlock_9: 3248350535807803616
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

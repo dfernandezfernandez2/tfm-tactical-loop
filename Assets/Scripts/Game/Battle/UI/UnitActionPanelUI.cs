@@ -6,29 +6,53 @@ namespace Game.Battle.UI {
     using UnityEngine;
 
     public class UnitActionPanelUI : MonoBehaviour {
+        private const int _maxVisibleButtons = 5;
+
         [SerializeField] private GameObject unitActionPanel;
         [SerializeField] private Transform unitActionButtonContainer;
         [SerializeField] private UnitActionButtonUI buttonPrefab;
         [SerializeField] private TurnManager turnManager;
 
         private readonly List<UnitActionButtonUI> _buttons = new();
+        private IReadOnlyList<IBattleAction> _currentActions;
+        private int _firstVisibleIndex;
         private bool _isActive;
 
         private int _selectedIndexButton = -1;
 
-        private void Awake() => this.Hide();
+        private RectTransform _unitActionPanelTransform;
+
+        private void Awake() {
+            this._unitActionPanelTransform = this.unitActionPanel.GetComponent<RectTransform>();
+            this.Hide();
+        }
 
         private void Update() {
             if (!this._isActive) {
                 return;
             }
 
+            if (this.IsMouseOverPanel()) {
+                if (InputUtils.IsScrollUpSelected()) {
+                    this.SelectPreviousAvailable();
+                }
+
+                if (InputUtils.IsScrollDownSelected()) {
+                    this.SelectNextAvailable();
+                }
+            }
+
             this.HandleKeyboardInput();
         }
+
+        public event Action OnBack;
+
+        public void Init(IReadOnlyList<IBattleAction> actions) => this._currentActions = actions;
 
         public void Show() {
             this.unitActionPanel.SetActive(true);
             this.BuildButtons();
+            this._firstVisibleIndex = 0;
             this.SelectFirstAvailable();
             this._isActive = true;
         }
@@ -37,30 +61,46 @@ namespace Game.Battle.UI {
             this.ClearButtons();
             this.unitActionPanel.SetActive(false);
             this._selectedIndexButton = -1;
+            this._firstVisibleIndex = 0;
             this._isActive = false;
         }
 
         private void RefreshButtons() {
             foreach (UnitActionButtonUI button in this._buttons) {
-                bool canDoAction = this.turnManager.CanDoAction(button.ActionType);
-                button.SetAvailable(canDoAction);
+                button.RefreshIsAvailable();
             }
 
-            this.SelectFirstAvailable(this._selectedIndexButton);
+            if (this._selectedIndexButton >= 0 &&
+                this._selectedIndexButton < this._buttons.Count &&
+                this._buttons[this._selectedIndexButton].IsAvailable) {
+                this.EnsureSelectedIsVisible();
+                this.ApplyVisibility();
+                this.ApplySelection();
+                return;
+            }
+
+            this.SelectFirstAvailable(this._selectedIndexButton >= 0 ? this._selectedIndexButton : 0);
         }
 
         private void BuildButtons() {
             this.ClearButtons();
-            Array actionsType = Enum.GetValues(typeof(ActionType));
-            for (int i = 0; i < actionsType.Length; i++) {
-                ActionType actionType = (ActionType)actionsType.GetValue(i);
+
+            for (int i = 0; i < this._currentActions.Count; i++) {
+                IBattleAction action = this._currentActions[i];
                 UnitActionButtonUI button = Instantiate(this.buttonPrefab, this.unitActionButtonContainer);
-                bool canDoAction = this.turnManager.CanDoAction(actionType);
                 int index = i;
-                button.Init(actionType, type => this.turnManager.DoAction(type), () => this.SetSelectedIndex(index),
-                    canDoAction);
+
+                button.Init(
+                    action.GetName(),
+                    () => this.turnManager.DoAction(action),
+                    () => this.SetSelectedIndex(index),
+                    () => this.turnManager.CanDoAction(action)
+                );
+
                 this._buttons.Add(button);
             }
+
+            this.ApplyVisibility();
         }
 
         private void ClearButtons() {
@@ -83,33 +123,75 @@ namespace Game.Battle.UI {
             if (InputUtils.IsEnterSelected()) {
                 this.ExecuteSelected();
             }
+
+            if (InputUtils.IsCancelSelected()) {
+                this.GoBack();
+            }
         }
 
         private void ExecuteSelected() {
-            this.turnManager.DoAction(this._buttons[this._selectedIndexButton].ActionType);
+            if (this._selectedIndexButton < 0 || this._selectedIndexButton >= this._buttons.Count) {
+                return;
+            }
+
+            this._buttons[this._selectedIndexButton].OnEnter();
             this.RefreshButtons();
         }
 
         private void SelectFirstAvailable(int startIndex = 0) {
-            if (startIndex == -1) {
+            if (this._buttons.Count == 0) {
+                this.ClearSelection();
+                return;
+            }
+
+            startIndex = Mathf.Clamp(startIndex, 0, this._buttons.Count - 1);
+
+            for (int i = startIndex; i < this._buttons.Count; i++) {
+                if (!this._buttons[i].IsAvailable) {
+                    continue;
+                }
+
+                this.SetSelectedIndex(i);
+                return;
+            }
+
+            for (int i = 0; i < startIndex; i++) {
+                if (!this._buttons[i].IsAvailable) {
+                    continue;
+                }
+
+                this.SetSelectedIndex(i);
                 return;
             }
 
             this.ClearSelection();
-            int index = this._buttons.FindIndex(startIndex, b => b.IsAvailable);
-            if (index != -1) {
-                this.SetSelectedIndex(index);
+        }
+
+        private void SelectNextAvailable() {
+            if (this._buttons.Count == 0) {
+                return;
             }
-            else if (startIndex >= 0) {
-                // case that there are not buttons available from the requested index and need to iterate from the first
-                this.SelectFirstAvailable();
+
+            int startIndex = this._selectedIndexButton < 0 ? -1 : this._selectedIndexButton;
+
+            for (int offset = 1; offset <= this._buttons.Count; offset++) {
+                int index = (startIndex + offset) % this._buttons.Count;
+                if (!this._buttons[index].IsAvailable) {
+                    continue;
+                }
+
+                this.SetSelectedIndex(index);
+                return;
             }
         }
 
-        private void SelectNextAvailable() => this.SelectFirstAvailable(this._selectedIndexButton + 1);
-
         private void SelectPreviousAvailable() {
+            if (this._buttons.Count == 0) {
+                return;
+            }
+
             int startIndex = this._selectedIndexButton < 0 ? 0 : this._selectedIndexButton;
+
             for (int offset = 1; offset <= this._buttons.Count; offset++) {
                 int index = (startIndex - offset + this._buttons.Count) % this._buttons.Count;
                 if (!this._buttons[index].IsAvailable) {
@@ -122,7 +204,13 @@ namespace Game.Battle.UI {
         }
 
         private void SetSelectedIndex(int index) {
+            if (index < 0 || index >= this._buttons.Count) {
+                return;
+            }
+
             this._selectedIndexButton = index;
+            this.EnsureSelectedIsVisible();
+            this.ApplyVisibility();
             this.ApplySelection();
         }
 
@@ -131,10 +219,45 @@ namespace Game.Battle.UI {
             this.ApplySelection();
         }
 
+        private void EnsureSelectedIsVisible() {
+            if (this._selectedIndexButton < 0) {
+                return;
+            }
+
+            if (this._selectedIndexButton < this._firstVisibleIndex) {
+                this._firstVisibleIndex = this._selectedIndexButton;
+            }
+            else if (this._selectedIndexButton >= this._firstVisibleIndex + _maxVisibleButtons) {
+                this._firstVisibleIndex = this._selectedIndexButton - _maxVisibleButtons + 1;
+            }
+
+            int maxStart = Mathf.Max(0, this._buttons.Count - _maxVisibleButtons);
+            this._firstVisibleIndex = Mathf.Clamp(this._firstVisibleIndex, 0, maxStart);
+        }
+
+        private void ApplyVisibility() {
+            for (int i = 0; i < this._buttons.Count; i++) {
+                bool isVisible = i >= this._firstVisibleIndex && i < this._firstVisibleIndex + _maxVisibleButtons;
+                this._buttons[i].gameObject.SetActive(isVisible);
+            }
+        }
+
         private void ApplySelection() {
             for (int i = 0; i < this._buttons.Count; i++) {
                 this._buttons[i].SetSelected(i == this._selectedIndexButton);
             }
         }
+
+        private void GoBack() {
+            this.OnBack?.Invoke();
+            this.OnBack = null;
+        }
+
+        private bool IsMouseOverPanel() =>
+            RectTransformUtility.RectangleContainsScreenPoint(
+                this._unitActionPanelTransform,
+                Input.mousePosition,
+                null
+            );
     }
 }

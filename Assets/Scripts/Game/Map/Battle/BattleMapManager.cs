@@ -4,6 +4,7 @@ namespace Game.Map.Battle {
     using System.Linq;
     using Core;
     using Data;
+    using Game.Battle.Item;
     using Renderer;
     using Unit;
     using UnityEngine;
@@ -80,13 +81,16 @@ namespace Game.Map.Battle {
 
         private static void UnHighlightCell(MapCell cell) => cell.UnHighlightCell();
 
-        public IReadOnlyList<TileData> GetReachableTiles(GridPosition origin, int movement, bool canEnterCheck = true) {
+        public IReadOnlyList<TileData> GetReachableTiles(GridPosition origin, int movement, bool canEnterCheck = true,
+            Target target = Target.None, Func<UnitObject, bool> canSelect = null) {
             Queue<TileData> queue = new();
-
             Dictionary<TileData, int> costs = new();
             HashSet<TileData> reachable = new();
 
             TileData originTile = this._mapData.GetTile(origin.Position.x, origin.Position.y);
+
+            UnitObject occupant = this._cells[origin].GetOccupantUnit();
+            BattleTeam? currentTeam = occupant?.GetTeam()?.GetBattleTeam();
 
             queue.Enqueue(originTile);
             costs[originTile] = 0;
@@ -98,13 +102,9 @@ namespace Game.Map.Battle {
                 foreach (GridPosition neighbourPos in this._mapData.GetNeighbours(current.TileGridPosition)) {
                     TileData next = this._mapData.GetTile(neighbourPos.Position.x, neighbourPos.Position.y);
 
-                    if (canEnterCheck && !this.CanEnter(next.TileGridPosition)) {
-                        continue;
-                    }
-
                     int newCost = currentCost + GetMovementCost(current.TileGridPosition, next.TileGridPosition);
 
-                    if (newCost > movement) {
+                    if (newCost > movement && movement != -1) {
                         continue;
                     }
 
@@ -112,10 +112,30 @@ namespace Game.Map.Battle {
                         continue;
                     }
 
+                    if (target == Target.None && canEnterCheck && !this.CanEnter(next.TileGridPosition)) {
+                        continue;
+                    }
+
                     costs[next] = newCost;
                     queue.Enqueue(next);
 
-                    reachable.Add(next);
+                    if (target == Target.None) {
+                        reachable.Add(next);
+                        continue;
+                    }
+
+                    MapCell neighbourCell = this._cells[neighbourPos];
+                    if (neighbourCell.GetOccupantUnit() == null) {
+                        continue;
+                    }
+
+                    BattleTeam neighbourTeam = neighbourCell.GetOccupantUnit().GetTeam().GetBattleTeam();
+
+                    if (((target == Target.Ally && neighbourTeam == currentTeam) ||
+                         (target == Target.Enemy && neighbourTeam != currentTeam)) &&
+                        canSelect(neighbourCell.GetOccupantUnit())) {
+                        reachable.Add(next);
+                    }
                 }
             }
 

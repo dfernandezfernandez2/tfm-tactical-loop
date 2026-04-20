@@ -17,7 +17,7 @@ namespace Game.Battle {
             AttackResult result = attacker.GetUnit().DoBasicAttack(target?.GetUnit());
             if (!result.GetHit()) {
                 if (target != null && !result.IsTargetDead()) {
-                    yield return target.PlayDodge(() => attacker.StartCoroutine(attacker.PlayMiss()));
+                    yield return target.PlayDodge(attacker);
                 }
                 else {
                     yield return attacker.PlayMiss();

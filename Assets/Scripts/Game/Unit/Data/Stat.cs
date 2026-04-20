@@ -11,8 +11,9 @@
         public float Max { get; }
 
         public float Add(float amount) {
+            float previous = this.Current;
             this.Current = Math.Min(this.Max, this.Current + amount);
-            return this.Max - amount;
+            return this.Current - previous;
         }
 
         public void Reduce(float amount) => this.Current = Math.Max(0, this.Current - amount);

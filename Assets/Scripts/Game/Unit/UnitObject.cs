@@ -3,6 +3,7 @@
     using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
+    using Battle.Actions;
     using Battle.UI;
     using Core;
     using Data;
@@ -171,15 +172,20 @@
             yield return this.WaitForSignal(animationType.GetAnimationEndName(), signalEndVersion);
         }
 
-        public IEnumerator PlayDodge(Action onDodge) {
+        public IEnumerator PlayDodge(UnitObject attacker) {
+            Vector2Int initialDirection = this._unit.GetDirection();
+            Vector2Int attackerDirection = attacker.GetUnit().GetDirection();
+            Vector2Int dodgeDirection = -attackerDirection;
+            this.UpdateDirection(dodgeDirection);
             const AnimationType animationType = AnimationType.Dodge;
             int signalTextVersion = this.GetSignalVersion(animationType.GetAnimationText());
             int signalEndVersion = this.GetSignalVersion(animationType.GetAnimationEndName());
             this._animator.ResetTrigger(animationType.ToString());
             this._animator.SetTrigger(animationType.ToString());
             yield return this.WaitForSignal(animationType.GetAnimationText(), signalTextVersion);
-            onDodge();
+            attacker.StartCoroutine(attacker.PlayMiss());
             yield return this.WaitForSignal(animationType.GetAnimationEndName(), signalEndVersion);
+            this.UpdateDirection(initialDirection);
         }
 
         public Team GetTeam() => this._team;
@@ -212,5 +218,22 @@
 
             this._unit.UpdateDirection(direction);
         }
+
+        public IReadOnlyList<IBattleAction> GetAllAvailableActions() =>
+            this.GetBasicActions().Concat(
+                this.GetSkillActions()).ToList();
+
+        public IReadOnlyList<IBattleAction> GetBasicActions() {
+            List<IBattleAction> basicActions = new() {
+                new MovementSelectionAction(),
+                new AttackSelectionAction(),
+                new SkillSelectionAction(),
+                new ItemSelectionAction(),
+                new WaitAction()
+            };
+            return basicActions.AsReadOnly();
+        }
+
+        public IReadOnlyList<IBattleAction> GetSkillActions() => new List<IBattleAction>().AsReadOnly();
     }
 }

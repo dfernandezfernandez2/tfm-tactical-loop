@@ -39,11 +39,11 @@ namespace Game.Core {
             }
 
             this._userSelector.Update();
-            if (InputUtils.IsSwapNextSelected()) {
+            if (InputUtils.IsSwapNextSelected() || InputUtils.IsScrollUpSelected()) {
                 this.MoveOnNextUnitIndex();
             }
 
-            if (InputUtils.IsSwapPreviousSelected()) {
+            if (InputUtils.IsSwapPreviousSelected() || InputUtils.IsScrollDownSelected()) {
                 this.MoveOnPreviousUnitIndex();
             }
         }
