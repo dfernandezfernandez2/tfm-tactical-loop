@@ -10,6 +10,7 @@ namespace Game.Battle {
     public enum SelectionType {
         Attack,
         Movement,
+        Default,
         None
     }
 
@@ -18,6 +19,7 @@ namespace Game.Battle {
             selectionType switch {
                 SelectionType.Attack => HighlightColor.Red,
                 SelectionType.Movement => HighlightColor.Blue,
+                SelectionType.Default => HighlightColor.Green,
                 _ => HighlightColor.None
             };
     }

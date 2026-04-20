@@ -25,10 +25,13 @@ namespace Game.Core {
 
         public static Vector3 GetClickPosition() => Input.mousePosition;
 
-        public static bool IsSwapNextSelected() => Input.GetKeyDown(KeyCode.E) || Input.mouseScrollDelta.y > 0.5f;
+        public static bool IsSwapNextSelected() => Input.GetKeyDown(KeyCode.E);
 
-        public static bool IsSwapPreviousSelected() => Input.GetKeyDown(KeyCode.Q) || Input.mouseScrollDelta.y < -0.5f;
+        public static bool IsSwapPreviousSelected() => Input.GetKeyDown(KeyCode.Q);
 
         public static bool IsRestoreSelected() => Input.GetKeyDown(KeyCode.R);
+
+        public static bool IsScrollDownSelected() => Input.mouseScrollDelta.y < -0.5f;
+        public static bool IsScrollUpSelected() => Input.mouseScrollDelta.y > 0.5f;
     }
 }

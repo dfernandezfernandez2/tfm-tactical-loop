@@ -1,6 +1,7 @@
 ﻿namespace Game.Core {
     using System.Collections.Generic;
     using Battle;
+    using Battle.Item;
     using Data;
     using Map.Battle;
     using Map.Battle.Data;
@@ -14,6 +15,7 @@
         [SerializeField] private BattleMapManager battleMapManager;
         [SerializeField] private UnitPlacementController unitPlacementController;
         [SerializeField] private Camera mainCamera;
+        [SerializeField] private List<Item> initialGameItems;
         private Team _enemyTeam;
         private Team _playerTeam;
 
@@ -23,6 +25,10 @@
         public void Awake() => this._turnManager = this.GetComponent<TurnManager>();
 
         public void Start() {
+            foreach (Item t in this.initialGameItems) {
+                RunData.GetInstance().Inventory.Add(t);
+            }
+
             TextAsset map = Resources.Load<TextAsset>("Map/Battle/map_plain");
             UnitObject unitObject = Resources.Load<UnitObject>("Knight");
             Team playerTeam = RunData.GetInstance().Team;

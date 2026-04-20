@@ -413,6 +413,14 @@ MonoBehaviour:
   battleMapManager: {fileID: 422319659}
   unitPlacementController: {fileID: 422319661}
   mainCamera: {fileID: 2086373357}
+  initialGameItems:
+  - {fileID: 11400000, guid: 5523a94e1578eb944b725d6df1b8c5c4, type: 2}
+  - {fileID: 11400000, guid: 9b2759dec7cc5384489b84cd67759a04, type: 2}
+  - {fileID: 11400000, guid: 5523a94e1578eb944b725d6df1b8c5c4, type: 2}
+  - {fileID: 11400000, guid: f6a7a1f529c655741a0885f5277f0e26, type: 2}
+  - {fileID: 11400000, guid: b244c4fa5312bc4428c94de83285f18c, type: 2}
+  - {fileID: 11400000, guid: 582ad5dbceabbe04a9d2d53f6dc88d74, type: 2}
+  - {fileID: 11400000, guid: edf3de9f3e8f45d489399e2ad2c1e291, type: 2}
 --- !u!114 &422319658
 MonoBehaviour:
   m_ObjectHideFlags: 0

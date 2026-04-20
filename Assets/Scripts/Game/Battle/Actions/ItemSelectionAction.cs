@@ -13,7 +13,9 @@ namespace Game.Battle.Actions {
         public override void Start(IBattleContext battleContext) =>
             battleContext.EnterObjectSelection();
 
-        public new bool CanDoAction(UnitObject unitObject) => RunData.GetInstance().Inventory.HasItems();
+        public override bool CanDoAction(IBattleContext battleContext, UnitObject unitObject) =>
+            RunData.GetInstance().Inventory.HasItems() &&
+            battleContext.IsAvailableAction(this.GetActionName() + "Action");
 
         public override IEnumerator DoEnemyAction(IBattleContext battleContext, UnitObject enemy,
             DecisionResult decisionResult,

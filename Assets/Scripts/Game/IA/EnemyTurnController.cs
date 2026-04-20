@@ -222,7 +222,7 @@ namespace Game.IA {
                 x.GetUnit().GetGridPosition().Equals(position));
 
         private static bool IsWeakTarget(UnitObject target) =>
-            target.GetUnit().GetCurrentHp() < target.GetUnit().GetMaxHp() * 0.5f;
+            target.GetUnit().GetCurrentHp() < target.GetUnit().GetStat(StatType.Hp).Max * 0.5f;
 
         private static int EstimateDamage(UnitObject attacker, UnitObject defender) {
             List<KeyValuePair<StatType, float>> attackerStats =

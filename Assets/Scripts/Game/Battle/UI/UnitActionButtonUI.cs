@@ -47,6 +47,5 @@ namespace Game.Battle.UI {
         }
 
         public void OnEnter() => this._onClick();
-
     }
 }

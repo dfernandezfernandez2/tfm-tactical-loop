@@ -1,5 +1,5 @@
 namespace Game.Battle.Item {
-    public enum ItemTarget {
+    public enum Target {
         None,
         Self,
         Ally,

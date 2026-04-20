@@ -6,7 +6,9 @@ namespace Game.Battle {
     using Actions;
     using Core;
     using Core.Data;
+    using global::Unit.Data;
     using IA;
+    using Item;
     using Map.Battle;
     using Map.Battle.Data;
     using UI;
@@ -60,6 +62,7 @@ namespace Game.Battle {
         public void EnterObjectSelection() {
             this.unitActionPanelUI.Init(RunData.GetInstance().Inventory.Items.ToList().AsReadOnly());
             this.unitActionPanelUI.OnBack += () => {
+                this._unitTurnState.CancelAction(this, new ItemSelectionAction());
                 this.unitActionPanelUI.Init(this._unitsTurnOrder[Math.Max(this._unitsTurnOrderIndex, 0)]
                     .GetBasicActions());
                 this.unitActionPanelUI.Show();
@@ -71,6 +74,7 @@ namespace Game.Battle {
             UnitObject turnUnit = this._unitsTurnOrder[Math.Max(this._unitsTurnOrderIndex, 0)];
             this.unitActionPanelUI.Init(turnUnit.GetSkillActions());
             this.unitActionPanelUI.OnBack += () => {
+                this._unitTurnState.CancelAction(this, new SkillSelectionAction());
                 this.unitActionPanelUI.Init(turnUnit.GetBasicActions());
                 this.unitActionPanelUI.Show();
             };
@@ -78,10 +82,36 @@ namespace Game.Battle {
         }
 
         public void ApCostApply(IBattleAction action) =>
-            this._unitsTurnOrder[this._unitsTurnOrderIndex].GetUnit().UseAp(action.GetApCost());
+            this._unitsTurnOrder[this._unitsTurnOrderIndex].GetUnit().GetStat(StatType.AP).Reduce(action.GetApCost());
 
         public void ApCostRevert(IBattleAction action) =>
-            this._unitsTurnOrder[this._unitsTurnOrderIndex].GetUnit().RecoverAp(action.GetApCost());
+            this._unitsTurnOrder[this._unitsTurnOrderIndex].GetUnit().GetStat(StatType.AP).Add(action.GetApCost());
+
+        public void EnterItemSelectionTarget(Target target,
+            Action<UnitObject, GridPosition, BattleMapManager, IBattleContext> callback,
+            Func<UnitObject, bool> canSelect) {
+            UnitObject currentUser = this._unitsTurnOrder[this._unitsTurnOrderIndex];
+            GridPosition currentUnitGridPosition = currentUser.GetUnit().GetGridPosition();
+            if (target == Target.Self) {
+                callback(currentUser, currentUnitGridPosition, this.battleMapManager, this);
+                return;
+            }
+
+            IReadOnlyList<TileData> reachableTiles =
+                this.battleMapManager.GetReachableTiles(currentUnitGridPosition, -1, false, target, canSelect);
+            this.userSelectionManager.OnSelect +=
+                position => callback(currentUser, position, this.battleMapManager, this);
+            this.userSelectionManager.OnCancel += this.HandleCancelAction;
+            this.userSelectionManager.StartSelection(SelectionType.Default, reachableTiles, currentUnitGridPosition);
+        }
+
+        public void EndAction() {
+            UnitObject turnUnit = this._unitsTurnOrder[Math.Max(this._unitsTurnOrderIndex, 0)];
+            this.unitActionPanelUI.Init(turnUnit.GetBasicActions());
+            this.unitActionPanelUI.Show();
+        }
+
+        public bool IsAvailableAction(string actionName) => this._unitTurnState.CanDoAction(actionName);
 
         public void StartMap(Team playerTeam, Team enemyTeam) {
             this.BuildTurnOrder(playerTeam, enemyTeam);
@@ -101,7 +131,7 @@ namespace Game.Battle {
             this._unitsTurnOrderIndex = -1;
             List<UnitObject> units = playerTeam.GetUnitObjects().Concat(enemyTeam.GetUnitObjects()).ToList();
             this._unitsTurnOrder.AddRange(
-                units.OrderByDescending(unit => unit.GetUnit().GetSpeed())
+                units.OrderByDescending(unit => unit.GetUnit().GetStat(StatType.Speed).Current)
                     .ThenBy(_ => Random.value)
                     .ToList());
             this.turnOrderUI.Show(this._unitsTurnOrder, 5);
@@ -139,7 +169,7 @@ namespace Game.Battle {
                 .GetGridPosition());
             this._unitsTurnOrderIndex = this.GetNextUnitTurnOrderIndex(this._unitsTurnOrderIndex);
             UnitObject currentTurnUnit = this._unitsTurnOrder[this._unitsTurnOrderIndex];
-            currentTurnUnit.GetUnit().RestoreAp();
+            currentTurnUnit.GetUnit().GetStat(StatType.AP).Restore();
             this._unitTurnState = new UnitTurnState(currentTurnUnit);
             this.turnOrderUI.UpdateCurrentTurn(this._unitsTurnOrderIndex);
             this.unitInfoPanelUI.SetUnitInfo(currentTurnUnit);
@@ -180,6 +210,6 @@ namespace Game.Battle {
             this._unitTurnState.ExecuteAction(battleAction, this);
         }
 
-        public bool CanDoAction(IBattleAction battleAction) => this._unitTurnState.CanDoAction(battleAction);
+        public bool CanDoAction(IBattleAction battleAction) => this._unitTurnState.CanDoAction(battleAction, this);
     }
 }
