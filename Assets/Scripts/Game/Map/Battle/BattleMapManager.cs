@@ -23,13 +23,13 @@ namespace Game.Map.Battle {
         public GridPosition GetMapCenterPosition() => this._mapData.GetCenter();
 
         public void InitUnit(UnitObject unitObject) {
-            GridPosition unitPosition = unitObject.GetUnit().GetGridPosition();
+            GridPosition unitPosition = unitObject.Unit.GridPosition;
             MapCell cell = this._cells.GetValueOrDefault(unitPosition);
             cell.SetOccupantUnit(unitObject);
         }
 
         public void DespawnUnit(UnitObject unitObject) {
-            GridPosition unitPosition = unitObject.GetUnit().GetGridPosition();
+            GridPosition unitPosition = unitObject.Unit.GridPosition;
             MapCell cell = this._cells.GetValueOrDefault(unitPosition);
             cell.ClearOccupantUnit();
         }
@@ -75,7 +75,7 @@ namespace Game.Map.Battle {
         }
 
         private static void HighlightUnitCell(MapCell cell) => cell.HighlightCell(
-            cell.GetOccupantUnit().GetTeam().GetBattleTeam() == BattleTeam.Player
+            cell.GetOccupantUnit().Team.GetBattleTeam() == BattleTeam.Player
                 ? HighlightColor.Yellow
                 : HighlightColor.Orange);
 
@@ -90,7 +90,7 @@ namespace Game.Map.Battle {
             TileData originTile = this._mapData.GetTile(origin.Position.x, origin.Position.y);
 
             UnitObject occupant = this._cells[origin].GetOccupantUnit();
-            BattleTeam? currentTeam = occupant?.GetTeam()?.GetBattleTeam();
+            BattleTeam? currentTeam = occupant?.Team?.GetBattleTeam();
 
             queue.Enqueue(originTile);
             costs[originTile] = 0;
@@ -129,7 +129,7 @@ namespace Game.Map.Battle {
                         continue;
                     }
 
-                    BattleTeam neighbourTeam = neighbourCell.GetOccupantUnit().GetTeam().GetBattleTeam();
+                    BattleTeam neighbourTeam = neighbourCell.GetOccupantUnit().Team.GetBattleTeam();
 
                     if (((target == Target.Ally && neighbourTeam == currentTeam) ||
                          (target == Target.Enemy && neighbourTeam != currentTeam)) &&

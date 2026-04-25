@@ -5,9 +5,13 @@ namespace Game.Battle.Actions {
     using Unit;
 
     public class WaitAction : AbstractBasicAction {
-        public override ActionType GetActionType() => ActionType.Wait;
+        protected override ActionType GetActionType() => ActionType.Wait;
         public override int GetApCost() => 0;
-        public override void Start(IBattleContext battleContext) => battleContext.EndTurn();
+
+        public override IEnumerator Start(IBattleContext battleContext) {
+            battleContext.EndTurn();
+            yield return null;
+        }
 
         public override IEnumerator DoEnemyAction(IBattleContext battleContext, UnitObject enemy,
             DecisionResult decisionResult,

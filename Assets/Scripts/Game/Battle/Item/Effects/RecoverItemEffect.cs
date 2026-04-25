@@ -1,4 +1,5 @@
 namespace Game.Battle.Item.Effects {
+    using System.Collections;
     using global::Unit.Data;
     using Map.Battle;
     using Unit;
@@ -10,13 +11,14 @@ namespace Game.Battle.Item.Effects {
         public int amount;
 
         public override bool CanApply(UnitObject target) =>
-            !target.GetUnit().IsDead() && !target.GetUnit().IsStatFull(this.statType);
+            !target.Unit.IsDead() && !target.Unit.IsStatFull(this.statType);
 
-        public override void Apply(UnitObject user, GridPosition target, BattleMapManager battleMapManager) {
+        public override IEnumerator Apply(UnitObject user, GridPosition target, BattleMapManager battleMapManager) {
             UnitObject targetUnit = battleMapManager.GetUnit(target);
-            Unit unit = targetUnit.GetUnit();
-            int amountRecovered = (int)unit.GetStat(this.statType).Add(this.amount);
+            Unit unit = targetUnit.Unit;
+            int amountRecovered = (int)unit.AddStat(this.statType, this.amount);
             // todo: aqui debería activarse el efecto de recuperación con text la cantidad
+            yield return null;
         }
     }
 }

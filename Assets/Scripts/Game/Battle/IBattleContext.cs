@@ -1,8 +1,8 @@
 namespace Game.Battle {
     using System;
+    using System.Collections;
     using Actions;
     using Item;
-    using Map.Battle;
     using Unit;
 
     public interface IBattleContext {
@@ -14,8 +14,8 @@ namespace Game.Battle {
         public void ApCostApply(IBattleAction action);
         public void ApCostRevert(IBattleAction action);
 
-        public void EnterItemSelectionTarget(Target target,
-            Action<UnitObject, GridPosition, BattleMapManager, IBattleContext> callback,
+        public IEnumerator EnterItemSelectionTarget(Target target,
+            Func<InventorySelectionData, IEnumerator> callback,
             Func<UnitObject, bool> canSelect);
 
         public void EndAction();

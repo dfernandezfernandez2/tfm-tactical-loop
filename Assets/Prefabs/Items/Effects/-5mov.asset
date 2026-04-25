@@ -15,3 +15,4 @@ MonoBehaviour:
   statType: 3
   amount: 5
   turnsDuration: 2
+  color: {r: 0.3301887, g: 0.3152064, b: 0.2538715, a: 1}

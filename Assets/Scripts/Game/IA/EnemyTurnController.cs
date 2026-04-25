@@ -32,8 +32,8 @@ namespace Game.IA {
 
         private IEnumerable<List<DecisionResult>> GeneratePlans(UnitObject enemy, IReadOnlyList<UnitObject> turnOrder,
             List<IBattleAction> availableActions) {
-            GridPosition startPosition = enemy.GetUnit().GetGridPosition();
-            int currentAp = enemy.GetUnit().GetCurrentAp();
+            GridPosition startPosition = enemy.Unit.GridPosition;
+            int currentAp = enemy.Unit.GetCurrentIntStat(StatType.AP);
 
             foreach (List<DecisionResult> plan in this.GeneratePlans(enemy, turnOrder, startPosition, currentAp,
                          availableActions)) {
@@ -88,13 +88,13 @@ namespace Game.IA {
 
         private static float ScorePlan(UnitObject enemy, IReadOnlyList<UnitObject> turnOrder,
             IReadOnlyList<DecisionResult> plan) {
-            GridPosition currentPosition = enemy.GetUnit().GetGridPosition();
+            GridPosition currentPosition = enemy.Unit.GridPosition;
             float score = 0f;
 
             UnitObject closestBefore = GetClosestEnemy(enemy, turnOrder, currentPosition);
             int distanceBefore = closestBefore == null
                 ? 0
-                : GetDistance(currentPosition, closestBefore.GetUnit().GetGridPosition());
+                : GetDistance(currentPosition, closestBefore.Unit.GridPosition);
 
             foreach (DecisionResult decision in plan) {
                 switch (decision.Action) {
@@ -105,7 +105,7 @@ namespace Game.IA {
                         }
 
                         int damage = EstimateDamage(enemy, target);
-                        int hp = target.GetUnit().GetCurrentHp();
+                        int hp = target.Unit.GetCurrentIntStat(StatType.Hp);
                         score += damage * 10f;
                         score += 20f;
                         if (damage >= hp) {
@@ -130,7 +130,7 @@ namespace Game.IA {
             UnitObject closestAfter = GetClosestEnemy(enemy, turnOrder, currentPosition);
             int distanceAfter = closestAfter == null
                 ? 0
-                : GetDistance(currentPosition, closestAfter.GetUnit().GetGridPosition());
+                : GetDistance(currentPosition, closestAfter.Unit.GridPosition);
             score += (distanceBefore - distanceAfter) * 5f;
             bool attacked = plan.Any(x => x.Action is AttackSelectionAction);
             if (!attacked && closestAfter != null) {
@@ -150,12 +150,12 @@ namespace Game.IA {
                         UnitObject killTarget = GetKillableTarget(enemy, turnOrder, currentPosition);
 
                         if (killTarget != null) {
-                            actions.Add(new DecisionResult(attackAction, killTarget.GetUnit().GetGridPosition()));
+                            actions.Add(new DecisionResult(attackAction, killTarget.Unit.GridPosition));
                         }
 
                         actions.AddRange(from target in GetAttackableTargets(enemy, turnOrder, currentPosition)
                             where killTarget == null || target != killTarget
-                            select new DecisionResult(attackAction, target.GetUnit().GetGridPosition()));
+                            select new DecisionResult(attackAction, target.Unit.GridPosition));
                         break;
 
                     case MovementSelectionAction movementAction:
@@ -170,25 +170,25 @@ namespace Game.IA {
 
         private static IEnumerable<UnitObject> GetAttackableTargets(UnitObject enemy,
             IReadOnlyList<UnitObject> turnOrder, GridPosition currentPosition) {
-            int range = enemy.GetUnit().GetAttackRange();
+            int range = enemy.Unit.GetCurrentIntStat(StatType.Range);
             return turnOrder
                 .Where(unit => unit != enemy)
-                .Where(unit => unit.GetTeam().GetBattleTeam() != enemy.GetTeam().GetBattleTeam())
-                .Where(unit => !unit.GetUnit().IsDead())
-                .Where(unit => GetDistance(currentPosition, unit.GetUnit().GetGridPosition()) <= range)
-                .OrderBy(unit => unit.GetUnit().GetCurrentHp());
+                .Where(unit => unit.Team.GetBattleTeam() != enemy.Team.GetBattleTeam())
+                .Where(unit => !unit.Unit.IsDead())
+                .Where(unit => GetDistance(currentPosition, unit.Unit.GridPosition) <= range)
+                .OrderBy(unit => unit.Unit.GetCurrentIntStat(StatType.Hp));
         }
 
         private static UnitObject
             GetKillableTarget(UnitObject enemy, IReadOnlyList<UnitObject> turnOrder, GridPosition currentPosition) =>
             (from target in GetAttackableTargets(enemy, turnOrder, currentPosition)
                 let expectedDamage = EstimateDamage(enemy, target)
-                where expectedDamage >= target.GetUnit().GetCurrentHp()
+                where expectedDamage >= target.Unit.GetCurrentIntStat(StatType.Hp)
                 select target).FirstOrDefault();
 
         private IEnumerable<GridPosition> GetCandidateMovementPositions(UnitObject enemy,
             IReadOnlyList<UnitObject> turnOrder, GridPosition currentPosition) {
-            int movement = enemy.GetUnit().GetCurrentMovement();
+            int movement = enemy.Unit.GetCurrentIntStat(StatType.Movement);
             IReadOnlyList<TileData> reachableTiles =
                 this._battleMapManager.GetReachableTiles(currentPosition, movement);
 
@@ -203,7 +203,7 @@ namespace Game.IA {
             return reachableTiles
                 .Select(x => x.TileGridPosition)
                 .Where(x => !x.Equals(currentPosition))
-                .OrderBy(x => GetDistance(x, closestTarget.GetUnit().GetGridPosition()))
+                .OrderBy(x => GetDistance(x, closestTarget.Unit.GridPosition))
                 .Take(6);
         }
 
@@ -211,28 +211,28 @@ namespace Game.IA {
             GridPosition currentPosition) =>
             turnOrder
                 .Where(unit => unit != enemy)
-                .Where(unit => unit.GetTeam().GetBattleTeam() != enemy.GetTeam().GetBattleTeam())
-                .Where(unit => !unit.GetUnit().IsDead())
-                .OrderBy(unit => GetDistance(currentPosition, unit.GetUnit().GetGridPosition()))
+                .Where(unit => unit.Team.GetBattleTeam() != enemy.Team.GetBattleTeam())
+                .Where(unit => !unit.Unit.IsDead())
+                .OrderBy(unit => GetDistance(currentPosition, unit.Unit.GridPosition))
                 .FirstOrDefault();
 
         private static UnitObject GetUnitAtPosition(IReadOnlyList<UnitObject> turnOrder, GridPosition position) =>
             turnOrder.FirstOrDefault(x =>
-                !x.GetUnit().IsDead() &&
-                x.GetUnit().GetGridPosition().Equals(position));
+                !x.Unit.IsDead() &&
+                x.Unit.GridPosition.Equals(position));
 
         private static bool IsWeakTarget(UnitObject target) =>
-            target.GetUnit().GetCurrentHp() < target.GetUnit().GetStat(StatType.Hp).Max * 0.5f;
+            target.Unit.GetCurrentStat(StatType.Hp) < target.Unit.GetMaxStat(StatType.Hp) * 0.5f;
 
         private static int EstimateDamage(UnitObject attacker, UnitObject defender) {
             List<KeyValuePair<StatType, float>> attackerStats =
-                attacker.GetUnit().GetCurrentStats(
+                attacker.Unit.GetCurrentStats(
                     StatType.Atk,
                     StatType.Accuracy,
                     StatType.CritChance);
 
             List<KeyValuePair<StatType, float>> defenderStats =
-                defender.GetUnit().GetCurrentStats(
+                defender.Unit.GetCurrentStats(
                     StatType.Def,
                     StatType.Evasion);
 

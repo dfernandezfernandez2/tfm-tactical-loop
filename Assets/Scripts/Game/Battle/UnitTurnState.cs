@@ -1,4 +1,5 @@
 namespace Game.Battle {
+    using System.Collections;
     using System.Collections.Generic;
     using Actions;
     using Unit;
@@ -17,10 +18,10 @@ namespace Game.Battle {
 
         public bool CanDoAction(string actionName) => !this._actionsDone.Contains(actionName);
 
-        public void ExecuteAction(IBattleAction action, IBattleContext battleContext) {
+        public IEnumerator ExecuteAction(IBattleAction action, IBattleContext battleContext) {
             this._actionsDone.Add(action.GetActionName());
             battleContext.ApCostApply(action);
-            action.Start(battleContext);
+            yield return action.Start(battleContext);
             this._lastAction = action;
         }
 
