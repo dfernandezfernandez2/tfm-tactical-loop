@@ -57,7 +57,10 @@ namespace Game.Unit {
             }
         }
 
-        public IEnumerator OnTurnEnd() => this._effects.ToList()
-            .Select(effect => effect.OnTurnEnd(this._unitObject, this._visualController)).GetEnumerator();
+        public IEnumerator OnTurnEnd() {
+            foreach (BattleEffect effect in this._effects.ToList()) {
+                yield return effect.OnTurnEnd(this._unitObject, this._visualController);
+            }
+        }
     }
 }

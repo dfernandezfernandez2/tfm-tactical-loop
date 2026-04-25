@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 2696580061072252159}
   - component: {fileID: 8815210062907511494}
   - component: {fileID: 1518966223819640202}
+  - component: {fileID: 6846110409723520727}
   m_Layer: 9
   m_Name: Mage
   m_TagString: Unit
@@ -269,6 +270,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be1ad34cfb6949cf8a58cd4802956e08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Unit.UnitEffectController
+--- !u!114 &6846110409723520727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6536407249645980296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfb6d12ddbfe4702a5363e0de12455ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Unit.UnitActions
+  skills:
+  - {fileID: 11400000, guid: ab651dc6d19eb4a4a9e6ff034c805c4a, type: 2}
 --- !u!1001 &6304764566016216923
 PrefabInstance:
   m_ObjectHideFlags: 0

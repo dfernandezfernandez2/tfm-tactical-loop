@@ -2,17 +2,17 @@
     using System;
     using System.Collections;
     using System.Collections.Generic;
-    using System.Linq;
-    using Battle.Actions;
     using Battle.UI;
     using Core;
     using Data;
     using global::Unit.Data;
     using Map.Battle;
+    using Skills;
     using UnityEngine;
 
     [RequireComponent(typeof(UnitAnimationController))]
     [RequireComponent(typeof(UnitEffectController))]
+    [RequireComponent(typeof(UnitActions))]
     public class UnitObject : MonoBehaviour {
         [SerializeField] private UnitData data;
         [SerializeField] private CombatTextUI combatTextUI;
@@ -22,12 +22,14 @@
         public Team Team { get; set; }
         public Unit Unit { get; private set; }
         public UnitEffectController EffectController { get; private set; }
+        public UnitActions Actions { get; private set; }
 
         public void Awake() {
             this._animator = this.GetComponent<UnitAnimationController>();
             this.Unit = new Unit(this.data.GetStats());
             this.EffectController = this.GetComponent<UnitEffectController>();
             this.EffectController.Init(this);
+            this.Actions = this.GetComponent<UnitActions>();
         }
 
         public string GetName() => this.data.unitName;
@@ -42,6 +44,8 @@
         }
 
         public IEnumerator OnTurnStart() {
+            this.Unit.RestoreStat(StatType.AP);
+            this.Unit.AddStat(StatType.Mp, this.Unit.GetCurrentStat(StatType.MpRegen));
             yield return this.EffectController.OnTurnStart();
         }
 
@@ -128,26 +132,18 @@
             this.UpdateDirection(initialDirection);
         }
 
+        public void PlayText(string message, CombatTextType type) => this.combatTextUI.Init(message, type);
+
+        public IEnumerator PlaySkill (Skill skill, GridPosition targetPosition) {
+            this.UpdateDirection(this.Unit.GridPosition.GetDirectionTo(targetPosition));
+            //yield return this._animator.PlayAnimation(skill.animationName);
+            yield return null;
+        }
+
         private void UpdateDirection(Vector2Int direction) {
             this._animator.UpdateDirection(direction);
             this.Unit.Direction = direction;
         }
 
-        public IReadOnlyList<IBattleAction> GetAllAvailableActions() =>
-            this.GetBasicActions().Concat(
-                this.GetSkillActions()).ToList();
-
-        public IReadOnlyList<IBattleAction> GetBasicActions() {
-            List<IBattleAction> basicActions = new() {
-                new MovementSelectionAction(),
-                new AttackSelectionAction(),
-                new SkillSelectionAction(),
-                new ItemSelectionAction(),
-                new WaitAction()
-            };
-            return basicActions.AsReadOnly();
-        }
-
-        public IReadOnlyList<IBattleAction> GetSkillActions() => new List<IBattleAction>().AsReadOnly();
     }
 }

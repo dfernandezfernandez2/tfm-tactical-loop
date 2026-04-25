@@ -1,7 +1,9 @@
 namespace Game.Battle.Item.Effects {
     using System.Collections;
+    using Effect.Recover;
     using global::Unit.Data;
     using Map.Battle;
+    using UI;
     using Unit;
     using UnityEngine;
 
@@ -9,6 +11,7 @@ namespace Game.Battle.Item.Effects {
     public class RecoverItemEffect : ItemEffect {
         public StatType statType;
         public int amount;
+        public Color color;
 
         public override bool CanApply(UnitObject target) =>
             !target.Unit.IsDead() && !target.Unit.IsStatFull(this.statType);
@@ -17,8 +20,7 @@ namespace Game.Battle.Item.Effects {
             UnitObject targetUnit = battleMapManager.GetUnit(target);
             Unit unit = targetUnit.Unit;
             int amountRecovered = (int)unit.AddStat(this.statType, this.amount);
-            // todo: aqui debería activarse el efecto de recuperación con text la cantidad
-            yield return null;
+            yield return targetUnit.EffectController.ApplyEffect(new RecoverEffect(this.statType, amountRecovered, this.color, CombatTextType.Heal));
         }
     }
 }

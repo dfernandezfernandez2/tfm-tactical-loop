@@ -6,13 +6,6 @@ namespace Game.Battle.Actions {
     using Map.Battle;
     using Unit;
 
-    public struct InventorySelectionData {
-        public UnitObject User;
-        public GridPosition Position;
-        public BattleMapManager BattleMapManager;
-        public IBattleContext Context;
-    }
-
     public class InventoryItem : IBattleAction {
         private readonly Item _item;
         private readonly Action<InventoryItem> _onConsume;
@@ -31,7 +24,7 @@ namespace Game.Battle.Actions {
         public int GetApCost() => 0;
 
         public IEnumerator Start(IBattleContext battleContext) {
-            yield return battleContext.EnterItemSelectionTarget(this._item.target, this.OnSelect,
+            yield return battleContext.EnterSelectionTarget(this._item.target, this.OnSelect,
                 this._item.effect.CanApply);
         }
 
@@ -54,7 +47,7 @@ namespace Game.Battle.Actions {
 
         private bool Has() => this._amount > 0;
 
-        private IEnumerator OnSelect(InventorySelectionData inventorySelectionData) {
+        private IEnumerator OnSelect(SelectionData inventorySelectionData) {
             yield return this._item.effect.Apply(inventorySelectionData.User, inventorySelectionData.Position,
                 inventorySelectionData.BattleMapManager);
             this.Consume();
