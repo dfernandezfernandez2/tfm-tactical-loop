@@ -15,7 +15,7 @@ namespace Game.Battle.Item.Effects {
         public override void Apply(UnitObject user, GridPosition target, BattleMapManager battleMapManager) {
             UnitObject targetUnit = battleMapManager.GetUnit(target);
             Unit unit = targetUnit.GetUnit();
-            int amountRecovered = (int)unit.GetStat(this.statType).Add(this.amount);
+            int amountRecovered = (int)unit.AddStat(this.statType, this.amount);
             // todo: aqui debería activarse el efecto de recuperación con text la cantidad
         }
     }

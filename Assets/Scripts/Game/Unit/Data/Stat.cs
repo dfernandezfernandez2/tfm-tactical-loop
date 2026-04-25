@@ -2,23 +2,22 @@
     using System;
 
     public class Stat {
+        private float _current;
+
         public Stat(float value) {
             this.Max = value;
-            this.Current = value;
+            this._current = value;
         }
 
-        public float Current { get; private set; }
         public float Max { get; }
 
         public float Add(float amount) {
-            float previous = this.Current;
-            this.Current = Math.Min(this.Max, this.Current + amount);
-            return this.Current - previous;
+            float previous = this._current;
+            this._current = Math.Min(this.Max, Math.Max(0, this._current + amount));
+            return this._current - previous;
         }
 
-        public void Reduce(float amount) => this.Current = Math.Max(0, this.Current - amount);
-        public void Restore() => this.Current = this.Max;
-        public bool IsEmpty() => this.Current == 0;
-        public bool IsFull() => this.Current >= this.Max;
+        public void Restore() => this._current = this.Max;
+        public float GetCurrentWithModifier(float amount) => Math.Min(this.Max, this._current + amount);
     }
 }

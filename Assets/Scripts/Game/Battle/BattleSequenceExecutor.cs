@@ -32,6 +32,10 @@ namespace Game.Battle {
                 yield break;
             }
 
+            if (attacker.GetTeam().GetBattleTeam() == target.GetTeam().GetBattleTeam()) {
+                yield break;
+            }
+
             IReadOnlyList<UnitObject> unitObjects = battleMapManager.GetUnitsAround(targetPosition);
             foreach (UnitObject unit in unitObjects) {
                 if (unit.GetTeam().GetBattleTeam() != target.GetTeam().GetBattleTeam() && unit != attacker &&

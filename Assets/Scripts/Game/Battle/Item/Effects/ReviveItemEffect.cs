@@ -14,7 +14,7 @@ namespace Game.Battle.Item.Effects {
             UnitObject targetUnit = battleMapManager.GetUnit(target);
             Unit unit = targetUnit.GetUnit();
             // todo: aqui debería activarse el efecto de revivir con text la vida
-            unit.GetStat(StatType.Hp).Add(this.amount);
+            unit.AddStat(StatType.Hp, this.amount);
         }
     }
 }

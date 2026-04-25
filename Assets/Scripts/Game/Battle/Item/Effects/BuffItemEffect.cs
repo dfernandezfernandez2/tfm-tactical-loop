@@ -1,5 +1,5 @@
 namespace Game.Battle.Item.Effects {
-    using System;
+    using Effect.Buff;
     using global::Unit.Data;
     using Map.Battle;
     using Unit;
@@ -14,6 +14,6 @@ namespace Game.Battle.Item.Effects {
         public override bool CanApply(UnitObject target) => !target.GetUnit().IsDead();
 
         public override void Apply(UnitObject user, GridPosition target, BattleMapManager battleMapManager) =>
-            throw new NotImplementedException();
+            user.GetUnit().ApplyEffect(new BuffEffect(this.turnsDuration, this.statType, this.amount));
     }
 }

@@ -87,6 +87,14 @@
             this.transform.position = this.worldRender.GridToWorld(gridPosition);
         }
 
+        public IEnumerator OnTurnStart() {
+            yield return null;
+        }
+
+        public IEnumerator OnTurnEnd() {
+            yield return null;
+        }
+
         public Unit GetUnit() => this._unit;
 
         public IEnumerator MoveOnPath(IReadOnlyList<GridPosition> path, Action<GridPosition, GridPosition> onMove) {

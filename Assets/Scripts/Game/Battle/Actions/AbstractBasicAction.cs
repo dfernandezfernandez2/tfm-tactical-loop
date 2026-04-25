@@ -15,7 +15,7 @@ namespace Game.Battle.Actions {
         public abstract void Start(IBattleContext battleContext);
 
         public virtual bool CanDoAction(IBattleContext battleContext, UnitObject unitObject) =>
-            unitObject.GetUnit().GetStat(StatType.AP).Current >= this.GetApCost();
+            unitObject.GetUnit().GetCurrentIntStat(StatType.AP) >= this.GetApCost();
 
         public abstract IEnumerator DoEnemyAction(IBattleContext battleContext, UnitObject enemy,
             DecisionResult decisionResult,

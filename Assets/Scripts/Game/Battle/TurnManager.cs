@@ -34,7 +34,8 @@ namespace Game.Battle {
          * Communicates to UI
          */
         public void EnterMovementSelection() {
-            int currentUnitMovement = this._unitsTurnOrder[this._unitsTurnOrderIndex].GetUnit().GetCurrentMovement();
+            int currentUnitMovement = this._unitsTurnOrder[this._unitsTurnOrderIndex].GetUnit()
+                .GetCurrentIntStat(StatType.Movement);
             GridPosition currentUnitGridPosition =
                 this._unitsTurnOrder[this._unitsTurnOrderIndex].GetUnit().GetGridPosition();
             IReadOnlyList<TileData> reachableTiles =
@@ -46,7 +47,8 @@ namespace Game.Battle {
         }
 
         public void EnterAttackTargetSelection() {
-            int attackRange = this._unitsTurnOrder[this._unitsTurnOrderIndex].GetUnit().GetAttackRange();
+            int attackRange = this._unitsTurnOrder[this._unitsTurnOrderIndex].GetUnit()
+                .GetCurrentIntStat(StatType.Range);
             GridPosition currentUnitGridPosition =
                 this._unitsTurnOrder[this._unitsTurnOrderIndex].GetUnit().GetGridPosition();
             IReadOnlyList<TileData> reachableTiles =
@@ -82,10 +84,10 @@ namespace Game.Battle {
         }
 
         public void ApCostApply(IBattleAction action) =>
-            this._unitsTurnOrder[this._unitsTurnOrderIndex].GetUnit().GetStat(StatType.AP).Reduce(action.GetApCost());
+            this._unitsTurnOrder[this._unitsTurnOrderIndex].GetUnit().AddStat(StatType.AP, -action.GetApCost());
 
         public void ApCostRevert(IBattleAction action) =>
-            this._unitsTurnOrder[this._unitsTurnOrderIndex].GetUnit().GetStat(StatType.AP).Add(action.GetApCost());
+            this._unitsTurnOrder[this._unitsTurnOrderIndex].GetUnit().AddStat(StatType.AP, action.GetApCost());
 
         public void EnterItemSelectionTarget(Target target,
             Action<UnitObject, GridPosition, BattleMapManager, IBattleContext> callback,
@@ -131,7 +133,7 @@ namespace Game.Battle {
             this._unitsTurnOrderIndex = -1;
             List<UnitObject> units = playerTeam.GetUnitObjects().Concat(enemyTeam.GetUnitObjects()).ToList();
             this._unitsTurnOrder.AddRange(
-                units.OrderByDescending(unit => unit.GetUnit().GetStat(StatType.Speed).Current)
+                units.OrderByDescending(unit => unit.GetUnit().GetCurrentIntStat(StatType.Speed))
                     .ThenBy(_ => Random.value)
                     .ToList());
             this.turnOrderUI.Show(this._unitsTurnOrder, 5);
@@ -165,11 +167,24 @@ namespace Game.Battle {
 
         private IEnumerator StartTurn() {
             this.unitActionPanelUI.Hide();
-            this.battleMapManager.UnSelect(this._unitsTurnOrder[Math.Max(this._unitsTurnOrderIndex, 0)].GetUnit()
-                .GetGridPosition());
+
+            UnitObject previousUnitTurn = this._unitsTurnOrder[Math.Max(this._unitsTurnOrderIndex, 0)];
+            yield return previousUnitTurn.OnTurnEnd();
+            if (previousUnitTurn.GetUnit().IsDead()) {
+                // todo: visual en el orden
+            }
+
+            this.battleMapManager.UnSelect(previousUnitTurn.GetUnit().GetGridPosition());
+
             this._unitsTurnOrderIndex = this.GetNextUnitTurnOrderIndex(this._unitsTurnOrderIndex);
             UnitObject currentTurnUnit = this._unitsTurnOrder[this._unitsTurnOrderIndex];
-            currentTurnUnit.GetUnit().GetStat(StatType.AP).Restore();
+            currentTurnUnit.GetUnit().RestoreStat(StatType.AP);
+            yield return currentTurnUnit.OnTurnStart();
+            if (currentTurnUnit.GetUnit().IsDead()) {
+                yield return this.StartCoroutine(this.StartTurn());
+                yield break;
+            }
+
             this._unitTurnState = new UnitTurnState(currentTurnUnit);
             this.turnOrderUI.UpdateCurrentTurn(this._unitsTurnOrderIndex);
             this.unitInfoPanelUI.SetUnitInfo(currentTurnUnit);
