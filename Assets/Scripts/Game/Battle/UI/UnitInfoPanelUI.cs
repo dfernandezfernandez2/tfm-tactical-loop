@@ -15,7 +15,7 @@ namespace Game.Battle.UI {
             StatType.Hp, StatType.Atk, StatType.Def,
             StatType.Movement, StatType.Range, StatType.Speed,
             StatType.CritChance, StatType.Accuracy, StatType.Evasion,
-            StatType.Mp, StatType.MpRegen
+            StatType.Mp, StatType.MpRegen, StatType.AP
         };
 
         private readonly List<TMP_Text> _unitStats = new();
@@ -27,7 +27,7 @@ namespace Game.Battle.UI {
             }
 
             this._unitStats.Clear();
-            foreach ((StatType type, float value) in unitObject.GetUnit().GetCurrentStats(this._statsFilter)) {
+            foreach ((StatType type, float value) in unitObject.Unit.GetCurrentStats(this._statsFilter)) {
                 TMP_Text text = Instantiate(this.statTextPrefab, this.unitStatsPanel.transform);
                 text.text = type.GetName() + ": " + FormatValue(value);
                 this._unitStats.Add(text);

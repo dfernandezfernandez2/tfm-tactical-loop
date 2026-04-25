@@ -17,12 +17,12 @@ namespace Game.Core {
         public IReadOnlyList<UnitObject> GetUnitObjectsPrefabs() => this._unitObjectsPrefabs;
 
         public void AddUnit(UnitObject unitObject) {
-            unitObject.SetTeam(this);
+            unitObject.Team = this;
             this._unitObjects.Add(unitObject);
         }
 
         public void RemoveUnit(UnitObject unitObject) {
-            unitObject.SetTeam(null);
+            unitObject.Team = null;
             this._unitObjects.Remove(unitObject);
         }
 

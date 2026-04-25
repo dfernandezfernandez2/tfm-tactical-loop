@@ -1,16 +1,27 @@
 namespace Game.Unit {
+    using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
     using Effect;
     using Effect.Status;
-    using global::Unit.Data;
+    using UnityEngine;
 
-    public class UnitEffectController {
+    public class UnitEffectController : MonoBehaviour {
         private readonly List<BattleEffect> _effects = new();
-        private readonly Dictionary<StatType, float> _modifiers = new();
         private StatusEffect _status;
+        private UnitObject _unitObject;
 
-        public void ApplyEffect(BattleEffect effect) {
+        private EffectVisualController _visualController;
+
+        public void Awake() => this._visualController = FindFirstObjectByType<EffectVisualController>();
+
+        public void Init(UnitObject unitObject) => this._unitObject = unitObject;
+
+        public IEnumerator ApplyEffect(BattleEffect effect) {
+            yield return this.ApplyEffect(effect, this._unitObject);
+        }
+
+        public IEnumerator ApplyEffect(BattleEffect effect, UnitObject target) {
             if (effect is StatusEffect statusEffect) {
                 this.ReplaceStatus(statusEffect);
             }
@@ -18,7 +29,7 @@ namespace Game.Unit {
                 this._effects.Add(effect);
             }
 
-            effect.OnApply(this);
+            yield return effect.OnApply(this._unitObject, target, this._visualController);
         }
 
         private void ReplaceStatus(StatusEffect newStatus) {
@@ -30,38 +41,23 @@ namespace Game.Unit {
             this._effects.Add(newStatus);
         }
 
-        public void AddModifier(StatType statType, float value) {
-            if (this._modifiers.TryAdd(statType, value)) {
-                return;
-            }
-
-            float modifier = this._modifiers[statType];
-            modifier += value;
-            this._modifiers[statType] = modifier;
-        }
-
-        public float GetModifier(StatType statType) => this._modifiers.GetValueOrDefault(statType, 0f);
-
-        public void OnTurnStart() {
+        public IEnumerator OnTurnStart() {
             foreach (BattleEffect effect in this._effects.ToList()) {
-                effect.OnTurnStart(this);
-            }
-        }
-
-        public void OnTurnEnd() {
-            foreach (BattleEffect effect in this._effects.ToList()) {
-                effect.OnTurnEnd(this);
+                yield return effect.OnTurnStart(this._unitObject, this._visualController);
                 effect.DecreaseDuration();
                 if (!effect.IsExpired()) {
                     continue;
                 }
 
-                effect.OnExpire(this);
+                yield return effect.OnExpire(this._unitObject, this._visualController);
                 this._effects.Remove(effect);
                 if (this._status == effect) {
                     this._status = null;
                 }
             }
         }
+
+        public IEnumerator OnTurnEnd() => this._effects.ToList()
+            .Select(effect => effect.OnTurnEnd(this._unitObject, this._visualController)).GetEnumerator();
     }
 }

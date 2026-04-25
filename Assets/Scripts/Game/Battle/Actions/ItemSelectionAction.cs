@@ -7,11 +7,13 @@ namespace Game.Battle.Actions {
     using Unit;
 
     public class ItemSelectionAction : AbstractBasicAction {
-        public override ActionType GetActionType() => ActionType.Item;
+        protected override ActionType GetActionType() => ActionType.Item;
         public override int GetApCost() => 0;
 
-        public override void Start(IBattleContext battleContext) =>
+        public override IEnumerator Start(IBattleContext battleContext) {
             battleContext.EnterObjectSelection();
+            yield return null;
+        }
 
         public override bool CanDoAction(IBattleContext battleContext, UnitObject unitObject) =>
             RunData.GetInstance().Inventory.HasItems() &&

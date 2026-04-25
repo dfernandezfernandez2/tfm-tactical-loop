@@ -1,6 +1,8 @@
 namespace Game.Effect.Status {
+    using System.Collections;
     using global::Unit.Data;
     using Unit;
+    using UnityEngine;
 
     public class PoisonEffect : StatusEffect {
         private readonly int _damagePerTurn;
@@ -11,9 +13,20 @@ namespace Game.Effect.Status {
             this._currentDamage = initialDamage;
         }
 
-        public override void OnTurnStart(UnitEffectController target) {
-            target.AddModifier(StatType.Hp, -this._currentDamage);
+        public override IEnumerator OnApply(UnitObject from, UnitObject to, EffectVisualController controller) {
+            yield return controller.PlayEffect(this.CreateEffectData(to, Color.mediumPurple));
+        }
+
+        public override IEnumerator OnTurnStart(UnitObject target, EffectVisualController controller) {
+            target.Unit.UnitStatsModifier.AddModifier(StatType.Hp, -this._currentDamage);
+            yield return target.PlayDamage(this._currentDamage);
             this._currentDamage += this._damagePerTurn;
+            yield return null;
+        }
+
+        public override IEnumerator OnExpire(UnitObject target, EffectVisualController controller) {
+            controller.RemoveEffect(this, target);
+            yield return null;
         }
     }
 }

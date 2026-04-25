@@ -5,11 +5,14 @@ namespace Game.Battle.Actions {
     using Unit;
 
     public class AttackSelectionAction : AbstractBasicAction {
-        public override ActionType GetActionType() => ActionType.Attack;
+        protected override ActionType GetActionType() => ActionType.Attack;
         public override int GetApCost() => 1;
 
-        public override void Start(IBattleContext battleContext) =>
+        public override IEnumerator Start(IBattleContext battleContext) {
             battleContext.EnterAttackTargetSelection();
+            yield return null;
+        }
+
 
         public override IEnumerator DoEnemyAction(IBattleContext battleContext, UnitObject enemy,
             DecisionResult decisionResult,

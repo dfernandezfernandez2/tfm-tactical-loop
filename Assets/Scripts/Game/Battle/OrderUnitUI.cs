@@ -12,7 +12,7 @@ namespace Game.Battle {
         public void SetUnit(UnitObject unit) {
             this.unitImage.sprite = unit.GetSprite();
             if (this.unitBorderImage != null) {
-                this.unitBorderImage.color = unit.GetTeam().GetBattleTeam().GetColor();
+                this.unitBorderImage.color = unit.Team.GetBattleTeam().GetColor();
             }
 
             this.SetSelected(false);

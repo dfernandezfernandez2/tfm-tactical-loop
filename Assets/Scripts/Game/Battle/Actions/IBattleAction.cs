@@ -8,7 +8,7 @@ namespace Game.Battle.Actions {
         public string GetName();
         public string GetActionName();
         public int GetApCost();
-        public void Start(IBattleContext battleContext);
+        public IEnumerator Start(IBattleContext battleContext);
         public bool CanDoAction(IBattleContext battleContext, UnitObject unitObject);
 
         public IEnumerator DoEnemyAction(IBattleContext battleContext, UnitObject enemy, DecisionResult decisionResult,

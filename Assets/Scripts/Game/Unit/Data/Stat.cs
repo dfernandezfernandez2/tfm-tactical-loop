@@ -18,6 +18,6 @@
         }
 
         public void Restore() => this._current = this.Max;
-        public float GetCurrentWithModifier(float amount) => Math.Min(this.Max, this._current + amount);
+        public float GetCurrentWithModifier(float amount) => Math.Max(0, this._current + amount);
     }
 }

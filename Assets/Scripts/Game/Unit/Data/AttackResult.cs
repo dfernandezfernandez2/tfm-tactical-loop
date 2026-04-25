@@ -1,4 +1,4 @@
-namespace Game.Unit {
+namespace Game.Unit.Data {
     public class AttackResult {
         private readonly int _damage;
 

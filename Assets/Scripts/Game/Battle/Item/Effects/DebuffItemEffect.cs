@@ -1,5 +1,5 @@
 namespace Game.Battle.Item.Effects {
-    using System;
+    using System.Collections;
     using Effect.Debuff;
     using global::Unit.Data;
     using Map.Battle;
@@ -11,10 +11,13 @@ namespace Game.Battle.Item.Effects {
         public StatType statType;
         public int amount;
         public int turnsDuration;
+        public Color color;
 
-        public override bool CanApply(UnitObject target) => !target.GetUnit().IsDead();
+        public override bool CanApply(UnitObject target) => !target.Unit.IsDead();
 
-        public override void Apply(UnitObject user, GridPosition target, BattleMapManager battleMapManager) =>
-            user.GetUnit().ApplyEffect(new DebuffEffect(this.turnsDuration, this.statType, this.amount));
+        public override IEnumerator Apply(UnitObject user, GridPosition target, BattleMapManager battleMapManager) {
+            yield return user.EffectController.ApplyEffect(new DebuffEffect(this.turnsDuration, this.statType,
+                this.amount, this.color));
+        }
     }
 }

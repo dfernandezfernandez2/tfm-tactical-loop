@@ -1,4 +1,5 @@
 namespace Game.Battle.Item.Effects {
+    using System.Collections;
     using global::Unit.Data;
     using Map.Battle;
     using Unit;
@@ -8,13 +9,14 @@ namespace Game.Battle.Item.Effects {
     public class ReviveItemEffect : ItemEffect {
         public int amount;
 
-        public override bool CanApply(UnitObject target) => target.GetUnit().IsDead();
+        public override bool CanApply(UnitObject target) => target.Unit.IsDead();
 
-        public override void Apply(UnitObject user, GridPosition target, BattleMapManager battleMapManager) {
+        public override IEnumerator Apply(UnitObject user, GridPosition target, BattleMapManager battleMapManager) {
             UnitObject targetUnit = battleMapManager.GetUnit(target);
-            Unit unit = targetUnit.GetUnit();
+            Unit unit = targetUnit.Unit;
             // todo: aqui debería activarse el efecto de revivir con text la vida
             unit.AddStat(StatType.Hp, this.amount);
+            yield return null;
         }
     }
 }

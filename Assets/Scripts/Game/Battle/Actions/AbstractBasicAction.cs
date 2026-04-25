@@ -12,15 +12,15 @@ namespace Game.Battle.Actions {
 
         public abstract int GetApCost();
 
-        public abstract void Start(IBattleContext battleContext);
+        public abstract IEnumerator Start(IBattleContext battleContext);
 
         public virtual bool CanDoAction(IBattleContext battleContext, UnitObject unitObject) =>
-            unitObject.GetUnit().GetCurrentIntStat(StatType.AP) >= this.GetApCost();
+            unitObject.Unit.GetCurrentIntStat(StatType.AP) >= this.GetApCost();
 
         public abstract IEnumerator DoEnemyAction(IBattleContext battleContext, UnitObject enemy,
             DecisionResult decisionResult,
             BattleMapManager battleMapManager);
 
-        public abstract ActionType GetActionType();
+        protected abstract ActionType GetActionType();
     }
 }

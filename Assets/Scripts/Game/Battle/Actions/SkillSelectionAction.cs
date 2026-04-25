@@ -6,11 +6,13 @@ namespace Game.Battle.Actions {
     using Unit;
 
     public class SkillSelectionAction : AbstractBasicAction {
-        public override ActionType GetActionType() => ActionType.Skill;
+        protected override ActionType GetActionType() => ActionType.Skill;
         public override int GetApCost() => 0;
 
-        public override void Start(IBattleContext battleContext) =>
+        public override IEnumerator Start(IBattleContext battleContext) {
             battleContext.EnterSkillSelection();
+            yield return null;
+        }
 
         public override bool CanDoAction(IBattleContext battleContext, UnitObject unitObject) =>
             unitObject.GetSkillActions().Count > 0 && battleContext.IsAvailableAction(this.GetActionName() + "Action");
