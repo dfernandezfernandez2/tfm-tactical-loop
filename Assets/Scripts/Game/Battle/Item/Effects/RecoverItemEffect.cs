@@ -20,7 +20,8 @@ namespace Game.Battle.Item.Effects {
             UnitObject targetUnit = battleMapManager.GetUnit(target);
             Unit unit = targetUnit.Unit;
             int amountRecovered = (int)unit.AddStat(this.statType, this.amount);
-            yield return targetUnit.EffectController.ApplyEffect(new RecoverEffect(this.statType, amountRecovered, this.color, CombatTextType.Heal));
+            yield return targetUnit.EffectController.ApplyEffect(new RecoverEffect(this.statType, amountRecovered,
+                this.color, CombatTextType.Heal));
         }
     }
 }

@@ -2,18 +2,19 @@ namespace Game.Effect.Recover {
     using System.Collections;
     using Battle.UI;
     using Data;
-    using Unit;
     using global::Unit.Data;
+    using Unit;
     using UnityEngine;
 
     public class RecoverEffect : BattleEffect {
         private readonly float _amount;
         private readonly Color _color;
+        private readonly CombatTextType _combatTextType;
         private readonly string _soundEffectName;
         private readonly StatType _statType;
-        private readonly CombatTextType _combatTextType;
 
-        public RecoverEffect(StatType statType, float amount, Color color, CombatTextType combatTextType, string soundEffectName = "heal") :
+        public RecoverEffect(StatType statType, float amount, Color color, CombatTextType combatTextType,
+            string soundEffectName = "heal") :
             base(0) {
             this._statType = statType;
             this._amount = amount;

@@ -6,16 +6,15 @@ namespace Game.Unit {
     using UnityEngine;
 
     public class UnitActions : MonoBehaviour {
+        [SerializeField] private List<Skill> skills = new();
 
-        private readonly IReadOnlyList<IBattleAction> _basicActions = new List<IBattleAction>() {
+        private readonly IReadOnlyList<IBattleAction> _basicActions = new List<IBattleAction> {
             new MovementSelectionAction(),
             new AttackSelectionAction(),
             new SkillSelectionAction(),
             new ItemSelectionAction(),
             new WaitAction()
         };
-
-        [SerializeField] private List<Skill> skills = new();
 
         private readonly List<SkillAction> _skillActions = new();
 
@@ -27,6 +26,7 @@ namespace Game.Unit {
 
         public IReadOnlyList<IBattleAction> GetBasicActions() => this._basicActions;
         public IReadOnlyList<IBattleAction> GetSkillActions() => this._skillActions.AsReadOnly();
+
         public IReadOnlyList<IBattleAction> GetAllAvailableActions() =>
             this.GetBasicActions().Concat(
                 this.GetSkillActions()).ToList();

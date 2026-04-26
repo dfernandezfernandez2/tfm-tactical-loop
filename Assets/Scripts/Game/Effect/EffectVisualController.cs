@@ -30,7 +30,8 @@ namespace Game.Effect {
         public IEnumerator PlayEffect(EffectData effectData) {
             ParticleEffectConfig config = effectData.ParticleConfig ?? new ParticleEffectConfig();
 
-            ParticleSystem ps = Instantiate(this.particleSystemPrefab, this.transform);
+            Transform parent = effectData.Target.transform;
+            ParticleSystem ps = Instantiate(this.particleSystemPrefab, parent);
 
             ParticleSystemRenderer particleSystemRenderer = ps.GetComponent<ParticleSystemRenderer>();
             if (particleSystemRenderer != null) {
@@ -40,8 +41,7 @@ namespace Game.Effect {
                 particleSystemRenderer.material = material;
             }
 
-            ps.gameObject.transform.position =
-                effectData.Target.transform.position + (Vector3.up * config.heightOffset);
+            ps.transform.localPosition = Vector3.up * config.heightOffset;
 
             ps.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
 

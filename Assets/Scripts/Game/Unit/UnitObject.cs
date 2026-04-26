@@ -53,7 +53,8 @@
             yield return this.EffectController.OnTurnEnd();
         }
 
-        public IEnumerator MoveOnPath(IReadOnlyList<GridPosition> path, Action<GridPosition, GridPosition> onMove) {
+        public IEnumerator MoveOnPath(IReadOnlyList<GridPosition> path, Action<GridPosition, GridPosition> onMove,
+            bool playMoveAnimation = true, float speed = 2f) {
             GridPosition currentPosition = this.Unit.GridPosition;
             foreach (GridPosition pos in path) {
                 Vector2Int direction = currentPosition.GetDirectionTo(pos);
@@ -61,18 +62,20 @@
                 this.Unit.Move(pos, direction);
                 Vector3 target = this.worldRender.GridToWorld(pos);
                 GridPosition position = currentPosition;
-                yield return this.MoveRoutine(target, () => onMove(position, pos));
+                yield return this.MoveRoutine(target, () => onMove(position, pos), playMoveAnimation, speed);
                 currentPosition = pos;
             }
         }
 
-        private IEnumerator MoveRoutine(Vector3 target, Action onHalfMovement) {
-            const float speed = 2f;
+        private IEnumerator MoveRoutine(Vector3 target, Action onHalfMovement, bool playMoveAnimation = true,
+            float speed = 2f) {
             float time = 0f;
             Vector3 start = this.transform.position;
             float distance = Vector3.Distance(start, target);
             float duration = distance / speed;
-            this._animator.SetMoving(true);
+            if (playMoveAnimation) {
+                this._animator.SetMoving(true);
+            }
 
             bool halfTriggered = false;
             while (time < duration) {
@@ -87,7 +90,9 @@
             }
 
             this.transform.position = target;
-            this._animator.SetMoving(false);
+            if (playMoveAnimation) {
+                this._animator.SetMoving(false);
+            }
         }
 
         public IEnumerator PlayBasicAttack(GridPosition targetPosition) {
@@ -134,7 +139,7 @@
 
         public void PlayText(string message, CombatTextType type) => this.combatTextUI.Init(message, type);
 
-        public IEnumerator PlaySkill (Skill skill, GridPosition targetPosition) {
+        public IEnumerator PlaySkill(Skill skill, GridPosition targetPosition) {
             this.UpdateDirection(this.Unit.GridPosition.GetDirectionTo(targetPosition));
             //yield return this._animator.PlayAnimation(skill.animationName);
             yield return null;
@@ -144,6 +149,5 @@
             this._animator.UpdateDirection(direction);
             this.Unit.Direction = direction;
         }
-
     }
 }

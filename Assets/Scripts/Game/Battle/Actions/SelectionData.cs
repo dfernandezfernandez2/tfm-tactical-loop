@@ -3,9 +3,9 @@ namespace Game.Battle.Actions {
     using Unit;
 
     public class SelectionData {
-        public UnitObject User;
-        public GridPosition Position;
         public BattleMapManager BattleMapManager;
         public IBattleContext Context;
+        public GridPosition Position;
+        public UnitObject User;
     }
 }

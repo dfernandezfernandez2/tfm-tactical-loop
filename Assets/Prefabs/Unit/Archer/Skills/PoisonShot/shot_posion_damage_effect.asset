@@ -9,7 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cc48e66dea54039abe6bb8ffcc88715, type: 3}
-  m_Name: 10HealSkillEffect
-  m_EditorClassIdentifier: Assembly-CSharp::Game.Unit.Skills.Effects.HealSkillEffect
-  amount: 10
+  m_Script: {fileID: 11500000, guid: 59930f545a314fd0a359f83d7c1ec892, type: 3}
+  m_Name: shot_posion_damage_effect
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Unit.Skills.Effects.DamageSkillEffect
+  damage: 5
+  canFail: 1
+  applyDefense: 1

@@ -1,4 +1,4 @@
-namespace Game.Unit.Skills.Effects {
+namespace Game.Unit.Skills {
     using System.Collections;
     using Map.Battle;
     using UnityEngine;

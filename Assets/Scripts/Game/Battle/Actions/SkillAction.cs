@@ -1,16 +1,13 @@
 namespace Game.Battle.Actions {
     using System.Collections;
     using System.Linq;
-    using Battle;
-    using IA;
-    using Game.Map.Battle;
     using global::Unit.Data;
+    using IA;
+    using Map.Battle;
     using Unit;
     using Unit.Skills;
-    using Unit.Skills.Effects;
 
     public class SkillAction : IBattleAction {
-
         private readonly Skill _skill;
 
         public SkillAction(Skill skill) => this._skill = skill;
@@ -22,7 +19,8 @@ namespace Game.Battle.Actions {
         public int GetApCost() => this._skill.apCost;
 
         public IEnumerator Start(IBattleContext battleContext) {
-            yield return battleContext.EnterSelectionTarget(this._skill.target, this.OnSelect, this.CanSelect, this._skill.range);
+            yield return battleContext.EnterSelectionTarget(this._skill.target, this.OnSelect, this.CanSelect,
+                this._skill.range, this._skill.selectionType);
         }
 
         public bool CanDoAction(IBattleContext battleContext, UnitObject unitObject) {
@@ -42,6 +40,7 @@ namespace Game.Battle.Actions {
             if (this._skill.effects == null || this._skill.effects.Count == 0) {
                 return true;
             }
+
             return this._skill.effects.Exists(effect => effect.CanApply(target));
         }
 
@@ -55,9 +54,12 @@ namespace Game.Battle.Actions {
             user.Unit.AddStat(StatType.Mp, -this._skill.manaCost);
             UnitObject unitObjectTarget = battleMapManager.GetUnit(target);
             foreach (SkillEffect effect in this._skill.effects.Where(effect => effect.CanApply(unitObjectTarget))) {
+                if (!effect.CanApply(unitObjectTarget)) {
+                    continue;
+                }
+
                 yield return effect.Apply(user, target, battleMapManager);
             }
         }
-
     }
 }

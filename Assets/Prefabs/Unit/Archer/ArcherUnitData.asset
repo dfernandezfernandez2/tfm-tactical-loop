@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ArcherUnitData
   m_EditorClassIdentifier: Assembly-CSharp::Unit.Data.UnitData
   unitName: Archer
-  unitSprite: {fileID: 2520072491314822571, guid: f748f951c02c2454486adc71dadde4a1, type: 3}
+  unitSprite: {fileID: 8350865965064297308, guid: 19422f538ac22c44da457b2420dc94fc, type: 3}
   hp: 25
   mp: 0
   mpRegen: 0
@@ -22,7 +22,7 @@ MonoBehaviour:
   atk: 6
   defense: 2
   speed: 3
-  range: 5
+  range: 1
   accuracy: 0.85
   evasion: 0.07
   critChance: 0.05

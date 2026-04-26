@@ -69,6 +69,7 @@ namespace Game.Core {
             if (nextPosition == null) {
                 return;
             }
+
             this.MoveSelected(nextPosition);
         }
 
@@ -85,6 +86,7 @@ namespace Game.Core {
             if (this._reachablePositions.Count == 0) {
                 return null;
             }
+
             GridPosition current = this._currentUnitPosition;
             return this._reachablePositions
                 .OrderBy(candidate => GetCandidateScore(candidate, current, direction))

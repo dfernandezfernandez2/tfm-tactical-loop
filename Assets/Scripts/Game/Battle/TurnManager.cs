@@ -91,7 +91,7 @@ namespace Game.Battle {
 
         public IEnumerator EnterSelectionTarget(Target target,
             Func<SelectionData, IEnumerator> callback,
-            Func<UnitObject, bool> canSelect, int range = -1) {
+            Func<UnitObject, bool> canSelect, int range = -1, SelectionType selectionType = SelectionType.Default) {
             UnitObject currentUser = this._unitsTurnOrder[this._unitsTurnOrderIndex];
             GridPosition currentUnitGridPosition = currentUser.Unit.GridPosition;
             SelectionData itemSelectionData = new() {
@@ -114,7 +114,7 @@ namespace Game.Battle {
 
             this.userSelectionManager.OnSelect += OnSelect;
             this.userSelectionManager.OnCancel += OnCancel;
-            this.userSelectionManager.StartSelection(SelectionType.Default, reachableTiles, currentUnitGridPosition);
+            this.userSelectionManager.StartSelection(selectionType, reachableTiles, currentUnitGridPosition);
             yield return new WaitUntil(() => selected || cancelled);
             if (cancelled) {
                 this.HandleCancelAction();

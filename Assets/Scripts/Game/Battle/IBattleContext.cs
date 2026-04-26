@@ -16,7 +16,7 @@ namespace Game.Battle {
 
         public IEnumerator EnterSelectionTarget(Target target,
             Func<SelectionData, IEnumerator> callback,
-            Func<UnitObject, bool> canSelect, int range = -1);
+            Func<UnitObject, bool> canSelect, int range = -1, SelectionType selectionType = SelectionType.Default);
 
         public void EndAction();
         public bool IsAvailableAction(string actionName);

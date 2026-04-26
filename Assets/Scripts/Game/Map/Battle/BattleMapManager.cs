@@ -238,6 +238,11 @@ namespace Game.Map.Battle {
             return cell?.GetOccupantUnit();
         }
 
+        public bool IsAvailablePosition(GridPosition current) {
+            MapCell cell = this._cells.GetValueOrDefault(current);
+            return cell != null && cell.IsWalkable();
+        }
+
         public IReadOnlyList<TileData> GetTeamTileSpawns(BattleTeam team) => this._mapData.GetTeamSpawns(team);
 
         private class NodeGrid : IEquatable<NodeGrid> {

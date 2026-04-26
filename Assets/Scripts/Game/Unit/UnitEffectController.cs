@@ -11,9 +11,9 @@ namespace Game.Unit {
         private StatusEffect _status;
         private UnitObject _unitObject;
 
-        private EffectVisualController _visualController;
+        public EffectVisualController VisualController { get; private set; }
 
-        public void Awake() => this._visualController = FindFirstObjectByType<EffectVisualController>();
+        public void Awake() => this.VisualController = FindFirstObjectByType<EffectVisualController>();
 
         public void Init(UnitObject unitObject) => this._unitObject = unitObject;
 
@@ -29,7 +29,7 @@ namespace Game.Unit {
                 this._effects.Add(effect);
             }
 
-            yield return effect.OnApply(this._unitObject, target, this._visualController);
+            yield return effect.OnApply(this._unitObject, target, this.VisualController);
         }
 
         private void ReplaceStatus(StatusEffect newStatus) {
@@ -43,13 +43,13 @@ namespace Game.Unit {
 
         public IEnumerator OnTurnStart() {
             foreach (BattleEffect effect in this._effects.ToList()) {
-                yield return effect.OnTurnStart(this._unitObject, this._visualController);
+                yield return effect.OnTurnStart(this._unitObject, this.VisualController);
                 effect.DecreaseDuration();
                 if (!effect.IsExpired()) {
                     continue;
                 }
 
-                yield return effect.OnExpire(this._unitObject, this._visualController);
+                yield return effect.OnExpire(this._unitObject, this.VisualController);
                 this._effects.Remove(effect);
                 if (this._status == effect) {
                     this._status = null;
@@ -59,7 +59,7 @@ namespace Game.Unit {
 
         public IEnumerator OnTurnEnd() {
             foreach (BattleEffect effect in this._effects.ToList()) {
-                yield return effect.OnTurnEnd(this._unitObject, this._visualController);
+                yield return effect.OnTurnEnd(this._unitObject, this.VisualController);
             }
         }
     }

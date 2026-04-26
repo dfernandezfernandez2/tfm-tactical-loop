@@ -15,21 +15,13 @@ namespace Game.Battle {
         public static IEnumerator ExecuteBasicAttack(UnitObject attacker, UnitObject target,
             GridPosition targetPosition, BattleMapManager battleMapManager, bool attackTeam = true) {
             yield return attacker.PlayBasicAttack(targetPosition);
-            AttackResult result = attacker.Unit.UnitDamageResolver.DoBasicAttack(target?.Unit);
-            if (!result.GetHit()) {
-                if (target != null && !result.IsTargetDead()) {
-                    yield return target.PlayDodge(attacker);
-                }
-                else {
-                    yield return attacker.PlayMiss();
-                }
-
+            AttackResult result = attacker.Unit.UnitDamageResolver.DoAttack(target?.Unit);
+            yield return PlayAttackResultAnimation(attacker, target, result);
+            if (!attackTeam) {
                 yield break;
             }
 
-            // could not be null, if its null could never be a hit
-            yield return target.PlayDamage(result);
-            if (!attackTeam) {
+            if (target == null) {
                 yield break;
             }
 
@@ -44,6 +36,23 @@ namespace Game.Battle {
                     yield return ExecuteBasicAttack(unit, target, targetPosition, battleMapManager, false);
                 }
             }
+        }
+
+        public static IEnumerator
+            PlayAttackResultAnimation(UnitObject attacker, UnitObject target, AttackResult result) {
+            if (!result.GetHit()) {
+                if (target != null && !result.IsTargetDead()) {
+                    yield return target.PlayDodge(attacker);
+                }
+                else {
+                    yield return attacker.PlayMiss();
+                }
+
+                yield break;
+            }
+
+            // could not be null, if its null could never be a hit
+            yield return target.PlayDamage(result);
         }
     }
 }

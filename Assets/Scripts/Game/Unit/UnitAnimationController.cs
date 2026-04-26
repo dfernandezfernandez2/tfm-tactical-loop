@@ -41,6 +41,7 @@ namespace Game.Unit {
                 yield return this.WaitForSignal(textSignalName, textSignalVersion);
                 yield return onText();
             }
+
             yield return this.WaitForSignal(endSignalName, endSignalVersion);
         }
 
