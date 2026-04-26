@@ -3,7 +3,7 @@ namespace Game.Effect.Buff {
     using UnityEngine;
 
     public class CourageEffect : BuffEffect {
-        public CourageEffect(int duration, float amount) : base(duration, StatType.Atk, amount, Color.indianRed) {
+        public CourageEffect(int duration, float amount) : base(duration, StatType.Atk, amount, Color.red) {
         }
     }
 }

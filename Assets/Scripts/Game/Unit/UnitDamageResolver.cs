@@ -10,7 +10,8 @@ namespace Game.Unit {
 
         public UnitDamageResolver(Func<StatType, float> getCurrentStat) => this._getCurrentStat = getCurrentStat;
 
-        public AttackResult DoBasicAttack(Unit objective) {
+        public AttackResult DoAttack(Unit objective, int? fixedDamage = null, bool canFail = true,
+            bool applyDefense = true, bool canCrit = true) {
             if (objective == null) {
                 return AttackResult.Miss();
             }
@@ -19,14 +20,14 @@ namespace Game.Unit {
                 return AttackResult.Miss(true);
             }
 
-            if (!this.RollHit(objective)) {
+            if (canFail && !this.RollHit(objective)) {
                 return AttackResult.Miss();
             }
 
-            bool isCrit = this.RollCrit();
-            int damage = this.CalculateDamage(objective, isCrit);
-            objective.AddStat(StatType.Hp, -damage);
-            return AttackResult.Hit(damage, isCrit, objective.IsDead());
+            bool isCrit = canCrit && this.RollCrit();
+            int resolvedDamage = this.CalculateDamage(objective, isCrit, fixedDamage, applyDefense);
+            objective.AddStat(StatType.Hp, -resolvedDamage);
+            return AttackResult.Hit(resolvedDamage, isCrit, objective.IsDead());
         }
 
         private bool RollHit(Unit target) {
@@ -44,9 +45,9 @@ namespace Game.Unit {
             return Random.value <= critChance;
         }
 
-        private int CalculateDamage(Unit target, bool isCrit) {
-            float atk = this._getCurrentStat(StatType.Atk);
-            float def = target.GetCurrentStat(StatType.Def);
+        private int CalculateDamage(Unit target, bool isCrit, int? damage = -1, bool applyDefense = false) {
+            float atk = damage ?? this._getCurrentStat(StatType.Atk);
+            float def = applyDefense ? target.GetCurrentStat(StatType.Def) : 0f;
 
             float dmg = isCrit ? atk * 1.5f : atk;
             float final = Mathf.Max(0, dmg - def);

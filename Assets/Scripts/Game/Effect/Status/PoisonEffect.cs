@@ -14,7 +14,7 @@ namespace Game.Effect.Status {
         }
 
         public override IEnumerator OnApply(UnitObject from, UnitObject to, EffectVisualController controller) {
-            yield return controller.PlayEffect(this.CreateEffectData(to, Color.mediumPurple));
+            yield return controller.PlayEffect(this.CreateEffectData(to, Color.purple));
         }
 
         public override IEnumerator OnTurnStart(UnitObject target, EffectVisualController controller) {

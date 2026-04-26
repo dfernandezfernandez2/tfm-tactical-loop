@@ -3,7 +3,7 @@
     using global::Unit.Data;
     using UnityEngine;
 
-    [CreateAssetMenu(menuName = "Units/Unit Data")]
+    [CreateAssetMenu(menuName = "Unit/Unit Data")]
     public class UnitData : ScriptableObject {
         public string unitName;
         public Sprite unitSprite;

@@ -1,0 +1,535 @@
+fileFormatVersion: 2
+guid: 19422f538ac22c44da457b2420dc94fc
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 323802038030359834
+    second: AdventurerIdle_0
+  - first:
+      213: -7142023922165312544
+    second: AdventurerIdle_1
+  - first:
+      213: 6703462846613210752
+    second: AdventurerIdle_2
+  - first:
+      213: -6778003366332468411
+    second: AdventurerIdle_3
+  - first:
+      213: 8350865965064297308
+    second: AdventurerIdle_4
+  - first:
+      213: 6562158761609172201
+    second: AdventurerIdle_5
+  - first:
+      213: 8271297286964267278
+    second: AdventurerIdle_6
+  - first:
+      213: -9029075622675579441
+    second: AdventurerIdle_7
+  - first:
+      213: 2905181730169634210
+    second: AdventurerIdle_8
+  - first:
+      213: -1335478056931494840
+    second: AdventurerIdle_9
+  - first:
+      213: 207085655625167619
+    second: AdventurerIdle_10
+  - first:
+      213: 5711882842454764699
+    second: AdventurerIdle_11
+  - first:
+      213: 506635008626198841
+    second: AdventurerIdle_12
+  - first:
+      213: -224196823015933063
+    second: AdventurerIdle_13
+  - first:
+      213: 9186355986183366799
+    second: AdventurerIdle_14
+  - first:
+      213: -3287079419621116429
+    second: AdventurerIdle_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: AdventurerIdle_0
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 202
+        width: 16
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1dd85eec306e7400800000000000000
+      internalID: 323802038030359834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerIdle_1
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 202
+        width: 16
+        height: 37
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e39ef5351f62ec90800000000000000
+      internalID: -7142023922165312544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerIdle_2
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 202
+        width: 16
+        height: 37
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 086c86941fb770d50800000000000000
+      internalID: 6703462846613210752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerIdle_3
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 202
+        width: 16
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 543f95789d1bfe1a0800000000000000
+      internalID: -6778003366332468411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerIdle_4
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 142
+        width: 14
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5b9e86b95c34e370800000000000000
+      internalID: 8350865965064297308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerIdle_5
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 142
+        width: 14
+        height: 37
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e49e6930a8711b50800000000000000
+      internalID: 6562158761609172201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerIdle_6
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 142
+        width: 14
+        height: 37
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e09482d2f0d89c270800000000000000
+      internalID: 8271297286964267278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerIdle_7
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 142
+        width: 14
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fcd784c2f8742b280800000000000000
+      internalID: -9029075622675579441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerIdle_8
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 79
+        width: 14
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ad37ba2467415820800000000000000
+      internalID: 2905181730169634210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerIdle_9
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 79
+        width: 14
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 844f44b68cd677de0800000000000000
+      internalID: -1335478056931494840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerIdle_10
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 79
+        width: 14
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 303fd9d7e47bfd200800000000000000
+      internalID: 207085655625167619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerIdle_11
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 79
+        width: 14
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9c2a2fae2fa44f40800000000000000
+      internalID: 5711882842454764699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerIdle_12
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 15
+        width: 15
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93901f72bdde70700800000000000000
+      internalID: 506635008626198841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerIdle_13
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 15
+        width: 15
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97b3d546d2e73ecf0800000000000000
+      internalID: -224196823015933063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerIdle_14
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 15
+        width: 15
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f882eb8191e7c7f70800000000000000
+      internalID: 9186355986183366799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerIdle_15
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 15
+        width: 15
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f57cfcfea2f162d0800000000000000
+      internalID: -3287079419621116429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 54f3b43c8dbb0a54db15b213ec5c5c5f
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      AdventurerIdle_0: 323802038030359834
+      AdventurerIdle_1: -7142023922165312544
+      AdventurerIdle_10: 207085655625167619
+      AdventurerIdle_11: 5711882842454764699
+      AdventurerIdle_12: 506635008626198841
+      AdventurerIdle_13: -224196823015933063
+      AdventurerIdle_14: 9186355986183366799
+      AdventurerIdle_15: -3287079419621116429
+      AdventurerIdle_2: 6703462846613210752
+      AdventurerIdle_3: -6778003366332468411
+      AdventurerIdle_4: 8350865965064297308
+      AdventurerIdle_5: 6562158761609172201
+      AdventurerIdle_6: 8271297286964267278
+      AdventurerIdle_7: -9029075622675579441
+      AdventurerIdle_8: 2905181730169634210
+      AdventurerIdle_9: -1335478056931494840
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

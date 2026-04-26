@@ -33,7 +33,7 @@
         public int GetCurrentIntStat(StatType statType) => (int)this._stats[statType]
             .GetCurrentWithModifier(this.UnitStatsModifier.GetModifier(statType));
 
-        public bool IsStatFull(StatType statType) => this._stats[statType].Max < this.GetCurrentStat(statType);
+        public bool IsStatFull(StatType statType) => this._stats[statType].Max <= this.GetCurrentStat(statType);
 
         public bool IsDead() => this.GetCurrentIntStat(StatType.Hp) <= 0;
 

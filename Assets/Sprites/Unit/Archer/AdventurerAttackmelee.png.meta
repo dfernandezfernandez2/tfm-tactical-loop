@@ -1,0 +1,755 @@
+fileFormatVersion: 2
+guid: 7048cf647289b944aae1626dbf2a543b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4756562169384255860
+    second: AdventurerAttackmelee_0
+  - first:
+      213: 1315709130771893988
+    second: AdventurerAttackmelee_1
+  - first:
+      213: -1571032338388322500
+    second: AdventurerAttackmelee_2
+  - first:
+      213: 2976064491799607080
+    second: AdventurerAttackmelee_3
+  - first:
+      213: 3367071702323690924
+    second: AdventurerAttackmelee_4
+  - first:
+      213: -2308055044428667493
+    second: AdventurerAttackmelee_5
+  - first:
+      213: 8824065211541765565
+    second: AdventurerAttackmelee_6
+  - first:
+      213: 2144973336449435221
+    second: AdventurerAttackmelee_7
+  - first:
+      213: 908001345948346534
+    second: AdventurerAttackmelee_8
+  - first:
+      213: 7321175862080609401
+    second: AdventurerAttackmelee_9
+  - first:
+      213: 109923435818798663
+    second: AdventurerAttackmelee_10
+  - first:
+      213: 3165296575418143201
+    second: AdventurerAttackmelee_11
+  - first:
+      213: 7077671368936057644
+    second: AdventurerAttackmelee_12
+  - first:
+      213: -7609673838653617109
+    second: AdventurerAttackmelee_13
+  - first:
+      213: 4934478536662928251
+    second: AdventurerAttackmelee_14
+  - first:
+      213: 8140113164310300242
+    second: AdventurerAttackmelee_15
+  - first:
+      213: -7602651436436092649
+    second: AdventurerAttackmelee_16
+  - first:
+      213: -965550669381527959
+    second: AdventurerAttackmelee_17
+  - first:
+      213: 4962404953243085765
+    second: AdventurerAttackmelee_18
+  - first:
+      213: -8583521658608731210
+    second: AdventurerAttackmelee_19
+  - first:
+      213: -4915086788342931465
+    second: AdventurerAttackmelee_20
+  - first:
+      213: 1177562986468789908
+    second: AdventurerAttackmelee_21
+  - first:
+      213: -9216046477149547219
+    second: AdventurerAttackmelee_22
+  - first:
+      213: 5059333991701552002
+    second: AdventurerAttackmelee_23
+  - first:
+      213: 8691037357791185508
+    second: AdventurerAttackmelee_24
+  - first:
+      213: 1451316875910730944
+    second: AdventurerAttackmelee_25
+  - first:
+      213: -7788994569100259514
+    second: AdventurerAttackmelee_26
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: AdventurerAttackmelee_0
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 221
+        width: 16
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 471c53a7714b20240800000000000000
+      internalID: 4756562169384255860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerAttackmelee_1
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 221
+        width: 14
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ee8567cb76524210800000000000000
+      internalID: 1315709130771893988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerAttackmelee_2
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 221
+        width: 14
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3776b37962923ae0800000000000000
+      internalID: -1571032338388322500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerAttackmelee_3
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 221
+        width: 23
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8277e5e23ea1d4920800000000000000
+      internalID: 2976064491799607080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerAttackmelee_5
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 221
+        width: 24
+        height: 34
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b95e7ca6a2428ffd0800000000000000
+      internalID: -2308055044428667493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerAttackmelee_6
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 221
+        width: 22
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbd34d8de80657a70800000000000000
+      internalID: 8824065211541765565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerAttackmelee_7
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 153
+        width: 15
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 556c0cb82e974cd10800000000000000
+      internalID: 2144973336449435221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerAttackmelee_8
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 153
+        width: 17
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a8e3d0d96ed99c00800000000000000
+      internalID: 908001345948346534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerAttackmelee_9
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 154
+        width: 17
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97c9a7548aa0a9560800000000000000
+      internalID: 7321175862080609401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerAttackmelee_10
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 154
+        width: 17
+        height: 34
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74e487058c6868100800000000000000
+      internalID: 109923435818798663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerAttackmelee_11
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 154
+        width: 18
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e11f8207746deb20800000000000000
+      internalID: 3165296575418143201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerAttackmelee_12
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 153
+        width: 17
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2be2666c90f83260800000000000000
+      internalID: 7077671368936057644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerAttackmelee_13
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 88
+        width: 15
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2cc77626f1056690800000000000000
+      internalID: -7609673838653617109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerAttackmelee_14
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 88
+        width: 15
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7b4599c51aca7440800000000000000
+      internalID: 4934478536662928251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerAttackmelee_15
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 88
+        width: 16
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25642367bcd77f070800000000000000
+      internalID: 8140113164310300242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerAttackmelee_16
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 88
+        width: 17
+        height: 34
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7190d149cc4fd7690800000000000000
+      internalID: -7602651436436092649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerAttackmelee_17
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 88
+        width: 24
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9669fda28cca992f0800000000000000
+      internalID: -965550669381527959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerAttackmelee_18
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 88
+        width: 19
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5cb61b553010ed440800000000000000
+      internalID: 4962404953243085765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerAttackmelee_19
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 15
+        width: 16
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bb31c8678431e880800000000000000
+      internalID: -8583521658608731210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerAttackmelee_20
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 15
+        width: 16
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ff9a947b9a1acbb0800000000000000
+      internalID: -4915086788342931465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerAttackmelee_21
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 15
+        width: 16
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49ece151c4b875010800000000000000
+      internalID: 1177562986468789908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerAttackmelee_22
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 15
+        width: 24
+        height: 34
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d25d208ce860a1080800000000000000
+      internalID: -9216046477149547219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerAttackmelee_24
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 16
+        width: 25
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46a0bc80e64cc9870800000000000000
+      internalID: 8691037357791185508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerAttackmelee_26
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 15
+        width: 25
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64f055f05bee7e390800000000000000
+      internalID: -7788994569100259514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: f10459c0e40e15841b3276aee0de5652
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      AdventurerAttackmelee_0: 4756562169384255860
+      AdventurerAttackmelee_1: 1315709130771893988
+      AdventurerAttackmelee_10: 109923435818798663
+      AdventurerAttackmelee_11: 3165296575418143201
+      AdventurerAttackmelee_12: 7077671368936057644
+      AdventurerAttackmelee_13: -7609673838653617109
+      AdventurerAttackmelee_14: 4934478536662928251
+      AdventurerAttackmelee_15: 8140113164310300242
+      AdventurerAttackmelee_16: -7602651436436092649
+      AdventurerAttackmelee_17: -965550669381527959
+      AdventurerAttackmelee_18: 4962404953243085765
+      AdventurerAttackmelee_19: -8583521658608731210
+      AdventurerAttackmelee_2: -1571032338388322500
+      AdventurerAttackmelee_20: -4915086788342931465
+      AdventurerAttackmelee_21: 1177562986468789908
+      AdventurerAttackmelee_22: -9216046477149547219
+      AdventurerAttackmelee_23: 5059333991701552002
+      AdventurerAttackmelee_24: 8691037357791185508
+      AdventurerAttackmelee_25: 1451316875910730944
+      AdventurerAttackmelee_26: -7788994569100259514
+      AdventurerAttackmelee_3: 2976064491799607080
+      AdventurerAttackmelee_4: 3367071702323690924
+      AdventurerAttackmelee_5: -2308055044428667493
+      AdventurerAttackmelee_6: 8824065211541765565
+      AdventurerAttackmelee_7: 2144973336449435221
+      AdventurerAttackmelee_8: 908001345948346534
+      AdventurerAttackmelee_9: 7321175862080609401
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

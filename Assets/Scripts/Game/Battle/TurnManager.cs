@@ -66,7 +66,7 @@ namespace Game.Battle {
             this.unitActionPanelUI.OnBack += () => {
                 this._unitTurnState.CancelAction(this, new ItemSelectionAction());
                 this.unitActionPanelUI.Init(this._unitsTurnOrder[Math.Max(this._unitsTurnOrderIndex, 0)]
-                    .GetBasicActions());
+                    .Actions.GetBasicActions());
                 this.unitActionPanelUI.Show();
             };
             this.unitActionPanelUI.Show();
@@ -74,10 +74,10 @@ namespace Game.Battle {
 
         public void EnterSkillSelection() {
             UnitObject turnUnit = this._unitsTurnOrder[Math.Max(this._unitsTurnOrderIndex, 0)];
-            this.unitActionPanelUI.Init(turnUnit.GetSkillActions());
+            this.unitActionPanelUI.Init(turnUnit.Actions.GetSkillActions());
             this.unitActionPanelUI.OnBack += () => {
                 this._unitTurnState.CancelAction(this, new SkillSelectionAction());
-                this.unitActionPanelUI.Init(turnUnit.GetBasicActions());
+                this.unitActionPanelUI.Init(turnUnit.Actions.GetBasicActions());
                 this.unitActionPanelUI.Show();
             };
             this.unitActionPanelUI.Show();
@@ -89,12 +89,12 @@ namespace Game.Battle {
         public void ApCostRevert(IBattleAction action) =>
             this._unitsTurnOrder[this._unitsTurnOrderIndex].Unit.AddStat(StatType.AP, action.GetApCost());
 
-        public IEnumerator EnterItemSelectionTarget(Target target,
-            Func<InventorySelectionData, IEnumerator> callback,
-            Func<UnitObject, bool> canSelect) {
+        public IEnumerator EnterSelectionTarget(Target target,
+            Func<SelectionData, IEnumerator> callback,
+            Func<UnitObject, bool> canSelect, int range = -1, SelectionType selectionType = SelectionType.Default) {
             UnitObject currentUser = this._unitsTurnOrder[this._unitsTurnOrderIndex];
             GridPosition currentUnitGridPosition = currentUser.Unit.GridPosition;
-            InventorySelectionData itemSelectionData = new() {
+            SelectionData itemSelectionData = new() {
                 User = currentUser,
                 Position = currentUnitGridPosition,
                 BattleMapManager = this.battleMapManager,
@@ -106,7 +106,7 @@ namespace Game.Battle {
             }
 
             IReadOnlyList<TileData> reachableTiles =
-                this.battleMapManager.GetReachableTiles(currentUnitGridPosition, -1, false, target, canSelect);
+                this.battleMapManager.GetReachableTiles(currentUnitGridPosition, range, false, target, canSelect);
 
             bool selected = false;
             bool cancelled = false;
@@ -114,7 +114,7 @@ namespace Game.Battle {
 
             this.userSelectionManager.OnSelect += OnSelect;
             this.userSelectionManager.OnCancel += OnCancel;
-            this.userSelectionManager.StartSelection(SelectionType.Default, reachableTiles, currentUnitGridPosition);
+            this.userSelectionManager.StartSelection(selectionType, reachableTiles, currentUnitGridPosition);
             yield return new WaitUntil(() => selected || cancelled);
             if (cancelled) {
                 this.HandleCancelAction();
@@ -138,7 +138,7 @@ namespace Game.Battle {
 
         public void EndAction() {
             UnitObject turnUnit = this._unitsTurnOrder[Math.Max(this._unitsTurnOrderIndex, 0)];
-            this.unitActionPanelUI.Init(turnUnit.GetBasicActions());
+            this.unitActionPanelUI.Init(turnUnit.Actions.GetBasicActions());
             this.unitActionPanelUI.Show();
         }
 
@@ -207,7 +207,6 @@ namespace Game.Battle {
 
             this._unitsTurnOrderIndex = this.GetNextUnitTurnOrderIndex(this._unitsTurnOrderIndex);
             UnitObject currentTurnUnit = this._unitsTurnOrder[this._unitsTurnOrderIndex];
-            currentTurnUnit.Unit.RestoreStat(StatType.AP);
             yield return currentTurnUnit.OnTurnStart();
             if (currentTurnUnit.Unit.IsDead()) {
                 yield return this.StartCoroutine(this.StartTurn());
@@ -220,14 +219,14 @@ namespace Game.Battle {
             this.battleMapManager.Select(currentTurnUnit.Unit.GridPosition);
             if (currentTurnUnit.Team.GetBattleTeam().Equals(BattleTeam.Enemy)) {
                 IReadOnlyList<DecisionResult> decisionResults = this._enemyTurnController.CalculateTurn(currentTurnUnit,
-                    this._unitsTurnOrder, currentTurnUnit.GetAllAvailableActions());
+                    this._unitsTurnOrder, currentTurnUnit.Actions.GetAllAvailableActions());
                 foreach (DecisionResult decisionResult in decisionResults) {
                     yield return decisionResult.Action.DoEnemyAction(this, currentTurnUnit, decisionResult,
                         this.battleMapManager);
                 }
             }
             else {
-                this.unitActionPanelUI.Init(currentTurnUnit.GetBasicActions());
+                this.unitActionPanelUI.Init(currentTurnUnit.Actions.GetBasicActions());
                 this.unitActionPanelUI.Show();
             }
 

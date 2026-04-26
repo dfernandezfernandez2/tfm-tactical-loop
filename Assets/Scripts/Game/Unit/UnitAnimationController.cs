@@ -26,14 +26,14 @@ namespace Game.Unit {
 
         public IEnumerator PlayAnimation(AnimationType animationType, Func<IEnumerator> onText = null) {
             string triggerName = animationType.ToString();
-            string endSignalName = animationType.GetAnimationEndName();
+            yield return this.PlayAnimation(triggerName, onText);
+        }
+
+        public IEnumerator PlayAnimation(string triggerName, Func<IEnumerator> onText = null) {
+            string endSignalName = "signal.end." + triggerName.ToLower();
             int endSignalVersion = this.GetSignalVersion(endSignalName);
-            int textSignalVersion = 0;
-            string textSignalName = null;
-            if (onText != null) {
-                textSignalName = animationType.GetAnimationText();
-                textSignalVersion = this.GetSignalVersion(textSignalName);
-            }
+            string textSignalName = "signal.text." + triggerName.ToLower();
+            int textSignalVersion = this.GetSignalVersion(textSignalName);
 
             this.ResetTrigger(triggerName);
             this.SetTrigger(triggerName);

@@ -66,6 +66,10 @@ namespace Game.Core {
             }
 
             GridPosition nextPosition = this.FindNextPositionInDirection(direction);
+            if (nextPosition == null) {
+                return;
+            }
+
             this.MoveSelected(nextPosition);
         }
 
@@ -79,6 +83,10 @@ namespace Game.Core {
         }
 
         private GridPosition FindNextPositionInDirection(Vector2Int direction) {
+            if (this._reachablePositions.Count == 0) {
+                return null;
+            }
+
             GridPosition current = this._currentUnitPosition;
             return this._reachablePositions
                 .OrderBy(candidate => GetCandidateScore(candidate, current, direction))

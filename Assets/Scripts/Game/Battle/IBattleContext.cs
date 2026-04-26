@@ -14,9 +14,9 @@ namespace Game.Battle {
         public void ApCostApply(IBattleAction action);
         public void ApCostRevert(IBattleAction action);
 
-        public IEnumerator EnterItemSelectionTarget(Target target,
-            Func<InventorySelectionData, IEnumerator> callback,
-            Func<UnitObject, bool> canSelect);
+        public IEnumerator EnterSelectionTarget(Target target,
+            Func<SelectionData, IEnumerator> callback,
+            Func<UnitObject, bool> canSelect, int range = -1, SelectionType selectionType = SelectionType.Default);
 
         public void EndAction();
         public bool IsAvailableAction(string actionName);

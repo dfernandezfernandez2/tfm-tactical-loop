@@ -376,6 +376,7 @@ GameObject:
   - component: {fileID: 422319661}
   - component: {fileID: 422319663}
   - component: {fileID: 422319662}
+  - component: {fileID: 422319664}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -593,6 +594,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &422319664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 422319655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dce45da3833a4f17b29d7deeaf70fb61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Effect.EffectTextureFactory
+  circleMaterial: {fileID: 2100000, guid: f6bfdbd2be73c2e4481dbf6de69d2530, type: 2}
+  buffMaterial: {fileID: 2100000, guid: e043c52cc357b344a9a797774cc979fa, type: 2}
+  debuffMaterial: {fileID: 2100000, guid: d973dacab95ce534e9a2268e07efa82c, type: 2}
 --- !u!1001 &645498009
 PrefabInstance:
   m_ObjectHideFlags: 0

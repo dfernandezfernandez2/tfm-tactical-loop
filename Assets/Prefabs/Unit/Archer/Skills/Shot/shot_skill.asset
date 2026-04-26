@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17376d46a3184366974fac18a9911b09, type: 3}
+  m_Name: shot_skill
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Unit.Skills.Skill
+  skillName: Shot
+  apCost: 2
+  manaCost: 0
+  target: 3
+  range: 20
+  selectionType: 0
+  animationName: 
+  effects:
+  - {fileID: 11400000, guid: 6b925a91a90a030488c2f2ad7f66562f, type: 2}
+  - {fileID: 11400000, guid: b026d232f7c2b65479d9a6fafe03dcf9, type: 2}
