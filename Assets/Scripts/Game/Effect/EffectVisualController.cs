@@ -18,14 +18,19 @@ namespace Game.Effect {
     }
 
     [RequireComponent(typeof(AudioSource))]
+    [RequireComponent(typeof(EffectMaterialFactory))]
     public class EffectVisualController : MonoBehaviour {
         [SerializeField] private ParticleSystem particleSystemPrefab;
         private readonly Dictionary<UnitObject, List<ActiveEffectData>> _activeEffects = new();
         private readonly Dictionary<string, AudioClip> _soundCache = new();
 
         private AudioSource _audioSource;
+        private EffectMaterialFactory _effectMaterialFactory;
 
-        public void Awake() => this._audioSource = this.GetComponent<AudioSource>();
+        public void Awake() {
+            this._audioSource = this.GetComponent<AudioSource>();
+            this._effectMaterialFactory = this.GetComponent<EffectMaterialFactory>();
+        }
 
         public IEnumerator PlayEffect(EffectData effectData) {
             ParticleEffectConfig config = effectData.ParticleConfig ?? new ParticleEffectConfig();
@@ -34,12 +39,7 @@ namespace Game.Effect {
             ParticleSystem ps = Instantiate(this.particleSystemPrefab, parent);
 
             ParticleSystemRenderer particleSystemRenderer = ps.GetComponent<ParticleSystemRenderer>();
-            if (particleSystemRenderer != null) {
-                Material material = new(particleSystemRenderer.material) {
-                    mainTexture = EffectTextureFactory.GetTexture(config.textureType, config.size)
-                };
-                particleSystemRenderer.material = material;
-            }
+            particleSystemRenderer.material = this._effectMaterialFactory.GetMaterial(config.textureType);
 
             ps.transform.localPosition = Vector3.up * config.heightOffset;
 
@@ -68,6 +68,7 @@ namespace Game.Effect {
             shape.shapeType = config.shapeType;
             shape.radius = config.shapeRadius;
             shape.radiusThickness = config.shapeRadiusThickness;
+            shape.scale = config.shapeScale;
 
             ParticleSystem.VelocityOverLifetimeModule velocity = ps.velocityOverLifetime;
             velocity.enabled = true;

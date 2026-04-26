@@ -15,4 +15,4 @@ MonoBehaviour:
   statType: 6
   amount: 10
   turnsDuration: 2
-  color: {r: 0.22908506, g: 0.31908897, b: 0.49056602, a: 1}
+  color: {r: 0, g: 0.34328365, b: 1, a: 1}

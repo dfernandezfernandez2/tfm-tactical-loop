@@ -23,7 +23,7 @@ namespace Game.Unit {
 
         public IEnumerator ApplyEffect(BattleEffect effect, UnitObject target) {
             if (effect is StatusEffect statusEffect) {
-                this.ReplaceStatus(statusEffect);
+                yield return this.ReplaceStatus(statusEffect);
             }
             else {
                 this._effects.Add(effect);
@@ -32,8 +32,9 @@ namespace Game.Unit {
             yield return effect.OnApply(this._unitObject, target, this.VisualController);
         }
 
-        private void ReplaceStatus(StatusEffect newStatus) {
+        private IEnumerator ReplaceStatus(StatusEffect newStatus) {
             if (this._status != null) {
+                yield return this._status.OnExpire(this._unitObject, this.VisualController);
                 this._effects.Remove(this._status);
             }
 

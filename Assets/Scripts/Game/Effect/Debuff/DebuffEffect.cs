@@ -1,5 +1,6 @@
 namespace Game.Effect.Debuff {
     using System.Collections;
+    using Data;
     using global::Unit.Data;
     using Unit;
     using UnityEngine;
@@ -10,7 +11,7 @@ namespace Game.Effect.Debuff {
         private readonly string _soundEffectName;
         private readonly StatType _statType;
 
-        public DebuffEffect(int duration, StatType statType, float amount, Color color, string soundEffectName = null) :
+        public DebuffEffect(int duration, StatType statType, float amount, Color color, string soundEffectName = "debuff") :
             base(duration) {
             this._statType = statType;
             this._amount = amount;
@@ -28,5 +29,11 @@ namespace Game.Effect.Debuff {
             controller.RemoveEffect(this, target);
             yield return null;
         }
+
+        protected override ParticleEffectConfig CreateParticleEffectConfig() =>
+            new() {
+                velocity = new Vector3(0f, -0.1f, 0f),
+                textureType = EffectTextureType.DebufferTexture
+            };
     }
 }

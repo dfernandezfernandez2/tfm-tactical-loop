@@ -5,7 +5,7 @@ namespace Game.Unit.Skills.Effects {
     using UnityEngine;
 
     [CreateAssetMenu(menuName = "Unit/Skills/Effects/Projectile")]
-    public class ProjectileSkillEffect : SkillEffect {
+    public class ProjectileSkillEffect : AbstractNonDeadSkillEffect {
         [SerializeField] private GameObject projectilePrefab;
         [SerializeField] private float speed = 4f;
         [SerializeField] private float heightOffset = 0.45f;
@@ -17,8 +17,6 @@ namespace Game.Unit.Skills.Effects {
         [SerializeField] private string projectileSoundRelease = "";
         [SerializeField] private string projectileSoundHit = "";
         [SerializeField] private float destroyDelay = 0.05f;
-
-        public override bool CanApply(UnitObject target) => true;
 
         public override IEnumerator Apply(UnitObject user, GridPosition target, BattleMapManager battleMapManager) {
             Vector3 start = user.transform.position + (Vector3.up * this.heightOffset);

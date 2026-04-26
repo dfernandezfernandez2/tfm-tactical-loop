@@ -11,7 +11,7 @@ namespace Game.Effect.Status {
 
         public override IEnumerator OnApply(UnitObject from, UnitObject to, EffectVisualController controller) {
             to.Unit.UnitStatsModifier.AddModifier(StatType.Movement, -this._amount);
-            yield return controller.PlayEffect(this.CreateEffectData(to, Color.sandyBrown));
+            yield return controller.PlayEffect(this.CreateEffectData(to, Color.saddleBrown));
         }
 
         public override IEnumerator OnExpire(UnitObject target, EffectVisualController controller) {

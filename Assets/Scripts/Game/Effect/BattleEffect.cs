@@ -56,35 +56,6 @@ namespace Game.Effect {
         }
 
         protected virtual ParticleEffectConfig CreateParticleEffectConfig() =>
-            new() {
-                heightOffset = 0.10f,
-
-                startLifetime = 1.4f,
-                startSpeed = 0.10f,
-                startSize = 0.24f,
-
-                maxParticles = 120,
-                rateOverTime = 14f,
-                burstCount = 36,
-
-                shapeType = ParticleSystemShapeType.Circle,
-                shapeRadius = 0.50f,
-                shapeRadiusThickness = 0.08f,
-
-                velocity = new Vector3(0f, 0.28f, 0f),
-
-                alphaStart = 0.15f,
-                alphaPeak = 0.9f,
-                alphaPeakTime = 0.20f,
-                alphaEnd = 0f,
-
-                sizeStart = 0.45f,
-                sizePeak = 1.6f,
-                sizePeakTime = 0.40f,
-                sizeEnd = 0f,
-
-                textureType = EffectTextureType.SoftCircleTexture,
-                size = 64
-            };
+            new();
     }
 }

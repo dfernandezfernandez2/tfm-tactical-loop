@@ -20,6 +20,6 @@ MonoBehaviour:
   rotateTowardsTarget: 1
   rotationOffset: 0
   worldRender: {fileID: 396172803108293899, guid: 48e0b3554fdf9b040b383e267d5e6b36, type: 3}
-  projectileSoundRelease: arrow_show
+  projectileSoundRelease: arrow_shot
   projectileSoundHit: arrow_impact
   destroyDelay: 0.05

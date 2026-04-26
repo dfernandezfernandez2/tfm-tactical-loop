@@ -1,5 +1,6 @@
 namespace Game.Effect.Buff {
     using System.Collections;
+    using Data;
     using global::Unit.Data;
     using Unit;
     using UnityEngine;
@@ -28,5 +29,10 @@ namespace Game.Effect.Buff {
             controller.RemoveEffect(this, target);
             yield return null;
         }
+
+        protected override ParticleEffectConfig CreateParticleEffectConfig() =>
+            new() {
+                textureType = EffectTextureType.BufferTexture
+            };
     }
 }

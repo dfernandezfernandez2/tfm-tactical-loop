@@ -16,7 +16,8 @@ namespace Game.Battle.Item.Effects {
         public override bool CanApply(UnitObject target) => !target.Unit.IsDead();
 
         public override IEnumerator Apply(UnitObject user, GridPosition target, BattleMapManager battleMapManager) {
-            yield return user.EffectController.ApplyEffect(new BuffEffect(this.turnsDuration, this.statType,
+            UnitObject targetUnitObject = battleMapManager.GetUnit(target);
+            yield return targetUnitObject.EffectController.ApplyEffect(new BuffEffect(this.turnsDuration, this.statType,
                 this.amount, this.color));
         }
     }

@@ -140,7 +140,9 @@
         public void PlayText(string message, CombatTextType type) => this.combatTextUI.Init(message, type);
 
         public IEnumerator PlaySkill(Skill skill, GridPosition targetPosition) {
-            this.UpdateDirection(this.Unit.GridPosition.GetDirectionTo(targetPosition));
+            if (!targetPosition.Equals(this.Unit.GridPosition)) {
+                this.UpdateDirection(this.Unit.GridPosition.GetDirectionTo(targetPosition));
+            }
             //yield return this._animator.PlayAnimation(skill.animationName);
             yield return null;
         }
