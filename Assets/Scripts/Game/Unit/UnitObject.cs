@@ -143,8 +143,11 @@
             if (!targetPosition.Equals(this.Unit.GridPosition)) {
                 this.UpdateDirection(this.Unit.GridPosition.GetDirectionTo(targetPosition));
             }
-            //yield return this._animator.PlayAnimation(skill.animationName);
-            yield return null;
+
+            if (string.IsNullOrEmpty(skill.animationName)) {
+                yield break;
+            }
+            yield return this._animator.PlayAnimation(skill.animationName);
         }
 
         private void UpdateDirection(Vector2Int direction) {

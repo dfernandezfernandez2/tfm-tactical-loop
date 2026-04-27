@@ -4,17 +4,18 @@ namespace Game.Map.Run {
     using Visitor;
 
     public class RunNode {
+        public readonly EncounterType EncounterType;
 
         public readonly Guid Id;
-        public readonly EncounterType EncounterType;
         public readonly HashSet<RunNode> NextNodes = new();
         public readonly HashSet<RunNode> PreviousNodes = new();
-        public bool Completed { get; private set; }
 
         public RunNode(EncounterType encounterType) {
             this.EncounterType = encounterType;
             this.Id = Guid.NewGuid();
         }
+
+        public bool Completed { get; private set; }
 
         public void AddNextNode(params RunNode[] nextNodes) {
             foreach (RunNode nextNode in nextNodes) {
@@ -23,9 +24,7 @@ namespace Game.Map.Run {
             }
         }
 
-        public void Accept<TArg>(IRunNodeVisitor<TArg> visitor, TArg arg) {
-            visitor.Visit(this, arg);
-        }
+        public void Accept<TArg>(IRunNodeVisitor<TArg> visitor, TArg arg) => visitor.Visit(this, arg);
 
         public void Complete() => this.Completed = true;
 

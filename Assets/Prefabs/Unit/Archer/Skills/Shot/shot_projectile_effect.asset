@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: shot_projectile_effect
   m_EditorClassIdentifier: Assembly-CSharp::Game.Unit.Skills.Effects.ProjectileSkillEffect
   projectilePrefab: {fileID: 7265135919401836953, guid: 17a5a326256fc2a49b17e6b60bb8f35e, type: 3}
-  speed: 6
+  speed: 8
   heightOffset: 0.45
   forwardStartOffset: 0.35
   distanceToStop: 0.05

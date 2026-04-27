@@ -1,6 +1,5 @@
 namespace Game.Map.Run {
     public static class RunGraphGenerator {
-
         public static RunGraph Generate() {
             RunNode startNode = new(EncounterType.Start);
             RunNode firstNodeMap = new(EncounterType.Basic);

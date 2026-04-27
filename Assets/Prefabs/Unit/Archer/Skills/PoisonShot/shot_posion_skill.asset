@@ -18,7 +18,7 @@ MonoBehaviour:
   target: 3
   range: 15
   selectionType: 0
-  animationName: 
+  animationName: Bow
   effects:
   - {fileID: 11400000, guid: e4b5659f12b5af740abc10831cb2e8d2, type: 2}
   - {fileID: 11400000, guid: 1b7094f9221c1d04c97b3b1358c0e5b8, type: 2}
