@@ -17,7 +17,8 @@ namespace Game.Battle.Item.Effects {
 
         public override IEnumerator Apply(UnitObject user, GridPosition target, BattleMapManager battleMapManager) {
             UnitObject targetUnitObject = battleMapManager.GetUnit(target);
-            yield return targetUnitObject.EffectController.ApplyEffect(new DebuffEffect(this.turnsDuration, this.statType,
+            yield return targetUnitObject.EffectController.ApplyEffect(new DebuffEffect(this.turnsDuration,
+                this.statType,
                 this.amount, this.color));
         }
     }

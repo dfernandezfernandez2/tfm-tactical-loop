@@ -1,0 +1,743 @@
+fileFormatVersion: 2
+guid: e51fcfa3a197cd74bbc9b31042839fac
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5608164290460777834
+    second: AdventurerDodge2_0
+  - first:
+      213: -7317657898604860634
+    second: AdventurerDodge2_1
+  - first:
+      213: -5070824770518247793
+    second: AdventurerDodge2_2
+  - first:
+      213: -6191428713314024296
+    second: AdventurerDodge2_3
+  - first:
+      213: 7785327571127905573
+    second: AdventurerDodge2_4
+  - first:
+      213: 7535056114935132227
+    second: AdventurerDodge2_5
+  - first:
+      213: 3281586631925106122
+    second: AdventurerDodge2_6
+  - first:
+      213: -6009007228677561272
+    second: AdventurerDodge2_7
+  - first:
+      213: 8209917561000952209
+    second: AdventurerDodge2_8
+  - first:
+      213: 3923779239900438996
+    second: AdventurerDodge2_9
+  - first:
+      213: -5444388475183652142
+    second: AdventurerDodge2_10
+  - first:
+      213: -5581839335625221785
+    second: AdventurerDodge2_11
+  - first:
+      213: -851641800582161331
+    second: AdventurerDodge2_12
+  - first:
+      213: -6899143210541512217
+    second: AdventurerDodge2_13
+  - first:
+      213: 1286840938859868137
+    second: AdventurerDodge2_14
+  - first:
+      213: -489814293750904660
+    second: AdventurerDodge2_15
+  - first:
+      213: -1989618509895640271
+    second: AdventurerDodge2_16
+  - first:
+      213: 873216964636736671
+    second: AdventurerDodge2_17
+  - first:
+      213: 4743446682046638435
+    second: AdventurerDodge2_18
+  - first:
+      213: 7703951575911100576
+    second: AdventurerDodge2_19
+  - first:
+      213: -1643857284295755159
+    second: AdventurerDodge2_20
+  - first:
+      213: 7675449873134873406
+    second: AdventurerDodge2_21
+  - first:
+      213: 4006035567694643372
+    second: AdventurerDodge2_22
+  - first:
+      213: 8221269159599641541
+    second: AdventurerDodge2_23
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: AdventurerDodge2_0
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 203
+        width: 31
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6920e098a4ccb22b0800000000000000
+      internalID: -5608164290460777834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerDodge2_1
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 203
+        width: 31
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62b63dd69e4727a90800000000000000
+      internalID: -7317657898604860634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerDodge2_2
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 203
+        width: 31
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f861203dcbfc0a9b0800000000000000
+      internalID: -5070824770518247793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerDodge2_3
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 203
+        width: 31
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89483ca8360a31aa0800000000000000
+      internalID: -6191428713314024296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerDodge2_4
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 203
+        width: 31
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52d22217d2a0b0c60800000000000000
+      internalID: 7785327571127905573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerDodge2_5
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 203
+        width: 31
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 340f7553d95e19860800000000000000
+      internalID: 7535056114935132227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerDodge2_6
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 143
+        width: 31
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac50197b7a98a8d20800000000000000
+      internalID: 3281586631925106122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerDodge2_7
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 143
+        width: 31
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8446be933c7bb9ca0800000000000000
+      internalID: -6009007228677561272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerDodge2_8
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 143
+        width: 31
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19104b2168c7fe170800000000000000
+      internalID: 8209917561000952209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerDodge2_9
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 143
+        width: 31
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d1615bfd60147630800000000000000
+      internalID: 3923779239900438996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerDodge2_10
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 143
+        width: 31
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d2a2750785a174b0800000000000000
+      internalID: -5444388475183652142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerDodge2_11
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 143
+        width: 31
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76991c6b2b25982b0800000000000000
+      internalID: -5581839335625221785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerDodge2_12
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 80
+        width: 31
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4c1d686b4c5e24f0800000000000000
+      internalID: -851641800582161331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerDodge2_13
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 80
+        width: 31
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e90021adc15140a0800000000000000
+      internalID: -6899143210541512217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerDodge2_14
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 80
+        width: 31
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ef2c231407cbd110800000000000000
+      internalID: 1286840938859868137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerDodge2_15
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 80
+        width: 31
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca88117be74d339f0800000000000000
+      internalID: -489814293750904660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerDodge2_16
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 81
+        width: 31
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13bd027b1847364e0800000000000000
+      internalID: -1989618509895640271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerDodge2_17
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 80
+        width: 31
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9c740de33a4e1c00800000000000000
+      internalID: 873216964636736671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerDodge2_18
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 16
+        width: 31
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 369256e10ab14d140800000000000000
+      internalID: 4743446682046638435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerDodge2_19
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 16
+        width: 31
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a0fdf8142fe9ea60800000000000000
+      internalID: 7703951575911100576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerDodge2_20
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 16
+        width: 31
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96afc1c6288df29e0800000000000000
+      internalID: -1643857284295755159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerDodge2_21
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 16
+        width: 31
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3b658b4efca48a60800000000000000
+      internalID: 7675449873134873406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerDodge2_22
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 16
+        width: 31
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca0050abf1c489730800000000000000
+      internalID: 4006035567694643372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerDodge2_23
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 16
+        width: 31
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c39fc41eb0d71270800000000000000
+      internalID: 8221269159599641541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: c3640507eac53f842a9d762204bde6fa
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      AdventurerDodge2_0: -5608164290460777834
+      AdventurerDodge2_1: -7317657898604860634
+      AdventurerDodge2_10: -5444388475183652142
+      AdventurerDodge2_11: -5581839335625221785
+      AdventurerDodge2_12: -851641800582161331
+      AdventurerDodge2_13: -6899143210541512217
+      AdventurerDodge2_14: 1286840938859868137
+      AdventurerDodge2_15: -489814293750904660
+      AdventurerDodge2_16: -1989618509895640271
+      AdventurerDodge2_17: 873216964636736671
+      AdventurerDodge2_18: 4743446682046638435
+      AdventurerDodge2_19: 7703951575911100576
+      AdventurerDodge2_2: -5070824770518247793
+      AdventurerDodge2_20: -1643857284295755159
+      AdventurerDodge2_21: 7675449873134873406
+      AdventurerDodge2_22: 4006035567694643372
+      AdventurerDodge2_23: 8221269159599641541
+      AdventurerDodge2_3: -6191428713314024296
+      AdventurerDodge2_4: 7785327571127905573
+      AdventurerDodge2_5: 7535056114935132227
+      AdventurerDodge2_6: 3281586631925106122
+      AdventurerDodge2_7: -6009007228677561272
+      AdventurerDodge2_8: 8209917561000952209
+      AdventurerDodge2_9: 3923779239900438996
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

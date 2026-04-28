@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: shot_paralysis_projectile_effect
   m_EditorClassIdentifier: Assembly-CSharp::Game.Unit.Skills.Effects.ProjectileSkillEffect
   projectilePrefab: {fileID: 7265135919401836953, guid: 49396c74d77275b46a70d379530b30df, type: 3}
-  speed: 4
+  speed: 8
   heightOffset: 0.45
   forwardStartOffset: 0.35
   distanceToStop: 0.05

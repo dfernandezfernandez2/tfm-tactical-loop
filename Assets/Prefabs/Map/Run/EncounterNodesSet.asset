@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d77a2190a644a7b9b3b65bddeef2742, type: 3}
+  m_Name: EncounterNodesSet
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Map.Run.UI.EncounterTypeNodeSet
+  entries:
+  - type: 0
+    sprite: {fileID: 21300000, guid: c07bbfff68073ee48bad46ec53f231c6, type: 3}
+  - type: 1
+    sprite: {fileID: 21300000, guid: 022ad43c397fca44b86d1218f592643a, type: 3}
+  - type: 2
+    sprite: {fileID: 21300000, guid: 68bd33095e515c846aefe16d3815369e, type: 3}
+  - type: 3
+    sprite: {fileID: 21300000, guid: f23b5dc58d6a6f54d8a61d82e4fb40e1, type: 3}
+  - type: 4
+    sprite: {fileID: 21300000, guid: c07bbfff68073ee48bad46ec53f231c6, type: 3}

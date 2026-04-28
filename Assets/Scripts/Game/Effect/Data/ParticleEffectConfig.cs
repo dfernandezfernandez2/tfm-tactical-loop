@@ -1,6 +1,5 @@
 namespace Game.Effect.Data {
     using System;
-    using Effect;
     using UnityEngine;
     using UnityEngine.Serialization;
 
@@ -51,7 +50,6 @@ namespace Game.Effect.Data {
 
         [FormerlySerializedAs("SizeEnd")] public float sizeEnd;
 
-        [FormerlySerializedAs("TextureType")]
-        public EffectTextureType textureType = EffectTextureType.CircleTexture;
+        [FormerlySerializedAs("TextureType")] public EffectTextureType textureType = EffectTextureType.CircleTexture;
     }
 }

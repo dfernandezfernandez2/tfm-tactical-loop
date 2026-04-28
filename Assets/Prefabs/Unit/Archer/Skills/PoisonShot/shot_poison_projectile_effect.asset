@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: shot_poison_projectile_effect
   m_EditorClassIdentifier: Assembly-CSharp::Game.Unit.Skills.Effects.ProjectileSkillEffect
   projectilePrefab: {fileID: 7265135919401836953, guid: 6b8f2a3dc36560343b0be82635c43751, type: 3}
-  speed: 4
+  speed: 8
   heightOffset: 0.45
   forwardStartOffset: 0.35
   distanceToStop: 0.05

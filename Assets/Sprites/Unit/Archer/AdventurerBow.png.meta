@@ -1,0 +1,1367 @@
+fileFormatVersion: 2
+guid: 264fc125772b0c840b4668a740729864
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6142560469995007782
+    second: AdventurerBow_0
+  - first:
+      213: 2646954647049176867
+    second: AdventurerBow_1
+  - first:
+      213: -8911046041315311877
+    second: AdventurerBow_2
+  - first:
+      213: 9014074559925017226
+    second: AdventurerBow_3
+  - first:
+      213: 7802044907743837711
+    second: AdventurerBow_4
+  - first:
+      213: 4007870658296635074
+    second: AdventurerBow_5
+  - first:
+      213: 5534260779873447627
+    second: AdventurerBow_6
+  - first:
+      213: -5585646010210195374
+    second: AdventurerBow_7
+  - first:
+      213: -8346311408774676833
+    second: AdventurerBow_8
+  - first:
+      213: -1420873889360383013
+    second: AdventurerBow_9
+  - first:
+      213: -8042289884517216294
+    second: AdventurerBow_10
+  - first:
+      213: -4904132937128470286
+    second: AdventurerBow_11
+  - first:
+      213: -1226666288275368749
+    second: AdventurerBow_12
+  - first:
+      213: -7308264919561393671
+    second: AdventurerBow_13
+  - first:
+      213: 3825525885190631338
+    second: AdventurerBow_14
+  - first:
+      213: 6621844901593622579
+    second: AdventurerBow_15
+  - first:
+      213: -7116339478879704169
+    second: AdventurerBow_16
+  - first:
+      213: -7603731303480955937
+    second: AdventurerBow_17
+  - first:
+      213: 1289006370834422494
+    second: AdventurerBow_18
+  - first:
+      213: 8462055629889665921
+    second: AdventurerBow_19
+  - first:
+      213: -1046198361292950464
+    second: AdventurerBow_20
+  - first:
+      213: -3928261232875811271
+    second: AdventurerBow_21
+  - first:
+      213: 5379184986253136588
+    second: AdventurerBow_22
+  - first:
+      213: -56693534154362090
+    second: AdventurerBow_23
+  - first:
+      213: -8386440600619584399
+    second: AdventurerBow_24
+  - first:
+      213: 421561136229689667
+    second: AdventurerBow_25
+  - first:
+      213: -6486943669533758570
+    second: AdventurerBow_26
+  - first:
+      213: -1868300442140798654
+    second: AdventurerBow_27
+  - first:
+      213: -8393857562798103974
+    second: AdventurerBow_28
+  - first:
+      213: -8471079515057782430
+    second: AdventurerBow_29
+  - first:
+      213: -4047933282650935728
+    second: AdventurerBow_30
+  - first:
+      213: 7081114386770763937
+    second: AdventurerBow_31
+  - first:
+      213: 6624234977864435664
+    second: AdventurerBow_32
+  - first:
+      213: 5348614061080776913
+    second: AdventurerBow_33
+  - first:
+      213: -2869200840408126432
+    second: AdventurerBow_34
+  - first:
+      213: -6209339582348816071
+    second: AdventurerBow_35
+  - first:
+      213: 5437303654790890381
+    second: AdventurerBow_36
+  - first:
+      213: -7913019319581704416
+    second: AdventurerBow_37
+  - first:
+      213: -7270229530887481354
+    second: AdventurerBow_38
+  - first:
+      213: -7397988879061661058
+    second: AdventurerBow_39
+  - first:
+      213: -3193048258197499871
+    second: AdventurerBow_40
+  - first:
+      213: -26427786589730410
+    second: AdventurerBow_41
+  - first:
+      213: -5497850440024205115
+    second: AdventurerBow_42
+  - first:
+      213: 3959146683338972533
+    second: AdventurerBow_43
+  - first:
+      213: -3677800608501702443
+    second: AdventurerBow_44
+  - first:
+      213: 8893954865276073891
+    second: AdventurerBow_45
+  - first:
+      213: 161421341577677582
+    second: AdventurerBow_46
+  - first:
+      213: 2589482464412366201
+    second: AdventurerBow_47
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: AdventurerBow_0
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 212
+        width: 16
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62fa869e332ce3550800000000000000
+      internalID: 6142560469995007782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerBow_1
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 212
+        width: 22
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3278fe13a3fdbb420800000000000000
+      internalID: 2646954647049176867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerBow_2
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 212
+        width: 22
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfeff3296da955480800000000000000
+      internalID: -8911046041315311877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerBow_3
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 212
+        width: 16
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8a573bbd0d681d70800000000000000
+      internalID: 9014074559925017226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerBow_4
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 212
+        width: 15
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0e77bfa18e664c60800000000000000
+      internalID: 7802044907743837711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerBow_5
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 212
+        width: 16
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ce5b7d0121de9730800000000000000
+      internalID: 4007870658296635074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerBow_6
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 212
+        width: 16
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bceabb68bd4adcc40800000000000000
+      internalID: 5534260779873447627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerBow_7
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 212
+        width: 15
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 258e7583c8ccb72b0800000000000000
+      internalID: -5585646010210195374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerBow_8
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 212
+        width: 16
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9ef13f8ef1fb2c80800000000000000
+      internalID: -8346311408774676833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerBow_9
+      rect:
+        serializedVersion: 2
+        x: 618
+        y: 212
+        width: 22
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd3fb0ac9ba084ce0800000000000000
+      internalID: -1420873889360383013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerBow_10
+      rect:
+        serializedVersion: 2
+        x: 685
+        y: 212
+        width: 21
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adf42acb5fb046090800000000000000
+      internalID: -8042289884517216294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerBow_11
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 212
+        width: 16
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f81a2fa31501fbb0800000000000000
+      internalID: -4904132937128470286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerBow_12
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 152
+        width: 14
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d4566d82810afee0800000000000000
+      internalID: -1226666288275368749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerBow_13
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 152
+        width: 17
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f92819c6c3d39a90800000000000000
+      internalID: -7308264919561393671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerBow_14
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 152
+        width: 22
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aaf69d9268ff61530800000000000000
+      internalID: 3825525885190631338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerBow_15
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 152
+        width: 21
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 338283d9ad485eb50800000000000000
+      internalID: 6621844901593622579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerBow_16
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 152
+        width: 21
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79b694ca2fead3d90800000000000000
+      internalID: -7116339478879704169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerBow_17
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 152
+        width: 21
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdbef707aae1a7690800000000000000
+      internalID: -7603731303480955937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerBow_18
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 152
+        width: 21
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eda1dcef67873e110800000000000000
+      internalID: 1289006370834422494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerBow_19
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 152
+        width: 21
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18bfa21f2c24f6570800000000000000
+      internalID: 8462055629889665921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerBow_20
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 152
+        width: 21
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 044b98622282b71f0800000000000000
+      internalID: -1046198361292950464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerBow_21
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 152
+        width: 22
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93ecf75b8330c79c0800000000000000
+      internalID: -3928261232875811271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerBow_22
+      rect:
+        serializedVersion: 2
+        x: 687
+        y: 152
+        width: 17
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc29bbeae34b6aa40800000000000000
+      internalID: 5379184986253136588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerBow_23
+      rect:
+        serializedVersion: 2
+        x: 751
+        y: 152
+        width: 14
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 613faa3f785963ff0800000000000000
+      internalID: -56693534154362090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerBow_24
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 89
+        width: 14
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 174f72ef4b06d9b80800000000000000
+      internalID: -8386440600619584399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerBow_25
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 89
+        width: 19
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 349a410be9fa9d500800000000000000
+      internalID: 421561136229689667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerBow_26
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 89
+        width: 20
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69ba8731a1fb9f5a0800000000000000
+      internalID: -6486943669533758570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerBow_27
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 89
+        width: 20
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2411e7485a67216e0800000000000000
+      internalID: -1868300442140798654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerBow_28
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 89
+        width: 19
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a52613ae407038b80800000000000000
+      internalID: -8393857562798103974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerBow_29
+      rect:
+        serializedVersion: 2
+        x: 349
+        y: 89
+        width: 19
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26184e0101ea07a80800000000000000
+      internalID: -8471079515057782430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerBow_30
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 89
+        width: 19
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05e2c15502ad2d7c0800000000000000
+      internalID: -4047933282650935728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerBow_31
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 89
+        width: 19
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a02165740c254260800000000000000
+      internalID: 7081114386770763937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerBow_32
+      rect:
+        serializedVersion: 2
+        x: 554
+        y: 89
+        width: 20
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d7c35c9d920eeb50800000000000000
+      internalID: 6624234977864435664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerBow_33
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 89
+        width: 20
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d0116f76281a3a40800000000000000
+      internalID: 5348614061080776913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerBow_34
+      rect:
+        serializedVersion: 2
+        x: 683
+        y: 89
+        width: 19
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02ca83e890d8e28d0800000000000000
+      internalID: -2869200840408126432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerBow_35
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 89
+        width: 14
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93193506c8ef3d9a0800000000000000
+      internalID: -6209339582348816071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerBow_36
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 25
+        width: 15
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d838ebfadde257b40800000000000000
+      internalID: 5437303654790890381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerBow_37
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 25
+        width: 22
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02f77839ade4f2290800000000000000
+      internalID: -7913019319581704416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerBow_38
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 25
+        width: 19
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f795efc2c4fa1b90800000000000000
+      internalID: -7270229530887481354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerBow_39
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 25
+        width: 15
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7a4d3b8f40155990800000000000000
+      internalID: -7397988879061661058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerBow_40
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 25
+        width: 19
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1205573d68300b3d0800000000000000
+      internalID: -3193048258197499871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerBow_41
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 25
+        width: 19
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6998e10711c12aff0800000000000000
+      internalID: -26427786589730410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerBow_42
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 25
+        width: 19
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c8d1265726b3b3b0800000000000000
+      internalID: -5497850440024205115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerBow_43
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 25
+        width: 19
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57dd51a9ee6b1f630800000000000000
+      internalID: 3959146683338972533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerBow_44
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 25
+        width: 15
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d06a8715d3d5fcc0800000000000000
+      internalID: -3677800608501702443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerBow_45
+      rect:
+        serializedVersion: 2
+        x: 619
+        y: 25
+        width: 19
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a73329e3dcad6b70800000000000000
+      internalID: 8893954865276073891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerBow_46
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 25
+        width: 22
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0b87ebdadb7d3200800000000000000
+      internalID: 161421341577677582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerBow_47
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 25
+        width: 15
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 975f66be490bfe320800000000000000
+      internalID: 2589482464412366201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: dfb89c154b6037d44bf33bdbce478cba
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      AdventurerBow_0: 6142560469995007782
+      AdventurerBow_1: 2646954647049176867
+      AdventurerBow_10: -8042289884517216294
+      AdventurerBow_11: -4904132937128470286
+      AdventurerBow_12: -1226666288275368749
+      AdventurerBow_13: -7308264919561393671
+      AdventurerBow_14: 3825525885190631338
+      AdventurerBow_15: 6621844901593622579
+      AdventurerBow_16: -7116339478879704169
+      AdventurerBow_17: -7603731303480955937
+      AdventurerBow_18: 1289006370834422494
+      AdventurerBow_19: 8462055629889665921
+      AdventurerBow_2: -8911046041315311877
+      AdventurerBow_20: -1046198361292950464
+      AdventurerBow_21: -3928261232875811271
+      AdventurerBow_22: 5379184986253136588
+      AdventurerBow_23: -56693534154362090
+      AdventurerBow_24: -8386440600619584399
+      AdventurerBow_25: 421561136229689667
+      AdventurerBow_26: -6486943669533758570
+      AdventurerBow_27: -1868300442140798654
+      AdventurerBow_28: -8393857562798103974
+      AdventurerBow_29: -8471079515057782430
+      AdventurerBow_3: 9014074559925017226
+      AdventurerBow_30: -4047933282650935728
+      AdventurerBow_31: 7081114386770763937
+      AdventurerBow_32: 6624234977864435664
+      AdventurerBow_33: 5348614061080776913
+      AdventurerBow_34: -2869200840408126432
+      AdventurerBow_35: -6209339582348816071
+      AdventurerBow_36: 5437303654790890381
+      AdventurerBow_37: -7913019319581704416
+      AdventurerBow_38: -7270229530887481354
+      AdventurerBow_39: -7397988879061661058
+      AdventurerBow_4: 7802044907743837711
+      AdventurerBow_40: -3193048258197499871
+      AdventurerBow_41: -26427786589730410
+      AdventurerBow_42: -5497850440024205115
+      AdventurerBow_43: 3959146683338972533
+      AdventurerBow_44: -3677800608501702443
+      AdventurerBow_45: 8893954865276073891
+      AdventurerBow_46: 161421341577677582
+      AdventurerBow_47: 2589482464412366201
+      AdventurerBow_5: 4007870658296635074
+      AdventurerBow_6: 5534260779873447627
+      AdventurerBow_7: -5585646010210195374
+      AdventurerBow_8: -8346311408774676833
+      AdventurerBow_9: -1420873889360383013
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -13,7 +13,9 @@
 
         public Vector2Int GetDirectionTo(GridPosition target) {
             Vector2Int delta = target.Position - this.Position;
-            return Math.Abs(delta.x) >= Math.Abs(delta.y) ? new Vector2Int(Math.Sign(delta.x), 0) : new Vector2Int(0, Math.Sign(delta.y));
+            return Math.Abs(delta.x) >= Math.Abs(delta.y)
+                ? new Vector2Int(Math.Sign(delta.x), 0)
+                : new Vector2Int(0, Math.Sign(delta.y));
         }
 
         private bool Equals(GridPosition other) => this.Position.Equals(other.Position) && this.Height == other.Height;
