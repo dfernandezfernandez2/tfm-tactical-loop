@@ -147,6 +147,7 @@
             if (string.IsNullOrEmpty(skill.animationName)) {
                 yield break;
             }
+
             yield return this._animator.PlayAnimation(skill.animationName);
         }
 

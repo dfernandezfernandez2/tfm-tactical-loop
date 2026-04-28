@@ -3,6 +3,7 @@ namespace Game.Map.Run.UI {
     using System;
     using System.Collections;
     using System.Collections.Generic;
+    using Core;
     using UnityEngine;
     using UnityEngine.UI;
     using Visitor;
@@ -20,17 +21,26 @@ namespace Game.Map.Run.UI {
 
         private RectTransform _connectionsObjectGroupTransform = null!;
         private RectTransform _contentRectTransform = null!;
+        private MapNode _currentKeyboardSelectedNode;
         private MapNode? _currentNode;
+        private bool _isActive;
 
         private void Awake() {
             this._contentRectTransform = Instantiate(this.contentPrefab, this.canvas.transform);
-            this._connectionsObjectGroupTransform = Instantiate(this.connectionsObjectGroup, this.canvas.transform);
-            this._connectionsObjectGroupTransform.SetAsFirstSibling();
-            this._contentRectTransform.gameObject.SetActive(false);
-            this._connectionsObjectGroupTransform.gameObject.SetActive(false);
+            this._connectionsObjectGroupTransform =
+                Instantiate(this.connectionsObjectGroup, this._contentRectTransform);
+            this.canvas.gameObject.SetActive(false);
         }
 
         private void Start() => this.InitMap();
+
+        private void Update() {
+            if (!this._isActive) {
+                return;
+            }
+
+            this.HandleKeyBoard();
+        }
 
         public void InitMap(RunGraph? graph = null) {
             graph ??= RunGraphGenerator.Generate();
@@ -48,16 +58,83 @@ namespace Game.Map.Run.UI {
                 return false;
             }
 
-            this._contentRectTransform.gameObject.SetActive(true);
-            this._connectionsObjectGroupTransform.gameObject.SetActive(true);
+            this.canvas.gameObject.SetActive(true);
             this.StartCoroutine(this.RefreshConnectionsNextFrame());
+            this._currentNode.Node.Enable();
             this._currentNode.Node.Select();
             foreach (ConnectionNode connection in this._currentNode.NextNodeConnections) {
                 connection.MapNode.Node.Enable();
                 connection.NodeConnection.Select();
             }
 
+            this._currentKeyboardSelectedNode = this._currentNode;
+            this._isActive = true;
             return true;
+        }
+
+        private void Hide() {
+            this._isActive = false;
+            this.canvas.gameObject.SetActive(false);
+        }
+
+        private void HandleKeyBoard() {
+            if (InputUtils.IsRightSelected()) {
+                if (this._currentKeyboardSelectedNode == this._currentNode) {
+                    this._currentKeyboardSelectedNode = this._currentNode.NextNodeConnections[0].MapNode;
+                    this._currentKeyboardSelectedNode.Node.Select();
+                }
+            }
+
+            if (InputUtils.IsLeftSelected()) {
+                if (this._currentKeyboardSelectedNode != this._currentNode) {
+                    this._currentKeyboardSelectedNode.Node.UnSelect();
+                    this._currentKeyboardSelectedNode = this._currentNode;
+                }
+            }
+
+            if (InputUtils.IsUpSelected()) {
+                if (this._currentKeyboardSelectedNode == this._currentNode) {
+                    MapNode nextSelected = this._currentNode.NextNodeConnections[0].MapNode;
+                    nextSelected.Node.Select();
+                    this._currentKeyboardSelectedNode = nextSelected;
+                }
+                else {
+                    int currenSelectedPosition =
+                        this._currentNode.NextNodeConnections.FindIndex(m =>
+                            m.MapNode == this._currentKeyboardSelectedNode);
+                    int backPosition = currenSelectedPosition == 0
+                        ? this._currentNode.NextNodeConnections.Count - 1
+                        : currenSelectedPosition - 1;
+                    this._currentKeyboardSelectedNode.Node.UnSelect();
+                    this._currentKeyboardSelectedNode = this._currentNode.NextNodeConnections[backPosition].MapNode;
+                    this._currentKeyboardSelectedNode.Node.Select();
+                }
+            }
+
+            if (InputUtils.IsDownSelected()) {
+                if (this._currentKeyboardSelectedNode == this._currentNode) {
+                    MapNode nextSelected = this._currentNode.NextNodeConnections[^1].MapNode;
+                    nextSelected.Node.Select();
+                    this._currentKeyboardSelectedNode = nextSelected;
+                }
+                else {
+                    int currenSelectedPosition =
+                        this._currentNode.NextNodeConnections.FindIndex(m =>
+                            m.MapNode == this._currentKeyboardSelectedNode);
+                    int nextPosition = currenSelectedPosition == this._currentNode.NextNodeConnections.Count - 1
+                        ? 0
+                        : currenSelectedPosition + 1;
+                    this._currentKeyboardSelectedNode.Node.UnSelect();
+                    this._currentKeyboardSelectedNode = this._currentNode.NextNodeConnections[nextPosition].MapNode;
+                    this._currentKeyboardSelectedNode.Node.Select();
+                }
+            }
+
+            if (InputUtils.IsEnterSelected()) {
+                if (this._currentKeyboardSelectedNode != this._currentNode) {
+                    this.OnNodeSelected(this._currentKeyboardSelectedNode);
+                }
+            }
         }
 
         private IEnumerator RefreshConnectionsNextFrame() {
@@ -70,10 +147,11 @@ namespace Game.Map.Run.UI {
             }
         }
 
-        private NodeUI InstantiateNode(RunNode node, int level) {
+        private NodeUI InstantiateNode(MapNode node, int level) {
             Transform row = this.GetOrCreateRow(level);
             NodeUI nodeUI = Instantiate(this.nodePrefab, row);
             nodeUI.Init(node);
+            nodeUI.OnClick += this.OnNodeSelected;
             return nodeUI;
         }
 
@@ -96,16 +174,32 @@ namespace Game.Map.Run.UI {
             return connection;
         }
 
+        public void OnNodeSelected(MapNode node) {
+            if (this._currentNode != null) {
+                foreach (ConnectionNode currentNodeNextNodeConnection in this._currentNode.NextNodeConnections) {
+                    currentNodeNextNodeConnection.NodeConnection.UnSelect();
+                    currentNodeNextNodeConnection.MapNode.Node.Disable();
+                }
+
+                this._currentNode.Node.UnSelect();
+                this._currentNode.Node.Disable();
+            }
+
+            this._currentNode = node;
+            this.Hide();
+            this.ShowMap();
+        }
+
         private class GraphMapRenderVisitor : IRunNodeVisitor<(int Level, MapNode? PreviousNode)> {
             private readonly HashSet<(MapNode From, MapNode To)> _createdConnections = new();
             private readonly HashSet<RunNode> _expandedNodes = new();
             private readonly Func<NodeUI, NodeUI, NodeConnectionUI> _instanceNodeConnection;
-            private readonly Func<RunNode, int, NodeUI> _instantiateNode;
+            private readonly Func<MapNode, int, NodeUI> _instantiateNode;
 
             private readonly Dictionary<RunNode, MapNode> _mapNodesByRunNode = new();
             private readonly Action<MapNode> _onMapNode;
 
-            public GraphMapRenderVisitor(Func<RunNode, int, NodeUI> instantiateNode,
+            public GraphMapRenderVisitor(Func<MapNode, int, NodeUI> instantiateNode,
                 Func<NodeUI, NodeUI, NodeConnectionUI> instanceNodeConnection, Action<MapNode> onMapNode) {
                 this._instantiateNode = instantiateNode;
                 this._instanceNodeConnection = instanceNodeConnection;
@@ -135,8 +229,9 @@ namespace Game.Map.Run.UI {
                     return existing;
                 }
 
-                NodeUI nodeUI = this._instantiateNode(node, level);
-                MapNode mapNode = new(nodeUI);
+                MapNode mapNode = new(node);
+                NodeUI nodeUI = this._instantiateNode(mapNode, level);
+                mapNode.Node = nodeUI;
                 this._mapNodesByRunNode[node] = mapNode;
                 return mapNode;
             }
@@ -152,15 +247,16 @@ namespace Game.Map.Run.UI {
             }
         }
 
-        private class MapNode {
+        public class MapNode {
             public readonly List<ConnectionNode> NextNodeConnections = new();
-            public readonly NodeUI Node;
             public readonly List<ConnectionNode> PreviousNodeConnections = new();
+            public readonly RunNode RunNode;
+            public NodeUI Node;
 
-            public MapNode(NodeUI node) => this.Node = node;
+            public MapNode(RunNode RunNode) => this.RunNode = RunNode;
         }
 
-        private class ConnectionNode {
+        public class ConnectionNode {
             public readonly MapNode MapNode;
             public readonly NodeConnectionUI NodeConnection;
 

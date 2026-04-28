@@ -9,10 +9,9 @@ namespace Game.Effect {
     }
 
     public class EffectMaterialFactory : MonoBehaviour {
-
         [SerializeField] private Material circleMaterial;
         [SerializeField] private Material buffMaterial;
-        [SerializeField] private  Material debuffMaterial;
+        [SerializeField] private Material debuffMaterial;
 
         public Material GetMaterial(EffectTextureType textureType) =>
             textureType switch {
