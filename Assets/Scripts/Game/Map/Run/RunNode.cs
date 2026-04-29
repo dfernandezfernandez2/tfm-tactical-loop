@@ -4,15 +4,13 @@ namespace Game.Map.Run {
     using Visitor;
 
     public class RunNode {
+        private readonly Guid _id;
         public readonly EncounterType EncounterType;
-
-        public readonly Guid Id;
         public readonly HashSet<RunNode> NextNodes = new();
-        public readonly HashSet<RunNode> PreviousNodes = new();
 
         public RunNode(EncounterType encounterType) {
             this.EncounterType = encounterType;
-            this.Id = Guid.NewGuid();
+            this._id = Guid.NewGuid();
         }
 
         public bool Completed { get; private set; }
@@ -20,7 +18,6 @@ namespace Game.Map.Run {
         public void AddNextNode(params RunNode[] nextNodes) {
             foreach (RunNode nextNode in nextNodes) {
                 this.NextNodes.Add(nextNode);
-                nextNode.PreviousNodes.Add(this);
             }
         }
 
@@ -28,8 +25,8 @@ namespace Game.Map.Run {
 
         public void Complete() => this.Completed = true;
 
-        public override bool Equals(object obj) => obj is RunNode other && this.Id == other.Id;
+        public override bool Equals(object obj) => obj is RunNode other && this._id == other._id;
 
-        public override int GetHashCode() => this.Id.GetHashCode();
+        public override int GetHashCode() => this._id.GetHashCode();
     }
 }

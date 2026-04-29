@@ -24,7 +24,9 @@ namespace Game.Battle {
         [SerializeField] private TurnOrderUI turnOrderUI;
 
         private readonly List<UnitObject> _unitsTurnOrder = new();
+        private Team _enemyTeam;
         private EnemyTurnController _enemyTurnController;
+        private Team _playerTeam;
         private int _unitsTurnOrderIndex;
         private UnitTurnState _unitTurnState;
 
@@ -144,17 +146,31 @@ namespace Game.Battle {
 
         public bool IsAvailableAction(string actionName) => this._unitTurnState.CanDoAction(actionName);
 
+        public event Action<BattleResult> OnBattleEnd;
+
         public void StartMap(Team playerTeam, Team enemyTeam) {
+            this._playerTeam = playerTeam;
+            this._enemyTeam = enemyTeam;
             this.BuildTurnOrder(playerTeam, enemyTeam);
             this.StartCoroutine(this.StartTurn());
         }
 
-        public void EndMap() {
+        private void EndMap() {
             this.unitActionPanelUI.Hide();
             this.turnOrderUI.Hide();
             this.turnOrderUI.Reset();
             this._unitsTurnOrder.Clear();
             this._unitsTurnOrderIndex = -1;
+            foreach (UnitObject unitObject in this._playerTeam.GetUnitObjects()) {
+                Destroy(unitObject.gameObject);
+            }
+
+            this._playerTeam.ClearUnitObjects();
+            foreach (UnitObject unitObject in this._enemyTeam.GetUnitObjects()) {
+                Destroy(unitObject.gameObject);
+            }
+
+            this._enemyTeam.ClearUnitObjects();
         }
 
         private void BuildTurnOrder(Team playerTeam, Team enemyTeam) {
@@ -176,7 +192,6 @@ namespace Game.Battle {
             yield return this.StartCoroutine(BattleSequenceExecutor.ExecuteMovement(
                 this._unitsTurnOrder[this._unitsTurnOrderIndex], path,
                 (position, gridPosition) => this.battleMapManager.UnitMove(position, gridPosition, true)));
-
             this.unitActionPanelUI.Show();
         }
 
@@ -203,12 +218,20 @@ namespace Game.Battle {
                 // todo: visual en el orden
             }
 
+            if (this.CheckBattleEnd()) {
+                yield break;
+            }
+
             this.battleMapManager.UnSelect(previousUnitTurn.Unit.GridPosition);
 
             this._unitsTurnOrderIndex = this.GetNextUnitTurnOrderIndex(this._unitsTurnOrderIndex);
             UnitObject currentTurnUnit = this._unitsTurnOrder[this._unitsTurnOrderIndex];
             yield return currentTurnUnit.OnTurnStart();
             if (currentTurnUnit.Unit.IsDead()) {
+                if (this.CheckBattleEnd()) {
+                    yield break;
+                }
+
                 yield return this.StartCoroutine(this.StartTurn());
                 yield break;
             }
@@ -250,9 +273,39 @@ namespace Game.Battle {
          */
         public void DoAction(IBattleAction battleAction) {
             this.unitActionPanelUI.Hide();
-            this.StartCoroutine(this._unitTurnState.ExecuteAction(battleAction, this));
+            this.StartCoroutine(Action());
+            return;
+
+            IEnumerator Action() {
+                yield return this._unitTurnState.ExecuteAction(battleAction, this);
+                this.CheckBattleEnd();
+            }
         }
 
         public bool CanDoAction(IBattleAction battleAction) => this._unitTurnState.CanDoAction(battleAction, this);
+
+        private bool CheckBattleEnd() {
+            bool playerAlive = this._unitsTurnOrder.Any(unit =>
+                unit.Team.GetBattleTeam() == BattleTeam.Player &&
+                !unit.Unit.IsDead()
+            );
+            if (!playerAlive) {
+                this.EndMap();
+                this.OnBattleEnd?.Invoke(new BattleResult(BattleTeam.Enemy));
+                return true;
+            }
+
+            bool enemyAlive = this._unitsTurnOrder.Any(unit =>
+                unit.Team.GetBattleTeam() == BattleTeam.Enemy &&
+                !unit.Unit.IsDead()
+            );
+            if (!enemyAlive) {
+                this.EndMap();
+                this.OnBattleEnd?.Invoke(new BattleResult(BattleTeam.Player));
+                return true;
+            }
+
+            return false;
+        }
     }
 }

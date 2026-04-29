@@ -2,21 +2,35 @@ namespace Game.Core {
     using System.Collections.Generic;
     using Unit;
 
+    public struct TeamUnit {
+        public TeamUnit(Unit unitData, UnitObject prefab) {
+            this.UnitData = unitData;
+            this.Prefab = prefab;
+        }
+
+        public readonly Unit UnitData;
+        public readonly UnitObject Prefab;
+    }
+
     public class Team {
         private readonly BattleTeam _battleTeam;
+        private readonly List<TeamUnit> _teamUnits = new();
         private readonly List<UnitObject> _unitObjects;
 
-        private readonly IReadOnlyList<UnitObject> _unitObjectsPrefabs;
-
         public Team(List<UnitObject> unitObjectsPrefabs, BattleTeam battleTeam) {
-            this._unitObjectsPrefabs = unitObjectsPrefabs.AsReadOnly();
+            foreach (UnitObject unitObjectsPrefab in unitObjectsPrefabs) {
+                Unit unit = new(unitObjectsPrefab.data.GetStats());
+                this._teamUnits.Add(new TeamUnit(unit, unitObjectsPrefab));
+            }
+
             this._battleTeam = battleTeam;
             this._unitObjects = new List<UnitObject>();
         }
 
-        public IReadOnlyList<UnitObject> GetUnitObjectsPrefabs() => this._unitObjectsPrefabs;
+        public IReadOnlyList<TeamUnit> GetTeamUnits() => this._teamUnits;
 
-        public void AddUnit(UnitObject unitObject) {
+        public void AddUnit(UnitObject unitObject, TeamUnit teamUnit) {
+            unitObject.Init(teamUnit.UnitData);
             unitObject.Team = this;
             this._unitObjects.Add(unitObject);
         }
@@ -25,6 +39,8 @@ namespace Game.Core {
             unitObject.Team = null;
             this._unitObjects.Remove(unitObject);
         }
+
+        public void ClearUnitObjects() => this._unitObjects.Clear();
 
         public IReadOnlyList<UnitObject> GetUnitObjects() => this._unitObjects.AsReadOnly();
         public BattleTeam GetBattleTeam() => this._battleTeam;

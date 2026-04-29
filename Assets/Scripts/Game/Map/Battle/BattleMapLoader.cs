@@ -10,9 +10,11 @@
 
         private IMapParser _mapParser;
         private IMapRenderer _mapRenderer;
+        private GameObject _parentGameObject;
 
         public void Awake() {
-            this._mapRenderer = new BattleMapRenderer(this.tileRenderSet, this.worldRender);
+            this._parentGameObject = new GameObject("Map");
+            this._mapRenderer = new BattleMapRenderer(this.tileRenderSet, this.worldRender, this._parentGameObject);
             this._mapParser = new TxtMapParser();
         }
 
@@ -20,6 +22,12 @@
             BattleMapData data = this._mapParser.Parse(mapTextContent);
             this._mapRenderer.Render(data);
             return data;
+        }
+
+        public void DestroyCurrentMap() {
+            foreach (Transform child in this._parentGameObject.transform) {
+                Destroy(child.gameObject);
+            }
         }
     }
 }

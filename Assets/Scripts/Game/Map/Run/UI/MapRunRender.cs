@@ -1,12 +1,11 @@
-#nullable enable
 namespace Game.Map.Run.UI {
     using System;
     using System.Collections;
     using System.Collections.Generic;
     using Core;
+    using Data;
     using UnityEngine;
     using UnityEngine.UI;
-    using Visitor;
 
     public class MapRunRender : MonoBehaviour {
         [SerializeField] private GameObject canvas;
@@ -32,8 +31,6 @@ namespace Game.Map.Run.UI {
             this.canvas.gameObject.SetActive(false);
         }
 
-        private void Start() => this.InitMap();
-
         private void Update() {
             if (!this._isActive) {
                 return;
@@ -42,20 +39,17 @@ namespace Game.Map.Run.UI {
             this.HandleKeyBoard();
         }
 
-        public void InitMap(RunGraph? graph = null) {
-            graph ??= RunGraphGenerator.Generate();
+        public void InitMap(RunGraph graph) {
             this._rowsByLevel.Clear();
             this._nodeConnections.Clear();
             GraphMapRenderVisitor visitor = new(this.InstantiateNode, this.InstantiateNodeConnection,
                 node => this._currentNode ??= node);
-            graph.Accept(visitor, (0, (MapNode?)null));
+            graph.Accept(visitor, (0, null));
         }
 
-        public void Show() => this.ShowMap();
-
-        public bool ShowMap() {
+        public void ShowMap() {
             if (this._currentNode == null) {
-                return false;
+                return;
             }
 
             this.canvas.gameObject.SetActive(true);
@@ -69,8 +63,9 @@ namespace Game.Map.Run.UI {
 
             this._currentKeyboardSelectedNode = this._currentNode;
             this._isActive = true;
-            return true;
         }
+
+        public bool HasNext() => this._currentNode != null;
 
         private void Hide() {
             this._isActive = false;
@@ -174,7 +169,7 @@ namespace Game.Map.Run.UI {
             return connection;
         }
 
-        public void OnNodeSelected(MapNode node) {
+        private void OnNodeSelected(MapNode node) {
             if (this._currentNode != null) {
                 foreach (ConnectionNode currentNodeNextNodeConnection in this._currentNode.NextNodeConnections) {
                     currentNodeNextNodeConnection.NodeConnection.UnSelect();
@@ -187,83 +182,9 @@ namespace Game.Map.Run.UI {
 
             this._currentNode = node;
             this.Hide();
-            this.ShowMap();
+            this.OnSelect?.Invoke(node.RunNode);
         }
 
-        private class GraphMapRenderVisitor : IRunNodeVisitor<(int Level, MapNode? PreviousNode)> {
-            private readonly HashSet<(MapNode From, MapNode To)> _createdConnections = new();
-            private readonly HashSet<RunNode> _expandedNodes = new();
-            private readonly Func<NodeUI, NodeUI, NodeConnectionUI> _instanceNodeConnection;
-            private readonly Func<MapNode, int, NodeUI> _instantiateNode;
-
-            private readonly Dictionary<RunNode, MapNode> _mapNodesByRunNode = new();
-            private readonly Action<MapNode> _onMapNode;
-
-            public GraphMapRenderVisitor(Func<MapNode, int, NodeUI> instantiateNode,
-                Func<NodeUI, NodeUI, NodeConnectionUI> instanceNodeConnection, Action<MapNode> onMapNode) {
-                this._instantiateNode = instantiateNode;
-                this._instanceNodeConnection = instanceNodeConnection;
-                this._onMapNode = onMapNode;
-            }
-
-            public void Visit(RunNode node, (int Level, MapNode? PreviousNode) ctx) {
-                MapNode currentNode = this.GetOrCreateMapNode(node, ctx.Level);
-                if (ctx.PreviousNode == null) {
-                    this._onMapNode(currentNode);
-                }
-                else {
-                    this.CreateConnection(ctx.PreviousNode, currentNode);
-                }
-
-                if (!this._expandedNodes.Add(node)) {
-                    return;
-                }
-
-                foreach (RunNode nextNode in node.NextNodes) {
-                    nextNode.Accept(this, (ctx.Level + 1, currentNode));
-                }
-            }
-
-            private MapNode GetOrCreateMapNode(RunNode node, int level) {
-                if (this._mapNodesByRunNode.TryGetValue(node, out MapNode existing)) {
-                    return existing;
-                }
-
-                MapNode mapNode = new(node);
-                NodeUI nodeUI = this._instantiateNode(mapNode, level);
-                mapNode.Node = nodeUI;
-                this._mapNodesByRunNode[node] = mapNode;
-                return mapNode;
-            }
-
-            private void CreateConnection(MapNode previousNode, MapNode currentNode) {
-                if (!this._createdConnections.Add((previousNode, currentNode))) {
-                    return;
-                }
-
-                NodeConnectionUI connectionUI = this._instanceNodeConnection(previousNode.Node, currentNode.Node);
-                previousNode.NextNodeConnections.Add(new ConnectionNode(connectionUI, currentNode));
-                currentNode.PreviousNodeConnections.Add(new ConnectionNode(connectionUI, previousNode));
-            }
-        }
-
-        public class MapNode {
-            public readonly List<ConnectionNode> NextNodeConnections = new();
-            public readonly List<ConnectionNode> PreviousNodeConnections = new();
-            public readonly RunNode RunNode;
-            public NodeUI Node;
-
-            public MapNode(RunNode RunNode) => this.RunNode = RunNode;
-        }
-
-        public class ConnectionNode {
-            public readonly MapNode MapNode;
-            public readonly NodeConnectionUI NodeConnection;
-
-            public ConnectionNode(NodeConnectionUI nodeConnection, MapNode mapNode) {
-                this.NodeConnection = nodeConnection;
-                this.MapNode = mapNode;
-            }
-        }
+        public event Action<RunNode> OnSelect;
     }
 }

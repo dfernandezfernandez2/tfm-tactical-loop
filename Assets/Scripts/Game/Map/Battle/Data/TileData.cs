@@ -1,10 +1,12 @@
 ﻿namespace Game.Map.Battle.Data {
     using System;
+    using System.Collections.Generic;
     using Renderer;
     using UnityEngine;
 
     public class TileData {
         public TileView TileView;
+        public List<TileView> TileViewList = new();
 
         public TileData(Vector2Int position, TileType type, int height) {
             this.TileGridPosition = new GridPosition(position, height);
