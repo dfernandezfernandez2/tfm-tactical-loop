@@ -4,14 +4,15 @@
     using UnityEngine;
 
     public class BattleMapRenderer : IMapRenderer {
+
         private readonly GameObject _parentGameObject;
         private readonly Dictionary<TileType, TileRenderElement> _tileRenderElements;
         private readonly WorldRender _worldRender;
 
-        public BattleMapRenderer(TileRenderSet tileRenderSet, WorldRender worldRender) {
+        public BattleMapRenderer(TileRenderSet tileRenderSet, WorldRender worldRender, GameObject parentGameObject) {
             this._tileRenderElements = tileRenderSet.ToDict();
             this._worldRender = worldRender;
-            this._parentGameObject = new GameObject("Map");
+            this._parentGameObject = parentGameObject;
         }
 
         public void Render(BattleMapData data) => data.ForEach(this.RenderTile);
@@ -46,6 +47,7 @@
             GameObject createdObject = Object.Instantiate(gameObject, tilePosition, Quaternion.identity, parent);
             TileView tileView = createdObject.GetComponent<TileView>();
             tileData.TileView = tileView;
+            tileData.TileViewList.Add(tileView);
             createdObject.name = $"tile_{gridPosition.Height}";
         }
     }

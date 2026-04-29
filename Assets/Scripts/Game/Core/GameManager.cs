@@ -29,7 +29,10 @@
         public void Awake() {
             this._turnManager = this.GetComponent<TurnManager>();
             this._battleMapFactory = this.GetComponent<BattleMapFactory>();
-            this._turnManager.OnBattleEnd += battleResult => this.OnBattleEnd?.Invoke(battleResult);
+            this._turnManager.OnBattleEnd += battleResult => {
+                this.battleMapLoader.DestroyCurrentMap();
+                this.OnBattleEnd?.Invoke(battleResult);
+            };
         }
 
         public event Action<BattleResult> OnBattleEnd;
@@ -71,27 +74,27 @@
             );
         }
 
-        private void SpawnPlayerUnit(UnitObject unitPrefab, GridPosition position) =>
-            this.SpawnUnit(unitPrefab, position, this._playerTeam);
+        private void SpawnPlayerUnit(TeamUnit teamUnit, GridPosition position) =>
+            this.SpawnUnit(teamUnit, position, this._playerTeam);
 
         private void SpawnEnemies() {
             IReadOnlyList<TileData> enemyAvailableSpawnsPositions =
                 this.battleMapManager.GetTeamTileSpawns(this._enemyTeam.GetBattleTeam());
             for (int i = 0;
-                 i < this._enemyTeam.GetUnitObjectsPrefabs().Count && i < enemyAvailableSpawnsPositions.Count;
+                 i < this._enemyTeam.GetTeamUnits().Count && i < enemyAvailableSpawnsPositions.Count;
                  i++) {
                 this.SpawnUnit(
-                    this._enemyTeam.GetUnitObjectsPrefabs()[i],
+                    this._enemyTeam.GetTeamUnits()[i],
                     enemyAvailableSpawnsPositions[i].TileGridPosition,
                     this._enemyTeam
                 );
             }
         }
 
-        private void SpawnUnit(UnitObject unitPrefab, GridPosition position, Team team) {
-            UnitObject unit = Instantiate(unitPrefab);
-            unit.Init(position, Vector2Int.down);
-            team.AddUnit(unit);
+        private void SpawnUnit(TeamUnit teamUnit, GridPosition position, Team team) {
+            UnitObject unit = Instantiate(teamUnit.Prefab);
+            team.AddUnit(unit, teamUnit);
+            unit.InitPosition(position, Vector2Int.down);
             this.battleMapManager.InitUnit(unit);
         }
 

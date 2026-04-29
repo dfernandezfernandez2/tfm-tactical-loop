@@ -5,7 +5,6 @@ namespace Game.Core {
     using Map.Battle;
     using Map.Battle.Data;
     using Map.Battle.Renderer;
-    using Unit;
     using UnityEngine;
 
     public class UnitPlacementController : MonoBehaviour {
@@ -24,8 +23,8 @@ namespace Game.Core {
 
         private Team _playerTeam;
         private Action<GridPosition, HighlightColor> _selectUnit;
-        private Action<UnitObject, GridPosition> _spawnUnit;
-        private IReadOnlyList<UnitObject> _unitsPrefabToPlace;
+        private Action<TeamUnit, GridPosition> _spawnUnit;
+        private IReadOnlyList<TeamUnit> _unitsPrefabToPlace;
         private Action<GridPosition> _unselectUnit;
 
         private UserSelector _userSelector;
@@ -51,11 +50,11 @@ namespace Game.Core {
             }
         }
 
-        public void Init(Team playerTeam, Action onPlacementFinish, Action<UnitObject, GridPosition> spawnUnit,
+        public void Init(Team playerTeam, Action onPlacementFinish, Action<TeamUnit, GridPosition> spawnUnit,
             Action<GridPosition> despawnUnit, Action<GridPosition, HighlightColor> selectUnit,
             Action<GridPosition> unselectUnit) {
             this._playerTeam = playerTeam;
-            this._unitsPrefabToPlace = playerTeam.GetUnitObjectsPrefabs();
+            this._unitsPrefabToPlace = playerTeam.GetTeamUnits();
             this._availablePositions = this.battleMapManager.GetTeamTileSpawns(this._playerTeam.GetBattleTeam());
             this._currentUnitIndex = -1;
             this._placementsByPosition.Clear();
@@ -69,7 +68,7 @@ namespace Game.Core {
             this._userSelector.HighlightAvailablePositions(HighlightColor.Green);
             this._isInitialized = true;
             this.unitSelectorUI.gameObject.SetActive(true);
-            this.unitSelectorUI.Init(playerTeam.GetUnitObjectsPrefabs());
+            this.unitSelectorUI.Init(playerTeam.GetTeamUnits().Select(unit => unit.Prefab).ToList().AsReadOnly());
             this.MoveOnNextUnitIndex();
         }
 
@@ -84,10 +83,10 @@ namespace Game.Core {
                 this.CancelSelection(index);
             }
 
-            UnitObject unitPrefab = this._unitsPrefabToPlace[this._currentUnitIndex];
+            TeamUnit teamUnit = this._unitsPrefabToPlace[this._currentUnitIndex];
             this._positionByUnitIndex.Add(this._currentUnitIndex, position);
             this._placementsByPosition.Add(position, this._currentUnitIndex);
-            this._spawnUnit(unitPrefab, position);
+            this._spawnUnit(teamUnit, position);
             this.MoveOnNextUnitIndex();
             this._selectUnit(position, this._playerTeam.GetBattleTeam().GetHighlightColor());
             // case last unit has selected

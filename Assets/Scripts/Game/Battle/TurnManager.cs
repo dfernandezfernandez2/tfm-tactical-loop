@@ -24,7 +24,9 @@ namespace Game.Battle {
         [SerializeField] private TurnOrderUI turnOrderUI;
 
         private readonly List<UnitObject> _unitsTurnOrder = new();
+        private Team _enemyTeam;
         private EnemyTurnController _enemyTurnController;
+        private Team _playerTeam;
         private int _unitsTurnOrderIndex;
         private UnitTurnState _unitTurnState;
 
@@ -147,16 +149,28 @@ namespace Game.Battle {
         public event Action<BattleResult> OnBattleEnd;
 
         public void StartMap(Team playerTeam, Team enemyTeam) {
+            this._playerTeam = playerTeam;
+            this._enemyTeam = enemyTeam;
             this.BuildTurnOrder(playerTeam, enemyTeam);
             this.StartCoroutine(this.StartTurn());
         }
 
-        public void EndMap() {
+        private void EndMap() {
             this.unitActionPanelUI.Hide();
             this.turnOrderUI.Hide();
             this.turnOrderUI.Reset();
             this._unitsTurnOrder.Clear();
             this._unitsTurnOrderIndex = -1;
+            foreach (UnitObject unitObject in this._playerTeam.GetUnitObjects()) {
+                Destroy(unitObject.gameObject);
+            }
+
+            this._playerTeam.ClearUnitObjects();
+            foreach (UnitObject unitObject in this._enemyTeam.GetUnitObjects()) {
+                Destroy(unitObject.gameObject);
+            }
+
+            this._enemyTeam.ClearUnitObjects();
         }
 
         private void BuildTurnOrder(Team playerTeam, Team enemyTeam) {

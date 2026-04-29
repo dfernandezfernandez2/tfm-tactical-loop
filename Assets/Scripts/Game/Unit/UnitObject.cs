@@ -14,7 +14,7 @@
     [RequireComponent(typeof(UnitEffectController))]
     [RequireComponent(typeof(UnitActions))]
     public class UnitObject : MonoBehaviour {
-        [SerializeField] private UnitData data;
+        public UnitData data;
         [SerializeField] private CombatTextUI combatTextUI;
         [SerializeField] private WorldRender worldRender;
         private UnitAnimationController _animator;
@@ -26,18 +26,19 @@
 
         public void Awake() {
             this._animator = this.GetComponent<UnitAnimationController>();
-            this.Unit = new Unit(this.data.GetStats());
             this.EffectController = this.GetComponent<UnitEffectController>();
             this.EffectController.Init(this);
             this.Actions = this.GetComponent<UnitActions>();
         }
+
+        public void Init(Unit unit) => this.Unit = unit;
 
         public string GetName() => this.data.unitName;
         public Sprite GetSprite() => this.data.unitSprite;
 
         public List<KeyValuePair<StatType, float>> GetStatsInfo() => this.data.GetStatsInfo();
 
-        public void Init(GridPosition gridPosition, Vector2Int direction) {
+        public void InitPosition(GridPosition gridPosition, Vector2Int direction) {
             this.Unit.Move(gridPosition, direction);
             this.UpdateDirection(direction);
             this.transform.position = this.worldRender.GridToWorld(gridPosition);
