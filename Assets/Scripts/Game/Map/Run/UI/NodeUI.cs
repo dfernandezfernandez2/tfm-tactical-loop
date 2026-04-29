@@ -1,5 +1,6 @@
 namespace Game.Map.Run.UI {
     using System;
+    using Data;
     using UnityEngine;
     using UnityEngine.UI;
 
@@ -19,9 +20,9 @@ namespace Game.Map.Run.UI {
         [SerializeField] private float normalScale = 1f;
         [SerializeField] private float selectedScale = 1.2f;
 
-        private MapRunRender.MapNode _node;
+        private MapNode _node;
 
-        public void Init(MapRunRender.MapNode node) {
+        public void Init(MapNode node) {
             this._node = node;
             this.nodeImage.sprite = this.encounterTypeNodeSet.ToDict()[node.RunNode.EncounterType];
             this.button.interactable = false;
@@ -60,6 +61,6 @@ namespace Game.Map.Run.UI {
             this.background.sprite = this.defaultSprite;
         }
 
-        public event Action<MapRunRender.MapNode> OnClick;
+        public event Action<MapNode> OnClick;
     }
 }

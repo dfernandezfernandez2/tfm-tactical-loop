@@ -17,6 +17,7 @@ MonoBehaviour:
   manaCost: 3
   target: 3
   range: 20
+  selectionType: 0
   animationName: 
   effects:
   - {fileID: 11400000, guid: ea2c854dfbf888445ba7a61f35a7aca0, type: 2}

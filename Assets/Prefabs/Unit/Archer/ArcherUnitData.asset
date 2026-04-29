@@ -23,6 +23,6 @@ MonoBehaviour:
   defense: 2
   speed: 3
   range: 1
-  accuracy: 0
-  evasion: 1
+  accuracy: 0.8
+  evasion: 0.08
   critChance: 0.05

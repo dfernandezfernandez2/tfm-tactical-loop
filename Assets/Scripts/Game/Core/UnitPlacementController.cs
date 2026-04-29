@@ -30,8 +30,11 @@ namespace Game.Core {
 
         private UserSelector _userSelector;
 
-        private void Awake() => this._userSelector =
-            new UserSelector(this.mainCamera, this.worldRender, true, this.SelectPosition, this.CancelSelection);
+        private void Awake() {
+            this._userSelector =
+                new UserSelector(this.mainCamera, this.worldRender, true, this.SelectPosition, this.CancelSelection);
+            this.unitSelectorUI.gameObject.SetActive(false);
+        }
 
         private void Update() {
             if (!this._isInitialized) {

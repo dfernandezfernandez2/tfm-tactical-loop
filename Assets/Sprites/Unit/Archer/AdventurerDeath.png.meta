@@ -1,0 +1,951 @@
+fileFormatVersion: 2
+guid: c239621ae6e1bec4d9433cd7a7b404b9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -742751964399394679
+    second: AdventurerDeath_0
+  - first:
+      213: 2494206835855248076
+    second: AdventurerDeath_1
+  - first:
+      213: -8587312794851675977
+    second: AdventurerDeath_2
+  - first:
+      213: -4578847220221474633
+    second: AdventurerDeath_3
+  - first:
+      213: -709291937991770108
+    second: AdventurerDeath_4
+  - first:
+      213: 7830702429654160755
+    second: AdventurerDeath_5
+  - first:
+      213: 2003791649462585062
+    second: AdventurerDeath_6
+  - first:
+      213: 3065995877100513922
+    second: AdventurerDeath_7
+  - first:
+      213: -8577988741923095805
+    second: AdventurerDeath_8
+  - first:
+      213: 604444894834680506
+    second: AdventurerDeath_9
+  - first:
+      213: 6109483189326186486
+    second: AdventurerDeath_10
+  - first:
+      213: 5993948093440774027
+    second: AdventurerDeath_11
+  - first:
+      213: 361475327445181929
+    second: AdventurerDeath_12
+  - first:
+      213: -7768206049986223542
+    second: AdventurerDeath_13
+  - first:
+      213: -8376616801802880104
+    second: AdventurerDeath_14
+  - first:
+      213: -2991488509487267904
+    second: AdventurerDeath_15
+  - first:
+      213: 823850337972137977
+    second: AdventurerDeath_16
+  - first:
+      213: 5770127775668817781
+    second: AdventurerDeath_17
+  - first:
+      213: 201972896834918232
+    second: AdventurerDeath_18
+  - first:
+      213: -1965093483132034122
+    second: AdventurerDeath_19
+  - first:
+      213: -4321965857945175
+    second: AdventurerDeath_20
+  - first:
+      213: 3603311862588969737
+    second: AdventurerDeath_21
+  - first:
+      213: -2607044873216309448
+    second: AdventurerDeath_22
+  - first:
+      213: 5066952024820470061
+    second: AdventurerDeath_23
+  - first:
+      213: 1159586853329588173
+    second: AdventurerDeath_24
+  - first:
+      213: -3080362627574572566
+    second: AdventurerDeath_25
+  - first:
+      213: -2634096139890565029
+    second: AdventurerDeath_26
+  - first:
+      213: 6666943792511552379
+    second: AdventurerDeath_27
+  - first:
+      213: -3550903390234560399
+    second: AdventurerDeath_28
+  - first:
+      213: -4942048851234479524
+    second: AdventurerDeath_29
+  - first:
+      213: -977704379892974061
+    second: AdventurerDeath_30
+  - first:
+      213: -669393741611324856
+    second: AdventurerDeath_31
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: AdventurerDeath_0
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 218
+        width: 16
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98020cd060731b5f0800000000000000
+      internalID: -742751964399394679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerDeath_1
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 218
+        width: 16
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccac08ff6e33d9220800000000000000
+      internalID: 2494206835855248076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerDeath_2
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 219
+        width: 16
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b0f2b7b28cb3d880800000000000000
+      internalID: -8587312794851675977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerDeath_3
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 219
+        width: 18
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b80ae586baa470c0800000000000000
+      internalID: -4578847220221474633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerDeath_4
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 219
+        width: 19
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 400c3f98db61826f0800000000000000
+      internalID: -709291937991770108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerDeath_5
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 219
+        width: 23
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3751355fe5e3cac60800000000000000
+      internalID: 7830702429654160755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerDeath_6
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 218
+        width: 31
+        height: 26
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e68c1e73e5eecb10800000000000000
+      internalID: 2003791649462585062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerDeath_7
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 218
+        width: 31
+        height: 26
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28a6361810b9c8a20800000000000000
+      internalID: 3065995877100513922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerDeath_8
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 158
+        width: 14
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30bbf56ffacd4f880800000000000000
+      internalID: -8577988741923095805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerDeath_9
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 158
+        width: 14
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab26beaed6b636800800000000000000
+      internalID: 604444894834680506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerDeath_10
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 159
+        width: 15
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f7020d579e39c450800000000000000
+      internalID: 6109483189326186486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerDeath_11
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 159
+        width: 17
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8fcaaf9808ce2350800000000000000
+      internalID: 5993948093440774027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerDeath_12
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 159
+        width: 16
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e5207725e7340500800000000000000
+      internalID: 361475327445181929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerDeath_13
+      rect:
+        serializedVersion: 2
+        x: 349
+        y: 159
+        width: 23
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a42e78851c9c13490800000000000000
+      internalID: -7768206049986223542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerDeath_14
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 158
+        width: 30
+        height: 26
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89b78f4666740cb80800000000000000
+      internalID: -8376616801802880104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerDeath_15
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 158
+        width: 30
+        height: 26
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cf395adc091c76d0800000000000000
+      internalID: -2991488509487267904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerDeath_16
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 95
+        width: 14
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ff2ae67487ee6b00800000000000000
+      internalID: 823850337972137977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerDeath_17
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 95
+        width: 14
+        height: 34
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57fca59f3ac931050800000000000000
+      internalID: 5770127775668817781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerDeath_18
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 95
+        width: 14
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8571a12974d8dc200800000000000000
+      internalID: 201972896834918232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerDeath_19
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 96
+        width: 15
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b3ea7b73e59ab4e0800000000000000
+      internalID: -1965093483132034122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerDeath_20
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 96
+        width: 16
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a94e48e135a0fff0800000000000000
+      internalID: -4321965857945175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerDeath_21
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 96
+        width: 18
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90311904c09810230800000000000000
+      internalID: 3603311862588969737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerDeath_22
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 95
+        width: 30
+        height: 17
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8374072208ae1dbd0800000000000000
+      internalID: -2607044873216309448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerDeath_23
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 95
+        width: 30
+        height: 17
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d21de5d450e615640800000000000000
+      internalID: 5066952024820470061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerDeath_24
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 31
+        width: 15
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dcf4cee691ea71010800000000000000
+      internalID: 1159586853329588173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerDeath_25
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 31
+        width: 14
+        height: 34
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae9570cb28a5045d0800000000000000
+      internalID: -3080362627574572566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerDeath_26
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 31
+        width: 14
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b50689d448fc17bd0800000000000000
+      internalID: -2634096139890565029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerDeath_27
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 32
+        width: 16
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7b852a6e0eb58c50800000000000000
+      internalID: 6666943792511552379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerDeath_28
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 32
+        width: 18
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 178b6591e28a8bec0800000000000000
+      internalID: -3550903390234560399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerDeath_29
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 32
+        width: 20
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c52aa8ff0c05a6bb0800000000000000
+      internalID: -4942048851234479524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerDeath_30
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 31
+        width: 30
+        height: 17
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31eb22deb0f7e62f0800000000000000
+      internalID: -977704379892974061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AdventurerDeath_31
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 31
+        width: 30
+        height: 17
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84a236840f5d5b6f0800000000000000
+      internalID: -669393741611324856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: efd8364ad4e2d894bac4824b272ad344
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      AdventurerDeath_0: -742751964399394679
+      AdventurerDeath_1: 2494206835855248076
+      AdventurerDeath_10: 6109483189326186486
+      AdventurerDeath_11: 5993948093440774027
+      AdventurerDeath_12: 361475327445181929
+      AdventurerDeath_13: -7768206049986223542
+      AdventurerDeath_14: -8376616801802880104
+      AdventurerDeath_15: -2991488509487267904
+      AdventurerDeath_16: 823850337972137977
+      AdventurerDeath_17: 5770127775668817781
+      AdventurerDeath_18: 201972896834918232
+      AdventurerDeath_19: -1965093483132034122
+      AdventurerDeath_2: -8587312794851675977
+      AdventurerDeath_20: -4321965857945175
+      AdventurerDeath_21: 3603311862588969737
+      AdventurerDeath_22: -2607044873216309448
+      AdventurerDeath_23: 5066952024820470061
+      AdventurerDeath_24: 1159586853329588173
+      AdventurerDeath_25: -3080362627574572566
+      AdventurerDeath_26: -2634096139890565029
+      AdventurerDeath_27: 6666943792511552379
+      AdventurerDeath_28: -3550903390234560399
+      AdventurerDeath_29: -4942048851234479524
+      AdventurerDeath_3: -4578847220221474633
+      AdventurerDeath_30: -977704379892974061
+      AdventurerDeath_31: -669393741611324856
+      AdventurerDeath_4: -709291937991770108
+      AdventurerDeath_5: 7830702429654160755
+      AdventurerDeath_6: 2003791649462585062
+      AdventurerDeath_7: 3065995877100513922
+      AdventurerDeath_8: -8577988741923095805
+      AdventurerDeath_9: 604444894834680506
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
