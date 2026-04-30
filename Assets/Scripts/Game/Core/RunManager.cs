@@ -2,22 +2,33 @@ namespace Game.Core {
     using Data;
     using Map.Run;
     using Map.Run.UI;
+    using Reward;
     using UnityEngine;
 
     [RequireComponent(typeof(GameManager))]
+    [RequireComponent(typeof(RewardSelectionUI))]
+    [RequireComponent(typeof(EncounterRewardGenerator))]
     public class RunManager : MonoBehaviour {
         [SerializeField] private MapRunRender mapRunRender;
         private GameManager _gameManager;
+        private EncounterRewardGenerator _rewardGenerator;
+        private RewardSelectionUI _rewardSelectionUI;
         private RunState _runState;
 
-        private void Awake() => this._gameManager = this.GetComponent<GameManager>();
+        private void Awake() {
+            this._gameManager = this.GetComponent<GameManager>();
+            this._rewardSelectionUI = this.GetComponent<RewardSelectionUI>();
+            this._rewardGenerator = this.GetComponent<EncounterRewardGenerator>();
+        }
 
         private void Start() {
             this._runState = new RunState();
             this.mapRunRender.InitMap(this._runState.RunGraph);
             this.mapRunRender.OnSelect += this.OnSelectUINode;
             this._gameManager.OnBattleEnd += this.OnBattleEnd;
-            this.mapRunRender.ShowMap();
+            this._rewardSelectionUI.OnRewardSelected += this.OnEndRewardSelect;
+            this._rewardSelectionUI.Show(
+                this._rewardGenerator.GenerateRewards(this._runState.RunGraph.CurrentNode));
         }
 
         private void OnSelectUINode(RunNode node) => this._gameManager.StartMap(node);
@@ -29,13 +40,17 @@ namespace Game.Core {
                     // todo: go to win end game scene
                 }
                 else {
-                    // show rewards at the end call
-                    this.OnEndRewardSelect();
+                    this._rewardSelectionUI.Show(
+                        this._rewardGenerator.GenerateRewards(this._runState.RunGraph.CurrentNode));
                 }
             }
             // todo: go to game over
         }
 
-        private void OnEndRewardSelect() => this.mapRunRender.ShowMap();
+        private void OnEndRewardSelect(IReward reward) {
+            this._rewardSelectionUI.Hide();
+            reward.ApplyReward(RunData.GetInstance());
+            this.mapRunRender.ShowMap();
+        }
     }
 }

@@ -39,6 +39,8 @@
 
         public float AddStat(StatType statType, float amount) => this._stats[statType].Add(amount);
 
+        public void AddMaxStat(StatType statType, float amount) => this._stats[statType].AddMaxStat(amount);
+
         public void RestoreStat(StatType statType) => this._stats[statType].Restore();
 
         public float GetMaxStat(StatType statType) => this._stats[statType].Max;

@@ -4,7 +4,6 @@
     using UnityEngine;
 
     public class BattleMapRenderer : IMapRenderer {
-
         private readonly GameObject _parentGameObject;
         private readonly Dictionary<TileType, TileRenderElement> _tileRenderElements;
         private readonly WorldRender _worldRender;
