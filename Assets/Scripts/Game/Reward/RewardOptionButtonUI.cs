@@ -23,8 +23,18 @@ namespace Game.Reward {
 
         public IReward GetReward() => this._reward;
 
-        public void Select() => this.background.sprite = this.selectedBackground;
+        public void Select() {
+            this.background.sprite = this.selectedBackground;
+            Color color = this.background.color;
+            color.a = 1f;
+            this.background.color = color;
+        }
 
-        public void UnSelect() => this.background.sprite = this.unSelectedBackground;
+        public void UnSelect() {
+            this.background.sprite = this.unSelectedBackground;
+            Color color = this.background.color;
+            color.a = 0f;
+            this.background.color = color;
+        }
     }
 }
