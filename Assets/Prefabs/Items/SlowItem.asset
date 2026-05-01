@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: SlowItem
   m_EditorClassIdentifier: Assembly-CSharp::Game.Battle.Item.Item
   itemName: Slow Item
-  description: 
+  description: Applies Slow to the selected enemy, reducing its movement range for
+    a limited number of turns.
   target: 3
   effect: {fileID: 11400000, guid: 11dfed46cdf329146a76b017a25f0f85, type: 2}

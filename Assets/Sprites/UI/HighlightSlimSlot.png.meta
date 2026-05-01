@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: b293a37289486994190b9b37684aaea1
+guid: 0619d5c43fa208b4b892632d47cb7cc0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7489459550906162896
-    second: HighlightSlot_26x26_0
+      213: 6350788634153782968
+    second: HighlightSlimSlot_0
   - first:
-      213: 1881759577051673358
-    second: HighlightSlot_26x26_1
+      213: 6546633492821008570
+    second: HighlightSlimSlot_1
   - first:
-      213: -7236312562399157680
-    second: HighlightSlot_26x26_2
+      213: 6902957021679490705
+    second: HighlightSlimSlot_2
   - first:
-      213: -7634663924232437667
-    second: HighlightSlot_26x26_3
+      213: -8933157849243020939
+    second: HighlightSlimSlot_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -84,7 +84,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -109,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: HighlightSlot_26x26_0
+      name: HighlightSlimSlot_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 18
-        width: 8
-        height: 8
+        y: 20
+        width: 6
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 031e4942838101890800000000000000
-      internalID: -7489459550906162896
+      spriteID: 8be03566d98822850800000000000000
+      internalID: 6350788634153782968
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HighlightSlot_26x26_1
+      name: HighlightSlimSlot_1
       rect:
         serializedVersion: 2
-        x: 18
-        y: 18
-        width: 8
-        height: 8
+        x: 20
+        y: 20
+        width: 6
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,20 +146,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e03bad68d5a5d1a10800000000000000
-      internalID: 1881759577051673358
+      spriteID: ab06546e9705ada50800000000000000
+      internalID: 6546633492821008570
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HighlightSlot_26x26_2
+      name: HighlightSlimSlot_2
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 8
-        height: 8
+        width: 6
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,20 +168,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 052608a6014739b90800000000000000
-      internalID: -7236312562399157680
+      spriteID: 1969ef876da3ccf50800000000000000
+      internalID: 6902957021679490705
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HighlightSlot_26x26_3
+      name: HighlightSlimSlot_3
       rect:
         serializedVersion: 2
-        x: 18
+        x: 20
         y: 0
-        width: 8
-        height: 8
+        width: 6
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,8 +190,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d50c2a07c993c0690800000000000000
-      internalID: -7634663924232437667
+      spriteID: 5719069144c070480800000000000000
+      internalID: -8933157849243020939
       vertices: []
       indices: 
       edges: []
@@ -210,10 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      HighlightSlot_26x26_0: -7489459550906162896
-      HighlightSlot_26x26_1: 1881759577051673358
-      HighlightSlot_26x26_2: -7236312562399157680
-      HighlightSlot_26x26_3: -7634663924232437667
+      HighlightSlimSlot_0: 6350788634153782968
+      HighlightSlimSlot_1: 6546633492821008570
+      HighlightSlimSlot_2: 6902957021679490705
+      HighlightSlimSlot_3: -8933157849243020939
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Attack+
   m_EditorClassIdentifier: Assembly-CSharp::Game.Battle.Item.Item
   itemName: Attack +
-  description: 
+  description: Temporarily increases the selected unit's attack.
   target: 1
   effect: {fileID: 11400000, guid: 008eb290168e9904f8895699bc017a11, type: 2}

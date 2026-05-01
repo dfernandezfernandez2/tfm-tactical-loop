@@ -6,11 +6,13 @@ namespace Game.Map.Run {
     public class RunNode {
         private readonly Guid _id;
         public readonly EncounterType EncounterType;
+        public readonly int Level;
         public readonly HashSet<RunNode> NextNodes = new();
 
-        public RunNode(EncounterType encounterType) {
+        public RunNode(EncounterType encounterType, int level) {
             this.EncounterType = encounterType;
             this._id = Guid.NewGuid();
+            this.Level = level;
         }
 
         public bool Completed { get; private set; }

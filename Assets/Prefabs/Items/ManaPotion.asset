@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: ManaPotion
   m_EditorClassIdentifier: Assembly-CSharp::Game.Battle.Item.Item
   itemName: Mana potion
-  description: 
+  description: Restores mana to the selected unit.
   target: 2
   effect: {fileID: 11400000, guid: 50c1e1d1e0c7a0142933e491c828254a, type: 2}

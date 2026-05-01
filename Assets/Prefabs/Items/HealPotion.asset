@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: HealPotion
   m_EditorClassIdentifier: Assembly-CSharp::Game.Battle.Item.Item
   itemName: Heal potion
-  description: 
+  description: Restores health to the selected unit.
   target: 2
   effect: {fileID: 11400000, guid: 1cce8a46b9dd53f44bfa5c91524232e9, type: 2}

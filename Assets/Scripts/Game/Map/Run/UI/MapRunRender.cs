@@ -22,6 +22,7 @@ namespace Game.Map.Run.UI {
         private RectTransform _contentRectTransform = null!;
         private MapNode _currentKeyboardSelectedNode;
         private MapNode? _currentNode;
+        private RunGraph _graph;
         private bool _isActive;
 
         private void Awake() {
@@ -40,6 +41,7 @@ namespace Game.Map.Run.UI {
         }
 
         public void InitMap(RunGraph graph) {
+            this._graph = graph;
             this._rowsByLevel.Clear();
             this._nodeConnections.Clear();
             GraphMapRenderVisitor visitor = new(this.InstantiateNode, this.InstantiateNodeConnection,
@@ -181,6 +183,7 @@ namespace Game.Map.Run.UI {
             }
 
             this._currentNode = node;
+            this._graph.CurrentNode = node.RunNode;
             this.Hide();
             this.OnSelect?.Invoke(node.RunNode);
         }

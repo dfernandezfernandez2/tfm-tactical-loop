@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: ReviveItem
   m_EditorClassIdentifier: Assembly-CSharp::Game.Battle.Item.Item
   itemName: Revive Item
-  description: 
+  description: Revives a defeated allied unit with a portion of its maximum health.
   target: 2
   effect: {fileID: 11400000, guid: 88bccb84afb6a0f4d925c1086ebef757, type: 2}
