@@ -13,7 +13,9 @@ namespace Game.Core {
 
         public static bool IsEnterClickSelected() => Input.GetMouseButtonDown(0);
 
-        public static bool IsCancelSelected() => Input.GetKeyDown(KeyCode.Escape) || Input.GetMouseButtonDown(1);
+        public static bool IsCancelSelected() => IsCancelKeyBoardSelected() || Input.GetMouseButtonDown(1);
+
+        public static bool IsCancelKeyBoardSelected() => Input.GetKeyDown(KeyCode.Escape);
 
         public static bool IsRightSelected() => Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D);
 

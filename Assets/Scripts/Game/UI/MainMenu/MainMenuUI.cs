@@ -1,8 +1,8 @@
-namespace Game.UI {
+namespace Game.UI.MainMenu {
     using System;
     using System.Collections.Generic;
-    using Core;
-    using Map.Battle;
+    using Game.Core;
+    using Game.Map.Battle;
     using UnityEngine;
 
     [Serializable]

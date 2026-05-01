@@ -1,4 +1,4 @@
-namespace Game.UI {
+namespace Game.UI.MainMenu {
     using UnityEngine;
     using UnityEngine.UI;
 
