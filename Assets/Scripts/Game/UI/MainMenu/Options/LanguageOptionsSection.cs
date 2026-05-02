@@ -12,7 +12,7 @@ namespace Game.UI.MainMenu.Options {
 
     public class LanguageOptionsSection : OptionsSection {
 
-        public override string GetTitle() => "Language";
+        private const string _languageKey = "Language";
 
         [SerializeField] private List<LanguageEntry> languageEntries;
 
@@ -20,7 +20,9 @@ namespace Game.UI.MainMenu.Options {
         private int _currentOptionIndex;
 
         private void Awake() {
-            this._currentLanguage = PlayerPrefs.HasKey("Language") ? this.FindLanguageEntry(PlayerPrefs.GetString("Language")) : this.languageEntries[0];
+            this._currentLanguage = PlayerPrefs.HasKey(_languageKey)
+                ? this.FindLanguageEntry(PlayerPrefs.GetString(_languageKey))
+                : this.languageEntries[0];
             this._currentOptionIndex = this.languageEntries.FindIndex(entry => entry.Equals(this._currentLanguage));
             this._currentLanguage.LanguageUI.Select();
         }
@@ -31,6 +33,7 @@ namespace Game.UI.MainMenu.Options {
                 if (this._currentOptionIndex >= this.languageEntries.Count) {
                     this._currentOptionIndex = 0;
                 }
+
                 this.SelectOption();
             }
 
@@ -39,6 +42,7 @@ namespace Game.UI.MainMenu.Options {
                 if (this._currentOptionIndex < 0) {
                     this._currentOptionIndex = this.languageEntries.Count - 1;
                 }
+
                 this.SelectOption();
             }
 
@@ -46,6 +50,8 @@ namespace Game.UI.MainMenu.Options {
                 this.SelectLanguage(this._currentLanguage.Name);
             }
         }
+
+        public override string GetTitle() => "Language";
 
         private void SelectOption() {
             this._currentLanguage.LanguageUI.UnSelect();
@@ -58,9 +64,11 @@ namespace Game.UI.MainMenu.Options {
             this._currentLanguage = this.FindLanguageEntry(language);
             this._currentOptionIndex = this.languageEntries.FindIndex(entry => entry.Equals(this._currentLanguage));
             this._currentLanguage.LanguageUI.Select();
-            PlayerPrefs.SetString("Language", language);
+            PlayerPrefs.SetString(_languageKey, language);
+            PlayerPrefs.Save();
         }
 
-        private LanguageEntry FindLanguageEntry(string language) => this.languageEntries.Find(entry => entry.Name.Equals(language));
+        private LanguageEntry FindLanguageEntry(string language) =>
+            this.languageEntries.Find(entry => entry.Name.Equals(language));
     }
 }

@@ -1,8 +1,8 @@
 namespace Game.UI.MainMenu {
     using System;
     using System.Collections.Generic;
-    using Game.Core;
-    using Game.Map.Battle;
+    using Core;
+    using Map.Battle;
     using UnityEngine;
 
     [Serializable]
@@ -12,7 +12,6 @@ namespace Game.UI.MainMenu {
     }
 
     public class MainMenuUI : MonoBehaviour {
-
         [SerializeField] private BattleMapLoader battleMapLoader;
         [SerializeField] private GameObject mapGameObject;
         [SerializeField] private Vector3 mapScale;
@@ -37,6 +36,7 @@ namespace Game.UI.MainMenu {
                 unit.transform.position = this.worldRender.GridToWorld(new GridPosition(unitElement.Position, 0));
                 unit.transform.localScale = new Vector3(2f, 2f, 2f);
             }
+
             this.mapGameObject.transform.localScale = this.mapScale;
             this.mapGameObject.transform.position = this.mapPosition;
             this._isActive = true;
@@ -47,6 +47,7 @@ namespace Game.UI.MainMenu {
             if (!this._isActive) {
                 return;
             }
+
             if (InputUtils.IsDownSelected()) {
                 this.Movement(1);
             }

@@ -15,7 +15,7 @@
 
 
         public void Awake() {
-            this._parentGameObject = this.parentGameObject != null ? this.parentGameObject :new GameObject("Map");
+            this._parentGameObject = this.parentGameObject != null ? this.parentGameObject : new GameObject("Map");
             this._mapRenderer = new BattleMapRenderer(this.tileRenderSet, this.worldRender, this._parentGameObject);
             this._mapParser = new TxtMapParser();
         }

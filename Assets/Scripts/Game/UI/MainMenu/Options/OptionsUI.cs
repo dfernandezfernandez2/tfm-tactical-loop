@@ -6,14 +6,13 @@ namespace Game.UI.MainMenu.Options {
 
     [RequireComponent(typeof(MainMenuManager))]
     public class OptionsUI : MonoBehaviour {
-
         [SerializeField] private Canvas optionsCanvas;
         [SerializeField] private List<OptionsSection> options;
         [SerializeField] private TMP_Text sectionTitle;
+        private int _currentOptionIndex = -1;
+        private OptionsSection _currentSection;
 
         private MainMenuManager _mainMenuManager;
-        private OptionsSection _currentSection;
-        private int _currentOptionIndex = -1;
 
         private void Awake() {
             this._mainMenuManager = this.GetComponent<MainMenuManager>();
@@ -39,6 +38,7 @@ namespace Game.UI.MainMenu.Options {
             if (this._currentOptionIndex < 0) {
                 this._currentOptionIndex = this.options.Count - 1;
             }
+
             this.SelectOption();
         }
 
@@ -47,6 +47,7 @@ namespace Game.UI.MainMenu.Options {
             if (this._currentOptionIndex >= this.options.Count) {
                 this._currentOptionIndex = 0;
             }
+
             this.SelectOption();
         }
 

@@ -3,7 +3,6 @@ namespace Game.UI.MainMenu.Options {
     using UnityEngine.UI;
 
     public class LanguageUI : MonoBehaviour {
-
         [SerializeField] private Sprite selectedSprite;
         [SerializeField] private Image background;
 

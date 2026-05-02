@@ -25,6 +25,7 @@ namespace Game.Reward {
                 result.Add(reward);
                 candidates.RemoveAll(entry => entry.Reward == reward);
             }
+
             return result;
         }
 
@@ -38,6 +39,7 @@ namespace Game.Reward {
                     return entry;
                 }
             }
+
             return entries[^1];
         }
 
@@ -45,6 +47,7 @@ namespace Game.Reward {
             if (reward is not PassiveReward passiveReward) {
                 return false;
             }
+
             Passive passive = passiveReward.GetPassive();
             return runData.HasPassive(passive);
         }

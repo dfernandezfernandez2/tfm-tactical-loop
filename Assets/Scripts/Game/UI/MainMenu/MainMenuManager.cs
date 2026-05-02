@@ -6,7 +6,6 @@ namespace Game.UI.MainMenu {
     [RequireComponent(typeof(MainMenuUI))]
     [RequireComponent(typeof(OptionsUI))]
     public class MainMenuManager : MonoBehaviour {
-
         private MainMenuUI _mainMenuUI;
         private OptionsUI _optionsUI;
 
