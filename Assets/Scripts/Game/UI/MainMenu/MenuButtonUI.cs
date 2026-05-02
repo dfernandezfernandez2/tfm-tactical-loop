@@ -3,7 +3,8 @@ namespace Game.UI.MainMenu {
     using UnityEngine.UI;
 
     [RequireComponent(typeof(Button))]
-    public class MainMenuButtonUI : MonoBehaviour {
+    public class MenuButtonUI : MonoBehaviour {
+
         [SerializeField] private Image image;
         [SerializeField] private Sprite selectedSpriteBackground;
 

@@ -18,7 +18,7 @@ namespace Game.UI.MainMenu {
         [SerializeField] private Vector3 mapPosition;
         [SerializeField] private List<UnitElement> unitElements;
         [SerializeField] private WorldRender worldRender;
-        [SerializeField] private List<MainMenuButtonUI> buttons;
+        [SerializeField] private List<MenuButtonUI> buttons;
         [SerializeField] private Canvas mainMenuOptionsCanvas;
 
         private int _currentButtonIndex;

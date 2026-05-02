@@ -12,3 +12,7 @@ Sonidos:
     Arrow:
         Release:
         Hit: https://freesound.org/people/omerbhatti34/sounds/521552/
+
+Music:
+    GameOver: https://pixabay.com/music/video-games-game-over-retro-video-game-1-422479/
+    Win: https://pixabay.com/music/special-occasions-victory-winner-champions-background-music-277975/
