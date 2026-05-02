@@ -4,6 +4,7 @@ namespace Game.Core {
     using Map.Run.UI;
     using Reward;
     using UnityEngine;
+    using UnityEngine.SceneManagement;
 
     [RequireComponent(typeof(GameManager))]
     [RequireComponent(typeof(RewardSelectionUI))]
@@ -37,14 +38,15 @@ namespace Game.Core {
             if (result.Winner == BattleTeam.Player) {
                 bool hasNextMap = this.mapRunRender.HasNext();
                 if (!hasNextMap) {
-                    // todo: go to win end game scene
+                    SceneManager.LoadScene("WinScene");
                 }
                 else {
                     this._rewardSelectionUI.Show(
                         this._rewardGenerator.GenerateRewards(this._runState.RunGraph.CurrentNode));
                 }
             }
-            // todo: go to game over
+
+            SceneManager.LoadScene("LooseScene");
         }
 
         private void OnEndRewardSelect(IReward reward) {
