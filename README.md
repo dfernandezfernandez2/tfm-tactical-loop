@@ -6,8 +6,6 @@
 
 ## PEC 2
 
-### Implementaciones
-
 Para esta primera entrega se han implementado las funcionalidades básicas del sistema de combate táctico por turnos:
 
 - Creación de mapas a partir de ficheros `.txt`, donde cada carácter define un elemento de la cuadrícula.
@@ -24,16 +22,33 @@ Para esta primera entrega se han implementado las funcionalidades básicas del s
 
 ---
 
+## PEC 3
+
+-  IA de los enemigos.
+- Condiciones de victoria/derrota.
+- Pantalla de inicio y fin de partida.
+- Inventario y objetos.
+- Habilidades de las unidades.
+- Efectos y estados.
+- Mapa de nodos de los encuentros.
+- Ataque en equipo.
+- Recompensas.
+
 ## Estructura actual del juego
 
-Al iniciar el juego, el jugador accede a una pantalla de selección de unidades, donde debe escoger tres unidades entre las clases disponibles (permitiendo repetir clases).
+Al iniciar el juego, el jugador accede a la pantalla de inicio, donde podrá configurar opciones de audio, video e idioma o podrá iniciar partida.
+
+Al iniciar la partida, el jugador accede a una pantalla de selección de unidades, donde debe escoger tres unidades entre las clases disponibles (permitiendo repetir clases).
 
 Una vez confirmada la selección:
-
-1. Se inicia una partida en un mapa básico.
-2. Se muestran las zonas de spawn disponibles (en verde).
-3. El jugador selecciona la posición inicial de cada unidad.
-4. Tras posicionar las tres unidades, comienza la batalla.
+1. Se muestra el mapa de nodos y se pide al jugador escoger entre las siguientes posibilidades de enfrentamientos.
+2. Se inicia el mapa correspondiente.
+3. Se muestran las zonas de spawn disponibles (en verde).
+4. El jugador selecciona la posición inicial de cada unidad.
+5. Tras posicionar las tres unidades, comienza la batalla.
+6. Si el jugador pierde, se muestra la escena de final del juego permitiendo volver a intentar o salir.
+7. Si el jugador gana, si no es el jefe final el que se ha enfrentado se le muestran las recompensas de victoria a escoger y se vuelve al punto 1.
+8. Si el jugadro gana y es el jefe final se le muestra la escena de final del juego con mensaje de victoria, permitiendo ver los créditos, volver a jugar o salir del juego.
 
 ---
 
@@ -47,11 +62,6 @@ Una vez confirmada la selección:
   - Equipo al que pertenece
   - Indicador de turno actual
 
-**A futuro:**
-- Uso de iconos/imágenes en lugar de texto.
-- Diferenciación visual de equipos (colores o bordes).
-- Resaltado de la unidad activa.
-
 ---
 
 ### Panel derecho (acciones)
@@ -59,6 +69,8 @@ Una vez confirmada la selección:
 Acciones disponibles:
 - **Movimiento**
 - **Atacar**
+- **Habilidades**
+- **Objetos**
 - **Esperar**
 
 #### Movimiento
@@ -69,6 +81,12 @@ Acciones disponibles:
 - Muestra las posiciones dentro del rango de ataque.
 - Permite seleccionar cualquier objetivo (incluye fuego amigo).
 - Si no hay objetivo, el ataque falla pero consume la acción.
+
+#### Habilidades
+- Muestra las habilidades disponibles por la unidad y permite seleccionarlas para usarlas.
+
+#### Objetos
+- Muestra los objetos disponibles en la partida y permite seleccionar uno para usarlo en el turno.
 
 #### Esperar
 - Finaliza el turno de la unidad actual.

@@ -28,8 +28,7 @@ namespace Game.Core {
             this.mapRunRender.OnSelect += this.OnSelectUINode;
             this._gameManager.OnBattleEnd += this.OnBattleEnd;
             this._rewardSelectionUI.OnRewardSelected += this.OnEndRewardSelect;
-            this._rewardSelectionUI.Show(
-                this._rewardGenerator.GenerateRewards(this._runState.RunGraph.CurrentNode));
+            this.mapRunRender.ShowMap();
         }
 
         private void OnSelectUINode(RunNode node) => this._gameManager.StartMap(node);
@@ -45,8 +44,10 @@ namespace Game.Core {
                         this._rewardGenerator.GenerateRewards(this._runState.RunGraph.CurrentNode));
                 }
             }
+            else {
+                SceneManager.LoadScene("LooseScene");
+            }
 
-            SceneManager.LoadScene("LooseScene");
         }
 
         private void OnEndRewardSelect(IReward reward) {
