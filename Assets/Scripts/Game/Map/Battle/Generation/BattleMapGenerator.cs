@@ -22,9 +22,8 @@ namespace Game.Map.Battle.Generation {
                 ApplyHeights(tiles, config, random);
                 ApplyWalls(tiles, config, random);
                 ApplySpawns(tiles, config, random);
-                string mapTxt = TxtMapLegend.SerializeMap(tiles);
-                if (!string.IsNullOrWhiteSpace(mapTxt)) {
-                    return mapTxt;
+                if (BattleMapValidator.IsValid(tiles, config)) {
+                    return TxtMapLegend.SerializeMap(tiles);
                 }
             }
 
@@ -63,7 +62,7 @@ namespace Game.Map.Battle.Generation {
             TileTypeVariant variant, Random random) {
             for (int x = centerX - radius; x <= centerX + radius; x++) {
                 for (int y = centerY - radius; y <= centerY + radius; y++) {
-                    if (!IsInside(tiles, x, y) || tiles[x, y].Type != TileType.Floor) {
+                    if (!GenerationUtils.IsInside(tiles, x, y) || tiles[x, y].Type != TileType.Floor) {
                         continue;
                     }
 
@@ -109,10 +108,10 @@ namespace Game.Map.Battle.Generation {
 
         private static TileTypeVariant GetNeighbourMajorityVariant(GeneratedTile[,] tiles, int x, int y) {
             Dictionary<TileTypeVariant, int> counts = new();
-            foreach (Vector2Int direction in Directions()) {
+            foreach (Vector2Int direction in GenerationUtils.Directions()) {
                 int neighbourX = x + direction.x;
                 int neighbourY = y + direction.y;
-                if (!IsInside(tiles, neighbourX, neighbourY)) {
+                if (!GenerationUtils.IsInside(tiles, neighbourX, neighbourY)) {
                     continue;
                 }
 
@@ -136,10 +135,10 @@ namespace Game.Map.Battle.Generation {
         }
 
         private static int CountSameVariantNeighbours(GeneratedTile[,] tiles, int x, int y, TileTypeVariant variant) =>
-            (from direction in Directions()
+            (from direction in GenerationUtils.Directions()
                 let nx = x + direction.x
                 let ny = y + direction.y
-                where IsInside(tiles, nx, ny)
+                where GenerationUtils.IsInside(tiles, nx, ny)
                 select tiles[nx, ny])
             .Count(neighbour => neighbour.Type == TileType.Floor && neighbour.Variant == variant);
 
@@ -155,7 +154,7 @@ namespace Game.Map.Battle.Generation {
                 int tileHeight = random.Next(1, maxHeight + 1);
                 for (int x = centerX - radius; x <= centerX + radius; x++) {
                     for (int y = centerY - radius; y <= centerY + radius; y++) {
-                        if (!IsInside(tiles, x, y)) {
+                        if (!GenerationUtils.IsInside(tiles, x, y)) {
                             continue;
                         }
 
@@ -182,10 +181,10 @@ namespace Game.Map.Battle.Generation {
             int height = tiles.GetLength(1);
             for (int x = 0; x < width; x++) {
                 for (int y = 0; y < height; y++) {
-                    foreach (Vector2Int direction in Directions()) {
+                    foreach (Vector2Int direction in GenerationUtils.Directions()) {
                         int neighbourX = x + direction.x;
                         int neighbourY = y + direction.y;
-                        if (!IsInside(tiles, neighbourX, neighbourY)) {
+                        if (!GenerationUtils.IsInside(tiles, neighbourX, neighbourY)) {
                             continue;
                         }
 
@@ -200,7 +199,7 @@ namespace Game.Map.Battle.Generation {
 
         private static void ApplyWalls(GeneratedTile[,] tiles, BattleMapGenerationConfig config, Random random) {
             List<Vector2Int> candidates = GetWallCandidates(tiles, config);
-            Shuffle(candidates, random);
+            GenerationUtils.Shuffle(candidates, random);
             int targetWallCount = config.WallCountRange.Pick(random);
             int placed = 0;
             foreach (Vector2Int candidate in candidates) {
@@ -240,10 +239,10 @@ namespace Game.Map.Battle.Generation {
         }
 
         private static bool WouldCreateTooDenseWallCluster(GeneratedTile[,] tiles, Vector2Int position) {
-            int wallNeighbours = (from direction in Directions()
+            int wallNeighbours = (from direction in GenerationUtils.Directions()
                 let neighbourX = position.x + direction.x
                 let neighbourY = position.y + direction.y
-                where IsInside(tiles, neighbourX, neighbourY)
+                where GenerationUtils.IsInside(tiles, neighbourX, neighbourY)
                 where tiles[neighbourX, neighbourY].Type == TileType.Wall
                 select neighbourX).Count();
             return wallNeighbours >= 2;
@@ -271,8 +270,8 @@ namespace Game.Map.Battle.Generation {
                 }
             }
 
-            Shuffle(playerCandidates, random);
-            Shuffle(enemyCandidates, random);
+            GenerationUtils.Shuffle(playerCandidates, random);
+            GenerationUtils.Shuffle(enemyCandidates, random);
             for (int i = 0; i < config.PlayerSpawnCount && i < playerCandidates.Count; i++) {
                 Vector2Int position = playerCandidates[i];
                 tiles[position.x, position.y].IsPlayerSpawn = true;
@@ -281,27 +280,6 @@ namespace Game.Map.Battle.Generation {
             for (int i = 0; i < config.EnemySpawnCount && i < enemyCandidates.Count; i++) {
                 Vector2Int position = enemyCandidates[i];
                 tiles[position.x, position.y].IsEnemySpawn = true;
-            }
-        }
-
-        private static bool IsInside(GeneratedTile[,] tiles, int x, int y) =>
-            x >= 0 &&
-            y >= 0 &&
-            x < tiles.GetLength(0) &&
-            y < tiles.GetLength(1);
-
-        private static Vector2Int[] Directions() =>
-            new[] {
-                Vector2Int.up,
-                Vector2Int.down,
-                Vector2Int.left,
-                Vector2Int.right
-            };
-
-        private static void Shuffle<T>(IList<T> list, Random random) {
-            for (int i = list.Count - 1; i > 0; i--) {
-                int j = random.Next(i + 1);
-                (list[i], list[j]) = (list[j], list[i]);
             }
         }
     }
