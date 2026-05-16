@@ -10,7 +10,7 @@ namespace Game.Map.Battle {
         public MapCell(TileData tileData) => this._tileData = tileData;
 
         private bool IsOccupied() => this._occupantUnit != null;
-        public bool IsWalkable() => this._tileData.Type.IsWalkable() && !this.IsOccupied();
+        public bool IsWalkable() => this._tileData.Tile.IsWalkable() && !this.IsOccupied();
         public UnitObject GetOccupantUnit() => this._occupantUnit;
         public void SetOccupantUnit(UnitObject unit) => this._occupantUnit = unit;
         public void ClearOccupantUnit() => this._occupantUnit = null;

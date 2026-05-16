@@ -1,23 +1,21 @@
 ﻿namespace Game.Map.Battle.Data {
     using System;
-    using System.Collections.Generic;
     using Renderer;
     using UnityEngine;
 
     public class TileData {
         public TileView TileView;
-        public List<TileView> TileViewList = new();
 
-        public TileData(Vector2Int position, TileType type, int height) {
+        public TileData(Vector2Int position, Tile tile, int height) {
             this.TileGridPosition = new GridPosition(position, height);
-            this.Type = type;
+            this.Tile = tile;
         }
 
-        public TileType Type { get; }
+        public Tile Tile { get; }
         public GridPosition TileGridPosition { get; }
 
         private bool Equals(TileData other) =>
-            this.Type == other.Type && Equals(this.TileGridPosition, other.TileGridPosition);
+            this.Tile == other.Tile && Equals(this.TileGridPosition, other.TileGridPosition);
 
         public override bool Equals(object obj) {
             if (obj is null) {
@@ -31,6 +29,6 @@
             return obj.GetType() == this.GetType() && this.Equals((TileData)obj);
         }
 
-        public override int GetHashCode() => HashCode.Combine((int)this.Type, this.TileGridPosition);
+        public override int GetHashCode() => HashCode.Combine(this.Tile, this.TileGridPosition);
     }
 }
