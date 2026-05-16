@@ -3,6 +3,9 @@ namespace Game.UI.MainMenu {
     using System.Collections.Generic;
     using Core;
     using Map.Battle;
+    using Map.Battle.Data;
+    using Map.Battle.Generation;
+    using Map.Battle.Parser;
     using UnityEngine;
 
     [Serializable]
@@ -25,8 +28,7 @@ namespace Game.UI.MainMenu {
         private bool _isActive;
 
         private void Awake() {
-            TextAsset map = Resources.Load<TextAsset>("Map/Battle/MainMenu");
-            this.battleMapLoader.Load(map.text);
+            this.battleMapLoader.Load(GetMapText());
             foreach (UnitElement unitElement in this.unitElements) {
                 GameObject unit = new("Unit");
                 unit.transform.SetParent(this.mapGameObject.transform);
@@ -75,6 +77,16 @@ namespace Game.UI.MainMenu {
         public void Hide() {
             this._isActive = false;
             this.mainMenuOptionsCanvas.transform.gameObject.SetActive(false);
+        }
+
+        private static string GetMapText() {
+            GeneratedTile[,] generatedTiles = new GeneratedTile[9, 5];
+            for (int x = 0; x < generatedTiles.GetLength(0); x++) {
+                for (int y = 0; y < generatedTiles.GetLength(1); y++) {
+                    generatedTiles[x, y] = new GeneratedTile(TileType.Floor, TileTypeVariant.Stone);
+                }
+            }
+            return TxtMapLegend.SerializeMap(generatedTiles);
         }
     }
 }

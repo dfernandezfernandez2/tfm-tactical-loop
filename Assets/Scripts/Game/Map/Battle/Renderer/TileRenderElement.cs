@@ -5,10 +5,10 @@
 
     [Serializable]
     public class TileRenderElement {
-        [SerializeField] private TileType type;
+        [SerializeField] private Tile tile;
         [SerializeField] private GameObject prefab;
 
-        public TileType Type => this.type;
+        public Tile Tile => this.tile;
         public GameObject Prefab => this.prefab;
     }
 }

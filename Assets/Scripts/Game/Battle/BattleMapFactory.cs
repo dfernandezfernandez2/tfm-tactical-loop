@@ -3,6 +3,7 @@ namespace Game.Battle {
     using System.Linq;
     using Core;
     using Data;
+    using Map.Battle.Generation;
     using Map.Run;
     using Unit;
     using UnityEngine;
@@ -21,16 +22,14 @@ namespace Game.Battle {
                     this.archerUnitObject, this.mageUnitObject),
                 _ => throw new ArgumentOutOfRangeException()
             };
-            string mapText = ReadMapText(node.EncounterType.ToString());
-            return new BattleMapSetupData(mapText, enemyTeam);
-        }
-
-        private static string ReadMapText(string name) {
-            TextAsset map = Resources.Load<TextAsset>("Map/Battle/" + name);
-            return map.text;
+            BattleMapGenerationConfig config = BattleMapGenerationConfigFactory.FromNode(node, enemyTeam.GetTeamUnits().Count);
+            string map = BattleMapGenerator.Generate(config, CreateSeed(node));
+            return new BattleMapSetupData(map, enemyTeam);
         }
 
         private static Team CreateTeam(params UnitObject[] unitObjectsPrefabs) =>
             new(unitObjectsPrefabs.ToList(), BattleTeam.Enemy);
+
+        private static string CreateSeed(RunNode node) => $"{node.EncounterType}_L{node.Level}_{node.Id}";
     }
 }

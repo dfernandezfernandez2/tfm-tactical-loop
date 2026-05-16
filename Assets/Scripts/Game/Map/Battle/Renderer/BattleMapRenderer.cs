@@ -5,7 +5,7 @@
 
     public class BattleMapRenderer : IMapRenderer {
         private readonly GameObject _parentGameObject;
-        private readonly Dictionary<TileType, TileRenderElement> _tileRenderElements;
+        private readonly Dictionary<Tile, TileRenderElement> _tileRenderElements;
         private readonly WorldRender _worldRender;
 
         public BattleMapRenderer(TileRenderSet tileRenderSet, WorldRender worldRender, GameObject parentGameObject) {
@@ -17,9 +17,9 @@
         public void Render(BattleMapData data) => data.ForEach(this.RenderTile);
 
         private void RenderTile(TileData tileData) {
-            if (!this._tileRenderElements.TryGetValue(tileData.Type, out TileRenderElement tileRenderElement)) {
+            if (!this._tileRenderElements.TryGetValue(tileData.Tile, out TileRenderElement tileRenderElement)) {
                 Debug.LogWarning(
-                    $"{tileData.Type} defined in position {tileData.TileGridPosition.Position.x}, {tileData.TileGridPosition.Position.y} is missing on render elements, will be skipped");
+                    $"{tileData.Tile} defined in position {tileData.TileGridPosition.Position.x}, {tileData.TileGridPosition.Position.y} is missing on render elements, will be skipped");
                 return;
             }
 
@@ -28,7 +28,7 @@
             parentGameObject.transform.SetParent(this._parentGameObject.transform);
 
 
-            if (tileData.Type.IsRenderBellow()) {
+            if (tileData.Tile.IsRenderBellow()) {
                 for (int i = 0; i <= tileData.TileGridPosition.Height; i++) {
                     this.RenderTile(tileData, tileRenderElement.Prefab, parentGameObject.transform,
                         new GridPosition(tileData.TileGridPosition.Position, i));
@@ -46,7 +46,6 @@
             GameObject createdObject = Object.Instantiate(gameObject, tilePosition, Quaternion.identity, parent);
             TileView tileView = createdObject.GetComponent<TileView>();
             tileData.TileView = tileView;
-            tileData.TileViewList.Add(tileView);
             createdObject.name = $"tile_{gridPosition.Height}";
         }
     }

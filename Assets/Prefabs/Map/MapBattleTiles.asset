@@ -13,12 +13,23 @@ MonoBehaviour:
   m_Name: MapBattleTiles
   m_EditorClassIdentifier: Assembly-CSharp::Map.Battle.Renderer.TileRenderSet
   entries:
-  - type: 1
+  - tile:
+      type: 1
+      variant: 3
     prefab: {fileID: 6100719555374017213, guid: 5241d66211a29484d8163a96694d3e61, type: 3}
-    parent: {fileID: 0}
-  - type: 2
+  - tile:
+      type: 2
+      variant: 3
     prefab: {fileID: 6100719555374017213, guid: 6bfe5d706e0c4d143ad11dbbd7257aa0, type: 3}
-    parent: {fileID: 0}
-  - type: 0
+  - tile:
+      type: 0
+      variant: 0
     prefab: {fileID: 6100719555374017213, guid: c11790dfddc69c246b264cba49dbfd37, type: 3}
-    parent: {fileID: 0}
+  - tile:
+      type: 1
+      variant: 1
+    prefab: {fileID: 6100719555374017213, guid: e06f8582a3bae284586ce327ea1fee69, type: 3}
+  - tile:
+      type: 1
+      variant: 2
+    prefab: {fileID: 6100719555374017213, guid: 37e814eb9de5c7647acf00a00f88a61e, type: 3}
