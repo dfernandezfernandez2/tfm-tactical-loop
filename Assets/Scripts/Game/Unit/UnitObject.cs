@@ -7,6 +7,7 @@
     using Data;
     using global::Unit.Data;
     using Map.Battle;
+    using Map.Battle.Data;
     using Skills;
     using UnityEngine;
 

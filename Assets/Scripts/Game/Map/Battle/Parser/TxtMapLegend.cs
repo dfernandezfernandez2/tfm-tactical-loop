@@ -2,7 +2,7 @@
     using System;
     using System.Text;
     using Data;
-    using Generation;
+    using Generation.Data;
 
     public static class TxtMapLegend {
         public static Tile GetTile(string symbol) {

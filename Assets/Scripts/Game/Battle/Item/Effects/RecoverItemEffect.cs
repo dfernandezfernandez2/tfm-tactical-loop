@@ -3,6 +3,7 @@ namespace Game.Battle.Item.Effects {
     using Effect.Recover;
     using global::Unit.Data;
     using Map.Battle;
+    using Map.Battle.Data;
     using UI;
     using Unit;
     using UnityEngine;

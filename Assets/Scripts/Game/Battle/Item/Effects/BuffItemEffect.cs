@@ -3,6 +3,7 @@ namespace Game.Battle.Item.Effects {
     using Effect.Buff;
     using global::Unit.Data;
     using Map.Battle;
+    using Map.Battle.Data;
     using Unit;
     using UnityEngine;
 

@@ -1,6 +1,7 @@
 namespace Game.Map.Battle.Generation {
     using System.Collections.Generic;
     using System.Linq;
+    using Battle.Data;
     using Data;
     using UnityEngine;
     using Random = System.Random;
@@ -54,7 +55,7 @@ namespace Game.Map.Battle.Generation {
             return result;
         }
 
-        public static bool CanMoveBetween(GeneratedTile[,] tiles, Vector2Int from, Vector2Int to) {
+        private static bool CanMoveBetween(GeneratedTile[,] tiles, Vector2Int from, Vector2Int to) {
             int fromHeight = tiles[from.x, from.y].Height;
             int toHeight = tiles[to.x, to.y].Height;
             int heightDifference = Mathf.Abs(fromHeight - toHeight);

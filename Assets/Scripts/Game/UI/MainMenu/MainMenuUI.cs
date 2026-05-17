@@ -4,7 +4,7 @@ namespace Game.UI.MainMenu {
     using Core;
     using Map.Battle;
     using Map.Battle.Data;
-    using Map.Battle.Generation;
+    using Map.Battle.Generation.Data;
     using Map.Battle.Parser;
     using UnityEngine;
 
@@ -86,6 +86,7 @@ namespace Game.UI.MainMenu {
                     generatedTiles[x, y] = new GeneratedTile(TileType.Floor, TileTypeVariant.Stone);
                 }
             }
+
             return TxtMapLegend.SerializeMap(generatedTiles);
         }
     }

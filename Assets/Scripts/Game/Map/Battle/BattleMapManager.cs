@@ -1,286 +1,86 @@
 namespace Game.Map.Battle {
-    using System;
     using System.Collections.Generic;
-    using System.Linq;
     using Core;
     using Data;
-    using Game.Battle.Item;
     using Renderer;
     using Unit;
     using UnityEngine;
 
     public class BattleMapManager : MonoBehaviour {
         private readonly Dictionary<GridPosition, MapCell> _cells = new();
-
+        private BattleMapHighlighter _highlighter;
         private BattleMapData _mapData;
+        private BattlePathfinder _pathfinder;
+        private BattleMapQueryService _queryService;
+        private BattleRangeFinder _rangeFinder;
+        private BattleMapUnitRegistry _unitRegistry;
 
         public void Initialize(BattleMapData mapData) {
             this._mapData = mapData;
             this._cells.Clear();
-            this._mapData.ForEach(data => this._cells[data.TileGridPosition] = new MapCell(data));
+
+            this._mapData.ForEach(data =>
+                this._cells[data.TileGridPosition] = new MapCell(data));
+
+            this._queryService = new BattleMapQueryService(this._mapData, this._cells);
+            this._unitRegistry = new BattleMapUnitRegistry(this._cells);
+            this._highlighter = new BattleMapHighlighter(this._cells);
+            this._rangeFinder = new BattleRangeFinder(this._mapData, this._cells, this._queryService);
+            this._pathfinder = new BattlePathfinder(this._mapData, this._queryService);
         }
 
         public GridPosition GetMapCenterPosition() => this._mapData.GetCenter();
 
-        public void InitUnit(UnitObject unitObject) {
-            GridPosition unitPosition = unitObject.Unit.GridPosition;
-            MapCell cell = this._cells.GetValueOrDefault(unitPosition);
-            cell.SetOccupantUnit(unitObject);
-        }
+        public void InitUnit(UnitObject unitObject) =>
+            this._unitRegistry.InitUnit(unitObject);
 
-        public void DespawnUnit(UnitObject unitObject) {
-            GridPosition unitPosition = unitObject.Unit.GridPosition;
-            MapCell cell = this._cells.GetValueOrDefault(unitPosition);
-            cell.ClearOccupantUnit();
-        }
-
-        public void HighlightUnits() {
-            foreach (MapCell cell in this._cells.Values.Where(cell => cell.GetOccupantUnit() != null)) {
-                HighlightUnitCell(cell);
-            }
-        }
-
-        public void UnHighlightUnits() {
-            foreach (MapCell cell in this._cells.Values.Where(cell => cell.GetOccupantUnit() != null)) {
-                UnHighlightCell(cell);
-            }
-        }
+        public void DespawnUnit(UnitObject unitObject) =>
+            this._unitRegistry.DespawnUnit(unitObject);
 
         public void UnitMove(GridPosition from, GridPosition to, bool select) {
-            MapCell cell = this._cells.GetValueOrDefault(from);
-            MapCell toCell = this._cells.GetValueOrDefault(to);
-            UnitObject unitObject = cell.GetOccupantUnit();
-            cell.ClearOccupantUnit();
-            UnHighlightCell(cell);
-            toCell.SetOccupantUnit(unitObject);
-            HighlightUnitCell(toCell);
+            this._unitRegistry.MoveUnit(from, to);
+            this._highlighter.UnHighlight(from);
+            this._highlighter.HighlightUnit(to);
+
             if (select) {
-                toCell.Select();
+                this._highlighter.Select(to);
             }
         }
+
+        public UnitObject GetUnit(GridPosition position) =>
+            this._unitRegistry.GetUnit(position);
+
+        public IReadOnlyList<UnitObject> GetUnitsAround(GridPosition position) =>
+            this._unitRegistry.GetUnitsAround(position, this._mapData);
+
+        public IReadOnlyList<TileData> GetReachableTiles(GridPosition origin, TileSearchConfig config) =>
+            this._rangeFinder.GetReachableTiles(origin, config);
+
+        public IReadOnlyList<GridPosition> FindPath(GridPosition origin, GridPosition target) =>
+            this._pathfinder.FindPath(origin, target);
+
+        public bool IsAvailablePosition(GridPosition position) =>
+            this._queryService.IsAvailablePosition(position);
+
+        public IReadOnlyList<TileData> GetTeamTileSpawns(BattleTeam team) =>
+            this._mapData.GetTeamSpawns(team);
 
         public void Highlight(GridPosition position, HighlightColor color) =>
-            this._cells.GetValueOrDefault(position).HighlightCell(color);
+            this._highlighter.Highlight(position, color);
 
-        public void UnHighlight(GridPosition position) => this._cells.GetValueOrDefault(position).UnHighlightCell();
+        public void UnHighlight(GridPosition position) =>
+            this._highlighter.UnHighlight(position);
 
-        public void Select(GridPosition position) => this._cells.GetValueOrDefault(position).Select();
-        public void UnSelect(GridPosition position) => this._cells.GetValueOrDefault(position).UnSelect();
+        public void Select(GridPosition position) =>
+            this._highlighter.Select(position);
 
-        public IReadOnlyList<UnitObject> GetUnitsAround(GridPosition position) {
-            IReadOnlyCollection<GridPosition> neighbours = this._mapData.GetNeighbours(position);
-            List<UnitObject> unitObjects = neighbours.Select(neighbour => this._cells.GetValueOrDefault(neighbour))
-                .Select(cell => cell.GetOccupantUnit()).Where(unitObject => unitObject != null).ToList();
-            return unitObjects.AsReadOnly();
-        }
+        public void UnSelect(GridPosition position) =>
+            this._highlighter.UnSelect(position);
 
-        private static void HighlightUnitCell(MapCell cell) => cell.HighlightCell(
-            cell.GetOccupantUnit().Team.GetBattleTeam() == BattleTeam.Player
-                ? HighlightColor.Yellow
-                : HighlightColor.Orange);
+        public void HighlightUnits() =>
+            this._highlighter.HighlightUnits();
 
-        private static void UnHighlightCell(MapCell cell) => cell.UnHighlightCell();
-
-        public IReadOnlyList<TileData> GetReachableTiles(GridPosition origin, int movement, bool canEnterCheck = true,
-            Target target = Target.None, Func<UnitObject, bool> canSelect = null) {
-            Queue<TileData> queue = new();
-            Dictionary<TileData, int> costs = new();
-            HashSet<TileData> reachable = new();
-
-            TileData originTile = this._mapData.GetTile(origin.Position.x, origin.Position.y);
-
-            UnitObject occupant = this._cells[origin].GetOccupantUnit();
-            BattleTeam? currentTeam = occupant?.Team?.GetBattleTeam();
-
-            queue.Enqueue(originTile);
-            costs[originTile] = 0;
-
-            while (queue.Count > 0) {
-                TileData current = queue.Dequeue();
-                int currentCost = costs[current];
-
-                foreach (GridPosition neighbourPos in this._mapData.GetNeighbours(current.TileGridPosition)) {
-                    TileData next = this._mapData.GetTile(neighbourPos.Position.x, neighbourPos.Position.y);
-
-                    int newCost = currentCost + GetMovementCost(current.TileGridPosition, next.TileGridPosition);
-
-                    if (newCost > movement && movement != -1) {
-                        continue;
-                    }
-
-                    if (costs.TryGetValue(next, out int existingCost) && existingCost <= newCost) {
-                        continue;
-                    }
-
-                    if (target == Target.None && canEnterCheck && !this.CanEnter(next.TileGridPosition)) {
-                        continue;
-                    }
-
-                    costs[next] = newCost;
-                    queue.Enqueue(next);
-
-                    if (target == Target.None) {
-                        reachable.Add(next);
-                        continue;
-                    }
-
-                    MapCell neighbourCell = this._cells[neighbourPos];
-                    if (neighbourCell.GetOccupantUnit() == null) {
-                        continue;
-                    }
-
-                    BattleTeam neighbourTeam = neighbourCell.GetOccupantUnit().Team.GetBattleTeam();
-
-                    if (((target == Target.Ally && neighbourTeam == currentTeam) ||
-                         (target == Target.Enemy && neighbourTeam != currentTeam)) &&
-                        canSelect(neighbourCell.GetOccupantUnit())) {
-                        reachable.Add(next);
-                    }
-                }
-            }
-
-            return reachable.ToList().AsReadOnly();
-        }
-
-        private static int GetMovementCost(GridPosition origin, GridPosition target) => 1;
-
-        private bool CanEnter(GridPosition position) {
-            if (!this._mapData.IsInside(position.Position.x, position.Position.y)) {
-                return false;
-            }
-
-            MapCell cell = this._cells.GetValueOrDefault(position);
-            return cell != null && cell.IsWalkable();
-        }
-
-        // A* algorithm
-        public IReadOnlyList<GridPosition> FindPath(GridPosition origin, GridPosition target) {
-            List<NodeGrid> openList = new();
-            List<NodeGrid> closedList = new();
-            Dictionary<GridPosition, NodeGrid> allNodes = new();
-            NodeGrid originNode = GetOrCreateNode(origin, allNodes);
-            originNode.GCost = 0;
-            originNode.HCost = GetHeuristicCost(origin, target);
-            originNode.FCost = originNode.GCost + originNode.HCost;
-            openList.Add(originNode);
-            while (openList.Count > 0) {
-                NodeGrid current = GetNodeWithLowestFValue(openList);
-                if (current.GridPosition.Equals(target)) {
-                    return ReconstructPath(current);
-                }
-
-                openList.Remove(current);
-                closedList.Add(current);
-                foreach (GridPosition neighbour in this._mapData.GetNeighbours(current.GridPosition)) {
-                    if (!this.CanEnter(neighbour) && !neighbour.Equals(target)) {
-                        continue;
-                    }
-
-                    NodeGrid neighbourNode = GetOrCreateNode(neighbour, allNodes);
-                    if (closedList.Contains(neighbourNode)) {
-                        continue;
-                    }
-
-                    int tentativeGCost =
-                        current.GCost + GetMovementCost(current.GridPosition, neighbourNode.GridPosition);
-                    if (!openList.Contains(neighbourNode)) {
-                        openList.Add(neighbourNode);
-                    }
-                    else if (tentativeGCost >= neighbourNode.GCost) {
-                        continue; // this path is no better
-                    }
-
-                    neighbourNode.Parent = current;
-                    neighbourNode.GCost = tentativeGCost;
-                    neighbourNode.HCost = GetHeuristicCost(neighbour, target);
-                    neighbourNode.FCost = neighbourNode.GCost + neighbourNode.HCost;
-                }
-            }
-
-            return new List<GridPosition>().AsReadOnly();
-        }
-
-        private static NodeGrid GetOrCreateNode(GridPosition gridPosition,
-            Dictionary<GridPosition, NodeGrid> allNodes) {
-            if (allNodes.TryGetValue(gridPosition, out NodeGrid existingNode)) {
-                return existingNode;
-            }
-
-            NodeGrid newNode = new(gridPosition);
-            allNodes[gridPosition] = newNode;
-            return newNode;
-        }
-
-        private static int GetHeuristicCost(GridPosition origin, GridPosition target) =>
-            // Manhattan distance
-            Mathf.Abs(origin.Position.x - target.Position.x) +
-            Mathf.Abs(origin.Position.y - target.Position.y);
-
-        private static NodeGrid GetNodeWithLowestFValue(List<NodeGrid> openList) =>
-            openList
-                .OrderBy(n => n.FCost)
-                .ThenBy(n => n.HCost)
-                .First();
-
-        private static IReadOnlyList<GridPosition> ReconstructPath(NodeGrid origin) {
-            LinkedList<GridPosition> path = new();
-            NodeGrid current = origin;
-            while (current != null) {
-                path.AddFirst(current.GridPosition);
-                current = current.Parent;
-            }
-
-            return path.ToList().AsReadOnly();
-        }
-
-        public UnitObject GetUnit(GridPosition gridPosition) {
-            MapCell cell = this._cells.GetValueOrDefault(gridPosition);
-            return cell?.GetOccupantUnit();
-        }
-
-        public bool IsAvailablePosition(GridPosition current) {
-            MapCell cell = this._cells.GetValueOrDefault(current);
-            return cell != null && cell.IsWalkable();
-        }
-
-        public IReadOnlyList<TileData> GetTeamTileSpawns(BattleTeam team) => this._mapData.GetTeamSpawns(team);
-
-        private class NodeGrid : IEquatable<NodeGrid> {
-            public readonly GridPosition GridPosition;
-            public int FCost;
-            public int GCost;
-            public int HCost;
-            public NodeGrid Parent;
-
-            public NodeGrid(GridPosition gridPosition) {
-                this.GridPosition = gridPosition;
-                this.GCost = int.MaxValue;
-                this.HCost = 0;
-                this.FCost = int.MaxValue;
-                this.Parent = null;
-            }
-
-            public bool Equals(NodeGrid other) {
-                if (other is null) {
-                    return false;
-                }
-
-                return ReferenceEquals(this, other) || Equals(this.GridPosition, other.GridPosition);
-            }
-
-            public override bool Equals(object obj) {
-                if (obj is null) {
-                    return false;
-                }
-
-                if (ReferenceEquals(this, obj)) {
-                    return true;
-                }
-
-                return obj.GetType() == this.GetType() && this.Equals((NodeGrid)obj);
-            }
-
-            public override int GetHashCode() => HashCode.Combine(this.GridPosition);
-        }
+        public void UnHighlightUnits() =>
+            this._highlighter.UnHighlightUnits();
     }
 }

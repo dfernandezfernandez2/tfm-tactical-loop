@@ -1,4 +1,4 @@
-﻿namespace Game.Map.Battle {
+﻿namespace Game.Map.Battle.Data {
     using System;
     using UnityEngine;
 

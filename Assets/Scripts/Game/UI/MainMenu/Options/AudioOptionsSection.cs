@@ -4,7 +4,6 @@ namespace Game.UI.MainMenu.Options {
     using UnityEngine.UI;
 
     public class AudioOptionsSection : OptionsSection {
-
         [SerializeField] private Scrollbar effectsScrollbar;
         [SerializeField] private Scrollbar musicScrollbar;
         [SerializeField] private Toggle fullMuteToggle;

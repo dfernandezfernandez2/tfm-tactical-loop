@@ -39,6 +39,7 @@ namespace Game.Core {
             else {
                 this.audioMixer.SetFloat("MusicVolume", VolumeConversion(value));
             }
+
             PlayerPrefs.SetFloat(_musicKey, value);
             PlayerPrefs.Save();
         }
@@ -50,6 +51,7 @@ namespace Game.Core {
             else {
                 this.audioMixer.SetFloat("EffectsVolume", VolumeConversion(value));
             }
+
             PlayerPrefs.SetFloat(_effectsKey, value);
             PlayerPrefs.Save();
         }

@@ -1,4 +1,5 @@
 namespace Game.Map.Battle.Generation {
+    using Battle.Data;
     using Data;
 
     public class BattleMapGenerationConfig {

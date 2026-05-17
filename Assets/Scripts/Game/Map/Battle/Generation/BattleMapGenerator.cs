@@ -2,6 +2,7 @@ namespace Game.Map.Battle.Generation {
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using Battle.Data;
     using Data;
     using Parser;
     using UnityEngine;

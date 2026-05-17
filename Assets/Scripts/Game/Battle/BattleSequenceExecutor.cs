@@ -3,6 +3,7 @@ namespace Game.Battle {
     using System.Collections;
     using System.Collections.Generic;
     using Map.Battle;
+    using Map.Battle.Data;
     using Unit;
     using Unit.Data;
 

@@ -47,7 +47,6 @@ namespace Game.Core {
             else {
                 SceneManager.LoadScene("LooseScene");
             }
-
         }
 
         private void OnEndRewardSelect(IReward reward) {

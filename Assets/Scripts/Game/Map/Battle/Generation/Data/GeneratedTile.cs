@@ -1,5 +1,5 @@
-namespace Game.Map.Battle.Generation {
-    using Data;
+namespace Game.Map.Battle.Generation.Data {
+    using Battle.Data;
 
     public class GeneratedTile {
         public int Height;

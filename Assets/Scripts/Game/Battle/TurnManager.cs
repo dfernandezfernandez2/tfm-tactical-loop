@@ -40,8 +40,11 @@ namespace Game.Battle {
                 .GetCurrentIntStat(StatType.Movement);
             GridPosition currentUnitGridPosition =
                 this._unitsTurnOrder[this._unitsTurnOrderIndex].Unit.GridPosition;
+            TileSearchConfig config = new() {
+                Range = currentUnitMovement
+            };
             IReadOnlyList<TileData> reachableTiles =
-                this.battleMapManager.GetReachableTiles(currentUnitGridPosition, currentUnitMovement);
+                this.battleMapManager.GetReachableTiles(currentUnitGridPosition, config);
             this.userSelectionManager.OnSelect +=
                 position => this.StartCoroutine(this.HandleMovementSelection(position));
             this.userSelectionManager.OnCancel += this.HandleCancelAction;
@@ -53,8 +56,14 @@ namespace Game.Battle {
                 .GetCurrentIntStat(StatType.Range);
             GridPosition currentUnitGridPosition =
                 this._unitsTurnOrder[this._unitsTurnOrderIndex].Unit.GridPosition;
+            TileSearchConfig config = new() {
+                Range = attackRange,
+                CanEnterCheck = false,
+                Target = Target.Enemy,
+                CanSelect = unit => !unit.Unit.IsDead()
+            };
             IReadOnlyList<TileData> reachableTiles =
-                this.battleMapManager.GetReachableTiles(currentUnitGridPosition, attackRange, false);
+                this.battleMapManager.GetReachableTiles(currentUnitGridPosition, config);
             this.userSelectionManager.OnSelect +=
                 position => this.StartCoroutine(this.HandleAttackSelected(position));
             this.userSelectionManager.OnCancel += this.HandleCancelAction;
@@ -91,9 +100,8 @@ namespace Game.Battle {
         public void ApCostRevert(IBattleAction action) =>
             this._unitsTurnOrder[this._unitsTurnOrderIndex].Unit.AddStat(StatType.AP, action.GetApCost());
 
-        public IEnumerator EnterSelectionTarget(Target target,
-            Func<SelectionData, IEnumerator> callback,
-            Func<UnitObject, bool> canSelect, int range = -1, SelectionType selectionType = SelectionType.Default) {
+        public IEnumerator EnterSelectionTarget(TileSearchConfig config, Func<SelectionData, IEnumerator> callback,
+            SelectionType selectionType = SelectionType.Default) {
             UnitObject currentUser = this._unitsTurnOrder[this._unitsTurnOrderIndex];
             GridPosition currentUnitGridPosition = currentUser.Unit.GridPosition;
             SelectionData itemSelectionData = new() {
@@ -102,13 +110,13 @@ namespace Game.Battle {
                 BattleMapManager = this.battleMapManager,
                 Context = this
             };
-            if (target == Target.Self) {
+            if (config.Target == Target.Self) {
                 yield return callback(itemSelectionData);
                 yield break;
             }
 
             IReadOnlyList<TileData> reachableTiles =
-                this.battleMapManager.GetReachableTiles(currentUnitGridPosition, range, false, target, canSelect);
+                this.battleMapManager.GetReachableTiles(currentUnitGridPosition, config);
 
             bool selected = false;
             bool cancelled = false;

@@ -17,6 +17,7 @@ MonoBehaviour:
   manaCost: 0
   target: 3
   range: 15
+  applyHeightLineOfSight: 1
   selectionType: 0
   animationName: Bow
   effects:

@@ -1,4 +1,5 @@
 ﻿namespace Game.Map.Battle {
+    using Data;
     using UnityEngine;
 
     public class WorldRender : MonoBehaviour {

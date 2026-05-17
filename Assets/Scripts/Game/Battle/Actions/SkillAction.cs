@@ -4,6 +4,7 @@ namespace Game.Battle.Actions {
     using global::Unit.Data;
     using IA;
     using Map.Battle;
+    using Map.Battle.Data;
     using Unit;
     using Unit.Skills;
 
@@ -19,8 +20,15 @@ namespace Game.Battle.Actions {
         public int GetApCost() => this._skill.apCost;
 
         public IEnumerator Start(IBattleContext battleContext) {
-            yield return battleContext.EnterSelectionTarget(this._skill.target, this.OnSelect, this.CanSelect,
-                this._skill.range, this._skill.selectionType);
+            TileSearchConfig config = new() {
+                Range = this._skill.range,
+                CanEnterCheck = false,
+                Target = this._skill.target,
+                CanSelect = this.CanSelect,
+                ApplyHeightLineOfSight = this._skill.applyHeightLineOfSight,
+                RequiresLineOfSight = true
+            };
+            yield return battleContext.EnterSelectionTarget(config, this.OnSelect, this._skill.selectionType);
         }
 
         public bool CanDoAction(IBattleContext battleContext, UnitObject unitObject) {

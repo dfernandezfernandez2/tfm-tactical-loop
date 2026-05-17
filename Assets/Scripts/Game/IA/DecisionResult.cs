@@ -1,6 +1,6 @@
 namespace Game.IA {
     using Battle.Actions;
-    using Map.Battle;
+    using Map.Battle.Data;
 
     public class DecisionResult {
         public DecisionResult(IBattleAction action, GridPosition targetPosition) {

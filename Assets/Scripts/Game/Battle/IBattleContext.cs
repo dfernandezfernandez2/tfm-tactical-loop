@@ -2,8 +2,7 @@ namespace Game.Battle {
     using System;
     using System.Collections;
     using Actions;
-    using Item;
-    using Unit;
+    using Map.Battle.Data;
 
     public interface IBattleContext {
         public void EnterMovementSelection();
@@ -14,9 +13,8 @@ namespace Game.Battle {
         public void ApCostApply(IBattleAction action);
         public void ApCostRevert(IBattleAction action);
 
-        public IEnumerator EnterSelectionTarget(Target target,
-            Func<SelectionData, IEnumerator> callback,
-            Func<UnitObject, bool> canSelect, int range = -1, SelectionType selectionType = SelectionType.Default);
+        public IEnumerator EnterSelectionTarget(TileSearchConfig config, Func<SelectionData, IEnumerator> callback,
+            SelectionType selectionType = SelectionType.Default);
 
         public void EndAction();
         public bool IsAvailableAction(string actionName);

@@ -1,6 +1,7 @@
 namespace Game.Battle.Item.Effects {
     using System.Collections;
     using Map.Battle;
+    using Map.Battle.Data;
     using Unit;
     using UnityEngine;
 

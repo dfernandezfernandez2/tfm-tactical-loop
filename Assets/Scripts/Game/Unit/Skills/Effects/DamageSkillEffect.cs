@@ -3,6 +3,7 @@ namespace Game.Unit.Skills.Effects {
     using Battle;
     using Data;
     using Map.Battle;
+    using Map.Battle.Data;
     using UnityEngine;
 
     [CreateAssetMenu(menuName = "Unit/Skills/Effects/Damage")]

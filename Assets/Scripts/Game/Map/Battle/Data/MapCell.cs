@@ -1,5 +1,4 @@
-namespace Game.Map.Battle {
-    using Data;
+namespace Game.Map.Battle.Data {
     using Renderer;
     using Unit;
 
