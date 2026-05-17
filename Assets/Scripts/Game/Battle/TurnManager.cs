@@ -100,9 +100,8 @@ namespace Game.Battle {
         public void ApCostRevert(IBattleAction action) =>
             this._unitsTurnOrder[this._unitsTurnOrderIndex].Unit.AddStat(StatType.AP, action.GetApCost());
 
-        public IEnumerator EnterSelectionTarget(Target target,
-            Func<SelectionData, IEnumerator> callback,
-            Func<UnitObject, bool> canSelect, int range = -1, SelectionType selectionType = SelectionType.Default) {
+        public IEnumerator EnterSelectionTarget(TileSearchConfig config, Func<SelectionData, IEnumerator> callback,
+            SelectionType selectionType = SelectionType.Default) {
             UnitObject currentUser = this._unitsTurnOrder[this._unitsTurnOrderIndex];
             GridPosition currentUnitGridPosition = currentUser.Unit.GridPosition;
             SelectionData itemSelectionData = new() {
@@ -111,17 +110,11 @@ namespace Game.Battle {
                 BattleMapManager = this.battleMapManager,
                 Context = this
             };
-            if (target == Target.Self) {
+            if (config.Target == Target.Self) {
                 yield return callback(itemSelectionData);
                 yield break;
             }
 
-            TileSearchConfig config = new() {
-                Range = range,
-                CanEnterCheck = false,
-                Target = target,
-                CanSelect = canSelect
-            };
             IReadOnlyList<TileData> reachableTiles =
                 this.battleMapManager.GetReachableTiles(currentUnitGridPosition, config);
 

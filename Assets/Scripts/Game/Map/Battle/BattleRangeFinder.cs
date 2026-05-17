@@ -8,6 +8,7 @@ namespace Game.Map.Battle {
 
     public class BattleRangeFinder {
         private readonly Dictionary<GridPosition, MapCell> _cells;
+        private readonly BattleLineOfSight _lineOfSight;
         private readonly BattleMapData _mapData;
         private readonly BattleMapQueryService _queryService;
 
@@ -16,6 +17,7 @@ namespace Game.Map.Battle {
             this._mapData = mapData;
             this._cells = cells;
             this._queryService = queryService;
+            this._lineOfSight = new BattleLineOfSight(mapData);
         }
 
         public IReadOnlyList<TileData> GetReachableTiles(GridPosition origin, TileSearchConfig config) {
@@ -52,7 +54,8 @@ namespace Game.Map.Battle {
                         continue;
                     }
 
-                    if (config.Target == Target.None && config.CanEnterCheck && !this._queryService.CanEnter(next.TileGridPosition)) {
+                    if (config.Target == Target.None && config.CanEnterCheck &&
+                        !this._queryService.CanEnter(next.TileGridPosition)) {
                         continue;
                     }
 
@@ -73,11 +76,8 @@ namespace Game.Map.Battle {
 
                     BattleTeam neighbourTeam = unit.Team.GetBattleTeam();
 
-                    bool validTarget =
-                        (config.Target == Target.Ally && neighbourTeam == currentTeam) ||
-                        (config.Target == Target.Enemy && neighbourTeam != currentTeam);
-
-                    if (validTarget && (config.CanSelect == null || config.CanSelect(unit))) {
+                    if (IsValidTarget(config, neighbourTeam, currentTeam) && CanSelect(config, unit) &&
+                        this.IsValidLineOfSight(config, originTile, next)) {
                         reachable.Add(next);
                     }
                 }
@@ -85,5 +85,16 @@ namespace Game.Map.Battle {
 
             return reachable.ToList().AsReadOnly();
         }
+
+        private static bool CanSelect(TileSearchConfig config, UnitObject unit) =>
+            config.CanSelect == null || config.CanSelect(unit);
+
+        private static bool IsValidTarget(TileSearchConfig config, BattleTeam neighbourTeam, BattleTeam? currentTeam) =>
+            (config.Target == Target.Ally && neighbourTeam == currentTeam) ||
+            (config.Target == Target.Enemy && neighbourTeam != currentTeam) ||
+            config.Target == Target.Any;
+
+        private bool IsValidLineOfSight(TileSearchConfig config, TileData from, TileData to) =>
+            !config.RequiresLineOfSight || this._lineOfSight.HasLineOfSight(from, to, config.ApplyHeightLineOfSight);
     }
 }

@@ -9,7 +9,6 @@ namespace Game.Map.Battle {
     public class BattleMapManager : MonoBehaviour {
         private readonly Dictionary<GridPosition, MapCell> _cells = new();
         private BattleMapHighlighter _highlighter;
-        private BattleLineOfSight _lineOfSight;
         private BattleMapData _mapData;
         private BattlePathfinder _pathfinder;
         private BattleMapQueryService _queryService;
@@ -28,7 +27,6 @@ namespace Game.Map.Battle {
             this._highlighter = new BattleMapHighlighter(this._cells);
             this._rangeFinder = new BattleRangeFinder(this._mapData, this._cells, this._queryService);
             this._pathfinder = new BattlePathfinder(this._mapData, this._queryService);
-            this._lineOfSight = new BattleLineOfSight(this._mapData);
         }
 
         public GridPosition GetMapCenterPosition() => this._mapData.GetCenter();
@@ -84,6 +82,5 @@ namespace Game.Map.Battle {
 
         public void UnHighlightUnits() =>
             this._highlighter.UnHighlightUnits();
-
     }
 }

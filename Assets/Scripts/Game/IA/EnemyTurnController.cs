@@ -189,8 +189,11 @@ namespace Game.IA {
         private IEnumerable<GridPosition> GetCandidateMovementPositions(UnitObject enemy,
             IReadOnlyList<UnitObject> turnOrder, GridPosition currentPosition) {
             int movement = enemy.Unit.GetCurrentIntStat(StatType.Movement);
+            TileSearchConfig config = new() {
+                Range = movement
+            };
             IReadOnlyList<TileData> reachableTiles =
-                this._battleMapManager.GetReachableTiles(currentPosition, movement);
+                this._battleMapManager.GetReachableTiles(currentPosition, config);
 
             UnitObject closestTarget = GetClosestEnemy(enemy, turnOrder, currentPosition);
             if (closestTarget == null) {

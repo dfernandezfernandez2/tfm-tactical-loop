@@ -13,6 +13,7 @@ namespace Game.Map.Battle {
             this._queryService = queryService;
         }
 
+        // A* algorithm
         public IReadOnlyList<GridPosition> FindPath(GridPosition origin, GridPosition target) {
             List<NodeGrid> openList = new();
             List<NodeGrid> closedList = new();

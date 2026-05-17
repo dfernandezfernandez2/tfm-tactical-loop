@@ -4,6 +4,7 @@ namespace Game.Battle.Actions {
     using IA;
     using Item;
     using Map.Battle;
+    using Map.Battle.Data;
     using Unit;
 
     public class InventoryItem : IBattleAction {
@@ -24,8 +25,12 @@ namespace Game.Battle.Actions {
         public int GetApCost() => 0;
 
         public IEnumerator Start(IBattleContext battleContext) {
-            yield return battleContext.EnterSelectionTarget(this._item.target, this.OnSelect,
-                this._item.effect.CanApply);
+            TileSearchConfig config = new() {
+                CanEnterCheck = false,
+                Target = this._item.target,
+                CanSelect = this._item.effect.CanApply
+            };
+            yield return battleContext.EnterSelectionTarget(config, this.OnSelect);
         }
 
         public bool CanDoAction(IBattleContext battleContext, UnitObject unitObject) => true;

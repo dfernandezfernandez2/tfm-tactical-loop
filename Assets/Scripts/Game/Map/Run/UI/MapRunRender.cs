@@ -67,7 +67,7 @@ namespace Game.Map.Run.UI {
             this._isActive = true;
         }
 
-        public bool HasNext() => this._currentNode != null;
+        public bool HasNext() => !(this._currentNode == null || this._currentNode.RunNode.EncounterType == EncounterType.End);
 
         private void Hide() {
             this._isActive = false;
