@@ -11,7 +11,7 @@
         public Unit(Stats stats) {
             this._stats = stats;
             this.UnitStatsModifier = new UnitStatsModifier();
-            this.UnitDamageResolver = new UnitDamageResolver(this.GetCurrentStat);
+            this.UnitDamageResolver = new UnitDamageResolver(this.GetCurrentStat, () => this.GridPosition);
         }
 
         public UnitDamageResolver UnitDamageResolver { get; private set; }

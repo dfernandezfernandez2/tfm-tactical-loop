@@ -55,7 +55,7 @@ namespace Game.Map.Battle {
                     }
 
                     if (config.Target == Target.None && config.CanEnterCheck &&
-                        !this._queryService.CanEnter(next.TileGridPosition)) {
+                        !this._queryService.CanEnter(current.TileGridPosition, next.TileGridPosition)) {
                         continue;
                     }
 
