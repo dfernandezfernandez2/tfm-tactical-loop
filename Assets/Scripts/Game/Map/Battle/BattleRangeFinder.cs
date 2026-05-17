@@ -32,6 +32,7 @@ namespace Game.Map.Battle {
 
             queue.Enqueue(originTile);
             costs[originTile] = 0;
+            bool isMovement = config.Target == Target.None;
 
             while (queue.Count > 0) {
                 TileData current = queue.Dequeue();
@@ -40,11 +41,13 @@ namespace Game.Map.Battle {
                 foreach (GridPosition neighbourPos in this._mapData.GetNeighbours(current.TileGridPosition)) {
                     TileData next = this._mapData.GetTile(neighbourPos.Position.x, neighbourPos.Position.y);
 
-                    int newCost = currentCost +
-                                  BattleMapQueryService.GetMovementCost(
-                                      current.TileGridPosition,
-                                      next.TileGridPosition
-                                  );
+                    int movementCost = isMovement
+                        ? BattleMapQueryService.GetMovementCost(
+                            current.TileGridPosition,
+                            next.TileGridPosition
+                        )
+                        : 1;
+                    int newCost = currentCost + movementCost;
 
                     if (newCost > config.Range && config.Range != -1) {
                         continue;
@@ -54,7 +57,7 @@ namespace Game.Map.Battle {
                         continue;
                     }
 
-                    if (config.Target == Target.None && config.CanEnterCheck &&
+                    if (isMovement && config.CanEnterCheck &&
                         !this._queryService.CanEnter(current.TileGridPosition, next.TileGridPosition)) {
                         continue;
                     }
@@ -62,7 +65,7 @@ namespace Game.Map.Battle {
                     costs[next] = newCost;
                     queue.Enqueue(next);
 
-                    if (config.Target == Target.None) {
+                    if (isMovement) {
                         reachable.Add(next);
                         continue;
                     }
