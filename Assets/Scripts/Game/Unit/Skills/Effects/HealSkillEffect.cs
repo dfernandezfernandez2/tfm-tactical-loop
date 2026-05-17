@@ -3,6 +3,7 @@ namespace Game.Unit.Skills.Effects {
     using Effect.Recover;
     using global::Unit.Data;
     using Map.Battle;
+    using Map.Battle.Data;
     using UnityEngine;
 
     [CreateAssetMenu(menuName = "Unit/Skills/Effects/Heal")]

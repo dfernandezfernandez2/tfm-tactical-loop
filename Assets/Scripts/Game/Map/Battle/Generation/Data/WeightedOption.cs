@@ -1,4 +1,4 @@
-namespace Game.Map.Battle.Generation {
+namespace Game.Map.Battle.Generation.Data {
     using System;
     using System.Collections.Generic;
     using System.Linq;

@@ -4,6 +4,7 @@ namespace Game.Battle.Actions {
     using global::Unit.Data;
     using IA;
     using Map.Battle;
+    using Map.Battle.Data;
     using Unit;
     using Unit.Skills;
 

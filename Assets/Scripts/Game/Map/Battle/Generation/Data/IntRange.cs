@@ -1,4 +1,4 @@
-namespace Game.Map.Battle.Generation {
+namespace Game.Map.Battle.Generation.Data {
     using System;
 
     public readonly struct IntRange {

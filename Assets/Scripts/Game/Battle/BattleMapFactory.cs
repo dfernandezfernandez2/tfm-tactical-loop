@@ -22,7 +22,8 @@ namespace Game.Battle {
                     this.archerUnitObject, this.mageUnitObject),
                 _ => throw new ArgumentOutOfRangeException()
             };
-            BattleMapGenerationConfig config = BattleMapGenerationConfigFactory.FromNode(node, enemyTeam.GetTeamUnits().Count);
+            BattleMapGenerationConfig config =
+                BattleMapGenerationConfigFactory.FromNode(node, enemyTeam.GetTeamUnits().Count);
             string map = BattleMapGenerator.Generate(config, CreateSeed(node));
             return new BattleMapSetupData(map, enemyTeam);
         }

@@ -1,5 +1,6 @@
 namespace Game.Battle.Actions {
     using Map.Battle;
+    using Map.Battle.Data;
     using Unit;
 
     public class SelectionData {

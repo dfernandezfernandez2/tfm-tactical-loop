@@ -2,6 +2,7 @@ namespace Game.Unit.Skills.Effects {
     using System.Collections;
     using System.Collections.Generic;
     using Map.Battle;
+    using Map.Battle.Data;
     using UnityEngine;
 
     [CreateAssetMenu(menuName = "Unit/Skills/Effects/Push")]

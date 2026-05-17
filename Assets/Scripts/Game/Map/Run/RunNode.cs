@@ -4,8 +4,8 @@ namespace Game.Map.Run {
     using Visitor;
 
     public class RunNode {
-        public readonly Guid Id;
         public readonly EncounterType EncounterType;
+        public readonly Guid Id;
         public readonly int Level;
         public readonly HashSet<RunNode> NextNodes = new();
 

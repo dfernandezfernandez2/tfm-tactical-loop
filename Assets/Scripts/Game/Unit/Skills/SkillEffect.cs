@@ -1,6 +1,7 @@
 namespace Game.Unit.Skills {
     using System.Collections;
     using Map.Battle;
+    using Map.Battle.Data;
     using UnityEngine;
 
     public abstract class SkillEffect : ScriptableObject {

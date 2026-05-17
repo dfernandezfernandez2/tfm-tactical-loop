@@ -6,7 +6,6 @@ namespace Game.UI.End {
     using UnityEngine.SceneManagement;
 
     public class GameOverManager : MonoBehaviour {
-
         [SerializeField] private List<MenuButtonUI> buttons;
         [SerializeField] private Canvas main;
         [SerializeField] private Canvas credits;
@@ -19,7 +18,8 @@ namespace Game.UI.End {
         private void Update() {
             if (!this._isCreditsActive) {
                 this.MainUpdate();
-            }  else  {
+            }
+            else {
                 this.CreditsUpdate();
             }
         }
@@ -52,6 +52,7 @@ namespace Game.UI.End {
             if (!InputUtils.IsCancelSelected()) {
                 return;
             }
+
             this._isCreditsActive = false;
             this.main.gameObject.SetActive(true);
             this.credits.gameObject.SetActive(false);
@@ -62,6 +63,5 @@ namespace Game.UI.End {
             this.main.gameObject.SetActive(false);
             this.credits.gameObject.SetActive(true);
         }
-
     }
 }

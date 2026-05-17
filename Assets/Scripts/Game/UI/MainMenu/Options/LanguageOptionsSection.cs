@@ -11,7 +11,6 @@ namespace Game.UI.MainMenu.Options {
     }
 
     public class LanguageOptionsSection : OptionsSection {
-
         private const string _languageKey = "Language";
 
         [SerializeField] private List<LanguageEntry> languageEntries;

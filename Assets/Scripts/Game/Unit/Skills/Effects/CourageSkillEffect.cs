@@ -2,6 +2,7 @@ namespace Game.Unit.Skills.Effects {
     using System.Collections;
     using Effect.Buff;
     using Map.Battle;
+    using Map.Battle.Data;
     using UnityEngine;
 
     [CreateAssetMenu(menuName = "Unit/Skills/Effects/Courage")]

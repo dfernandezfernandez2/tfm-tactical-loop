@@ -4,7 +4,6 @@ namespace Game.UI.MainMenu {
 
     [RequireComponent(typeof(Button))]
     public class MenuButtonUI : MonoBehaviour {
-
         [SerializeField] private Image image;
         [SerializeField] private Sprite selectedSpriteBackground;
 

@@ -40,8 +40,11 @@ namespace Game.Battle {
                 .GetCurrentIntStat(StatType.Movement);
             GridPosition currentUnitGridPosition =
                 this._unitsTurnOrder[this._unitsTurnOrderIndex].Unit.GridPosition;
+            TileSearchConfig config = new() {
+                Range = currentUnitMovement
+            };
             IReadOnlyList<TileData> reachableTiles =
-                this.battleMapManager.GetReachableTiles(currentUnitGridPosition, currentUnitMovement);
+                this.battleMapManager.GetReachableTiles(currentUnitGridPosition, config);
             this.userSelectionManager.OnSelect +=
                 position => this.StartCoroutine(this.HandleMovementSelection(position));
             this.userSelectionManager.OnCancel += this.HandleCancelAction;
@@ -53,8 +56,14 @@ namespace Game.Battle {
                 .GetCurrentIntStat(StatType.Range);
             GridPosition currentUnitGridPosition =
                 this._unitsTurnOrder[this._unitsTurnOrderIndex].Unit.GridPosition;
+            TileSearchConfig config = new() {
+                Range = attackRange,
+                CanEnterCheck = false,
+                Target = Target.Enemy,
+                CanSelect = unit => !unit.Unit.IsDead()
+            };
             IReadOnlyList<TileData> reachableTiles =
-                this.battleMapManager.GetReachableTiles(currentUnitGridPosition, attackRange, false);
+                this.battleMapManager.GetReachableTiles(currentUnitGridPosition, config);
             this.userSelectionManager.OnSelect +=
                 position => this.StartCoroutine(this.HandleAttackSelected(position));
             this.userSelectionManager.OnCancel += this.HandleCancelAction;
@@ -107,8 +116,14 @@ namespace Game.Battle {
                 yield break;
             }
 
+            TileSearchConfig config = new() {
+                Range = range,
+                CanEnterCheck = false,
+                Target = target,
+                CanSelect = canSelect
+            };
             IReadOnlyList<TileData> reachableTiles =
-                this.battleMapManager.GetReachableTiles(currentUnitGridPosition, range, false, target, canSelect);
+                this.battleMapManager.GetReachableTiles(currentUnitGridPosition, config);
 
             bool selected = false;
             bool cancelled = false;
