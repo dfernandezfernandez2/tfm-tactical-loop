@@ -14,11 +14,13 @@
     [RequireComponent(typeof(UnitAnimationController))]
     [RequireComponent(typeof(UnitEffectController))]
     [RequireComponent(typeof(UnitActions))]
+    [RequireComponent(typeof(SpriteRenderer))]
     public class UnitObject : MonoBehaviour {
         public UnitData data;
         [SerializeField] private CombatTextUI combatTextUI;
         [SerializeField] private WorldRender worldRender;
         private UnitAnimationController _animator;
+        private SpriteRenderer _renderer;
 
         public Team Team { get; set; }
         public Unit Unit { get; private set; }
@@ -30,6 +32,7 @@
             this.EffectController = this.GetComponent<UnitEffectController>();
             this.EffectController.Init(this);
             this.Actions = this.GetComponent<UnitActions>();
+            this._renderer = this.GetComponent<SpriteRenderer>();
         }
 
         public void Init(Unit unit) => this.Unit = unit;
@@ -43,6 +46,7 @@
             this.Unit.Move(gridPosition, direction);
             this.UpdateDirection(direction);
             this.transform.position = this.worldRender.GridToWorld(gridPosition);
+            this._renderer.sortingOrder = WorldRender.GetSortingOrder(gridPosition);
         }
 
         public IEnumerator OnTurnStart() {
@@ -66,6 +70,7 @@
                 GridPosition position = currentPosition;
                 yield return this.MoveRoutine(target, () => onMove(position, pos), playMoveAnimation, speed);
                 currentPosition = pos;
+                this._renderer.sortingOrder = WorldRender.GetSortingOrder(pos);
             }
         }
 

@@ -27,20 +27,27 @@
                 new($"tile_{tileData.TileGridPosition.Position.x}_{tileData.TileGridPosition.Position.y}");
             parentGameObject.transform.SetParent(this._parentGameObject.transform);
 
-
-            for (int i = 0; i <= tileData.TileGridPosition.Height; i++) {
-                this.RenderTile(tileData, tileRenderElement.Prefab, parentGameObject.transform,
-                    new GridPosition(tileData.TileGridPosition.Position, i));
+            List<TileView> belowTileViews = new();
+            for (int i = 0; i < tileData.TileGridPosition.Height; i++) {
+                belowTileViews.Add(this.RenderTile(tileData, tileRenderElement.Prefab, parentGameObject.transform,
+                    new GridPosition(tileData.TileGridPosition.Position, i)));
             }
+
+            TileView topTile = this.RenderTile(tileData, tileRenderElement.Prefab, parentGameObject.transform,
+                tileData.TileGridPosition);
+            topTile.SetTilesBelow(belowTileViews);
         }
 
-        private void RenderTile(TileData tileData, GameObject gameObject, Transform parent, GridPosition gridPosition) {
+        private TileView RenderTile(TileData tileData, GameObject gameObject, Transform parent,
+            GridPosition gridPosition) {
             Vector3 tilePosition =
                 this._worldRender.GridToWorldTiles(gridPosition);
             GameObject createdObject = Object.Instantiate(gameObject, tilePosition, Quaternion.identity, parent);
             TileView tileView = createdObject.GetComponent<TileView>();
+            tileView.SetupSortingOrder(WorldRender.GetSortingOrder(gridPosition));
             tileData.TileView = tileView;
             createdObject.name = $"tile_{gridPosition.Height}";
+            return tileView;
         }
     }
 }

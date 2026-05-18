@@ -9,11 +9,21 @@ namespace Game.Map.Battle {
     public class BattleMapManager : MonoBehaviour {
         private readonly Dictionary<GridPosition, MapCell> _cells = new();
         private BattleMapHighlighter _highlighter;
+        private bool _isTransparencyViewActive;
         private BattleMapData _mapData;
         private BattlePathfinder _pathfinder;
         private BattleMapQueryService _queryService;
         private BattleRangeFinder _rangeFinder;
         private BattleMapUnitRegistry _unitRegistry;
+        private BattleMapViewManager _viewManager;
+
+        private void Update() {
+            if (this._mapData == null) {
+                return;
+            }
+
+            this.HandleTransparencyViewInput();
+        }
 
         public void Initialize(BattleMapData mapData) {
             this._mapData = mapData;
@@ -27,6 +37,7 @@ namespace Game.Map.Battle {
             this._highlighter = new BattleMapHighlighter(this._cells);
             this._rangeFinder = new BattleRangeFinder(this._mapData, this._cells, this._queryService);
             this._pathfinder = new BattlePathfinder(this._mapData, this._queryService);
+            this._viewManager = new BattleMapViewManager(this._cells);
         }
 
         public GridPosition GetMapCenterPosition() => this._mapData.GetCenter();
@@ -82,5 +93,33 @@ namespace Game.Map.Battle {
 
         public void UnHighlightUnits() =>
             this._highlighter.UnHighlightUnits();
+
+        private void HandleTransparencyViewInput() {
+            if (Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.RightControl)) {
+                this.ApplyTransparencyView();
+            }
+
+            if (Input.GetKeyUp(KeyCode.LeftControl) || Input.GetKeyUp(KeyCode.RightControl)) {
+                this.ApplyDefaultView();
+            }
+        }
+
+        private void ApplyTransparencyView() {
+            if (this._isTransparencyViewActive) {
+                return;
+            }
+
+            this._isTransparencyViewActive = true;
+            this._viewManager.ApplyTransparencyView();
+        }
+
+        private void ApplyDefaultView() {
+            if (!this._isTransparencyViewActive) {
+                return;
+            }
+
+            this._isTransparencyViewActive = false;
+            this._viewManager.ApplyDefaultView();
+        }
     }
 }

@@ -288,10 +288,10 @@ namespace Game.Map.Battle.Generation {
         private static void ApplyWallHeight(GeneratedTile[,] tiles, Vector2Int wallPosition,
             BattleMapGenerationConfig config) {
             GeneratedTile wallTile = tiles[wallPosition.x, wallPosition.y];
-            int maxNearbyFloorHeight = GenerationUtils.GetMaxNearbyFloorHeight(tiles, wallPosition, config.WallHeightCheckRadius);
+            int maxNearbyFloorHeight =
+                GenerationUtils.GetMaxNearbyFloorHeight(tiles, wallPosition, config.WallHeightCheckRadius);
             int requiredWallHeight = maxNearbyFloorHeight + config.MinWallHeightAboveNearbyFloor;
             wallTile.Height = Mathf.Max(wallTile.Height, config.MinWallHeight, requiredWallHeight);
         }
-
     }
 }

@@ -82,11 +82,14 @@ namespace Game.Map.Battle.Generation {
                     if (tile.Type != TileType.Wall) {
                         continue;
                     }
+
                     if (tile.Height < config.MinWallHeight) {
                         return false;
                     }
+
                     int maxNearbyFloorHeight =
-                        GenerationUtils.GetMaxNearbyFloorHeight(tiles, new Vector2Int(x, y), config.WallHeightCheckRadius);
+                        GenerationUtils.GetMaxNearbyFloorHeight(tiles, new Vector2Int(x, y),
+                            config.WallHeightCheckRadius);
                     int requiredHeight = maxNearbyFloorHeight + config.MinWallHeightAboveNearbyFloor;
                     if (tile.Height < requiredHeight) {
                         return false;
@@ -151,6 +154,5 @@ namespace Game.Map.Battle.Generation {
 
             return false;
         }
-
     }
 }
