@@ -45,11 +45,8 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: MapScene
+  - name: World
     uniqueID: 817018007
-    locked: 0
-  - name: Unit
-    uniqueID: 3421894621
     locked: 0
   - name: Effects
     uniqueID: 1341277711

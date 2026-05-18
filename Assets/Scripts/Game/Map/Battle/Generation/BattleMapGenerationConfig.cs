@@ -15,6 +15,8 @@ namespace Game.Map.Battle.Generation {
             this.PlayerSpawnCount = builder.PlayerSpawnCount;
             this.EnemySpawnCount = builder.EnemySpawnCount;
             this.MinWallHeight = builder.MinWallHeight;
+            this.MinWallHeightAboveNearbyFloor = builder.MinWallHeightAboveNearbyFloor;
+            this.WallHeightCheckRadius = builder.WallHeightCheckRadius;
             this.BaseFloorVariant = builder.BaseFloorVariant;
             this.FloorVariantWeights = builder.FloorVariantWeights;
             this.WallVariantWeights = builder.WallVariantWeights;
@@ -31,7 +33,10 @@ namespace Game.Map.Battle.Generation {
 
         public int PlayerSpawnCount { get; }
         public int EnemySpawnCount { get; }
+
         public int MinWallHeight { get; }
+        public int MinWallHeightAboveNearbyFloor { get; }
+        public int WallHeightCheckRadius { get; }
 
         public TileTypeVariant BaseFloorVariant { get; }
         public ListWeightedOption<TileTypeVariant> FloorVariantWeights { get; }
@@ -51,7 +56,9 @@ namespace Game.Map.Battle.Generation {
 
             internal int PlayerSpawnCount { get; private set; } = 5;
             internal int EnemySpawnCount { get; private set; } = 4;
-            internal int MinWallHeight { get; } = 1;
+            internal int MinWallHeight { get; private set; } = 1;
+            internal int MinWallHeightAboveNearbyFloor { get; private set; } = 1;
+            internal int WallHeightCheckRadius { get; private set; } = 1;
 
             internal TileTypeVariant BaseFloorVariant { get; private set; } = TileTypeVariant.Grass;
 
@@ -78,21 +85,14 @@ namespace Game.Map.Battle.Generation {
                 return this;
             }
 
-            public Builder WithHeightConfig(
-                IntRange countRange,
-                IntRange radiusRange,
-                IntRange maxHeightRange
-            ) {
+            public Builder WithHeightConfig(IntRange countRange, IntRange radiusRange, IntRange maxHeightRange) {
                 this.HeightPatchCountRange = countRange;
                 this.HeightPatchRadiusRange = radiusRange;
                 this.MaxHeightRange = maxHeightRange;
                 return this;
             }
 
-            public Builder WithZoneVariantConfig(
-                IntRange countRange,
-                IntRange radiusRange
-            ) {
+            public Builder WithZoneVariantConfig(IntRange countRange, IntRange radiusRange) {
                 this.VariantPatchCountRange = countRange;
                 this.VariantPatchRadiusRange = radiusRange;
                 return this;
@@ -109,17 +109,21 @@ namespace Game.Map.Battle.Generation {
                 return this;
             }
 
-            public Builder WithFloorVariantWeights(
-                ListWeightedOption<TileTypeVariant> floorVariantWeights
-            ) {
+            public Builder WithFloorVariantWeights(ListWeightedOption<TileTypeVariant> floorVariantWeights) {
                 this.FloorVariantWeights = floorVariantWeights;
                 return this;
             }
 
-            public Builder WithWallVariantWeights(
-                ListWeightedOption<TileTypeVariant> wallVariantWeights
-            ) {
+            public Builder WithWallVariantWeights(ListWeightedOption<TileTypeVariant> wallVariantWeights) {
                 this.WallVariantWeights = wallVariantWeights;
+                return this;
+            }
+
+            public Builder WithWallHeightRules(int minWallHeight, int minWallHeightAboveNearbyFloor,
+                int wallHeightCheckRadius) {
+                this.MinWallHeight = minWallHeight;
+                this.MinWallHeightAboveNearbyFloor = minWallHeightAboveNearbyFloor;
+                this.WallHeightCheckRadius = wallHeightCheckRadius;
                 return this;
             }
 

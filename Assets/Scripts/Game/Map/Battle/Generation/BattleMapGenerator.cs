@@ -217,6 +217,7 @@ namespace Game.Map.Battle.Generation {
                     ? config.WallVariantWeights.Pick(random)
                     : TileTypeVariant.Stone;
                 floorTile.SetTile(TileType.Wall, wallVariant);
+                ApplyWallHeight(tiles, candidate, config);
                 placed++;
             }
         }
@@ -283,5 +284,14 @@ namespace Game.Map.Battle.Generation {
                 tiles[position.x, position.y].IsEnemySpawn = true;
             }
         }
+
+        private static void ApplyWallHeight(GeneratedTile[,] tiles, Vector2Int wallPosition,
+            BattleMapGenerationConfig config) {
+            GeneratedTile wallTile = tiles[wallPosition.x, wallPosition.y];
+            int maxNearbyFloorHeight = GenerationUtils.GetMaxNearbyFloorHeight(tiles, wallPosition, config.WallHeightCheckRadius);
+            int requiredWallHeight = maxNearbyFloorHeight + config.MinWallHeightAboveNearbyFloor;
+            wallTile.Height = Mathf.Max(wallTile.Height, config.MinWallHeight, requiredWallHeight);
+        }
+
     }
 }

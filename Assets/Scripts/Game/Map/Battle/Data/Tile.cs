@@ -14,7 +14,6 @@ namespace Game.Map.Battle.Data {
 
         public TileType Type => this.type;
         public TileTypeVariant Variant => this.variant;
-        public bool IsRenderBellow() => this.type.IsRenderBellow();
         public bool IsWalkable() => this.type.IsWalkable();
 
         public bool Equals(Tile other) {

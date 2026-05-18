@@ -28,15 +28,9 @@
             parentGameObject.transform.SetParent(this._parentGameObject.transform);
 
 
-            if (tileData.Tile.IsRenderBellow()) {
-                for (int i = 0; i <= tileData.TileGridPosition.Height; i++) {
-                    this.RenderTile(tileData, tileRenderElement.Prefab, parentGameObject.transform,
-                        new GridPosition(tileData.TileGridPosition.Position, i));
-                }
-            }
-            else {
+            for (int i = 0; i <= tileData.TileGridPosition.Height; i++) {
                 this.RenderTile(tileData, tileRenderElement.Prefab, parentGameObject.transform,
-                    tileData.TileGridPosition);
+                    new GridPosition(tileData.TileGridPosition.Position, i));
             }
         }
 
