@@ -26,7 +26,8 @@ namespace Game.Map.Battle.Renderer {
         public void ApplyDefaultView() {
             foreach (MapCell cell in this._cells.Values) {
                 if (cell.GetOccupantUnit() != null) {
-                    cell.SetVisibleBelow(true);
+                    cell.SetVisible(true);
+                    cell.SetTransparent(false);
                 }
                 else {
                     if (cell.IsWalkable()) {
