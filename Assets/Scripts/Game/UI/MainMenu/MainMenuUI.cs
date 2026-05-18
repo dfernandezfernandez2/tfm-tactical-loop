@@ -34,8 +34,10 @@ namespace Game.UI.MainMenu {
                 unit.transform.SetParent(this.mapGameObject.transform);
                 SpriteRenderer sprite = unit.AddComponent<SpriteRenderer>();
                 sprite.sprite = unitElement.Sprite;
-                sprite.sortingLayerName = "Unit";
-                unit.transform.position = this.worldRender.GridToWorld(new GridPosition(unitElement.Position, 0));
+                sprite.sortingLayerName = "World";
+                GridPosition gridPosition = new(unitElement.Position, 0);
+                unit.transform.position = this.worldRender.GridToWorld(gridPosition);
+                unit.GetComponentInChildren<SpriteRenderer>().sortingOrder = WorldRender.GetSortingOrder(gridPosition);
                 unit.transform.localScale = new Vector3(2f, 2f, 2f);
             }
 

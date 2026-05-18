@@ -17,5 +17,8 @@ namespace Game.Map.Battle.Data {
         public void UnHighlightCell() => this._tileData?.TileView.Unhighlight();
         public void Select() => this._tileData?.TileView.Select();
         public void UnSelect() => this._tileData?.TileView.UnSelect();
+        public void SetTransparent(bool transparent) => this._tileData?.TileView.SetTransparent(transparent);
+        public void SetVisible(bool visible) => this._tileData?.TileView.SetVisible(visible);
+        public void SetVisibleBelow(bool visible) => this._tileData?.TileView.SetVisibleBelow(visible);
     }
 }

@@ -4,12 +4,12 @@ namespace Game.Map.Battle.Data {
     using Unit;
 
     public class TileSearchConfig {
-        public int Range = -1;
+        public bool ApplyHeightLineOfSight = false;
         public bool CanEnterCheck = true;
-        public Target Target = Target.None;
         public Func<UnitObject, bool> CanSelect = null;
+        public int Range = -1;
 
         public bool RequiresLineOfSight = false;
-        public bool ApplyHeightLineOfSight = false;
+        public Target Target = Target.None;
     }
 }

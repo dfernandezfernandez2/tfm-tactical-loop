@@ -105,5 +105,30 @@ namespace Game.Map.Battle.Generation {
 
             return visited;
         }
+
+        public static int GetMaxNearbyFloorHeight(GeneratedTile[,] tiles, Vector2Int center, int radius) {
+            int maxHeight = 0;
+            for (int x = center.x - radius; x <= center.x + radius; x++) {
+                for (int y = center.y - radius; y <= center.y + radius; y++) {
+                    if (!IsInside(tiles, x, y)) {
+                        continue;
+                    }
+
+                    int distance = Mathf.Abs(x - center.x) + Mathf.Abs(y - center.y);
+                    if (distance == 0 || distance > radius) {
+                        continue;
+                    }
+
+                    GeneratedTile tile = tiles[x, y];
+                    if (tile.Type != TileType.Floor) {
+                        continue;
+                    }
+
+                    maxHeight = Mathf.Max(maxHeight, tile.Height);
+                }
+            }
+
+            return maxHeight;
+        }
     }
 }

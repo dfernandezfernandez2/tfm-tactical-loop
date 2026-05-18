@@ -37,7 +37,7 @@ namespace Game.Map.Battle {
                 closedList.Add(current);
 
                 foreach (GridPosition neighbour in this._mapData.GetNeighbours(current.GridPosition)) {
-                    if (!this._queryService.CanEnter(neighbour) && !neighbour.Equals(target)) {
+                    if (!this._queryService.CanEnter(current.GridPosition, neighbour) && !neighbour.Equals(target)) {
                         continue;
                     }
 

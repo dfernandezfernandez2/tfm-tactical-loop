@@ -46,6 +46,7 @@ namespace Game.Map.Battle.Generation {
                         new WeightedOption<TileTypeVariant>(TileTypeVariant.Stone, 100)
                     )
                 )
+                .WithWallHeightRules(1, 1, 1)
                 .Build();
 
         private static BattleMapGenerationConfig CreateElite(int level, int numEnemies) =>
@@ -84,6 +85,7 @@ namespace Game.Map.Battle.Generation {
                         new WeightedOption<TileTypeVariant>(TileTypeVariant.Stone, 100)
                     )
                 )
+                .WithWallHeightRules(2, 1, 1)
                 .Build();
 
         private static BattleMapGenerationConfig CreateBoss(int numEnemies) =>
@@ -122,6 +124,7 @@ namespace Game.Map.Battle.Generation {
                         new WeightedOption<TileTypeVariant>(TileTypeVariant.Stone, 100)
                     )
                 )
+                .WithWallHeightRules(2, 2, 1)
                 .Build();
     }
 }
