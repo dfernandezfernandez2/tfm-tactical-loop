@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Unit.Data.UnitData
   unitName: Knight
   unitSprite: {fileID: 3709218044520360960, guid: 27ef1ae2aff67b24386a19abd220282a, type: 3}
+  isRanged: 0
   hp: 30
   mp: 1
   mpRegen: 0

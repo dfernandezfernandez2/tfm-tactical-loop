@@ -32,7 +32,8 @@ namespace Game.Battle.IA.Evaluator {
                 Target = skill.target,
                 CanSelect = action.CanSelect,
                 ApplyHeightLineOfSight = skill.applyHeightLineOfSight,
-                RequiresLineOfSight = true
+                RequiresLineOfSight = true,
+                SourceTeam = context.Enemy.Team.GetBattleTeam()
             };
             foreach (TileData reachableTile in
                      this.BattleMapManager.GetReachableTiles(context.CurrentPosition, config)) {
@@ -51,7 +52,7 @@ namespace Game.Battle.IA.Evaluator {
             switch (skill.target) {
                 case Target.Enemy: {
                     score += 35f;
-                    if (IsWeakTarget(target)) {
+                    if (DecisionUtilities.IsWeakTarget(target)) {
                         score += 20f;
                     }
 

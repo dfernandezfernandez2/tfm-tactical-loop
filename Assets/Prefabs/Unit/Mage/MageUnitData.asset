@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Unit.Data.UnitData
   unitName: Mage
   unitSprite: {fileID: -8070195584892687665, guid: 1f5f7f70799b3274a9eb600eb5e5e3c1, type: 3}
+  isRanged: 1
   hp: 20
   mp: 5
   mpRegen: 1

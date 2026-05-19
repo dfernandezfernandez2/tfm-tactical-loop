@@ -8,8 +8,8 @@ namespace Game.Battle.IA {
             this.TargetPosition = targetPosition;
         }
 
-        public IBattleAction Action { get; private set; }
-        public GridPosition TargetPosition { get; private set; }
+        public IBattleAction Action { get; }
+        public GridPosition TargetPosition { get; }
 
         public static DecisionResult Wait() => new(new WaitAction(), null);
     }

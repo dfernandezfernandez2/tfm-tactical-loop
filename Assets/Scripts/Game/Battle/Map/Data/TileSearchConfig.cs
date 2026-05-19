@@ -1,5 +1,6 @@
 namespace Game.Battle.Map.Data {
     using System;
+    using Battle.Data;
     using Item;
     using Unit;
 
@@ -10,6 +11,7 @@ namespace Game.Battle.Map.Data {
         public int Range = -1;
 
         public bool RequiresLineOfSight = false;
+        public BattleTeam? SourceTeam = null;
         public Target Target = Target.None;
     }
 }

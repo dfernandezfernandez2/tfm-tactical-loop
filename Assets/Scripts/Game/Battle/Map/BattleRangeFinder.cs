@@ -28,7 +28,7 @@ namespace Game.Battle.Map {
             TileData originTile = this._mapData.GetTile(origin.Position.x, origin.Position.y);
 
             UnitObject occupant = this._cells[origin].GetOccupantUnit();
-            BattleTeam? currentTeam = occupant?.Team?.GetBattleTeam();
+            BattleTeam? currentTeam = config.SourceTeam ?? occupant?.Team?.GetBattleTeam();
 
             queue.Enqueue(originTile);
             costs[originTile] = 0;

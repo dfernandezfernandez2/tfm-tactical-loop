@@ -43,7 +43,7 @@ namespace Game.Battle.IA.Evaluator {
                 score += 100f;
             }
 
-            if (IsWeakTarget(target)) {
+            if (DecisionUtilities.IsWeakTarget(target)) {
                 score += 15f;
             }
 
@@ -55,10 +55,11 @@ namespace Game.Battle.IA.Evaluator {
                 CanEnterCheck = false,
                 CanSelect = unit => !unit.Unit.IsDead(),
                 Range = context.Enemy.Unit.GetCurrentIntStat(StatType.Range),
-                Target = Target.Enemy
+                Target = Target.Enemy,
+                SourceTeam = context.Enemy.Team.GetBattleTeam()
             };
             IReadOnlyList<TileData> reachableTiles =
-                this.BattleMapManager.GetReachableTiles(context.Enemy.Unit.GridPosition, tileSearchConfig);
+                this.BattleMapManager.GetReachableTiles(context.CurrentPosition, tileSearchConfig);
             return reachableTiles.Select(tile => this.BattleMapManager.GetUnit(tile.TileGridPosition))
                 .Where(unitObject => unitObject != null && unitObject.Unit != null)
                 .OrderBy(unitObject => unitObject.Unit.GetCurrentIntStat(StatType.Hp));

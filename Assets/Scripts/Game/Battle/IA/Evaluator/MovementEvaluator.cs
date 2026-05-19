@@ -1,4 +1,5 @@
 namespace Game.Battle.IA.Evaluator {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using Actions;
@@ -8,6 +9,8 @@ namespace Game.Battle.IA.Evaluator {
     using Unit.Data;
 
     public class MovementEvaluator : AbstractActionEvaluator<MovementSelectionAction> {
+        private const int _maxCandidatePositions = 8;
+
         public MovementEvaluator(BattleMapManager battleMapManager) : base(battleMapManager) {
         }
 
@@ -20,25 +23,48 @@ namespace Game.Battle.IA.Evaluator {
             TileSearchConfig config = new() {
                 Range = context.Enemy.Unit.GetCurrentIntStat(StatType.Movement)
             };
+            UnitObject closestTarget =
+                DecisionUtilities.GetClosestEnemy(context.TurnOrder, context.Enemy, context.CurrentPosition);
             IReadOnlyList<TileData> reachableTiles =
                 this.BattleMapManager.GetReachableTiles(context.CurrentPosition, config);
-            UnitObject closestTarget = GetClosestEnemy(context);
-            if (closestTarget == null) {
-                return reachableTiles.Select(x => x.TileGridPosition).Where(x => !x.Equals(context.CurrentPosition))
-                    .Take(6);
-            }
-
-            return reachableTiles.Select(x => x.TileGridPosition).Where(x => !x.Equals(context.CurrentPosition))
-                .OrderBy(x => GetDistance(x, closestTarget.Unit.GridPosition)).Take(6);
+            IEnumerable<GridPosition> positions = reachableTiles.Select(tile => tile.TileGridPosition)
+                .Where(position => !position.Equals(context.CurrentPosition));
+            return closestTarget == null
+                ? positions.Take(_maxCandidatePositions)
+                : positions.OrderByDescending(position => GetPositionScore(context, position, closestTarget))
+                    .Take(_maxCandidatePositions);
         }
-
-        private static UnitObject GetClosestEnemy(ActionContext context) =>
-            context.TurnOrder.Where(unit => unit != context.Enemy)
-                .Where(unit => unit.Team.GetBattleTeam() != context.Enemy.Team.GetBattleTeam())
-                .Where(unit => !unit.Unit.IsDead())
-                .OrderBy(unit => GetDistance(context.CurrentPosition, unit.Unit.GridPosition)).FirstOrDefault();
 
         protected override float GetScore(ActionContext context, MovementSelectionAction action,
             DecisionResult decision) => 0f;
+
+        private static float GetPositionScore(ActionContext context, GridPosition position, UnitObject target) {
+            int distance = DecisionUtilities.GetDistance(position, target.Unit.GridPosition);
+            return context.Enemy.data.isRanged
+                ? ScoreRangedPosition(context.Enemy.Actions.GetMaxSkillRange(), distance)
+                : ScoreMeleePosition(distance);
+        }
+
+        private static float ScoreMeleePosition(int distance) => distance == 1 ? 150f : -distance * 20f;
+
+        private static float ScoreRangedPosition(int attackRange, int distance) {
+            int minSafeDistance = Math.Max(2, (int)Math.Ceiling(attackRange * 0.5f));
+            int distanceToIdeal = Math.Abs(distance - attackRange);
+            float score = 0f;
+            if (distance <= 1) {
+                score -= 250f;
+            }
+
+            if (distance <= minSafeDistance) {
+                score -= 100f;
+            }
+
+            if (distance <= attackRange) {
+                score += 50f;
+            }
+
+            score -= distanceToIdeal * 15f;
+            return score;
+        }
     }
 }

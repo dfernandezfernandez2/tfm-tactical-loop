@@ -30,5 +30,7 @@ namespace Game.Battle.Unit {
         public IReadOnlyList<IBattleAction> GetAllAvailableActions() =>
             this.GetBasicActions().Concat(
                 this.GetSkillActions()).ToList();
+
+        public int GetMaxSkillRange() => this.skills.Select(skill => skill.range).Max();
     }
 }

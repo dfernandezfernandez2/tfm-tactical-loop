@@ -1,4 +1,5 @@
 namespace Game.Battle.IA {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using Actions;
@@ -95,6 +96,8 @@ namespace Game.Battle.IA {
                     yield return decision;
                 }
             }
+
+            yield return DecisionResult.Wait();
         }
 
         private float ScorePlan(UnitObject enemy, IReadOnlyList<UnitObject> turnOrder,
@@ -113,10 +116,81 @@ namespace Game.Battle.IA {
                 }
             }
 
+            score += GetFinalPositionScore(enemy, turnOrder, currentPosition);
             return score;
         }
 
         private IActionEvaluator GetEvaluator(IBattleAction action) =>
             this._actionEvaluators.FirstOrDefault(evaluator => evaluator.CanEvaluate(action));
+
+        private static float GetFinalPositionScore(UnitObject enemy, IReadOnlyList<UnitObject> turnOrder,
+            GridPosition finalPosition) {
+            UnitObject closestTarget = DecisionUtilities.GetClosestEnemy(turnOrder, enemy, enemy.Unit.GridPosition);
+            int distanceBefore =
+                DecisionUtilities.GetDistance(enemy.Unit.GridPosition, closestTarget.Unit.GridPosition);
+            int distanceAfter = DecisionUtilities.GetDistance(finalPosition, closestTarget.Unit.GridPosition);
+            return enemy.data.isRanged
+                ? ScoreRangedPosition(enemy.Actions.GetMaxSkillRange(), distanceBefore, distanceAfter)
+                : ScoreMeleePosition(distanceBefore, distanceAfter);
+        }
+
+        private static float ScoreMeleePosition(int distanceBefore, int distanceAfter) {
+            float score = 0f;
+            if (distanceAfter == 1) {
+                score += 120f;
+            }
+
+            if (distanceAfter < distanceBefore) {
+                score += (distanceBefore - distanceAfter) * 25f;
+            }
+
+            if (distanceAfter > distanceBefore) {
+                score -= (distanceAfter - distanceBefore) * 40f;
+            }
+
+            if (distanceAfter > 1) {
+                score -= distanceAfter * 8f;
+            }
+
+            return score;
+        }
+
+        private static float ScoreRangedPosition(int attackRange, int distanceBefore, int distanceAfter) {
+            int minSafeDistance = Math.Max(2, (int)Math.Ceiling(attackRange * 0.5f));
+            int distanceToIdeal = Math.Abs(distanceAfter - attackRange);
+            float score = 0f;
+            if (distanceBefore <= minSafeDistance) {
+                if (distanceAfter > distanceBefore) {
+                    score += (distanceAfter - distanceBefore) * 45f;
+                }
+                else {
+                    score -= 160f;
+                }
+
+                if (distanceAfter > minSafeDistance) {
+                    score += 100f;
+                }
+            }
+
+            if (distanceBefore > attackRange) {
+                if (distanceAfter < distanceBefore) {
+                    score += (distanceBefore - distanceAfter) * 25f;
+                }
+                else {
+                    score -= 60f;
+                }
+            }
+
+            if (distanceAfter <= attackRange) {
+                score += 40f;
+            }
+
+            score -= distanceToIdeal * 12f;
+            if (distanceAfter <= 1) {
+                score -= 200f;
+            }
+
+            return score;
+        }
     }
 }
