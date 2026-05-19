@@ -31,6 +31,7 @@ namespace Game.Battle.Unit {
             this.GetBasicActions().Concat(
                 this.GetSkillActions()).ToList();
 
-        public int GetMaxSkillRange() => this.skills.Select(skill => skill.range).Max();
+        public int GetMaxSkillRange() =>
+            this.skills.Select(skill => skill.range).DefaultIfEmpty(1).Max();
     }
 }

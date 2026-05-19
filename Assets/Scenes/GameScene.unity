@@ -417,11 +417,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19103276488b45ffb02750b0af9ee2bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Core.GameManager
-  battleMapLoader: {fileID: 1714853825}
-  gridConverter: {fileID: 396172803108293899, guid: 48e0b3554fdf9b040b383e267d5e6b36, type: 3}
-  battleMapManager: {fileID: 422319659}
   unitPlacementController: {fileID: 422319661}
   mainCamera: {fileID: 2086373357}
+  battleMapLoader: {fileID: 1714853825}
+  battleMapManager: {fileID: 422319659}
+  gridConverter: {fileID: 396172803108293899, guid: 48e0b3554fdf9b040b383e267d5e6b36, type: 3}
 --- !u!114 &422319658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -436,9 +436,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.Battle.TurnManager
   unitActionPanelUI: {fileID: 1785364205}
   unitInfoPanelUI: {fileID: 1785364207}
-  battleMapManager: {fileID: 422319659}
   userSelectionManager: {fileID: 422319660}
   turnOrderUI: {fileID: 1792591167}
+  battleMapManager: {fileID: 422319659}
 --- !u!114 &422319659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -463,9 +463,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21a0cf99810a47d7b988dba803027253, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Battle.UserSelectionManager
-  battleMapManager: {fileID: 422319659}
   mainCamera: {fileID: 2086373357}
-  worldRender: {fileID: 396172803108293899, guid: 48e0b3554fdf9b040b383e267d5e6b36, type: 3}
 --- !u!114 &422319661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -478,10 +476,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfd42de36da24b7baf7dbaa23cb6dbb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Core.UnitPlacementController
-  battleMapManager: {fileID: 422319659}
   mainCamera: {fileID: 2086373357}
-  worldRender: {fileID: 396172803108293899, guid: 48e0b3554fdf9b040b383e267d5e6b36, type: 3}
   unitSelectorUI: {fileID: 2088368095}
+  battleMapManager: {fileID: 422319659}
+  worldRender: {fileID: 396172803108293899, guid: 48e0b3554fdf9b040b383e267d5e6b36, type: 3}
 --- !u!114 &422319662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -619,7 +617,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3055c76bfc34a9b81e2e8074634c923, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Battle.BattleMapFactory
-  archerUnitObject: {fileID: 7550251793013227126, guid: 5c9c7fd168630e04bb52012ecf2987a4, type: 3}
+  archerUnitObject: {fileID: 7550251793013227126, guid: 006e976578f62954ca8158e91be4a53f, type: 3}
   knightUnitObject: {fileID: 7550251793013227126, guid: 0f9314bda15613f46a373aebc4e82822, type: 3}
   mageUnitObject: {fileID: 7550251793013227126, guid: 2813b5337bfae444c9f8222858ac5204, type: 3}
 --- !u!114 &422319667
