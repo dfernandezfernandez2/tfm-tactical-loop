@@ -57,7 +57,6 @@ namespace Game.Map.Run.UI {
 
             NodeConnectionUI connectionUI = this._instanceNodeConnection(previousNode.Node, currentNode.Node);
             previousNode.NextNodeConnections.Add(new ConnectionNode(connectionUI, currentNode));
-            currentNode.PreviousNodeConnections.Add(new ConnectionNode(connectionUI, previousNode));
         }
     }
 }

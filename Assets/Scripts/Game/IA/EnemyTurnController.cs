@@ -2,10 +2,10 @@ namespace Game.IA {
     using System.Collections.Generic;
     using System.Linq;
     using Battle.Actions;
-    using global::Unit.Data;
     using Map.Battle;
     using Map.Battle.Data;
     using Unit;
+    using Unit.Data;
     using UnityEngine;
 
     public class EnemyTurnController {

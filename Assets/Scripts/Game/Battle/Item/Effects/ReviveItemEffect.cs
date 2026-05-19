@@ -1,9 +1,9 @@
 namespace Game.Battle.Item.Effects {
     using System.Collections;
-    using global::Unit.Data;
     using Map.Battle;
     using Map.Battle.Data;
     using Unit;
+    using Unit.Data;
     using UnityEngine;
 
     [CreateAssetMenu(menuName = "Item/Effects/Revive Item effect")]

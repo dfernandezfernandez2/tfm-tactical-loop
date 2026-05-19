@@ -7,7 +7,7 @@ namespace Game.Map.Run {
             this.CurrentNode = startNode;
         }
 
-        public RunNode StartNode { get; set; }
+        private RunNode StartNode { get; }
         public RunNode CurrentNode { get; set; }
 
         public void Accept<TContext>(IRunNodeVisitor<TContext> visitor, TContext context) =>

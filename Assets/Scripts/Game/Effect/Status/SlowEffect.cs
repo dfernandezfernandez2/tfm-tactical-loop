@@ -1,7 +1,7 @@
 namespace Game.Effect.Status {
     using System.Collections;
-    using global::Unit.Data;
     using Unit;
+    using Unit.Data;
     using UnityEngine;
 
     public class SlowEffect : StatusEffect {

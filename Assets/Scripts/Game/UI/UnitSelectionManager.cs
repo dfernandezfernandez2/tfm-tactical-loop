@@ -3,9 +3,9 @@ namespace Game.UI {
     using System.Linq;
     using Core;
     using Core.Data;
-    using global::Unit.Data;
     using TMPro;
     using Unit;
+    using Unit.Data;
     using UnityEngine;
     using UnityEngine.SceneManagement;
     using UnityEngine.UI;

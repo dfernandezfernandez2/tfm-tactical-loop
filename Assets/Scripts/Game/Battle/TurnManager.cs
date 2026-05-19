@@ -6,13 +6,13 @@ namespace Game.Battle {
     using Actions;
     using Core;
     using Core.Data;
-    using global::Unit.Data;
     using IA;
     using Item;
     using Map.Battle;
     using Map.Battle.Data;
     using UI;
     using Unit;
+    using Unit.Data;
     using UnityEngine;
     using Random = UnityEngine.Random;
 

@@ -1,7 +1,7 @@
 ﻿namespace Game.Unit {
     using System.Collections.Generic;
     using System.Linq;
-    using global::Unit.Data;
+    using Data;
     using Map.Battle.Data;
     using UnityEngine;
 

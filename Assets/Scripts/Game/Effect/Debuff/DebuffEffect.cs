@@ -1,8 +1,8 @@
 namespace Game.Effect.Debuff {
     using System.Collections;
     using Data;
-    using global::Unit.Data;
     using Unit;
+    using Unit.Data;
     using UnityEngine;
 
     public class DebuffEffect : BattleEffect {

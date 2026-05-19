@@ -1,11 +1,11 @@
 namespace Game.Battle.Item.Effects {
     using System.Collections;
     using Effect.Recover;
-    using global::Unit.Data;
     using Map.Battle;
     using Map.Battle.Data;
     using UI;
     using Unit;
+    using Unit.Data;
     using UnityEngine;
 
     [CreateAssetMenu(menuName = "Item/Effects/Recover Item effect")]

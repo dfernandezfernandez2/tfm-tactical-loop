@@ -3,7 +3,6 @@ namespace Game.Map.Run.UI.Data {
 
     public class MapNode {
         public readonly List<ConnectionNode> NextNodeConnections = new();
-        public readonly List<ConnectionNode> PreviousNodeConnections = new();
         public readonly RunNode RunNode;
         public NodeUI Node;
 

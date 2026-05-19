@@ -15,8 +15,6 @@ namespace Game.Map.Run {
             this.Level = level;
         }
 
-        public bool Completed { get; private set; }
-
         public void AddNextNode(params RunNode[] nextNodes) {
             foreach (RunNode nextNode in nextNodes) {
                 this.NextNodes.Add(nextNode);
@@ -24,8 +22,6 @@ namespace Game.Map.Run {
         }
 
         public void Accept<TArg>(IRunNodeVisitor<TArg> visitor, TArg arg) => visitor.Visit(this, arg);
-
-        public void Complete() => this.Completed = true;
 
         public override bool Equals(object obj) => obj is RunNode other && this.Id == other.Id;
 

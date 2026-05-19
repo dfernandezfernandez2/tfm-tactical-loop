@@ -1,6 +1,6 @@
 namespace Game.Unit {
     using System.Collections.Generic;
-    using global::Unit.Data;
+    using Data;
 
     public class UnitStatsModifier {
         private readonly Dictionary<StatType, float> _modifiers = new();

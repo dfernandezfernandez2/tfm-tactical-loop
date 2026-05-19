@@ -1,4 +1,4 @@
-﻿namespace Unit.Data {
+﻿namespace Game.Unit.Data {
     public enum StatType {
         Hp,
         Mp,

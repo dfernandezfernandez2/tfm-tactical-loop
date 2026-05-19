@@ -1,7 +1,6 @@
 namespace Game.Unit {
     using System;
     using Data;
-    using global::Unit.Data;
     using Map.Battle.Data;
     using UnityEngine;
     using Random = UnityEngine.Random;

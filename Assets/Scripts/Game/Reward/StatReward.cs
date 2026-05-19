@@ -1,7 +1,7 @@
 namespace Game.Reward {
     using Core;
     using Core.Data;
-    using global::Unit.Data;
+    using Unit.Data;
     using UnityEngine;
 
     [CreateAssetMenu(menuName = "Reward/Stat")]

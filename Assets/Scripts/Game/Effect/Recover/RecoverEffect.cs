@@ -2,8 +2,8 @@ namespace Game.Effect.Recover {
     using System.Collections;
     using Battle.UI;
     using Data;
-    using global::Unit.Data;
     using Unit;
+    using Unit.Data;
     using UnityEngine;
 
     public class RecoverEffect : BattleEffect {

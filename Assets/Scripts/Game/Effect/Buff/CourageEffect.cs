@@ -1,5 +1,5 @@
 namespace Game.Effect.Buff {
-    using global::Unit.Data;
+    using Unit.Data;
     using UnityEngine;
 
     public class CourageEffect : BuffEffect {

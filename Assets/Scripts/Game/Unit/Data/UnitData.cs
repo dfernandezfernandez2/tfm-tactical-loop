@@ -1,6 +1,5 @@
 ﻿namespace Game.Unit.Data {
     using System.Collections.Generic;
-    using global::Unit.Data;
     using UnityEngine;
 
     [CreateAssetMenu(menuName = "Unit/Unit Data")]

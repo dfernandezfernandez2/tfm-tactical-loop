@@ -1,8 +1,8 @@
 namespace Game.Battle.UI {
     using System.Collections.Generic;
-    using global::Unit.Data;
     using TMPro;
     using Unit;
+    using Unit.Data;
     using UnityEngine;
     using UnityEngine.UI;
 

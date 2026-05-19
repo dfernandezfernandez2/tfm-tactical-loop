@@ -1,6 +1,6 @@
 namespace Game.Effect.Recover {
     using Battle.UI;
-    using global::Unit.Data;
+    using Unit.Data;
     using UnityEngine;
 
     public class HealRecoverEffect : RecoverEffect {

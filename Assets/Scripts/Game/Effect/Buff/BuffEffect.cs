@@ -1,8 +1,8 @@
 namespace Game.Effect.Buff {
     using System.Collections;
     using Data;
-    using global::Unit.Data;
     using Unit;
+    using Unit.Data;
     using UnityEngine;
 
     public class BuffEffect : BattleEffect {

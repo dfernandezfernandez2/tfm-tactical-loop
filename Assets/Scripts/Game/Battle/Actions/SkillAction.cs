@@ -1,11 +1,11 @@
 namespace Game.Battle.Actions {
     using System.Collections;
     using System.Linq;
-    using global::Unit.Data;
     using IA;
     using Map.Battle;
     using Map.Battle.Data;
     using Unit;
+    using Unit.Data;
     using Unit.Skills;
 
     public class SkillAction : IBattleAction {
