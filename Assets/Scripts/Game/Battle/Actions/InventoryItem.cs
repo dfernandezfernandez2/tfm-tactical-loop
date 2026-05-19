@@ -3,8 +3,8 @@ namespace Game.Battle.Actions {
     using System.Collections;
     using IA;
     using Item;
-    using Map.Battle;
-    using Map.Battle.Data;
+    using Map;
+    using Map.Data;
     using Unit;
 
     public class InventoryItem : IBattleAction {

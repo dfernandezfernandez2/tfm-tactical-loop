@@ -1,10 +1,9 @@
 namespace Game.Battle {
     using System;
     using System.Linq;
-    using Core;
     using Data;
-    using Map.Battle.Generation;
-    using Map.Run;
+    using Map.Generation;
+    using Run.Map;
     using Unit;
     using UnityEngine;
 

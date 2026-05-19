@@ -2,7 +2,7 @@ namespace Game.Battle.UI {
     using System;
     using System.Collections.Generic;
     using Actions;
-    using Core;
+    using Controls;
     using UnityEngine;
 
     public class UnitActionPanelUI : MonoBehaviour {

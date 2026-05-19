@@ -2,8 +2,8 @@ namespace Game.Battle.Actions {
     using System.Collections;
     using System.Collections.Generic;
     using IA;
-    using Map.Battle;
-    using Map.Battle.Data;
+    using Map;
+    using Map.Data;
     using Unit;
 
     public class MovementSelectionAction : AbstractBasicAction {

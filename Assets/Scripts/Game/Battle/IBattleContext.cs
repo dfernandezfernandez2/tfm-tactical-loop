@@ -2,7 +2,8 @@ namespace Game.Battle {
     using System;
     using System.Collections;
     using Actions;
-    using Map.Battle.Data;
+    using Map.Data;
+    using Selection;
 
     public interface IBattleContext {
         public void EnterMovementSelection();

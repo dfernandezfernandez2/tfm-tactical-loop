@@ -1,7 +1,7 @@
 namespace Game.Battle.Actions {
     using System.Collections;
     using IA;
-    using Map.Battle;
+    using Map;
     using Unit;
     using Unit.Data;
 

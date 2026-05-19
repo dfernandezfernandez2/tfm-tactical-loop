@@ -124,13 +124,13 @@ dotnet_naming_style.private_field_style.capitalization = camel_case
 # Naming symbols
 ##########################################
 
-dotnet_naming_symbols.types.applicable_kinds = class,struct,enum
+dotnet_naming_symbols.types.applicable_kinds = class, struct, enum
 dotnet_naming_symbols.types.applicable_accessibilities = *
 
 dotnet_naming_symbols.interfaces.applicable_kinds = interface
 dotnet_naming_symbols.interfaces.applicable_accessibilities = *
 
-dotnet_naming_symbols.members.applicable_kinds = property,method,event
+dotnet_naming_symbols.members.applicable_kinds = property, method, event
 dotnet_naming_symbols.members.applicable_accessibilities = *
 
 dotnet_naming_symbols.private_fields.applicable_kinds = field

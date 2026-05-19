@@ -1,8 +1,8 @@
 namespace Game.Battle.Item.Effects {
     using System.Collections;
     using Effect.Recover;
-    using Map.Battle;
-    using Map.Battle.Data;
+    using Map;
+    using Map.Data;
     using UI;
     using Unit;
     using Unit.Data;

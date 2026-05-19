@@ -4,12 +4,13 @@ namespace Game.Battle {
     using System.Collections.Generic;
     using System.Linq;
     using Actions;
-    using Core;
-    using Core.Data;
+    using Data;
     using IA;
     using Item;
-    using Map.Battle;
-    using Map.Battle.Data;
+    using Map;
+    using Map.Data;
+    using Run.Data;
+    using Selection;
     using UI;
     using Unit;
     using Unit.Data;
@@ -19,7 +20,6 @@ namespace Game.Battle {
     public class TurnManager : MonoBehaviour, IBattleContext {
         [SerializeField] private UnitActionPanelUI unitActionPanelUI;
         [SerializeField] private UnitInfoPanelUI unitInfoPanelUI;
-        [SerializeField] private BattleMapManager battleMapManager;
         [SerializeField] private UserSelectionManager userSelectionManager;
         [SerializeField] private TurnOrderUI turnOrderUI;
 
@@ -29,6 +29,7 @@ namespace Game.Battle {
         private Team _playerTeam;
         private int _unitsTurnOrderIndex;
         private UnitTurnState _unitTurnState;
+        [SerializeField] private BattleMapManager battleMapManager;
 
         public void Awake() => this._enemyTurnController = new EnemyTurnController(this.battleMapManager);
 
