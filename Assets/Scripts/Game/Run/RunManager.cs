@@ -1,10 +1,11 @@
 namespace Game.Run {
     using Battle;
     using Battle.Data;
-    using Battle.Reward;
     using Data;
     using Map;
     using Map.UI;
+    using Reward;
+    using Reward.UI;
     using UnityEngine;
     using UnityEngine.SceneManagement;
 
@@ -12,11 +13,11 @@ namespace Game.Run {
     [RequireComponent(typeof(RewardSelectionUI))]
     [RequireComponent(typeof(EncounterRewardGenerator))]
     public class RunManager : MonoBehaviour {
+        [SerializeField] private MapRunRender mapRunRender;
         private BattleManager _battleManager;
         private EncounterRewardGenerator _rewardGenerator;
         private RewardSelectionUI _rewardSelectionUI;
         private RunState _runState;
-        [SerializeField] private MapRunRender mapRunRender;
 
         private void Awake() {
             this._battleManager = this.GetComponent<BattleManager>();

@@ -1,7 +1,7 @@
-namespace Game.Battle.Reward {
+namespace Game.Run.Reward {
+    using Battle.Data;
+    using Battle.Unit.Data;
     using Data;
-    using Run.Data;
-    using Unit.Data;
     using UnityEngine;
 
     [CreateAssetMenu(menuName = "Reward/Stat")]

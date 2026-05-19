@@ -1,5 +1,5 @@
-namespace Game.Battle.Reward {
-    using Run.Data;
+namespace Game.Run.Reward {
+    using Data;
     using UnityEngine;
 
     public interface IReward {

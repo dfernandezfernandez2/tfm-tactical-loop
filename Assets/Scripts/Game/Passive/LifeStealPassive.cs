@@ -1,4 +1,4 @@
-namespace Game.Battle.Passive {
+namespace Game.Passive {
     using UnityEngine;
 
     [CreateAssetMenu(menuName = "Passive/Life Steal")]

@@ -1,6 +1,6 @@
-namespace Game.Battle.Reward {
+namespace Game.Run.Reward {
     using System;
-    using Run.Map;
+    using Map;
     using UnityEngine;
 
     [Serializable]

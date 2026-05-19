@@ -14,6 +14,8 @@ namespace Game.Battle.Placement {
     public class UnitPlacementController : MonoBehaviour {
         [SerializeField] private Camera mainCamera;
         [SerializeField] private UnitSelectorUI unitSelectorUI;
+        [SerializeField] private BattleMapManager battleMapManager;
+        [SerializeField] private WorldRender worldRender;
         private readonly Dictionary<GridPosition, int> _placementsByPosition = new();
         private readonly Dictionary<int, GridPosition> _positionByUnitIndex = new();
         private IReadOnlyList<TileData> _availablePositions;
@@ -30,8 +32,6 @@ namespace Game.Battle.Placement {
         private Action<GridPosition> _unselectUnit;
 
         private UserSelector _userSelector;
-        [SerializeField] private BattleMapManager battleMapManager;
-        [SerializeField] private WorldRender worldRender;
 
         private void Awake() {
             this._userSelector =

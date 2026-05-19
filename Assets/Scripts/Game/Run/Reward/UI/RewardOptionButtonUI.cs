@@ -1,4 +1,4 @@
-namespace Game.Battle.Reward {
+namespace Game.Run.Reward.UI {
     using System;
     using TMPro;
     using UnityEngine;

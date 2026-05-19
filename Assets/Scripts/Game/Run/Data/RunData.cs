@@ -1,8 +1,7 @@
 namespace Game.Run.Data {
     using System.Collections.Generic;
     using Battle.Data;
-    using Battle.Item;
-    using Battle.Passive;
+    using Passive;
 
     public class RunData {
         private static RunData _instance;

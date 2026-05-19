@@ -1,6 +1,6 @@
-namespace Game.Battle.Reward {
+namespace Game.Run.Reward {
+    using Data;
     using Passive;
-    using Run.Data;
     using UnityEngine;
 
     [CreateAssetMenu(menuName = "Reward/Passive")]

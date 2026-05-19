@@ -15,15 +15,15 @@
     public class BattleManager : MonoBehaviour {
         [SerializeField] private UnitPlacementController unitPlacementController;
         [SerializeField] private Camera mainCamera;
+        [SerializeField] private BattleMapLoader battleMapLoader;
+        [SerializeField] private BattleMapManager battleMapManager;
+        [SerializeField] private WorldRender gridConverter;
         private BattleMapFactory _battleMapFactory;
 
         private Team _enemyTeam;
         private Team _playerTeam;
 
         private TurnManager _turnManager;
-        [SerializeField] private BattleMapLoader battleMapLoader;
-        [SerializeField] private BattleMapManager battleMapManager;
-        [SerializeField] private WorldRender gridConverter;
 
 
         public void Awake() {

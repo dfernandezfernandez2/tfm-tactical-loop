@@ -1,9 +1,9 @@
-namespace Game.Battle.Reward {
+namespace Game.Run.Reward {
     using System.Collections.Generic;
     using System.Linq;
+    using Data;
+    using Map;
     using Passive;
-    using Run.Data;
-    using Run.Map;
     using UnityEngine;
 
     public class EncounterRewardGenerator : MonoBehaviour {

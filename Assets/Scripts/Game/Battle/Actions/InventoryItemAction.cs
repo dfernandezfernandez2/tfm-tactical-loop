@@ -7,12 +7,12 @@ namespace Game.Battle.Actions {
     using Map.Data;
     using Unit;
 
-    public class InventoryItem : IBattleAction {
+    public class InventoryItemAction : IBattleAction {
         private readonly Item _item;
-        private readonly Action<InventoryItem> _onConsume;
+        private readonly Action<InventoryItemAction> _onConsume;
         private int _amount;
 
-        public InventoryItem(Item item, Action<InventoryItem> onConsume) {
+        public InventoryItemAction(Item item, Action<InventoryItemAction> onConsume) {
             this._item = item;
             this._amount = 1;
             this._onConsume = onConsume;

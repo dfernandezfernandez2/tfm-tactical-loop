@@ -1,4 +1,4 @@
-namespace Game.Battle.Passive {
+namespace Game.Passive {
     public interface IPassive {
     }
 }

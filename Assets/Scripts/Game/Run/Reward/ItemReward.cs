@@ -1,6 +1,6 @@
-namespace Game.Battle.Reward {
-    using Item;
-    using Run.Data;
+namespace Game.Run.Reward {
+    using Battle.Item;
+    using Data;
     using UnityEngine;
 
     [CreateAssetMenu(menuName = "Reward/Item")]

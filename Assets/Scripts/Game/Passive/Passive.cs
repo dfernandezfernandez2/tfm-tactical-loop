@@ -1,4 +1,4 @@
-namespace Game.Battle.Passive {
+namespace Game.Passive {
     using UnityEngine;
 
     public abstract class Passive : ScriptableObject, IPassive {

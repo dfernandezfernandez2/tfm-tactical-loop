@@ -22,6 +22,7 @@ namespace Game.Battle {
         [SerializeField] private UnitInfoPanelUI unitInfoPanelUI;
         [SerializeField] private UserSelectionManager userSelectionManager;
         [SerializeField] private TurnOrderUI turnOrderUI;
+        [SerializeField] private BattleMapManager battleMapManager;
 
         private readonly List<UnitObject> _unitsTurnOrder = new();
         private Team _enemyTeam;
@@ -29,7 +30,6 @@ namespace Game.Battle {
         private Team _playerTeam;
         private int _unitsTurnOrderIndex;
         private UnitTurnState _unitTurnState;
-        [SerializeField] private BattleMapManager battleMapManager;
 
         public void Awake() => this._enemyTurnController = new EnemyTurnController(this.battleMapManager);
 
