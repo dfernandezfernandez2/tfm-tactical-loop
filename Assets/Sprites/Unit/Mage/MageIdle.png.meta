@@ -1,55 +1,55 @@
 fileFormatVersion: 2
-guid: 4161fad8900fbaa45bd097b4d9a951b5
+guid: 1f5f7f70799b3274a9eb600eb5e5e3c1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7505016164892404899
-    second: BlackMageIdle_0
+      213: -8070195584892687665
+    second: MageIdle_0
   - first:
-      213: 8834015703684448055
-    second: BlackMageIdle_1
+      213: 7496823645419239273
+    second: MageIdle_1
   - first:
-      213: 4674467300194826084
-    second: BlackMageIdle_2
+      213: 1033243577177798782
+    second: MageIdle_2
   - first:
-      213: -393844685161629692
-    second: BlackMageIdle_3
+      213: 4144233246274621282
+    second: MageIdle_3
   - first:
-      213: -324318820534290863
-    second: BlackMageIdle_4
+      213: 463554086071712307
+    second: MageIdle_4
   - first:
-      213: 8872673206723917773
-    second: BlackMageIdle_5
+      213: 3009883156962125555
+    second: MageIdle_5
   - first:
-      213: -2536268540512694369
-    second: BlackMageIdle_6
+      213: 4518661611311813494
+    second: MageIdle_6
   - first:
-      213: -2145333037869981071
-    second: BlackMageIdle_7
+      213: -6192787379594432775
+    second: MageIdle_7
   - first:
-      213: -6462350745757689582
-    second: BlackMageIdle_8
+      213: 6197742978648405277
+    second: MageIdle_8
   - first:
-      213: -8141040797981783723
-    second: BlackMageIdle_9
+      213: -7684173664578891573
+    second: MageIdle_9
   - first:
-      213: 6504098347715899545
-    second: BlackMageIdle_10
+      213: 6507751002193059837
+    second: MageIdle_10
   - first:
-      213: -2115685358218615351
-    second: BlackMageIdle_11
+      213: 4054663784104054286
+    second: MageIdle_11
   - first:
-      213: 6114931184070142947
-    second: BlackMageIdle_12
+      213: -2182235311631607743
+    second: MageIdle_12
   - first:
-      213: 7832031314466062175
-    second: BlackMageIdle_13
+      213: -281395424916425599
+    second: MageIdle_13
   - first:
-      213: 6885559346113269288
-    second: BlackMageIdle_14
+      213: -3711819330450400727
+    second: MageIdle_14
   - first:
-      213: -4757089762670665097
-    second: BlackMageIdle_15
+      213: 2654667766746622072
+    second: MageIdle_15
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -120,7 +120,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -145,34 +145,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BlackMageIdle_0
+      name: MageIdle_0
       rect:
         serializedVersion: 2
-        x: 33
-        y: 208
-        width: 15
-        height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3ace9fd407c272860800000000000000
-      internalID: 7505016164892404899
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BlackMageIdle_1
-      rect:
-        serializedVersion: 2
-        x: 90
-        y: 208
-        width: 15
+        x: 17
+        y: 207
+        width: 23
         height: 33
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -182,63 +160,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 73f75565a7ab89a70800000000000000
-      internalID: 8834015703684448055
+      spriteID: fcaab8e8fd7e00090800000000000000
+      internalID: -8070195584892687665
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BlackMageIdle_2
+      name: MageIdle_1
       rect:
         serializedVersion: 2
-        x: 154
-        y: 208
-        width: 15
-        height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 467ba4e3e3b0fd040800000000000000
-      internalID: 4674467300194826084
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BlackMageIdle_3
-      rect:
-        serializedVersion: 2
-        x: 217
-        y: 208
-        width: 15
-        height: 31
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 408f3447858c88af0800000000000000
-      internalID: -393844685161629692
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BlackMageIdle_4
-      rect:
-        serializedVersion: 2
-        x: 33
-        y: 155
-        width: 17
+        x: 81
+        y: 207
+        width: 23
         height: 34
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -248,107 +182,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 156741440c9cf7bf0800000000000000
-      internalID: -324318820534290863
+      spriteID: 96776f8b2611a0860800000000000000
+      internalID: 7496823645419239273
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BlackMageIdle_5
+      name: MageIdle_2
       rect:
         serializedVersion: 2
-        x: 88
-        y: 156
-        width: 17
-        height: 34
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: dc7b7e6a541122b70800000000000000
-      internalID: 8872673206723917773
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BlackMageIdle_6
-      rect:
-        serializedVersion: 2
-        x: 153
-        y: 156
-        width: 17
-        height: 34
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f9f0ebb333d5dccd0800000000000000
-      internalID: -2536268540512694369
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BlackMageIdle_7
-      rect:
-        serializedVersion: 2
-        x: 216
-        y: 156
-        width: 17
-        height: 34
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 172a9d0f7fe3a32e0800000000000000
-      internalID: -2145333037869981071
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BlackMageIdle_8
-      rect:
-        serializedVersion: 2
-        x: 31
-        y: 93
-        width: 16
-        height: 34
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 219d1295c3e1156a0800000000000000
-      internalID: -6462350745757689582
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BlackMageIdle_9
-      rect:
-        serializedVersion: 2
-        x: 86
-        y: 94
-        width: 16
+        x: 145
+        y: 207
+        width: 23
         height: 35
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -358,19 +204,63 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 559455ef686350f80800000000000000
-      internalID: -8141040797981783723
+      spriteID: e78f2202f81d65e00800000000000000
+      internalID: 1033243577177798782
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BlackMageIdle_10
+      name: MageIdle_3
       rect:
         serializedVersion: 2
-        x: 151
-        y: 94
-        width: 16
+        x: 209
+        y: 207
+        width: 23
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26f009e2e26438930800000000000000
+      internalID: 4144233246274621282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MageIdle_4
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 143
+        width: 18
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33a3c7a3cffde6600800000000000000
+      internalID: 463554086071712307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MageIdle_5
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 143
+        width: 18
         height: 34
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -380,19 +270,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 990bfcfacf2334a50800000000000000
-      internalID: 6504098347715899545
+      spriteID: 3f6a822c8c045c920800000000000000
+      internalID: 3009883156962125555
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BlackMageIdle_11
+      name: MageIdle_6
       rect:
         serializedVersion: 2
-        x: 214
-        y: 94
-        width: 16
+        x: 148
+        y: 143
+        width: 18
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6735f6a6bc285be30800000000000000
+      internalID: 4518661611311813494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MageIdle_7
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 143
+        width: 18
         height: 33
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -402,41 +314,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9c562e6406393a2e0800000000000000
-      internalID: -2115685358218615351
+      spriteID: 9fe60c560bcce0aa0800000000000000
+      internalID: -6192787379594432775
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BlackMageIdle_12
+      name: MageIdle_8
       rect:
         serializedVersion: 2
-        x: 30
-        y: 31
-        width: 15
-        height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3eba57c73899cd450800000000000000
-      internalID: 6114931184070142947
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BlackMageIdle_13
-      rect:
-        serializedVersion: 2
-        x: 85
-        y: 32
-        width: 15
+        x: 24
+        y: 80
+        width: 20
         height: 33
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -446,20 +336,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f5f3c701cf6f0bc60800000000000000
-      internalID: 7832031314466062175
+      spriteID: d15728be66ec20650800000000000000
+      internalID: 6197742978648405277
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BlackMageIdle_14
+      name: MageIdle_9
       rect:
         serializedVersion: 2
-        x: 150
-        y: 32
-        width: 15
-        height: 32
+        x: 88
+        y: 80
+        width: 20
+        height: 34
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -468,20 +358,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 82ec3f87ebb6e8f50800000000000000
-      internalID: 6885559346113269288
+      spriteID: bc01d5ab3c45c5590800000000000000
+      internalID: -7684173664578891573
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BlackMageIdle_15
+      name: MageIdle_10
       rect:
         serializedVersion: 2
-        x: 213
-        y: 32
-        width: 15
-        height: 31
+        x: 152
+        y: 80
+        width: 20
+        height: 35
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -490,8 +380,118 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7722e53a01c6bfdb0800000000000000
-      internalID: -4757089762670665097
+      spriteID: dffd8649e0d205a50800000000000000
+      internalID: 6507751002193059837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MageIdle_11
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 80
+        width: 20
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0ec927aa3f054830800000000000000
+      internalID: 4054663784104054286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MageIdle_12
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 16
+        width: 21
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14852e9cb8427b1e0800000000000000
+      internalID: -2182235311631607743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MageIdle_13
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 16
+        width: 21
+        height: 34
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 184bf681a58481cf0800000000000000
+      internalID: -281395424916425599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MageIdle_14
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 16
+        width: 21
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92a531a2cf7fc7cc0800000000000000
+      internalID: -3711819330450400727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MageIdle_15
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 16
+        width: 21
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 878ac91d44647d420800000000000000
+      internalID: 2654667766746622072
       vertices: []
       indices: 
       edges: []
@@ -500,7 +500,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 915d9879696d1fb4a9fd381a0a35d181
+    spriteID: 1f66a824269356d489cf4a0aa3b67cc8
     internalID: 0
     vertices: []
     indices: 
@@ -512,22 +512,22 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      BlackMageIdle_0: 7505016164892404899
-      BlackMageIdle_1: 8834015703684448055
-      BlackMageIdle_10: 6504098347715899545
-      BlackMageIdle_11: -2115685358218615351
-      BlackMageIdle_12: 6114931184070142947
-      BlackMageIdle_13: 7832031314466062175
-      BlackMageIdle_14: 6885559346113269288
-      BlackMageIdle_15: -4757089762670665097
-      BlackMageIdle_2: 4674467300194826084
-      BlackMageIdle_3: -393844685161629692
-      BlackMageIdle_4: -324318820534290863
-      BlackMageIdle_5: 8872673206723917773
-      BlackMageIdle_6: -2536268540512694369
-      BlackMageIdle_7: -2145333037869981071
-      BlackMageIdle_8: -6462350745757689582
-      BlackMageIdle_9: -8141040797981783723
+      MageIdle_0: -8070195584892687665
+      MageIdle_1: 7496823645419239273
+      MageIdle_10: 6507751002193059837
+      MageIdle_11: 4054663784104054286
+      MageIdle_12: -2182235311631607743
+      MageIdle_13: -281395424916425599
+      MageIdle_14: -3711819330450400727
+      MageIdle_15: 2654667766746622072
+      MageIdle_2: 1033243577177798782
+      MageIdle_3: 4144233246274621282
+      MageIdle_4: 463554086071712307
+      MageIdle_5: 3009883156962125555
+      MageIdle_6: 4518661611311813494
+      MageIdle_7: -6192787379594432775
+      MageIdle_8: 6197742978648405277
+      MageIdle_9: -7684173664578891573
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
