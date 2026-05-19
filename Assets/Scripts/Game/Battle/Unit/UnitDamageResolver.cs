@@ -72,5 +72,23 @@ namespace Game.Battle.Unit {
 
             return damage;
         }
+
+        public int EstimateDamage(Unit target) {
+            float atk = this._getCurrentStat(StatType.Atk);
+            float accuracy = this._getCurrentStat(StatType.Accuracy);
+            float critChance = this._getCurrentStat(StatType.CritChance);
+
+            float def = target.GetCurrentStat(StatType.Def);
+            float evasion = target.GetCurrentStat(StatType.Evasion);
+
+            float hitChance = accuracy / (accuracy + evasion);
+            hitChance = Mathf.Clamp(hitChance, 0.1f, 0.95f);
+
+            float normalDamage = this.ApplyHeightDamageModifier(Mathf.Max(1f, atk - def), target);
+            float critDamage = this.ApplyHeightDamageModifier(Mathf.Max(1f, (atk * 1.5f) - def), target);
+
+            float expectedDamage = hitChance * (((1f - critChance) * normalDamage) + (critChance * critDamage));
+            return Mathf.Max(1, Mathf.RoundToInt(expectedDamage));
+        }
     }
 }

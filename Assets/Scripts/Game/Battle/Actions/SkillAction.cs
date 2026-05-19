@@ -44,7 +44,7 @@ namespace Game.Battle.Actions {
             battleContext.ApCostApply(this);
         }
 
-        private bool CanSelect(UnitObject target) {
+        public bool CanSelect(UnitObject target) {
             if (this._skill.effects == null || this._skill.effects.Count == 0) {
                 return true;
             }
@@ -69,5 +69,7 @@ namespace Game.Battle.Actions {
                 yield return effect.Apply(user, target, battleMapManager);
             }
         }
+
+        public Skill Skill => this._skill;
     }
 }
