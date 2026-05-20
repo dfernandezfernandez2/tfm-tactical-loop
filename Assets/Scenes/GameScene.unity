@@ -464,6 +464,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Battle.UserSelectionManager
   mainCamera: {fileID: 2086373357}
+  battleMapManager: {fileID: 422319659}
+  worldRender: {fileID: 396172803108293899, guid: 48e0b3554fdf9b040b383e267d5e6b36, type: 3}
 --- !u!114 &422319661
 MonoBehaviour:
   m_ObjectHideFlags: 0

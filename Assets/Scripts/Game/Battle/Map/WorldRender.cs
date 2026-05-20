@@ -6,11 +6,13 @@
         [SerializeField] private GridConfiguration gridConfiguration;
 
         public Vector3 GridToWorldTiles(GridPosition gridPosition) {
-            float isoX = (gridPosition.Position.x - gridPosition.Position.y) * (this.gridConfiguration.TileWidth / 2f);
-            float isoY = (gridPosition.Position.x + gridPosition.Position.y) *
-                         (this.gridConfiguration.TileHeight / 2f);
+            float width = this.gridConfiguration.TileWidth / 2f;
+            float height = this.gridConfiguration.TileHeight / 2f;
 
-            float heightOffset = gridPosition.Height * this.gridConfiguration.HeightStep;
+            float isoX = (gridPosition.Position.x - gridPosition.Position.y) * width;
+            float isoY = (gridPosition.Position.x + gridPosition.Position.y) * height;
+
+            float heightOffset = gridPosition.Height * height;
 
             return new Vector3(isoX, isoY + heightOffset, 0f);
         }
@@ -23,11 +25,11 @@
         }
 
         public Vector2Int WorldToGrid(Vector3 position) {
-            float halfTileWidth = this.gridConfiguration.TileWidth / 2f;
-            float halfTileHeight = this.gridConfiguration.TileHeight / 2f;
+            float halfWidth = this.gridConfiguration.TileWidth / 2f;
+            float halfHeight = this.gridConfiguration.TileHeight / 2f;
 
-            float x = ((position.x / halfTileWidth) + (position.y / halfTileHeight)) / 2f;
-            float y = ((position.y / halfTileHeight) - (position.x / halfTileWidth)) / 2f;
+            float x = ((position.x / halfWidth) + (position.y / halfHeight)) / 2f;
+            float y = ((position.y / halfHeight) - (position.x / halfWidth)) / 2f;
 
             int gridX = Mathf.RoundToInt(x);
             int gridY = Mathf.RoundToInt(y);

@@ -45,7 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Map.WorldRender
   gridConfiguration:
-    tileWidth: 0.96
-    tileHeight: 0.48
-    heightStep: 0.48
-    unitAnchorYOffset: 0.7
+    tileWidth: 32
+    tileHeight: 32
+    pixelsPerUnit: 100
+    scale: 3
+    unitAnchorYOffset: 0.75

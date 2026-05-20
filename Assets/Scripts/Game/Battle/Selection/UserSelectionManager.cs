@@ -25,14 +25,14 @@ namespace Game.Battle.Selection {
 
     public class UserSelectionManager : MonoBehaviour {
         [SerializeField] private Camera mainCamera;
+        [SerializeField] private BattleMapManager battleMapManager;
+        [SerializeField] private WorldRender worldRender;
 
         private IReadOnlyCollection<TileData> _availablePositions;
         private SelectionType _currentSelectionType = SelectionType.None;
         private List<GridPosition> _reachablePositions;
         private GridPosition _startPosition;
         private UserSelector _userSelector;
-        private BattleMapManager battleMapManager;
-        private WorldRender worldRender;
 
         private void Awake() => this._userSelector = new UserSelector(this.mainCamera, this.worldRender, true,
             this.SelectPosition, this.CancelSelection);
