@@ -667,7 +667,7 @@ MonoBehaviour:
         weight: 100
         guaranteedCount: 0
         maxAppearances: 0
-      - enemyPrefab: {fileID: 7550251793013227126, guid: 2813b5337bfae444c9f8222858ac5204, type: 3}
+      - enemyPrefab: {fileID: 7550251793013227126, guid: 4d6de5beae16eda40a836e41e7539ed1, type: 3}
         weight: 100
         guaranteedCount: 1
         maxAppearances: 1
