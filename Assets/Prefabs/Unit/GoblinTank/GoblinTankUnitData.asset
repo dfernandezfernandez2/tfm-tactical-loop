@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd5af83e4ec341bc93fbe338da2fcbc5, type: 3}
   m_Name: GoblinTankUnitData
   m_EditorClassIdentifier: Assembly-CSharp::Unit.Data.UnitData
-  unitName: Goblin
+  unitName: Goblin Tank
   unitSprite: {fileID: 929150727014594773, guid: 78db5107ea6bbd64684d188fe5127352, type: 3}
   isRanged: 0
   hp: 30

@@ -170,7 +170,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfb6d12ddbfe4702a5363e0de12455ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Unit.UnitActions
-  skills: []
+  skills:
+  - {fileID: 11400000, guid: f79879123cd278f448b21db998a51c55, type: 2}
 --- !u!1001 &3437357955989498743
 PrefabInstance:
   m_ObjectHideFlags: 0
