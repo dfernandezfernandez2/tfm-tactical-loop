@@ -619,9 +619,62 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3055c76bfc34a9b81e2e8074634c923, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Battle.BattleMapFactory
-  archerUnitObject: {fileID: 7550251793013227126, guid: 006e976578f62954ca8158e91be4a53f, type: 3}
-  knightUnitObject: {fileID: 7550251793013227126, guid: 0f9314bda15613f46a373aebc4e82822, type: 3}
-  mageUnitObject: {fileID: 7550251793013227126, guid: 2813b5337bfae444c9f8222858ac5204, type: 3}
+  enemiesGenerationConfig:
+    enemiesPool:
+    - encounterType: 1
+      enemyOptions:
+      - enemyPrefab: {fileID: 7550251793013227126, guid: 959bceb2496e67d45b3717fc08997c88, type: 3}
+        weight: 100
+        guaranteedCount: 0
+        maxAppearances: 0
+      - enemyPrefab: {fileID: 7550251793013227126, guid: adb27f7e6081e2b46a679e44b52493fb, type: 3}
+        weight: 25
+        guaranteedCount: 0
+        maxAppearances: 2
+      - enemyPrefab: {fileID: 7550251793013227126, guid: 006e976578f62954ca8158e91be4a53f, type: 3}
+        weight: 25
+        guaranteedCount: 0
+        maxAppearances: 2
+      minNumUnits: 2
+      maxNumUnits: 5
+      unitsPerScale: 1
+      scalePerLevel: 2
+    - encounterType: 2
+      enemyOptions:
+      - enemyPrefab: {fileID: 7550251793013227126, guid: 959bceb2496e67d45b3717fc08997c88, type: 3}
+        weight: 20
+        guaranteedCount: 0
+        maxAppearances: 2
+      - enemyPrefab: {fileID: 7550251793013227126, guid: adb27f7e6081e2b46a679e44b52493fb, type: 3}
+        weight: 60
+        guaranteedCount: 0
+        maxAppearances: 0
+      - enemyPrefab: {fileID: 7550251793013227126, guid: 006e976578f62954ca8158e91be4a53f, type: 3}
+        weight: 60
+        guaranteedCount: 0
+        maxAppearances: 0
+      minNumUnits: 4
+      maxNumUnits: 8
+      unitsPerScale: 1
+      scalePerLevel: 1
+    - encounterType: 3
+      enemyOptions:
+      - enemyPrefab: {fileID: 7550251793013227126, guid: adb27f7e6081e2b46a679e44b52493fb, type: 3}
+        weight: 100
+        guaranteedCount: 0
+        maxAppearances: 0
+      - enemyPrefab: {fileID: 7550251793013227126, guid: 006e976578f62954ca8158e91be4a53f, type: 3}
+        weight: 100
+        guaranteedCount: 0
+        maxAppearances: 0
+      - enemyPrefab: {fileID: 7550251793013227126, guid: 2813b5337bfae444c9f8222858ac5204, type: 3}
+        weight: 100
+        guaranteedCount: 1
+        maxAppearances: 1
+      minNumUnits: 3
+      maxNumUnits: 4
+      unitsPerScale: 0
+      scalePerLevel: 1
 --- !u!114 &422319667
 MonoBehaviour:
   m_ObjectHideFlags: 0
