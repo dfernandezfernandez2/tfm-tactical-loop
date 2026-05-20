@@ -1,35 +1,26 @@
 namespace Game.Battle {
-    using System;
-    using System.Linq;
-    using Core;
     using Data;
-    using Map.Battle.Generation;
-    using Map.Run;
-    using Unit;
+    using Map.Generation;
+    using Map.Generation.Enemies;
+    using Map.Generation.Enemies.Data;
+    using Run.Map;
     using UnityEngine;
 
     public class BattleMapFactory : MonoBehaviour {
-        [SerializeField] private UnitObject archerUnitObject;
-        [SerializeField] private UnitObject knightUnitObject;
-        [SerializeField] private UnitObject mageUnitObject;
+        [SerializeField] private BattleEnemiesGenerationConfig enemiesGenerationConfig;
 
         public BattleMapSetupData CreateMapFromNode(RunNode node) {
-            Team enemyTeam = node.EncounterType switch {
-                EncounterType.Basic => CreateTeam(this.archerUnitObject),
-                EncounterType.Elite => CreateTeam(this.knightUnitObject, this.knightUnitObject, this.archerUnitObject,
-                    this.mageUnitObject),
-                EncounterType.Boss => CreateTeam(this.knightUnitObject, this.knightUnitObject, this.archerUnitObject,
-                    this.archerUnitObject, this.mageUnitObject),
-                _ => throw new ArgumentOutOfRangeException()
-            };
+            string seed = CreateSeed(node);
+
+            BattleEnemiesGenerator generator = new(this.enemiesGenerationConfig);
+            Team enemyTeam = generator.Generate(node.EncounterType, node.Level, seed);
+
             BattleMapGenerationConfig config =
                 BattleMapGenerationConfigFactory.FromNode(node, enemyTeam.GetTeamUnits().Count);
             string map = BattleMapGenerator.Generate(config, CreateSeed(node));
+
             return new BattleMapSetupData(map, enemyTeam);
         }
-
-        private static Team CreateTeam(params UnitObject[] unitObjectsPrefabs) =>
-            new(unitObjectsPrefabs.ToList(), BattleTeam.Enemy);
 
         private static string CreateSeed(RunNode node) => $"{node.EncounterType}_L{node.Level}_{node.Id}";
     }

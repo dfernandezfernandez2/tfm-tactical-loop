@@ -2,7 +2,7 @@ namespace Game.Battle.Actions {
     using System;
     using System.Collections;
     using IA;
-    using Map.Battle;
+    using Map;
     using Unit;
 
     public class SkillSelectionAction : AbstractBasicAction {

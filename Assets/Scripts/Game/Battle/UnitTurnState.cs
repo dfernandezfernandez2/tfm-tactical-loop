@@ -21,8 +21,8 @@ namespace Game.Battle {
         public IEnumerator ExecuteAction(IBattleAction action, IBattleContext battleContext) {
             this._actionsDone.Add(action.GetActionName());
             battleContext.ApCostApply(action);
-            yield return action.Start(battleContext);
             this._lastAction = action;
+            yield return action.Start(battleContext);
         }
 
         public void CancelLastAction(IBattleContext battleContext) {

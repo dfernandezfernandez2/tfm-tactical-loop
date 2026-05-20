@@ -4,24 +4,25 @@ namespace Game.Battle {
     using System.Collections.Generic;
     using System.Linq;
     using Actions;
-    using Core;
-    using Core.Data;
-    using global::Unit.Data;
+    using Data;
     using IA;
     using Item;
-    using Map.Battle;
-    using Map.Battle.Data;
+    using Map;
+    using Map.Data;
+    using Run.Data;
+    using Selection;
     using UI;
     using Unit;
+    using Unit.Data;
     using UnityEngine;
     using Random = UnityEngine.Random;
 
     public class TurnManager : MonoBehaviour, IBattleContext {
         [SerializeField] private UnitActionPanelUI unitActionPanelUI;
         [SerializeField] private UnitInfoPanelUI unitInfoPanelUI;
-        [SerializeField] private BattleMapManager battleMapManager;
         [SerializeField] private UserSelectionManager userSelectionManager;
         [SerializeField] private TurnOrderUI turnOrderUI;
+        [SerializeField] private BattleMapManager battleMapManager;
 
         private readonly List<UnitObject> _unitsTurnOrder = new();
         private Team _enemyTeam;
@@ -209,6 +210,7 @@ namespace Game.Battle {
                 BattleSequenceExecutor.ExecuteBasicAttack(this._unitsTurnOrder[this._unitsTurnOrderIndex], targetUnit,
                     target, this.battleMapManager)
             );
+            this.CheckBattleEnd();
             this.unitActionPanelUI.Show();
         }
 

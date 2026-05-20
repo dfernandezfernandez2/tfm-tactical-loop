@@ -1,39 +1,39 @@
 namespace Game.Battle.Actions {
     using System.Collections;
     using System.Linq;
-    using global::Unit.Data;
     using IA;
-    using Map.Battle;
-    using Map.Battle.Data;
+    using Map;
+    using Map.Data;
     using Unit;
+    using Unit.Data;
     using Unit.Skills;
 
     public class SkillAction : IBattleAction {
-        private readonly Skill _skill;
+        public SkillAction(Skill skill) => this.Skill = skill;
 
-        public SkillAction(Skill skill) => this._skill = skill;
+        public Skill Skill { get; }
 
-        public string GetName() => this._skill.skillName;
+        public string GetName() => this.Skill.skillName;
 
         public string GetActionName() => ActionType.Skill.GetName() + "Action";
 
-        public int GetApCost() => this._skill.apCost;
+        public int GetApCost() => this.Skill.apCost;
 
         public IEnumerator Start(IBattleContext battleContext) {
             TileSearchConfig config = new() {
-                Range = this._skill.range,
+                Range = this.Skill.range,
                 CanEnterCheck = false,
-                Target = this._skill.target,
+                Target = this.Skill.target,
                 CanSelect = this.CanSelect,
-                ApplyHeightLineOfSight = this._skill.applyHeightLineOfSight,
+                ApplyHeightLineOfSight = this.Skill.applyHeightLineOfSight,
                 RequiresLineOfSight = true
             };
-            yield return battleContext.EnterSelectionTarget(config, this.OnSelect, this._skill.selectionType);
+            yield return battleContext.EnterSelectionTarget(config, this.OnSelect, this.Skill.selectionType);
         }
 
         public bool CanDoAction(IBattleContext battleContext, UnitObject unitObject) {
-            bool hasAp = unitObject.Unit.GetCurrentIntStat(StatType.AP) >= this._skill.apCost;
-            bool hasMana = unitObject.Unit.GetCurrentIntStat(StatType.Mp) >= this._skill.manaCost;
+            bool hasAp = unitObject.Unit.GetCurrentIntStat(StatType.AP) >= this.Skill.apCost;
+            bool hasMana = unitObject.Unit.GetCurrentIntStat(StatType.Mp) >= this.Skill.manaCost;
             return hasAp && hasMana;
         }
 
@@ -44,12 +44,12 @@ namespace Game.Battle.Actions {
             battleContext.ApCostApply(this);
         }
 
-        private bool CanSelect(UnitObject target) {
-            if (this._skill.effects == null || this._skill.effects.Count == 0) {
+        public bool CanSelect(UnitObject target) {
+            if (this.Skill.effects == null || this.Skill.effects.Count == 0) {
                 return true;
             }
 
-            return this._skill.effects.Exists(effect => effect.CanApply(target));
+            return this.Skill.effects.Exists(effect => effect.CanApply(target));
         }
 
         private IEnumerator OnSelect(SelectionData data) {
@@ -58,10 +58,10 @@ namespace Game.Battle.Actions {
         }
 
         private IEnumerator ExecuteSkill(UnitObject user, GridPosition target, BattleMapManager battleMapManager) {
-            yield return user.PlaySkill(this._skill, target);
-            user.Unit.AddStat(StatType.Mp, -this._skill.manaCost);
+            yield return user.PlaySkill(this.Skill, target);
+            user.Unit.AddStat(StatType.Mp, -this.Skill.manaCost);
             UnitObject unitObjectTarget = battleMapManager.GetUnit(target);
-            foreach (SkillEffect effect in this._skill.effects.Where(effect => effect.CanApply(unitObjectTarget))) {
+            foreach (SkillEffect effect in this.Skill.effects.Where(effect => effect.CanApply(unitObjectTarget))) {
                 if (!effect.CanApply(unitObjectTarget)) {
                     continue;
                 }

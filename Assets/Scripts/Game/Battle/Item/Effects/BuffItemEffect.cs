@@ -1,10 +1,10 @@
 namespace Game.Battle.Item.Effects {
     using System.Collections;
     using Effect.Buff;
-    using global::Unit.Data;
-    using Map.Battle;
-    using Map.Battle.Data;
+    using Map;
+    using Map.Data;
     using Unit;
+    using Unit.Data;
     using UnityEngine;
 
     [CreateAssetMenu(menuName = "Item/Effects/Buff Item effect")]

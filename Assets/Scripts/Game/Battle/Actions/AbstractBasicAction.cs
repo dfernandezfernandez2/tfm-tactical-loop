@@ -1,9 +1,9 @@
 namespace Game.Battle.Actions {
     using System.Collections;
-    using global::Unit.Data;
     using IA;
-    using Map.Battle;
+    using Map;
     using Unit;
+    using Unit.Data;
 
     public abstract class AbstractBasicAction : IBattleAction {
         public string GetName() => this.GetActionType().GetName();

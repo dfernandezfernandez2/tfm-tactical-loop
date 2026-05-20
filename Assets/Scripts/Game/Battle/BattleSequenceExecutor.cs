@@ -2,8 +2,8 @@ namespace Game.Battle {
     using System;
     using System.Collections;
     using System.Collections.Generic;
-    using Map.Battle;
-    using Map.Battle.Data;
+    using Map;
+    using Map.Data;
     using Unit;
     using Unit.Data;
 
@@ -33,7 +33,7 @@ namespace Game.Battle {
             IReadOnlyList<UnitObject> unitObjects = battleMapManager.GetUnitsAround(targetPosition);
             foreach (UnitObject unit in unitObjects) {
                 if (unit.Team.GetBattleTeam() != target.Team.GetBattleTeam() && unit != attacker &&
-                    !target.Unit.IsDead()) {
+                    !target.Unit.IsDead() && !unit.Unit.IsDead()) {
                     yield return ExecuteBasicAttack(unit, target, targetPosition, battleMapManager, false);
                 }
             }

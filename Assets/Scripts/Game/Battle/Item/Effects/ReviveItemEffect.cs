@@ -1,9 +1,9 @@
 namespace Game.Battle.Item.Effects {
     using System.Collections;
-    using global::Unit.Data;
-    using Map.Battle;
-    using Map.Battle.Data;
+    using Map;
+    using Map.Data;
     using Unit;
+    using Unit.Data;
     using UnityEngine;
 
     [CreateAssetMenu(menuName = "Item/Effects/Revive Item effect")]
@@ -15,9 +15,8 @@ namespace Game.Battle.Item.Effects {
         public override IEnumerator Apply(UnitObject user, GridPosition target, BattleMapManager battleMapManager) {
             UnitObject targetUnit = battleMapManager.GetUnit(target);
             Unit unit = targetUnit.Unit;
-            // todo: aqui debería activarse el efecto de revivir con text la vida
-            unit.AddStat(StatType.Hp, this.amount);
-            yield return null;
+            float heal = unit.AddStat(StatType.Hp, this.amount);
+            yield return targetUnit.PlayRevive((int)heal);
         }
     }
 }

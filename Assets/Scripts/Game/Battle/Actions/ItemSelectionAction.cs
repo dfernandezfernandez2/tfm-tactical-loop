@@ -1,9 +1,9 @@
 namespace Game.Battle.Actions {
     using System;
     using System.Collections;
-    using Core.Data;
     using IA;
-    using Map.Battle;
+    using Map;
+    using Run.Data;
     using Unit;
 
     public class ItemSelectionAction : AbstractBasicAction {

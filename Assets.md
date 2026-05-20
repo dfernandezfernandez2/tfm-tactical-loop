@@ -1,6 +1,11 @@
 Fuente: https://joebrogers.itch.io/bitpotion
 
 Tiles: https://philtacular.itch.io/pixel-art-tileset-isometric-starter-pack
+Unidades: https://banado.itch.io/isometic
+Enemigos:
+    https://barely-games.itch.io/2d-pixel-quest-vol5-the-orks-pit
+    https://tamara-rifqi.itch.io/goblin-monster-weapons-pack-8-directions
+    
 
 Sonidos:
     Buff: https://freesound.org/people/ZeltBolt/sounds/833031/

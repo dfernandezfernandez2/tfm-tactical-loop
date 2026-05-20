@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd5af83e4ec341bc93fbe338da2fcbc5, type: 3}
+  m_Name: GoblinLancerUnitData
+  m_EditorClassIdentifier: Assembly-CSharp::Unit.Data.UnitData
+  unitName: Goblin Lancer
+  unitSprite: {fileID: 929150727014594773, guid: 1391d3aae0a3b5b4882f29c9002fe984, type: 3}
+  isRanged: 0
+  hp: 30
+  mp: 0
+  mpRegen: 0
+  movement: 3
+  ap: 3
+  atk: 4
+  defense: 5
+  speed: 1
+  range: 2
+  accuracy: 0.8
+  evasion: 0.15
+  critChance: 0.1

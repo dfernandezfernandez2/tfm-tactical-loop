@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: projectile_effect
   m_EditorClassIdentifier: Assembly-CSharp::Game.Unit.Skills.Effects.ProjectileSkillEffect
   projectilePrefab: {fileID: 680264655394165090, guid: 17aad636b21938345881ab38c7cd4f92, type: 3}
-  speed: 2.5
+  speed: 7
   heightOffset: 0.45
   forwardStartOffset: 0.35
   distanceToStop: 0.1
   rotateTowardsTarget: 1
+  rotationOffset: 0
   worldRender: {fileID: 396172803108293899, guid: 48e0b3554fdf9b040b383e267d5e6b36, type: 3}
   projectileSoundRelease: fireball_cast
   projectileSoundHit: fireball_hit
+  destroyDelay: 0.05
