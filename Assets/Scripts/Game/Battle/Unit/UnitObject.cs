@@ -161,5 +161,11 @@
             this._animator.UpdateDirection(direction);
             this.Unit.Direction = direction;
         }
+
+        public IEnumerator PlayRevive(int recovered) {
+            this.PlayText($"+{recovered}", CombatTextType.Heal);
+            this._animator.TriggerDefault();
+            yield return new WaitForSeconds(0.5f);
+        }
     }
 }

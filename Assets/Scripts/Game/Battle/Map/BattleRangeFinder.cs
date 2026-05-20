@@ -5,6 +5,7 @@ namespace Game.Battle.Map {
     using Data;
     using Item;
     using Unit;
+    using UnityEngine;
 
     public class BattleRangeFinder {
         private readonly Dictionary<GridPosition, MapCell> _cells;
@@ -99,5 +100,33 @@ namespace Game.Battle.Map {
 
         private bool IsValidLineOfSight(TileSearchConfig config, TileData from, TileData to) =>
             !config.RequiresLineOfSight || this._lineOfSight.HasLineOfSight(from, to, config.ApplyHeightLineOfSight);
+
+        public IReadOnlyList<GridPosition> GetPositionsAround(GridPosition origin, int radius,
+            bool includeOrigin = false) {
+            List<GridPosition> positions = new();
+            for (int x = -radius; x <= radius; x++) {
+                int maxY = radius - Mathf.Abs(x);
+                for (int y = -maxY; y <= maxY; y++) {
+                    if (x == 0 && y == 0 && !includeOrigin) {
+                        continue;
+                    }
+
+                    int targetX = origin.Position.x + x;
+                    int targetY = origin.Position.y + y;
+                    if (!this._mapData.IsInside(targetX, targetY)) {
+                        continue;
+                    }
+
+                    TileData tile = this._mapData.GetTile(targetX, targetY);
+                    if (tile == null) {
+                        continue;
+                    }
+
+                    positions.Add(tile.TileGridPosition);
+                }
+            }
+
+            return positions.AsReadOnly();
+        }
     }
 }

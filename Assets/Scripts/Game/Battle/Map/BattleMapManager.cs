@@ -121,5 +121,8 @@ namespace Game.Battle.Map {
             this._isTransparencyViewActive = false;
             this._viewManager.ApplyDefaultView();
         }
+
+        public IReadOnlyList<GridPosition> GetPositionsAround(GridPosition origin, int radius,
+            bool includeOrigin = false) => this._rangeFinder.GetPositionsAround(origin, radius, includeOrigin);
     }
 }

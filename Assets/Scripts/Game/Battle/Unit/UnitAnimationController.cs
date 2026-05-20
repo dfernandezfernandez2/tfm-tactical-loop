@@ -47,6 +47,11 @@ namespace Game.Battle.Unit {
 
         public void SetMoving(bool value) => this._animator.SetBool(_isMoving, value);
 
+        public void TriggerDefault() {
+            this._animator.Rebind();
+            this._animator.Update(0f);
+        }
+
         public void UpdateDirection(Vector2Int direction) {
             foreach (KeyValuePair<int, float> keyValuePair in this._unitLayer.GetChangeLayer(direction)) {
                 this._animator.SetLayerWeight(keyValuePair.Key, keyValuePair.Value);
