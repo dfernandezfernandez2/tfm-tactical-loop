@@ -210,6 +210,7 @@ namespace Game.Battle {
                 BattleSequenceExecutor.ExecuteBasicAttack(this._unitsTurnOrder[this._unitsTurnOrderIndex], targetUnit,
                     target, this.battleMapManager)
             );
+            this.CheckBattleEnd();
             this.unitActionPanelUI.Show();
         }
 
