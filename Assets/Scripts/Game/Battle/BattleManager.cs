@@ -13,6 +13,7 @@
 
     [RequireComponent(typeof(TurnManager))]
     [RequireComponent(typeof(BattleMapFactory))]
+    [RequireComponent(typeof(BackgroundMapRenderManager))]
     public class BattleManager : MonoBehaviour {
         [SerializeField] private UnitPlacementController unitPlacementController;
         [SerializeField] private BattleMapLoader battleMapLoader;
@@ -20,6 +21,7 @@
         [SerializeField] private GameObject gamePanel;
         [SerializeField] private GameObject battlePanel;
         private BattleMapFactory _battleMapFactory;
+        private BackgroundMapRenderManager _bgMapRenderManager;
 
         private Team _enemyTeam;
         private Team _playerTeam;
@@ -30,6 +32,7 @@
         public void Awake() {
             this._turnManager = this.GetComponent<TurnManager>();
             this._battleMapFactory = this.GetComponent<BattleMapFactory>();
+            this._bgMapRenderManager = this.GetComponent<BackgroundMapRenderManager>();
             this._turnManager.OnBattleEnd += battleResult => {
                 this.battleMapLoader.DestroyCurrentMap();
                 this.battleMapManager.End();
@@ -43,6 +46,7 @@
 
         public void StartMap(RunNode node) {
             this.gamePanel.SetActive(true);
+            this._bgMapRenderManager.StartMap(node.EncounterType, node.Level);
             BattleMapSetupData battleMapSetupData = this._battleMapFactory.CreateMapFromNode(node);
             this.StartMap(RunData.GetInstance().Team, battleMapSetupData.EnemyTeam, battleMapSetupData.MapTextContent);
         }

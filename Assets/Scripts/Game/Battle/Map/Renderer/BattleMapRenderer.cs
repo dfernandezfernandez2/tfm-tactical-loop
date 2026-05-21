@@ -17,6 +17,10 @@
         public void Render(BattleMapData data) => data.ForEach(this.RenderTile);
 
         private void RenderTile(TileData tileData) {
+            if (tileData.Tile.Type == TileType.Empty) {
+                return;
+            }
+
             if (!this._tileRenderElements.TryGetValue(tileData.Tile, out TileRenderElement tileRenderElement)) {
                 Debug.LogWarning(
                     $"{tileData.Tile} defined in position {tileData.TileGridPosition.Position.x}, {tileData.TileGridPosition.Position.y} is missing on render elements, will be skipped");

@@ -20,8 +20,11 @@
             this._mapParser = new TxtMapParser();
         }
 
-        public BattleMapData Load(string mapTextContent) {
-            BattleMapData data = this._mapParser.Parse(mapTextContent);
+        public BattleMapData Load(string mapTextContent) => this.Load(mapTextContent, Vector2Int.zero);
+
+        public BattleMapData Load(string mapTextContent, Vector2Int offset) {
+            TxtMapParser parser = new();
+            BattleMapData data = parser.Parse(mapTextContent, offset);
             this._mapRenderer.Render(data);
             return data;
         }

@@ -11,7 +11,7 @@ namespace Game.Battle.Map {
 
         [Header("Zoom")] [SerializeField] private float minZoom = 3f;
 
-        [SerializeField] private float maxZoom = 10f;
+        [SerializeField] private float maxZoom = 5f;
         [SerializeField] private float keyboardZoomStep = 0.5f;
         [SerializeField] private float scrollZoomStep = 0.5f;
 

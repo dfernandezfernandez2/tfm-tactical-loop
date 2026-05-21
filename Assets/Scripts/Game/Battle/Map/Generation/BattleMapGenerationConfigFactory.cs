@@ -7,16 +7,17 @@ namespace Game.Battle.Map.Generation {
         public static BattleMapGenerationConfig FromNode(RunNode node, int numEnemies) =>
             node.EncounterType switch {
                 EncounterType.Elite => CreateElite(node.Level, numEnemies),
-                EncounterType.Boss => CreateBoss(numEnemies),
+                EncounterType.Boss => CreateBoss(node.Level, numEnemies),
                 _ => CreateBasic(node.Level, numEnemies)
             };
 
-        private static BattleMapGenerationConfig CreateBasic(int level, int numEnemies) =>
-            BattleMapGenerationConfig
+        private static BattleMapGenerationConfig CreateBasic(int level, int numEnemies) {
+            int size = EncounterType.Basic.GetSizeByLevel(level);
+            return BattleMapGenerationConfig
                 .Create()
                 .WithSizeRange(
-                    new IntRange(8, 8 + level),
-                    new IntRange(8, 8 + level)
+                    new IntRange(size, size),
+                    new IntRange(size, size)
                 )
                 .WithWallCountRange(
                     new IntRange(3 + level, 6 + level)
@@ -48,13 +49,16 @@ namespace Game.Battle.Map.Generation {
                 )
                 .WithWallHeightRules(1, 1, 1)
                 .Build();
+        }
 
-        private static BattleMapGenerationConfig CreateElite(int level, int numEnemies) =>
-            BattleMapGenerationConfig
+
+        private static BattleMapGenerationConfig CreateElite(int level, int numEnemies) {
+            int size = EncounterType.Elite.GetSizeByLevel(level);
+            return BattleMapGenerationConfig
                 .Create()
                 .WithSizeRange(
-                    new IntRange(10, 12 + level),
-                    new IntRange(10, 12 + level)
+                    new IntRange(size, size),
+                    new IntRange(size, size)
                 )
                 .WithWallCountRange(
                     new IntRange(6 + level, 10 + (level * 2))
@@ -87,13 +91,15 @@ namespace Game.Battle.Map.Generation {
                 )
                 .WithWallHeightRules(2, 1, 1)
                 .Build();
+        }
 
-        private static BattleMapGenerationConfig CreateBoss(int numEnemies) =>
-            BattleMapGenerationConfig
+        private static BattleMapGenerationConfig CreateBoss(int level, int numEnemies) {
+            int size = EncounterType.Boss.GetSizeByLevel(level);
+            return BattleMapGenerationConfig
                 .Create()
                 .WithSizeRange(
-                    new IntRange(16, 16),
-                    new IntRange(16, 16)
+                    new IntRange(size, size),
+                    new IntRange(size, size)
                 )
                 .WithWallCountRange(
                     new IntRange(10, 18)
@@ -126,5 +132,6 @@ namespace Game.Battle.Map.Generation {
                 )
                 .WithWallHeightRules(2, 2, 1)
                 .Build();
+        }
     }
 }
