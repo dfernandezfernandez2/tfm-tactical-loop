@@ -4,6 +4,7 @@
     using Data;
     using Map;
     using Map.Data;
+    using Passive;
     using Placement;
     using Run.Data;
     using Run.Map;
@@ -43,6 +44,10 @@
         }
 
         private void StartMap(Team playerTeam, Team enemyTeam, string map) {
+            foreach (IPassive passive in RunData.GetInstance().Passives) {
+                passive.OnMapStart();
+            }
+
             this._playerTeam = playerTeam;
             this._enemyTeam = enemyTeam;
 

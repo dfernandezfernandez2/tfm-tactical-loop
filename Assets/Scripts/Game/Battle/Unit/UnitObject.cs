@@ -6,6 +6,8 @@
     using Data;
     using Map;
     using Map.Data;
+    using Passive;
+    using Run.Data;
     using Skills;
     using UI;
     using UnityEngine;
@@ -132,6 +134,9 @@
 
         public IEnumerator PlayDeath() {
             yield return this._animator.PlayAnimation(AnimationType.Death);
+            foreach (IPassive passive in RunData.GetInstance().Passives) {
+                yield return passive.OnDeadUnit(this);
+            }
         }
 
         public IEnumerator PlayDodge(UnitObject attacker) {
