@@ -15,10 +15,10 @@
     [RequireComponent(typeof(BattleMapFactory))]
     public class BattleManager : MonoBehaviour {
         [SerializeField] private UnitPlacementController unitPlacementController;
-        [SerializeField] private Camera mainCamera;
         [SerializeField] private BattleMapLoader battleMapLoader;
         [SerializeField] private BattleMapManager battleMapManager;
-        [SerializeField] private WorldRender gridConverter;
+        [SerializeField] private GameObject gamePanel;
+        [SerializeField] private GameObject battlePanel;
         private BattleMapFactory _battleMapFactory;
 
         private Team _enemyTeam;
@@ -32,6 +32,9 @@
             this._battleMapFactory = this.GetComponent<BattleMapFactory>();
             this._turnManager.OnBattleEnd += battleResult => {
                 this.battleMapLoader.DestroyCurrentMap();
+                this.battleMapManager.End();
+                this.gamePanel.SetActive(false);
+                this.battlePanel.SetActive(false);
                 this.OnBattleEnd?.Invoke(battleResult);
             };
         }
@@ -39,6 +42,7 @@
         public event Action<BattleResult> OnBattleEnd;
 
         public void StartMap(RunNode node) {
+            this.gamePanel.SetActive(true);
             BattleMapSetupData battleMapSetupData = this._battleMapFactory.CreateMapFromNode(node);
             this.StartMap(RunData.GetInstance().Team, battleMapSetupData.EnemyTeam, battleMapSetupData.MapTextContent);
         }
@@ -60,23 +64,14 @@
         private void OnPlacementFinished() {
             this.battleMapManager.UnHighlightUnits();
             this.battleMapManager.HighlightUnits();
+            this.battlePanel.SetActive(true);
             this._turnManager.StartMap(this._playerTeam, this._enemyTeam);
         }
 
         private void InitMap(string map) {
             BattleMapData battleMapData = this.battleMapLoader.Load(map);
             this.battleMapManager.Initialize(battleMapData);
-            this.CenterCameraOnMap();
-        }
-
-        private void CenterCameraOnMap() {
-            GridPosition centerMapPosition = this.battleMapManager.GetMapCenterPosition();
-            Vector3 centerMap = this.gridConverter.GridToWorld(centerMapPosition);
-            this.mainCamera.transform.position = new Vector3(
-                centerMap.x,
-                centerMap.y,
-                this.mainCamera.transform.position.z
-            );
+            this.battleMapManager.CenterCameraOnMap();
         }
 
         private void SpawnPlayerUnit(TeamUnit teamUnit, GridPosition position) =>

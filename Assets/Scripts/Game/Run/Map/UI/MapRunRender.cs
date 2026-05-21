@@ -9,6 +9,7 @@ namespace Game.Run.Map.UI {
 
     public class MapRunRender : MonoBehaviour {
         [SerializeField] private GameObject canvas;
+        [SerializeField] private CanvasGroup canvasGroup;
         [SerializeField] private RectTransform contentPrefab;
         [SerializeField] private RectTransform connectionsObjectGroup;
         [SerializeField] private GameObject rowLevelNodesPrefab;
@@ -54,14 +55,33 @@ namespace Game.Run.Map.UI {
                 return;
             }
 
+            this.StartCoroutine(this.ShowMapWhenLayoutIsReady());
+        }
+
+        private IEnumerator ShowMapWhenLayoutIsReady() {
             this.canvas.gameObject.SetActive(true);
-            this.StartCoroutine(this.RefreshConnectionsNextFrame());
+            this.canvasGroup.alpha = 0f;
+
             this._currentNode.Node.Enable();
             this._currentNode.Node.Select();
+
             foreach (ConnectionNode connection in this._currentNode.NextNodeConnections) {
                 connection.MapNode.Node.Enable();
                 connection.NodeConnection.Select();
             }
+
+            yield return null;
+
+            Canvas.ForceUpdateCanvases();
+            LayoutRebuilder.ForceRebuildLayoutImmediate(this._contentRectTransform);
+
+            yield return null;
+
+            foreach (NodeConnectionUI connection in this._nodeConnections) {
+                connection.Refresh();
+            }
+
+            this.canvasGroup.alpha = 1f;
 
             this._currentKeyboardSelectedNode = this._currentNode;
             this._isActive = true;
@@ -132,16 +152,6 @@ namespace Game.Run.Map.UI {
                 if (this._currentKeyboardSelectedNode != this._currentNode) {
                     this.OnNodeSelected(this._currentKeyboardSelectedNode);
                 }
-            }
-        }
-
-        private IEnumerator RefreshConnectionsNextFrame() {
-            yield return null;
-            Canvas.ForceUpdateCanvases();
-            LayoutRebuilder.ForceRebuildLayoutImmediate(this._contentRectTransform);
-            yield return null;
-            foreach (NodeConnectionUI connection in this._nodeConnections) {
-                connection.Refresh();
             }
         }
 
