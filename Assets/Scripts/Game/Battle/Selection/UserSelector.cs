@@ -12,8 +12,8 @@ namespace Game.Battle.Selection {
         private readonly bool _enableCancel;
         private readonly Camera _mainCamera;
         private readonly Action _onCancel;
-        private readonly Action<GridPosition> _onSelect;
         private readonly Action<GridPosition> _onMovement;
+        private readonly Action<GridPosition> _onSelect;
         private readonly WorldRender _worldRender;
         private IReadOnlyList<TileData> _availablePositions;
 
