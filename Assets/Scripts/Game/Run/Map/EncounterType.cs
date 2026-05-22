@@ -15,5 +15,11 @@ namespace Game.Run.Map {
                 EncounterType.Boss => 16,
                 _ => 10
             };
+
+        public static string GetBgTileTypeDelimiter(this EncounterType encounterType) =>
+            encounterType switch {
+                EncounterType.Boss => "Magma",
+                _ => "Water"
+            };
     }
 }

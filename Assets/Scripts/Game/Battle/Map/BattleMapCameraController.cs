@@ -15,15 +15,16 @@ namespace Game.Battle.Map {
         [SerializeField] private float keyboardZoomStep = 0.5f;
         [SerializeField] private float scrollZoomStep = 0.5f;
 
-        private bool isBattleOn;
+        private bool _isBattleOn;
 
         private void Awake() {
             float bottomReservedRatio = 1f - this.topViewportHeightRatio;
             this.mainCamera.rect = new Rect(0f, bottomReservedRatio, 1f, this.topViewportHeightRatio);
+            this.ApplyZoom(this.minZoom);
         }
 
         private void Update() {
-            if (!this.isBattleOn) {
+            if (!this._isBattleOn) {
                 return;
             }
 
@@ -31,9 +32,9 @@ namespace Game.Battle.Map {
             this.HandleMouseScrollZoomInput();
         }
 
-        public void StartBattle() => this.isBattleOn = true;
+        public void StartBattle() => this._isBattleOn = true;
 
-        public void EndBattle() => this.isBattleOn = false;
+        public void EndBattle() => this._isBattleOn = false;
 
         public void CenterCameraOnMap(GridPosition centerMapPosition) {
             Vector3 centerMap = this.worldRender.GridToWorld(centerMapPosition);

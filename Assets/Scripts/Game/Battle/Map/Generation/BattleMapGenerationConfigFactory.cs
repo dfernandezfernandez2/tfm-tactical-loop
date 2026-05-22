@@ -76,12 +76,12 @@ namespace Game.Battle.Map.Generation {
                     5,
                     numEnemies + 2
                 )
-                .WithBaseFloorVariant(TileTypeVariant.Dirt)
+                .WithBaseFloorVariant(TileTypeVariant.Stone)
                 .WithFloorVariantWeights(
                     new ListWeightedOption<TileTypeVariant>(
-                        new WeightedOption<TileTypeVariant>(TileTypeVariant.Grass, 50),
+                        new WeightedOption<TileTypeVariant>(TileTypeVariant.Stone, 50),
                         new WeightedOption<TileTypeVariant>(TileTypeVariant.Dirt, 40),
-                        new WeightedOption<TileTypeVariant>(TileTypeVariant.Stone, 10)
+                        new WeightedOption<TileTypeVariant>(TileTypeVariant.Grass, 10)
                     )
                 )
                 .WithWallVariantWeights(
@@ -117,10 +117,11 @@ namespace Game.Battle.Map.Generation {
                     4,
                     numEnemies + 2
                 )
-                .WithBaseFloorVariant(TileTypeVariant.Stone)
+                .WithBaseFloorVariant(TileTypeVariant.Obsidian)
                 .WithFloorVariantWeights(
                     new ListWeightedOption<TileTypeVariant>(
-                        new WeightedOption<TileTypeVariant>(TileTypeVariant.Stone, 80),
+                        new WeightedOption<TileTypeVariant>(TileTypeVariant.Obsidian, 30),
+                        new WeightedOption<TileTypeVariant>(TileTypeVariant.Stone, 50),
                         new WeightedOption<TileTypeVariant>(TileTypeVariant.Dirt, 15),
                         new WeightedOption<TileTypeVariant>(TileTypeVariant.Grass, 5)
                     )

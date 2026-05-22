@@ -5,7 +5,7 @@ namespace Game.Battle.Map {
     using UnityEngine;
 
     public class BackgroundMapRenderManager : MonoBehaviour {
-        private const string _borderSymbol = "0:Floor:Water";
+        private const string _borderSymbol = "0:Floor:";
         private const string _emptySymbol = "0:Empty:Default";
         [SerializeField] private BattleMapLoader battleMapLoader;
 
@@ -20,7 +20,8 @@ namespace Game.Battle.Map {
             int marginX = (backgroundSizeX - realMapSize) / 2;
             int marginY = (backgroundSizeY - realMapSize) / 2;
             Vector2Int offset = new(-marginX, -marginY);
-            mapText = ReplaceCenteredAreaAndBorder(symbols, realMapSize, offset);
+            mapText = ReplaceCenteredAreaAndBorder(symbols, realMapSize, offset,
+                _borderSymbol + encounterType.GetBgTileTypeDelimiter());
             this.battleMapLoader.Load(mapText, offset);
         }
 
@@ -29,7 +30,8 @@ namespace Game.Battle.Map {
             return map.text;
         }
 
-        private static string ReplaceCenteredAreaAndBorder(string[][] symbols, int areaSize, Vector2Int offset) {
+        private static string ReplaceCenteredAreaAndBorder(string[][] symbols, int areaSize, Vector2Int offset,
+            string borderSymbol) {
             int backgroundHeight = symbols.Length;
             int backgroundWidth = symbols[0].Length;
             int maxArea = areaSize - 1;
@@ -42,7 +44,7 @@ namespace Game.Battle.Map {
                         symbols[y][x] = _emptySymbol;
                     }
                     else if (IsBorder(xReal, yReal, maxArea)) {
-                        symbols[y][x] = _borderSymbol;
+                        symbols[y][x] = borderSymbol;
                     }
                 }
             }

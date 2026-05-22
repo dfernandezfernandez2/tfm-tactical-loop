@@ -875,17 +875,17 @@ MonoBehaviour:
       enemyOptions:
       - enemyPrefab: {fileID: 7550251793013227126, guid: adb27f7e6081e2b46a679e44b52493fb, type: 3}
         weight: 100
-        guaranteedCount: 0
-        maxAppearances: 0
+        guaranteedCount: 2
+        maxAppearances: 2
       - enemyPrefab: {fileID: 7550251793013227126, guid: 006e976578f62954ca8158e91be4a53f, type: 3}
         weight: 100
-        guaranteedCount: 0
-        maxAppearances: 0
+        guaranteedCount: 1
+        maxAppearances: 1
       - enemyPrefab: {fileID: 7550251793013227126, guid: 4d6de5beae16eda40a836e41e7539ed1, type: 3}
         weight: 100
         guaranteedCount: 1
         maxAppearances: 1
-      minNumUnits: 3
+      minNumUnits: 4
       maxNumUnits: 4
       unitsPerScale: 0
       scalePerLevel: 1
@@ -1051,7 +1051,7 @@ MonoBehaviour:
   mainCamera: {fileID: 2086373357}
   topViewportHeightRatio: 0.75
   minZoom: 3
-  maxZoom: 5
+  maxZoom: 4
   keyboardZoomStep: 0.5
   scrollZoomStep: 0.5
 --- !u!114 &422319671
