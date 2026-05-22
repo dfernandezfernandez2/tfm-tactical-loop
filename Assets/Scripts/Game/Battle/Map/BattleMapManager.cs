@@ -6,8 +6,10 @@ namespace Game.Battle.Map {
     using Unit;
     using UnityEngine;
 
+    [RequireComponent(typeof(BattleMapCameraController))]
     public class BattleMapManager : MonoBehaviour {
         private readonly Dictionary<GridPosition, MapCell> _cells = new();
+        private BattleMapCameraController _cameraController;
         private BattleMapHighlighter _highlighter;
         private bool _isTransparencyViewActive;
         private BattleMapData _mapData;
@@ -16,6 +18,8 @@ namespace Game.Battle.Map {
         private BattleRangeFinder _rangeFinder;
         private BattleMapUnitRegistry _unitRegistry;
         private BattleMapViewManager _viewManager;
+
+        private void Awake() => this._cameraController = this.GetComponent<BattleMapCameraController>();
 
         private void Update() {
             if (this._mapData == null) {
@@ -38,9 +42,15 @@ namespace Game.Battle.Map {
             this._rangeFinder = new BattleRangeFinder(this._mapData, this._cells, this._queryService);
             this._pathfinder = new BattlePathfinder(this._mapData, this._queryService);
             this._viewManager = new BattleMapViewManager(this._cells);
+            this._cameraController.StartBattle();
         }
 
-        public GridPosition GetMapCenterPosition() => this._mapData.GetCenter();
+        public void End() {
+            this._cells.Clear();
+            this._cameraController.EndBattle();
+        }
+
+        public void CenterCameraOnMap() => this._cameraController.CenterCameraOnMap(this._mapData.GetCenter());
 
         public void InitUnit(UnitObject unitObject) =>
             this._unitRegistry.InitUnit(unitObject);

@@ -1,4 +1,5 @@
 namespace Game.Run.Data {
+    using System;
     using System.Collections.Generic;
     using Battle.Data;
     using Passive;
@@ -11,6 +12,7 @@ namespace Game.Run.Data {
         private RunData() => this.Inventory = new Inventory();
         public Team Team { get; set; }
         public Inventory Inventory { get; private set; }
+        public event Action<Passive> OnPassiveAdded;
 
         public static RunData GetInstance() {
             _instance ??= new RunData();
@@ -22,6 +24,7 @@ namespace Game.Run.Data {
                 return;
             }
 
+            this.OnPassiveAdded?.Invoke((Passive)passive);
             this.Passives.Add(passive);
         }
 

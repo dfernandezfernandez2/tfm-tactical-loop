@@ -12,6 +12,7 @@ namespace Game.Battle.Selection {
         private readonly bool _enableCancel;
         private readonly Camera _mainCamera;
         private readonly Action _onCancel;
+        private readonly Action<GridPosition> _onMovement;
         private readonly Action<GridPosition> _onSelect;
         private readonly WorldRender _worldRender;
         private IReadOnlyList<TileData> _availablePositions;
@@ -23,12 +24,13 @@ namespace Game.Battle.Selection {
         private List<GridPosition> _reachablePositions;
 
         public UserSelector(Camera mainCamera, WorldRender worldRender, bool enableCancel,
-            Action<GridPosition> onSelect, Action onCancel) {
+            Action<GridPosition> onSelect, Action onCancel, Action<GridPosition> onMovement = null) {
             this._mainCamera = mainCamera;
             this._worldRender = worldRender;
             this._enableCancel = enableCancel;
             this._onSelect = onSelect;
             this._onCancel = onCancel;
+            this._onMovement = onMovement;
         }
 
         public void Init(IReadOnlyList<TileData> availablePositions, GridPosition currentUnitPosition) {
@@ -81,6 +83,7 @@ namespace Game.Battle.Selection {
                 .First(tile => tile.TileGridPosition.Equals(nextPosition));
             tile.TileView.Select();
             this._currentTileData = tile;
+            this._onMovement?.Invoke(this._currentUnitPosition);
         }
 
         private GridPosition FindNextPositionInDirection(Vector2Int direction) {

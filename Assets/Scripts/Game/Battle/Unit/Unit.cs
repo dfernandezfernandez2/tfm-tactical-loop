@@ -25,7 +25,7 @@
         }
 
         public List<KeyValuePair<StatType, float>> GetCurrentStats(params StatType[] filter) =>
-            filter.Select(t => new KeyValuePair<StatType, float>(t, this.GetCurrentIntStat(t))).ToList();
+            filter.Select(t => new KeyValuePair<StatType, float>(t, this.GetCurrentStat(t))).ToList();
 
         public float GetCurrentStat(StatType statType) =>
             this._stats[statType].GetCurrentWithModifier(this.UnitStatsModifier.GetModifier(statType));

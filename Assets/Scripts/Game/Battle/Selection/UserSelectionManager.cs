@@ -4,6 +4,8 @@ namespace Game.Battle.Selection {
     using Map;
     using Map.Data;
     using Map.Renderer;
+    using UI;
+    using Unit;
     using UnityEngine;
 
     public enum SelectionType {
@@ -27,6 +29,7 @@ namespace Game.Battle.Selection {
         [SerializeField] private Camera mainCamera;
         [SerializeField] private BattleMapManager battleMapManager;
         [SerializeField] private WorldRender worldRender;
+        [SerializeField] private UnitInfoPanelUI unitInfoPanel;
 
         private IReadOnlyCollection<TileData> _availablePositions;
         private SelectionType _currentSelectionType = SelectionType.None;
@@ -35,7 +38,7 @@ namespace Game.Battle.Selection {
         private UserSelector _userSelector;
 
         private void Awake() => this._userSelector = new UserSelector(this.mainCamera, this.worldRender, true,
-            this.SelectPosition, this.CancelSelection);
+            this.SelectPosition, this.CancelSelection, this.OnMoveSelection);
 
         private void Update() {
             if (this._currentSelectionType == SelectionType.None) {
@@ -57,6 +60,7 @@ namespace Game.Battle.Selection {
         }
 
         private void EndSelection() {
+            this.unitInfoPanel.gameObject.SetActive(false);
             this._userSelector.UnhighlightAvailablePositions();
             this._currentSelectionType = SelectionType.None;
         }
@@ -72,6 +76,7 @@ namespace Game.Battle.Selection {
         }
 
         private void CancelSelection() {
+            this.unitInfoPanel.gameObject.SetActive(false);
             this.EndSelection();
             this.OnCancel?.Invoke();
             this.ClearEvents();
@@ -80,6 +85,17 @@ namespace Game.Battle.Selection {
         private void ClearEvents() {
             this.OnSelect = null;
             this.OnCancel = null;
+        }
+
+        private void OnMoveSelection(GridPosition position) {
+            UnitObject unitObject = this.battleMapManager.GetUnit(position);
+            if (unitObject != null) {
+                this.unitInfoPanel.gameObject.SetActive(true);
+                this.unitInfoPanel.SetUnitInfo(unitObject);
+            }
+            else {
+                this.unitInfoPanel.gameObject.SetActive(false);
+            }
         }
     }
 }

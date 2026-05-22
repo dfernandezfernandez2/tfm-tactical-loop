@@ -4,7 +4,9 @@
     using UnityEngine;
 
     public class TxtMapParser : IMapParser {
-        public BattleMapData Parse(string mapTextContent) {
+        public BattleMapData Parse(string mapTextContent) => this.Parse(mapTextContent, Vector2Int.zero);
+
+        public BattleMapData Parse(string mapTextContent, Vector2Int offset) {
             if (string.IsNullOrWhiteSpace(mapTextContent)) {
                 throw new ArgumentNullException(nameof(mapTextContent));
             }
@@ -23,7 +25,10 @@
                     string symbol = symbols[x];
                     Tile tile = TxtMapLegend.GetTile(symbol);
                     SpawnType spawnType = TxtMapLegend.GetSpawnType(symbol);
-                    Vector2Int position = new(x, height - 1 - y);
+                    Vector2Int position = new(
+                        x + offset.x,
+                        height - 1 - y + offset.y
+                    );
                     int tileHeight = TxtMapLegend.GetTileHeight(symbol);
                     TileData tileData = new(position, tile, tileHeight);
                     _ = spawnType switch {

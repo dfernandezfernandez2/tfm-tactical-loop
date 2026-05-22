@@ -4,6 +4,8 @@ namespace Game.Battle {
     using System.Collections.Generic;
     using Map;
     using Map.Data;
+    using Passive;
+    using Run.Data;
     using Unit;
     using Unit.Data;
 
@@ -54,6 +56,9 @@ namespace Game.Battle {
 
             // could not be null, if its null could never be a hit
             yield return target.PlayDamage(result);
+            foreach (IPassive passive in RunData.GetInstance().Passives) {
+                yield return passive.OnDamage(attacker, target, result.GetDamage());
+            }
         }
     }
 }

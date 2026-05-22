@@ -1,6 +1,7 @@
 ﻿namespace Game.Battle.Map.Data {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using Battle.Data;
     using UnityEngine;
 
@@ -102,8 +103,19 @@
             public BattleMapData Build() {
                 TileData[,] tileDatas = new TileData[this._width, this._height];
 
+                int minX = int.MaxValue;
+                int minY = int.MaxValue;
+
+                foreach (Vector2Int position in this._tiles.Select(tile => tile.TileGridPosition.Position)) {
+                    minX = Mathf.Min(minX, position.x);
+                    minY = Mathf.Min(minY, position.y);
+                }
+
                 foreach (TileData tile in this._tiles) {
-                    tileDatas[tile.TileGridPosition.Position.x, tile.TileGridPosition.Position.y] = tile;
+                    Vector2Int position = tile.TileGridPosition.Position;
+                    int arrayX = position.x - minX;
+                    int arrayY = position.y - minY;
+                    tileDatas[arrayX, arrayY] = tile;
                 }
 
                 return new BattleMapData(this._width, this._height, tileDatas, this._playerSpawns, this._enemySpawns);
