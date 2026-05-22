@@ -36,8 +36,8 @@
             this._turnManager.OnBattleEnd += battleResult => {
                 this.battleMapLoader.DestroyCurrentMap();
                 this.battleMapManager.End();
-                this.gamePanel.SetActive(false);
                 this.battlePanel.SetActive(false);
+                this.gamePanel.SetActive(false);
                 this.OnBattleEnd?.Invoke(battleResult);
             };
         }
