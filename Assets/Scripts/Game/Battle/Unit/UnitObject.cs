@@ -108,11 +108,11 @@
             yield return this._animator.PlayAnimation(AnimationType.Attack);
         }
 
-        public IEnumerator PlayDamage(int damage) {
-            yield return this.PlayDamage(AttackResult.Hit(damage, false, false));
+        public IEnumerator PlayDamage(int damage, bool text = true) {
+            yield return this.PlayDamage(AttackResult.Hit(damage, false, false), text);
         }
 
-        public IEnumerator PlayDamage(AttackResult attackResult) {
+        public IEnumerator PlayDamage(AttackResult attackResult, bool text = true) {
             yield return this._animator.PlayAnimation(AnimationType.Damage, OnText);
             if (this.Unit.IsDead()) {
                 yield return this.PlayDeath();
@@ -121,6 +121,10 @@
             yield break;
 
             IEnumerator OnText() {
+                if (!text) {
+                    yield break;
+                }
+
                 this.combatTextUI.Init(attackResult.GetDamage().ToString(),
                     attackResult.IsCritical() ? CombatTextType.Crit : CombatTextType.Hit);
                 yield return null;

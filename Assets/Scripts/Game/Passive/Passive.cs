@@ -7,6 +7,7 @@ namespace Game.Passive {
         [SerializeField] private string passiveName;
         [SerializeField] private string description;
         [SerializeField] private Sprite icon;
+        [SerializeField] private GameObject uiObject;
 
         public virtual IEnumerator OnDeadUnit(UnitObject targetUnit) {
             yield return null;
@@ -24,5 +25,7 @@ namespace Game.Passive {
         public string GetDescription() => this.description;
 
         public Sprite GetIcon() => this.icon;
+
+        public GameObject GetUIObject() => this.uiObject;
     }
 }

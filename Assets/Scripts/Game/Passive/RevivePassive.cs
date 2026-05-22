@@ -1,5 +1,6 @@
 namespace Game.Passive {
     using System.Collections;
+    using Battle.Data;
     using Battle.Unit;
     using Battle.Unit.Data;
     using UnityEngine;
@@ -12,7 +13,7 @@ namespace Game.Passive {
         private int _pendingRevives;
 
         public override IEnumerator OnDeadUnit(UnitObject targetUnit) {
-            if (this._pendingRevives <= 0) {
+            if (this._pendingRevives <= 0 || targetUnit.Team.GetBattleTeam() != BattleTeam.Player) {
                 yield break;
             }
 

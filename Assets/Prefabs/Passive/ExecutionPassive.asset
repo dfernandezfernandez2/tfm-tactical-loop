@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.Passive.ExecutionPassive
   passiveName: Execution
   description: When an enemy is reduced below 15% of their maximum health, they are
-    instantly defeated. Does not apply to bosses.
+    instantly defeated.
   icon: {fileID: 21300000, guid: fdf8cc400c23a584986fb0eb9237bc50, type: 3}
+  uiObject: {fileID: 4772392702800256987, guid: 7e21cee28f47c1d40bfd1d27a0360f6d, type: 3}
+  percentageOfLife: 0.2
