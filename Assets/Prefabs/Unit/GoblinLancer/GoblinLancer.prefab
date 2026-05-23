@@ -146,6 +146,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d2850bd58454a089a64b18bcccac2c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Unit.UnitAnimationController
+  animationSounds:
+    sounds:
+    - animationType: 0
+      soundName: goblin_lancer_attack
+      volume: 1
+    - animationType: 1
+      soundName: goblin_damage
+      volume: 1
+    - animationType: 3
+      soundName: miss
+      volume: 1
 --- !u!114 &1518966223819640202
 MonoBehaviour:
   m_ObjectHideFlags: 0

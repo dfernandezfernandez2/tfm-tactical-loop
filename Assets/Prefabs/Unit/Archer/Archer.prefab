@@ -150,7 +150,7 @@ MonoBehaviour:
     sounds:
     - animationType: 0
       soundName: archer_attack
-      volume: 1
+      volume: 3
     - animationType: 1
       soundName: archer_damage
       volume: 1

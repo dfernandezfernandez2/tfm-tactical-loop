@@ -920,15 +920,15 @@ MonoBehaviour:
       - enemyPrefab: {fileID: 7550251793013227126, guid: 959bceb2496e67d45b3717fc08997c88, type: 3}
         weight: 100
         guaranteedCount: 0
-        maxAppearances: 0
+        maxAppearances: 9999
       - enemyPrefab: {fileID: 7550251793013227126, guid: adb27f7e6081e2b46a679e44b52493fb, type: 3}
         weight: 25
         guaranteedCount: 0
-        maxAppearances: 2
+        maxAppearances: 9999
       - enemyPrefab: {fileID: 7550251793013227126, guid: 006e976578f62954ca8158e91be4a53f, type: 3}
         weight: 25
         guaranteedCount: 0
-        maxAppearances: 2
+        maxAppearances: 9999
       minNumUnits: 2
       maxNumUnits: 5
       unitsPerScale: 1
@@ -938,15 +938,15 @@ MonoBehaviour:
       - enemyPrefab: {fileID: 7550251793013227126, guid: 959bceb2496e67d45b3717fc08997c88, type: 3}
         weight: 20
         guaranteedCount: 0
-        maxAppearances: 2
+        maxAppearances: 9999
       - enemyPrefab: {fileID: 7550251793013227126, guid: adb27f7e6081e2b46a679e44b52493fb, type: 3}
         weight: 60
-        guaranteedCount: 0
-        maxAppearances: 0
+        guaranteedCount: 2
+        maxAppearances: 3
       - enemyPrefab: {fileID: 7550251793013227126, guid: 006e976578f62954ca8158e91be4a53f, type: 3}
         weight: 60
-        guaranteedCount: 0
-        maxAppearances: 0
+        guaranteedCount: 2
+        maxAppearances: 3
       minNumUnits: 4
       maxNumUnits: 8
       unitsPerScale: 1
