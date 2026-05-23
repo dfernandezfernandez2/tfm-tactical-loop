@@ -15,6 +15,6 @@ MonoBehaviour:
   passiveName: Life Steal
   description: When unit deals physical damage, it restores health equal to 10% of
     the damage dealt.
-  icon: {fileID: 21300000, guid: fdf8cc400c23a584986fb0eb9237bc50, type: 3}
+  icon: {fileID: 21300000, guid: 9f8defde8d70a364f8cebfbee624c64b, type: 3}
   uiObject: {fileID: 4772392702800256987, guid: a72929940c91dc04b82d7335060c91a4, type: 3}
   percentageOfDamage: 0.1

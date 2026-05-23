@@ -210,8 +210,9 @@ namespace Game.Battle {
                 BattleSequenceExecutor.ExecuteBasicAttack(this._unitsTurnOrder[this._unitsTurnOrderIndex], targetUnit,
                     target, this.battleMapManager)
             );
-            this.CheckBattleEnd();
-            this.unitActionPanelUI.Show();
+            if (!this.CheckBattleEnd()) {
+                this.unitActionPanelUI.Show();
+            }
         }
 
         private void HandleCancelAction() {

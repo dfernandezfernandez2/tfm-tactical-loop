@@ -15,7 +15,7 @@ MonoBehaviour:
   passiveName: Revive
   description: Two times per combat, the first allied unit that would be defeated
     survives with 10% of life.
-  icon: {fileID: 21300000, guid: fdf8cc400c23a584986fb0eb9237bc50, type: 3}
+  icon: {fileID: 21300000, guid: 508db42c03507304ca85c1a148c1ede2, type: 3}
   uiObject: {fileID: 4772392702800256987, guid: c4e7a283b74dfa94cb61a962e01e76b7, type: 3}
   amountByMap: 2
   percentageOfLife: 0.1
