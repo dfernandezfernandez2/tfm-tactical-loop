@@ -2,6 +2,7 @@ namespace Game.Run.Map.UI {
     using System;
     using System.Collections;
     using System.Collections.Generic;
+    using Audio;
     using Controls;
     using Data;
     using UnityEngine;
@@ -55,6 +56,8 @@ namespace Game.Run.Map.UI {
                 return;
             }
 
+            AudioManager.Instance.StopMusic();
+            AudioManager.Instance.PlayMusic("map_node");
             this.StartCoroutine(this.ShowMapWhenLayoutIsReady());
         }
 

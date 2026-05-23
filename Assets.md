@@ -37,6 +37,17 @@ Sonidos:
 
     Miss: https://freesound.org/people/petenice/sounds/9509/
 
+    Execution:
+
+    Poison: https://freesound.org/people/TerryTom/sounds/561216/ 
+    Effect: https://freesound.org/people/qubodup/sounds/827664/
+
 Music:
     GameOver: https://pixabay.com/music/video-games-game-over-retro-video-game-1-422479/
     Win: https://pixabay.com/music/special-occasions-victory-winner-champions-background-music-277975/
+    MainMenu: https://pixabay.com/music/main-title-pirate-tavern-full-version-167990/
+    Team Selection: https://pixabay.com/music/folk-medieval-citytavern-ambient-235876/
+    Boss: https://pixabay.com/music/main-title-khutulun-fantasy-amp-battle-background-music-115812/
+    Elite/Basic: https://pixabay.com/music/main-title-medieval-adventure-270566/
+    Map Node: https://pixabay.com/music/fantasy-dreamy-childrens-fantasy-rpg-exploration-v2-461303/ 
+    Recompensas: https://pixabay.com/music/mystery-fantasy-medieval-mystery-ambient-292418/ 

@@ -259,6 +259,7 @@ namespace Game.Battle {
                     yield return decisionResult.Action.DoEnemyAction(this, currentTurnUnit, decisionResult,
                         this.battleMapManager);
                 }
+
                 yield return new WaitForSeconds(0.5f);
             }
             else {

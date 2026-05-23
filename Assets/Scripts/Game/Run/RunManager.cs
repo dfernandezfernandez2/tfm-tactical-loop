@@ -1,4 +1,5 @@
 namespace Game.Run {
+    using Audio;
     using Battle;
     using Battle.Data;
     using Data;
@@ -34,9 +35,14 @@ namespace Game.Run {
             this.mapRunRender.ShowMap();
         }
 
-        private void OnSelectUINode(RunNode node) => this._battleManager.StartMap(node);
+        private void OnSelectUINode(RunNode node) {
+            AudioManager.Instance.StopMusic();
+            AudioManager.Instance.PlayMusic(node.EncounterType.ToString().ToLower());
+            this._battleManager.StartMap(node);
+        }
 
         private void OnBattleEnd(BattleResult result) {
+            AudioManager.Instance.StopMusic();
             if (result.Winner == BattleTeam.Player) {
                 bool hasNextMap = this.mapRunRender.HasNext();
                 if (!hasNextMap) {

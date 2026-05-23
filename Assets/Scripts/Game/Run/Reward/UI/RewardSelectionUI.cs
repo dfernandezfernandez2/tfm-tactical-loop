@@ -1,6 +1,7 @@
 namespace Game.Run.Reward.UI {
     using System;
     using System.Collections.Generic;
+    using Audio;
     using Controls;
     using UnityEngine;
 
@@ -37,6 +38,7 @@ namespace Game.Run.Reward.UI {
         public event Action<IReward> OnRewardSelected;
 
         public void Show(List<IReward> rewards) {
+            AudioManager.Instance.PlayMusic("reward_selection");
             this.ClearOptions();
             this.panel.SetActive(true);
             this._currentOption = 0;
