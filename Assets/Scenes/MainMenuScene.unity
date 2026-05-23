@@ -2217,6 +2217,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Core.AudioManager
   audioMixer: {fileID: 24100000, guid: d87808460ead00b48b0bcd85b5d2df80, type: 2}
+  musicSource: {fileID: 0}
+  effectsSource: {fileID: 0}
 --- !u!1 &537453528
 GameObject:
   m_ObjectHideFlags: 0

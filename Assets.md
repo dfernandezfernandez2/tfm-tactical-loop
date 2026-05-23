@@ -31,6 +31,11 @@ Sonidos:
     Knight:
         Hit: https://freesound.org/people/velcronator/sounds/733890/
         Damage: https://freesound.org/people/BehanSean/sounds/422420/ 
+        Thrust: https://freesound.org/people/velcronator/sounds/733891/
+
+    Goblin Damage: https://freesound.org/people/K27K_Mike/sounds/853659/ 
+
+    Miss: https://freesound.org/people/petenice/sounds/9509/
 
 Music:
     GameOver: https://pixabay.com/music/video-games-game-over-retro-video-game-1-422479/

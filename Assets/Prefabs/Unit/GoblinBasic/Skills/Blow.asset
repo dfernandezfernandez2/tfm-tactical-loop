@@ -20,5 +20,6 @@ MonoBehaviour:
   applyHeightLineOfSight: 0
   selectionType: 0
   animationName: Skill
+  soundName: goblin_basic_attack
   effects:
   - {fileID: 11400000, guid: 810fb27ceb3e2994bac4c12bc5ea8e0b, type: 2}

@@ -20,6 +20,7 @@ MonoBehaviour:
   applyHeightLineOfSight: 0
   selectionType: 0
   animationName: Skill
+  soundName: goblin_tank_attack
   effects:
   - {fileID: 11400000, guid: 95fbb0e627f1c68429cd0367d96c7c94, type: 2}
   - {fileID: 11400000, guid: 7c18023c5cd4e8b42a722515c45168eb, type: 2}

@@ -20,6 +20,7 @@ MonoBehaviour:
   applyHeightLineOfSight: 0
   selectionType: 0
   animationName: Skill
+  soundName: goblin_lancer_attack
   effects:
   - {fileID: 11400000, guid: 3b5b1a597b797c64681fec45cda552ec, type: 2}
   - {fileID: 11400000, guid: c825b344785933a448928d618d036827, type: 2}

@@ -10,16 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 17376d46a3184366974fac18a9911b09, type: 3}
-  m_Name: charge_skill
+  m_Name: thrust_skill
   m_EditorClassIdentifier: Assembly-CSharp::Game.Unit.Skills.Skill
-  skillName: Charge
+  skillName: Thrust
   apCost: 2
   manaCost: 0
   target: 3
   range: 2
   applyHeightLineOfSight: 0
   selectionType: 0
-  animationName: Charge
+  animationName: Thrust
+  soundName: knight_thrust
   effects:
   - {fileID: 11400000, guid: 5f7c39d2d4765fd488e5fc78f0ee5b78, type: 2}
   - {fileID: 11400000, guid: 1366fee93764a8847b3d91c0e8340913, type: 2}
