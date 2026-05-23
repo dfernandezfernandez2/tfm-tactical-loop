@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: ReviveItemReward
   m_EditorClassIdentifier: Assembly-CSharp::Game.Reward.ItemReward
   item: {fileID: 11400000, guid: 582ad5dbceabbe04a9d2d53f6dc88d74, type: 2}
-  sprite: {fileID: 21300000, guid: fdf8cc400c23a584986fb0eb9237bc50, type: 3}
+  sprite: {fileID: 21300000, guid: 7c7be574bd425264f9e7a51f9235f650, type: 3}

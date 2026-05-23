@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: SlowItemReward
   m_EditorClassIdentifier: Assembly-CSharp::Game.Reward.ItemReward
   item: {fileID: 11400000, guid: edf3de9f3e8f45d489399e2ad2c1e291, type: 2}
-  sprite: {fileID: 21300000, guid: fdf8cc400c23a584986fb0eb9237bc50, type: 3}
+  sprite: {fileID: 21300000, guid: c1be8b50d191bc74493c650ee3666780, type: 3}

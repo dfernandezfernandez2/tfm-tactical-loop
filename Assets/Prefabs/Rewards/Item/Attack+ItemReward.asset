@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Attack+ItemReward
   m_EditorClassIdentifier: Assembly-CSharp::Game.Reward.ItemReward
   item: {fileID: 11400000, guid: f6a7a1f529c655741a0885f5277f0e26, type: 2}
-  sprite: {fileID: 21300000, guid: fdf8cc400c23a584986fb0eb9237bc50, type: 3}
+  sprite: {fileID: 21300000, guid: c205a86516083544fae2f0f7042889a4, type: 3}

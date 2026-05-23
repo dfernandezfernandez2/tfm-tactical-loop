@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: ManaItemReward
   m_EditorClassIdentifier: Assembly-CSharp::Game.Reward.ItemReward
   item: {fileID: 11400000, guid: 9b2759dec7cc5384489b84cd67759a04, type: 2}
-  sprite: {fileID: 21300000, guid: fdf8cc400c23a584986fb0eb9237bc50, type: 3}
+  sprite: {fileID: 21300000, guid: 4dd52e4a498c8c24aae7b323fc5d1c24, type: 3}

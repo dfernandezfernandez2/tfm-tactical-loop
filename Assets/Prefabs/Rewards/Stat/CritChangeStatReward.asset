@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.Reward.StatReward
   stat: 9
   amount: 0.1
-  sprite: {fileID: 21300000, guid: fdf8cc400c23a584986fb0eb9237bc50, type: 3}
+  sprite: {fileID: 21300000, guid: 473a5ae6ae593ef4e8d0e06c53ef27f5, type: 3}
   statRewardName: Critical Chance Boost
   description: Increases the critical hit chance of all units in the party.

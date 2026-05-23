@@ -427,7 +427,7 @@ MonoBehaviour:
   button: {fileID: 7078417742990358543}
   rewardName: {fileID: 2397432494489167261}
   background: {fileID: 8781220112459406994}
-  selectedBackground: {fileID: 21300000, guid: 0619d5c43fa208b4b892632d47cb7cc0, type: 3}
+  selectedBackground: {fileID: 21300000, guid: 976cfce7250fc2d418ed5c4d6b63eeac, type: 3}
   unSelectedBackground: {fileID: 0}
 --- !u!114 &74596510981418316
 MonoBehaviour:

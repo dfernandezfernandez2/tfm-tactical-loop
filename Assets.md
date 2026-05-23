@@ -5,7 +5,9 @@ Unidades: https://banado.itch.io/isometic
 Enemigos:
     https://barely-games.itch.io/2d-pixel-quest-vol5-the-orks-pit
     https://tamara-rifqi.itch.io/goblin-monster-weapons-pack-8-directions
-    
+
+Buff y pasivas: https://pixerelia.itch.io/vas-basic-spells-and-buffs
+Items: https://pixerelia.itch.io/vf-potions
 
 Sonidos:
     Buff: https://freesound.org/people/ZeltBolt/sounds/833031/
