@@ -49,4 +49,4 @@ MonoBehaviour:
     tileHeight: 32
     pixelsPerUnit: 100
     scale: 3
-    unitAnchorYOffset: 0.75
+    unitAnchorYOffset: 0.7

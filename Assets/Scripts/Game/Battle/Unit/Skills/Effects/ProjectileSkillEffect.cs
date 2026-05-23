@@ -1,6 +1,6 @@
 namespace Game.Battle.Unit.Skills.Effects {
     using System.Collections;
-    using Effect.Data;
+    using Audio;
     using Map;
     using Map.Data;
     using UnityEngine;
@@ -30,11 +30,7 @@ namespace Game.Battle.Unit.Skills.Effects {
             }
 
             if (!string.IsNullOrWhiteSpace(this.projectileSoundRelease)) {
-                yield return user.EffectController.VisualController.PlaySound(new SoundEffectData {
-                    Name = this.projectileSoundRelease,
-                    Volume = 1f,
-                    WaitUntilFinished = false
-                });
+                yield return AudioManager.Instance.PlaySound(this.projectileSoundRelease);
             }
 
             GameObject projectile = Instantiate(
@@ -60,11 +56,7 @@ namespace Game.Battle.Unit.Skills.Effects {
             projectile.transform.position = end;
 
             if (!string.IsNullOrWhiteSpace(this.projectileSoundHit)) {
-                yield return user.EffectController.VisualController.PlaySound(new SoundEffectData {
-                    Name = this.projectileSoundHit,
-                    Volume = 1f,
-                    WaitUntilFinished = false
-                });
+                yield return AudioManager.Instance.PlaySound(this.projectileSoundHit);
             }
 
             if (this.destroyDelay > 0f) {

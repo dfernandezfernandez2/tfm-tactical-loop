@@ -20,6 +20,18 @@ Sonidos:
         Release:
         Hit: https://freesound.org/people/omerbhatti34/sounds/521552/
 
+    Arquero:
+        Hit: https://freesound.org/people/Joao_Janz/sounds/483988/
+        Damage: https://freesound.org/people/BehanSean/sounds/422421/
+
+    Mage:
+        Hit: https://freesound.org/people/Rudmer_Rotteveel/sounds/330997/ 
+        Damage: https://freesound.org/people/birdOfTheNorth/sounds/577968/
+
+    Knight:
+        Hit: https://freesound.org/people/velcronator/sounds/733890/
+        Damage: https://freesound.org/people/BehanSean/sounds/422420/ 
+
 Music:
     GameOver: https://pixabay.com/music/video-games-game-over-retro-video-game-1-422479/
     Win: https://pixabay.com/music/special-occasions-victory-winner-champions-background-music-277975/

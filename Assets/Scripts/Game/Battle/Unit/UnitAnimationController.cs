@@ -13,6 +13,7 @@ namespace Game.Battle.Unit {
 
         private Animator _animator;
         private UnitLayer _unitLayer;
+        [SerializeField] private AnimationSounds animationSounds;
 
         public void Awake() {
             this._animator = this.GetComponent<Animator>();
@@ -25,6 +26,10 @@ namespace Game.Battle.Unit {
         }
 
         public IEnumerator PlayAnimation(AnimationType animationType, Func<IEnumerator> onText = null) {
+            AnimationSound sound = this.animationSounds.Get(animationType);
+            if (sound != null) {
+                yield return sound.Play();
+            }
             string triggerName = animationType.ToString();
             yield return this.PlayAnimation(triggerName, onText);
         }
