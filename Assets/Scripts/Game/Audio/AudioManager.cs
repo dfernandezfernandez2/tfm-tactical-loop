@@ -26,6 +26,7 @@ namespace Game.Audio {
                 Destroy(this.gameObject);
                 return;
             }
+
             Instance = this;
         }
 

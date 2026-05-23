@@ -8,12 +8,12 @@ namespace Game.Battle.Unit {
     [RequireComponent(typeof(Animator))]
     public class UnitAnimationController : MonoBehaviour {
         private static readonly int _isMoving = Animator.StringToHash("isMoving");
+        [SerializeField] private AnimationSounds animationSounds;
 
         private readonly Dictionary<string, int> _signalCounters = new();
 
         private Animator _animator;
         private UnitLayer _unitLayer;
-        [SerializeField] private AnimationSounds animationSounds;
 
         public void Awake() {
             this._animator = this.GetComponent<Animator>();
@@ -30,6 +30,7 @@ namespace Game.Battle.Unit {
             if (sound != null) {
                 yield return sound.Play();
             }
+
             string triggerName = animationType.ToString();
             yield return this.PlayAnimation(triggerName, onText);
         }

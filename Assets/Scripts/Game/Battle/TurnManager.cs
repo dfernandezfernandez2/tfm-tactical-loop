@@ -255,9 +255,11 @@ namespace Game.Battle {
                 IReadOnlyList<DecisionResult> decisionResults = this._enemyTurnController.CalculateTurn(currentTurnUnit,
                     this._unitsTurnOrder, currentTurnUnit.Actions.GetAllAvailableActions());
                 foreach (DecisionResult decisionResult in decisionResults) {
+                    yield return new WaitForSeconds(0.5f);
                     yield return decisionResult.Action.DoEnemyAction(this, currentTurnUnit, decisionResult,
                         this.battleMapManager);
                 }
+                yield return new WaitForSeconds(0.5f);
             }
             else {
                 this.unitActionPanelUI.Init(currentTurnUnit.Actions.GetBasicActions());

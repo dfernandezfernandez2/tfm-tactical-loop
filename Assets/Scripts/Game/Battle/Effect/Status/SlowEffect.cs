@@ -6,12 +6,16 @@ namespace Game.Battle.Effect.Status {
 
     public class SlowEffect : StatusEffect {
         private readonly int _amount;
+        private readonly string _soundOnApply;
 
-        public SlowEffect(int duration, int amount) : base(duration) => this._amount = amount;
+        public SlowEffect(int duration, int amount, string soundOnApply = "effect") : base(duration) {
+            this._amount = amount;
+            this._soundOnApply = soundOnApply;
+        }
 
         public override IEnumerator OnApply(UnitObject from, UnitObject to, EffectVisualController controller) {
             to.Unit.UnitStatsModifier.AddModifier(StatType.Movement, -this._amount);
-            yield return controller.PlayEffect(this.CreateEffectData(to, Color.saddleBrown));
+            yield return controller.PlayEffect(this.CreateEffectData(to, Color.saddleBrown, this._soundOnApply, 0.25f));
         }
 
         public override IEnumerator OnExpire(UnitObject target, EffectVisualController controller) {

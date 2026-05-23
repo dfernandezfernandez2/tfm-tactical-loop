@@ -33,7 +33,8 @@ namespace Game.Battle.Effect.Recover {
             yield return null;
         }
 
-        protected override EffectData CreateEffectData(UnitObject target, Color color, string soundEffectName = null) =>
+        protected override EffectData CreateEffectData(UnitObject target, Color color, string soundEffectName = null,
+            float volume = 1f) =>
             new() {
                 Effect = this,
                 Target = target,

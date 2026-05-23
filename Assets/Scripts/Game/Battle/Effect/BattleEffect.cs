@@ -33,24 +33,25 @@ namespace Game.Battle.Effect {
         public void DecreaseDuration() => this._remainingTurns--;
         public bool IsExpired() => this._remainingTurns <= 0;
 
-        protected virtual EffectData CreateEffectData(UnitObject target, Color color, string soundEffectName = null) =>
+        protected virtual EffectData CreateEffectData(UnitObject target, Color color, string soundEffectName = null,
+            float volume = 1f) =>
             new() {
                 Effect = this,
                 Target = target,
                 Color = color,
                 KeepActive = true,
-                SoundEffect = this.CreateSoundEffectData(soundEffectName),
+                SoundEffect = this.CreateSoundEffectData(soundEffectName, volume),
                 ParticleConfig = this.CreateParticleEffectConfig()
             };
 
-        protected virtual SoundEffectData CreateSoundEffectData(string soundEffectName) {
+        protected virtual SoundEffectData CreateSoundEffectData(string soundEffectName, float volume = 1f) {
             if (soundEffectName == null) {
                 return null;
             }
 
             return new SoundEffectData {
                 Name = soundEffectName,
-                Volume = 1f,
+                Volume = volume,
                 WaitUntilFinished = true
             };
         }
