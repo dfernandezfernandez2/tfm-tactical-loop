@@ -16,6 +16,7 @@ namespace Game.Battle.UI {
             if (this.deadUnitImage == null || this._unit == null) {
                 return;
             }
+
             this.deadUnitImage.gameObject.SetActive(this._unit.Unit.IsDead());
         }
 

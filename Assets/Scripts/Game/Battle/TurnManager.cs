@@ -5,7 +5,6 @@ namespace Game.Battle {
     using System.Linq;
     using Actions;
     using Data;
-    using IA;
     using Item;
     using Map;
     using Map.Data;
@@ -17,6 +16,7 @@ namespace Game.Battle {
     using UnityEngine;
     using Random = UnityEngine.Random;
 
+    [RequireComponent(typeof(EnemyTurnManager))]
     public class TurnManager : MonoBehaviour, IBattleContext {
         [SerializeField] private UnitActionPanelUI unitActionPanelUI;
         [SerializeField] private UnitInfoPanelUI unitInfoPanelUI;
@@ -26,12 +26,12 @@ namespace Game.Battle {
 
         private readonly List<UnitObject> _unitsTurnOrder = new();
         private Team _enemyTeam;
-        private EnemyTurnController _enemyTurnController;
+        private EnemyTurnManager _enemyTurnManager;
         private Team _playerTeam;
         private int _unitsTurnOrderIndex;
         private UnitTurnState _unitTurnState;
 
-        public void Awake() => this._enemyTurnController = new EnemyTurnController(this.battleMapManager);
+        private void Awake() => this._enemyTurnManager = this.GetComponent<EnemyTurnManager>();
 
         /**
          * Communicates to UI
@@ -217,6 +217,7 @@ namespace Game.Battle {
 
         private void HandleCancelAction() {
             this._unitTurnState.CancelLastAction(this);
+            this.unitInfoPanelUI.UpdateStats();
             this.unitActionPanelUI.Show();
         }
 
@@ -249,15 +250,8 @@ namespace Game.Battle {
             this.unitInfoPanelUI.SetUnitInfo(currentTurnUnit);
             this.battleMapManager.Select(currentTurnUnit.Unit.GridPosition);
             if (currentTurnUnit.Team.GetBattleTeam().Equals(BattleTeam.Enemy)) {
-                IReadOnlyList<DecisionResult> decisionResults = this._enemyTurnController.CalculateTurn(currentTurnUnit,
-                    this._unitsTurnOrder, currentTurnUnit.Actions.GetAllAvailableActions());
-                foreach (DecisionResult decisionResult in decisionResults) {
-                    yield return new WaitForSeconds(0.5f);
-                    yield return decisionResult.Action.DoEnemyAction(this, currentTurnUnit, decisionResult,
-                        this.battleMapManager);
-                }
-
-                yield return new WaitForSeconds(0.5f);
+                yield return this._enemyTurnManager.DoTurn(currentTurnUnit, this._unitsTurnOrder, this,
+                    () => this.unitInfoPanelUI.UpdateStats());
             }
             else {
                 this.unitActionPanelUI.Init(currentTurnUnit.Actions.GetBasicActions());
@@ -289,6 +283,7 @@ namespace Game.Battle {
 
             IEnumerator Action() {
                 yield return this._unitTurnState.ExecuteAction(battleAction, this);
+                this.unitInfoPanelUI.UpdateStats();
                 this.CheckBattleEnd();
             }
         }

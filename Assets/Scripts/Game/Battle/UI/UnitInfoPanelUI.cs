@@ -20,14 +20,23 @@ namespace Game.Battle.UI {
 
         private readonly List<TMP_Text> _unitStats = new();
 
+        private UnitObject _unit;
+
         public void SetUnitInfo(UnitObject unitObject) {
             this.unitImage.sprite = unitObject.GetSprite();
+            this._unit = unitObject;
+            this.BuildStats();
+        }
+
+        public void UpdateStats() => this.BuildStats();
+
+        private void BuildStats() {
             foreach (TMP_Text tmpText in this._unitStats) {
                 Destroy(tmpText.gameObject);
             }
 
             this._unitStats.Clear();
-            foreach ((StatType type, float value) in unitObject.Unit.GetCurrentStats(this._statsFilter)) {
+            foreach ((StatType type, float value) in this._unit.Unit.GetCurrentStats(this._statsFilter)) {
                 TMP_Text text = Instantiate(this.statTextPrefab, this.unitStatsPanel.transform);
                 text.text = type.GetName() + ": " + FormatValue(value);
                 this._unitStats.Add(text);
