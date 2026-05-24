@@ -26,5 +26,6 @@ namespace Game.Battle.Unit.Skills {
         [Header("Effect")] public List<SkillEffect> effects = new();
 
         public string GetName() => TranslatorManager.Get($"skill.{this.nameId}.name");
+        public string GetId() => this.nameId;
     }
 }
