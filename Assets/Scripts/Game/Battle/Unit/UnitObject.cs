@@ -177,6 +177,7 @@
         }
 
         public IEnumerator PlayRevive(int recovered) {
+            yield return AudioManager.Instance.PlaySound("heal");
             this.PlayText($"+{recovered}", CombatTextType.Heal);
             this._animator.TriggerDefault();
             yield return new WaitForSeconds(0.5f);
