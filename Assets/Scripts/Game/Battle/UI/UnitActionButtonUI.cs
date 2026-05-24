@@ -1,5 +1,6 @@
 namespace Game.Battle.UI {
     using System;
+    using Controls;
     using TMPro;
     using UnityEngine;
     using UnityEngine.EventSystems;
@@ -19,7 +20,7 @@ namespace Game.Battle.UI {
         private void Awake() => this._button = this.GetComponent<Button>();
 
         public void OnPointerEnter(PointerEventData eventData) {
-            if (this.IsAvailable) {
+            if (this.IsAvailable && !GameInputLock.IsLocked) {
                 this._onSelect.Invoke();
             }
         }
@@ -42,7 +43,11 @@ namespace Game.Battle.UI {
             color.a = isAvailable ? 1f : 0.4f;
             this._button.image.color = color;
             if (isAvailable) {
-                this._button.onClick.AddListener(() => this._onClick());
+                this._button.onClick.AddListener(() => {
+                    if (!GameInputLock.IsLocked) {
+                        this._onClick.Invoke();
+                    }
+                });
             }
         }
 

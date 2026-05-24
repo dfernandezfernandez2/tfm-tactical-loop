@@ -8,6 +8,7 @@ namespace Game.Battle.Unit {
     [RequireComponent(typeof(Animator))]
     public class UnitAnimationController : MonoBehaviour {
         private static readonly int _isMoving = Animator.StringToHash("isMoving");
+        [SerializeField] private AnimationSounds animationSounds;
 
         private readonly Dictionary<string, int> _signalCounters = new();
 
@@ -25,6 +26,11 @@ namespace Game.Battle.Unit {
         }
 
         public IEnumerator PlayAnimation(AnimationType animationType, Func<IEnumerator> onText = null) {
+            AnimationSound sound = this.animationSounds.Get(animationType);
+            if (sound != null) {
+                yield return sound.Play();
+            }
+
             string triggerName = animationType.ToString();
             yield return this.PlayAnimation(triggerName, onText);
         }

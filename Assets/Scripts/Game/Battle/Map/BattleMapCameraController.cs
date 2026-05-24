@@ -1,4 +1,5 @@
 namespace Game.Battle.Map {
+    using Controls;
     using Data;
     using UnityEngine;
 
@@ -24,7 +25,7 @@ namespace Game.Battle.Map {
         }
 
         private void Update() {
-            if (!this._isBattleOn) {
+            if (!this._isBattleOn || GameInputLock.IsLocked) {
                 return;
             }
 

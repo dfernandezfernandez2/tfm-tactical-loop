@@ -44,6 +44,10 @@ namespace Game.Menu {
             this.mapGameObject.transform.localScale = this.mapScale;
             this.mapGameObject.transform.position = this.mapPosition;
             this._isActive = true;
+            for (int i = 0; i < this.buttons.Count; i++) {
+                this.buttons[i].Init(i, this.Select);
+            }
+
             this.buttons[this._currentButtonIndex].Select();
         }
 
@@ -65,11 +69,14 @@ namespace Game.Menu {
             }
         }
 
-        private void Movement(int movement) {
+        private void Select(int index) {
             this.buttons[this._currentButtonIndex].UnSelect();
-            this._currentButtonIndex = Mathf.Clamp(this._currentButtonIndex + movement, 0, this.buttons.Count - 1);
+            this._currentButtonIndex = index;
             this.buttons[this._currentButtonIndex].Select();
         }
+
+        private void Movement(int movement) =>
+            this.Select(Mathf.Clamp(this._currentButtonIndex + movement, 0, this.buttons.Count - 1));
 
         public void Show() {
             this._isActive = true;

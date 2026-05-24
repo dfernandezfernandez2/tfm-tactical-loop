@@ -19,6 +19,8 @@ namespace Game.Battle.Unit.Skills {
 
         [Header("Animation")] public string animationName;
 
+        [Header("Sound")] public string soundName;
+
         [Header("Effect")] public List<SkillEffect> effects = new();
     }
 }

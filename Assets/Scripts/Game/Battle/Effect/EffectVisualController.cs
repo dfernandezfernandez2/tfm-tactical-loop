@@ -2,6 +2,7 @@ namespace Game.Battle.Effect {
     using System;
     using System.Collections;
     using System.Collections.Generic;
+    using Audio;
     using Data;
     using Unit;
     using UnityEngine;
@@ -17,20 +18,15 @@ namespace Game.Battle.Effect {
         public override int GetHashCode() => this.Effect != null ? this.Effect.GetHashCode() : 0;
     }
 
-    [RequireComponent(typeof(AudioSource))]
     [RequireComponent(typeof(EffectMaterialFactory))]
     public class EffectVisualController : MonoBehaviour {
         [SerializeField] private ParticleSystem particleSystemPrefab;
         private readonly Dictionary<UnitObject, List<ActiveEffectData>> _activeEffects = new();
         private readonly Dictionary<string, AudioClip> _soundCache = new();
 
-        private AudioSource _audioSource;
         private EffectMaterialFactory _effectMaterialFactory;
 
-        public void Awake() {
-            this._audioSource = this.GetComponent<AudioSource>();
-            this._effectMaterialFactory = this.GetComponent<EffectMaterialFactory>();
-        }
+        public void Awake() => this._effectMaterialFactory = this.GetComponent<EffectMaterialFactory>();
 
         public IEnumerator PlayEffect(EffectData effectData) {
             ParticleEffectConfig config = effectData.ParticleConfig ?? new ParticleEffectConfig();
@@ -108,7 +104,8 @@ namespace Game.Battle.Effect {
             ps.Play();
 
             if (effectData.SoundEffect != null) {
-                yield return this.PlaySound(effectData.SoundEffect);
+                yield return AudioManager.Instance.PlaySound(effectData.SoundEffect.Name, effectData.SoundEffect.Volume,
+                    effectData.SoundEffect.WaitUntilFinished);
             }
 
             if (effectData.KeepActive) {
@@ -132,38 +129,6 @@ namespace Game.Battle.Effect {
                 this._activeEffects[target].Find(activeEffect => activeEffect.Effect.Equals(effect));
             Destroy(effectData.ParticleSystem);
             this._activeEffects[target].Remove(effectData);
-        }
-
-        public IEnumerator PlaySound(SoundEffectData soundEffectData) {
-            AudioClip clip = this.GetSound(soundEffectData.Name);
-            if (!clip) {
-                yield break;
-            }
-
-            this._audioSource.PlayOneShot(clip, soundEffectData.Volume);
-            if (!soundEffectData.WaitUntilFinished) {
-                yield break;
-            }
-
-            yield return new WaitForSeconds(clip.length);
-        }
-
-        private AudioClip GetSound(string soundName) {
-            if (string.IsNullOrEmpty(soundName)) {
-                return null;
-            }
-
-            if (this._soundCache.TryGetValue(soundName, out AudioClip clip)) {
-                return clip;
-            }
-
-            clip = Resources.Load<AudioClip>($"Sounds/{soundName}");
-            if (!clip) {
-                return null;
-            }
-
-            this._soundCache[soundName] = clip;
-            return clip;
         }
     }
 }

@@ -31,6 +31,10 @@ namespace Game.Battle.UI {
         }
 
         private void Update() {
+            if (GameInputLock.IsLocked) {
+                return;
+            }
+
             bool isMouseOverPanel = this.IsMouseOverPanel();
             if (InputUtils.IsSwapNextSelected() || (isMouseOverPanel && InputUtils.IsScrollDownSelected())) {
                 this.Move(1);

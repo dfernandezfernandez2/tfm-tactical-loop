@@ -20,6 +20,34 @@ Sonidos:
         Release:
         Hit: https://freesound.org/people/omerbhatti34/sounds/521552/
 
+    Arquero:
+        Hit: https://freesound.org/people/Joao_Janz/sounds/483988/
+        Damage: https://freesound.org/people/BehanSean/sounds/422421/
+
+    Mage:
+        Hit: https://freesound.org/people/Rudmer_Rotteveel/sounds/330997/ 
+        Damage: https://freesound.org/people/birdOfTheNorth/sounds/577968/
+
+    Knight:
+        Hit: https://freesound.org/people/velcronator/sounds/733890/
+        Damage: https://freesound.org/people/BehanSean/sounds/422420/ 
+        Thrust: https://freesound.org/people/velcronator/sounds/733891/
+
+    Goblin Damage: https://freesound.org/people/K27K_Mike/sounds/853659/ 
+
+    Miss: https://freesound.org/people/petenice/sounds/9509/
+
+    Execution:
+
+    Poison: https://freesound.org/people/TerryTom/sounds/561216/ 
+    Effect: https://freesound.org/people/qubodup/sounds/827664/
+
 Music:
     GameOver: https://pixabay.com/music/video-games-game-over-retro-video-game-1-422479/
     Win: https://pixabay.com/music/special-occasions-victory-winner-champions-background-music-277975/
+    MainMenu: https://pixabay.com/music/main-title-pirate-tavern-full-version-167990/
+    Team Selection: https://pixabay.com/music/folk-medieval-citytavern-ambient-235876/
+    Boss: https://pixabay.com/music/main-title-khutulun-fantasy-amp-battle-background-music-115812/
+    Elite/Basic: https://pixabay.com/music/main-title-medieval-adventure-270566/
+    Map Node: https://pixabay.com/music/fantasy-dreamy-childrens-fantasy-rpg-exploration-v2-461303/ 
+    Recompensas: https://pixabay.com/music/mystery-fantasy-medieval-mystery-ambient-292418/ 

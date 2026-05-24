@@ -40,7 +40,7 @@ namespace Game.Battle.Placement {
         }
 
         private void Update() {
-            if (!this._isInitialized) {
+            if (!this._isInitialized || GameInputLock.IsLocked) {
                 return;
             }
 

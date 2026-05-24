@@ -2,6 +2,7 @@
     using System;
     using System.Collections;
     using System.Collections.Generic;
+    using Audio;
     using Battle.Data;
     using Data;
     using Map;
@@ -157,6 +158,10 @@
         public IEnumerator PlaySkill(Skill skill, GridPosition targetPosition) {
             if (!targetPosition.Equals(this.Unit.GridPosition)) {
                 this.UpdateDirection(this.Unit.GridPosition.GetDirectionTo(targetPosition));
+            }
+
+            if (!string.IsNullOrEmpty(skill.soundName)) {
+                yield return AudioManager.Instance.PlaySound(skill.soundName);
             }
 
             if (string.IsNullOrEmpty(skill.animationName)) {

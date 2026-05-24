@@ -2,6 +2,7 @@ namespace Game.Run.Map.UI {
     using System;
     using System.Collections;
     using System.Collections.Generic;
+    using Audio;
     using Controls;
     using Data;
     using UnityEngine;
@@ -34,7 +35,7 @@ namespace Game.Run.Map.UI {
         }
 
         private void Update() {
-            if (!this._isActive) {
+            if (!this._isActive || GameInputLock.IsLocked) {
                 return;
             }
 
@@ -55,6 +56,8 @@ namespace Game.Run.Map.UI {
                 return;
             }
 
+            AudioManager.Instance.StopMusic();
+            AudioManager.Instance.PlayMusic("map_node");
             this.StartCoroutine(this.ShowMapWhenLayoutIsReady());
         }
 
@@ -88,7 +91,9 @@ namespace Game.Run.Map.UI {
         }
 
         public bool HasNext() =>
-            !(this._currentNode == null || this._currentNode.NextNodeConnections.Exists(node => node.MapNode.RunNode.EncounterType == EncounterType.End));
+            !(this._currentNode == null ||
+              this._currentNode.NextNodeConnections.Exists(node =>
+                  node.MapNode.RunNode.EncounterType == EncounterType.End));
 
         private void Hide() {
             this._isActive = false;
