@@ -35,7 +35,7 @@ namespace Game.Run.Map.UI {
         }
 
         private void Update() {
-            if (!this._isActive) {
+            if (!this._isActive || GameInputLock.IsLocked) {
                 return;
             }
 

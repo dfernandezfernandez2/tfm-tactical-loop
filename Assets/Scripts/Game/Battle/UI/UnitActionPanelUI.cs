@@ -28,7 +28,7 @@ namespace Game.Battle.UI {
         }
 
         private void Update() {
-            if (!this._isActive) {
+            if (!this._isActive || GameInputLock.IsLocked) {
                 return;
             }
 

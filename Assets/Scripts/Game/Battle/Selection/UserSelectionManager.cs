@@ -1,6 +1,7 @@
 namespace Game.Battle.Selection {
     using System;
     using System.Collections.Generic;
+    using Controls;
     using Map;
     using Map.Data;
     using Map.Renderer;
@@ -41,7 +42,7 @@ namespace Game.Battle.Selection {
             this.SelectPosition, this.CancelSelection, this.OnMoveSelection);
 
         private void Update() {
-            if (this._currentSelectionType == SelectionType.None) {
+            if (this._currentSelectionType == SelectionType.None || GameInputLock.IsLocked) {
                 return;
             }
 

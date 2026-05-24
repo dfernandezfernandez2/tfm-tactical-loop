@@ -18,7 +18,7 @@ namespace Game.Run.Reward.UI {
         private void Awake() => this.panel.SetActive(false);
 
         private void Update() {
-            if (!this._isActive) {
+            if (!this._isActive || GameInputLock.IsLocked) {
                 return;
             }
 
