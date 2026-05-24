@@ -1,10 +1,11 @@
 ﻿namespace Game.Battle.Unit.Data {
     using System.Collections.Generic;
+    using Translation;
     using UnityEngine;
 
     [CreateAssetMenu(menuName = "Unit/Unit Data")]
     public class UnitData : ScriptableObject {
-        public string unitName;
+        [SerializeField] private string nameId;
         public Sprite unitSprite;
         public bool isRanged;
         [Range(1, 50)] public int hp;
@@ -53,5 +54,7 @@
             };
             return stats;
         }
+
+        public string GetName() => TranslatorManager.Get($"unit.{this.nameId}.name");
     }
 }

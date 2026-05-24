@@ -1502,6 +1502,7 @@ GameObject:
   - component: {fileID: 1366168044}
   - component: {fileID: 1366168046}
   - component: {fileID: 1366168045}
+  - component: {fileID: 1366168047}
   m_Layer: 5
   m_Name: StatsTitle
   m_TagString: Untagged
@@ -1628,6 +1629,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1366168043}
   m_CullTransparentMesh: 1
+--- !u!114 &1366168047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1366168043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bc7c6c4fb9743a9b7bb631293907465, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Translation.TranslatedText
+  id: team_selector.unit.stats.title
 --- !u!1 &1594033336
 GameObject:
   m_ObjectHideFlags: 0
@@ -1639,6 +1653,7 @@ GameObject:
   - component: {fileID: 1594033337}
   - component: {fileID: 1594033339}
   - component: {fileID: 1594033338}
+  - component: {fileID: 1594033340}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -1765,6 +1780,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1594033336}
   m_CullTransparentMesh: 1
+--- !u!114 &1594033340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594033336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bc7c6c4fb9743a9b7bb631293907465, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Translation.TranslatedText
+  id: team_selector.title
 --- !u!1 &1632166623
 GameObject:
   m_ObjectHideFlags: 0
@@ -1776,6 +1804,7 @@ GameObject:
   - component: {fileID: 1632166624}
   - component: {fileID: 1632166626}
   - component: {fileID: 1632166625}
+  - component: {fileID: 1632166627}
   m_Layer: 5
   m_Name: ConfirmButtonText
   m_TagString: Untagged
@@ -1902,6 +1931,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1632166623}
   m_CullTransparentMesh: 1
+--- !u!114 &1632166627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1632166623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bc7c6c4fb9743a9b7bb631293907465, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Translation.TranslatedText
+  id: team_selector.confirm
 --- !u!1 &1675760100
 GameObject:
   m_ObjectHideFlags: 0
@@ -2070,6 +2112,7 @@ GameObject:
   - component: {fileID: 1837360537}
   - component: {fileID: 1837360539}
   - component: {fileID: 1837360538}
+  - component: {fileID: 1837360540}
   m_Layer: 5
   m_Name: AvailableUnitTypesTitle
   m_TagString: Untagged
@@ -2196,6 +2239,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1837360536}
   m_CullTransparentMesh: 1
+--- !u!114 &1837360540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1837360536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bc7c6c4fb9743a9b7bb631293907465, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Translation.TranslatedText
+  id: team_selector.unit.types.title
 --- !u!1 &1927687988
 GameObject:
   m_ObjectHideFlags: 0
@@ -2411,6 +2467,7 @@ GameObject:
   - component: {fileID: 2135610784}
   - component: {fileID: 2135610786}
   - component: {fileID: 2135610785}
+  - component: {fileID: 2135610787}
   m_Layer: 5
   m_Name: TeamTitle
   m_TagString: Untagged
@@ -2537,6 +2594,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2135610783}
   m_CullTransparentMesh: 1
+--- !u!114 &2135610787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2135610783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bc7c6c4fb9743a9b7bb631293907465, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Translation.TranslatedText
+  id: team_selector.team.title
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

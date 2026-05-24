@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: GoblinLancerUnitData
   m_EditorClassIdentifier: Assembly-CSharp::Unit.Data.UnitData
   unitName: Goblin Lancer
+  nameId: goblin_lancer
   unitSprite: {fileID: 929150727014594773, guid: 1391d3aae0a3b5b4882f29c9002fe984, type: 3}
   isRanged: 0
   hp: 30

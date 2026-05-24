@@ -2,6 +2,7 @@ namespace Game.Menu.Options {
     using System.Collections.Generic;
     using System.Linq;
     using TMPro;
+    using Translation;
     using UnityEngine;
     using UnityEngine.UI;
 
@@ -26,7 +27,7 @@ namespace Game.Menu.Options {
             this.fullScreenToggle.onValueChanged.AddListener(this.SetFullScreen);
         }
 
-        public override string GetTitle() => "Video";
+        public override string GetTitle() => TranslatorManager.Get("menu.options.video");
 
         private void LoadResolutions() {
             this.resolutionDropdown.ClearOptions();

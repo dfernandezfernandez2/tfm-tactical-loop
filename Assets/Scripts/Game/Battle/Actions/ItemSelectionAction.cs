@@ -17,7 +17,7 @@ namespace Game.Battle.Actions {
 
         public override bool CanDoAction(IBattleContext battleContext, UnitObject unitObject) =>
             RunData.GetInstance().Inventory.HasItems() &&
-            battleContext.IsAvailableAction(this.GetActionName() + "Action");
+            battleContext.IsAvailableAction(this.GetActionName());
 
         public override IEnumerator DoEnemyAction(IBattleContext battleContext, UnitObject enemy,
             DecisionResult decisionResult,

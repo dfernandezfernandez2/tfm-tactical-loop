@@ -12,12 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17376d46a3184366974fac18a9911b09, type: 3}
   m_Name: harden_skill
   m_EditorClassIdentifier: Assembly-CSharp::Game.Unit.Skills.Skill
-  skillName: Harden
+  nameId: harden
   apCost: 2
   manaCost: 0
   target: 1
   range: 0
+  applyHeightLineOfSight: 0
   selectionType: 2
   animationName: 
+  soundName: 
   effects:
   - {fileID: 11400000, guid: 895f5c940a6431e4491547ac90d67cc9, type: 2}

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17376d46a3184366974fac18a9911b09, type: 3}
   m_Name: SpectralFire
   m_EditorClassIdentifier: Assembly-CSharp::Game.Battle.Unit.Skills.Skill
-  skillName: Spectral Fire
+  nameId: spectral_fire
   apCost: 2
   manaCost: 2
   target: 3
@@ -20,5 +20,6 @@ MonoBehaviour:
   applyHeightLineOfSight: 0
   selectionType: 0
   animationName: 
+  soundName: 
   effects:
   - {fileID: 11400000, guid: 160fa92eddd477d41963953fcdc645dd, type: 2}

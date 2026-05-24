@@ -1,4 +1,6 @@
 namespace Game.Battle.Actions {
+    using Translation;
+
     public enum ActionType {
         Movement,
         Attack,
@@ -8,23 +10,16 @@ namespace Game.Battle.Actions {
     }
 
     public static class ActionTypeExtensions {
-        public static IBattleAction GetBattleAction(this ActionType actionType) =>
-            actionType switch {
-                ActionType.Movement => new MovementSelectionAction(),
-                ActionType.Attack => new AttackSelectionAction(),
-                ActionType.Skill => new SkillSelectionAction(),
-                ActionType.Item => new ItemSelectionAction(),
-                ActionType.Wait => new WaitAction(),
-                _ => null
-            };
-
         public static string GetName(this ActionType actionType) =>
+            TranslatorManager.Get($"battle.action.{actionType.ToString().ToLower()}.name");
+
+        public static string GetActionId(this ActionType actionType) =>
             actionType switch {
-                ActionType.Movement => "Movement",
-                ActionType.Attack => "Attack",
-                ActionType.Skill => "Skill",
-                ActionType.Item => "Item",
-                ActionType.Wait => "Wait",
+                ActionType.Movement => "MovementAction",
+                ActionType.Attack => "AttackAction",
+                ActionType.Skill => "SkillAction",
+                ActionType.Item => "ItemAction",
+                ActionType.Wait => "WaitAction",
                 _ => null
             };
     }

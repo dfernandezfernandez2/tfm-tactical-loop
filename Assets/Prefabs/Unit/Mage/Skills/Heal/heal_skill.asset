@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17376d46a3184366974fac18a9911b09, type: 3}
   m_Name: heal_skill
   m_EditorClassIdentifier: Assembly-CSharp::Game.Unit.Skills.Skill
-  skillName: Heal
+  nameId: heal
   apCost: 1
   manaCost: 2
   target: 2
@@ -20,5 +20,6 @@ MonoBehaviour:
   applyHeightLineOfSight: 0
   selectionType: 2
   animationName: Spell
+  soundName: 
   effects:
   - {fileID: 11400000, guid: 7a3ed90f70e2d154aa9930362ca04167, type: 2}

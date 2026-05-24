@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17376d46a3184366974fac18a9911b09, type: 3}
   m_Name: fireball_skill
   m_EditorClassIdentifier: Assembly-CSharp::Game.Unit.Skills.Skill
-  skillName: Fire Ball
+  nameId: fire_ball
   apCost: 3
   manaCost: 3
   target: 3
@@ -20,6 +20,7 @@ MonoBehaviour:
   applyHeightLineOfSight: 0
   selectionType: 0
   animationName: Spell
+  soundName: 
   effects:
   - {fileID: 11400000, guid: ea2c854dfbf888445ba7a61f35a7aca0, type: 2}
   - {fileID: 11400000, guid: 3b699d0d7f97375489f208e2464f7954, type: 2}

@@ -8,7 +8,7 @@ namespace Game.Battle.Actions {
     public abstract class AbstractBasicAction : IBattleAction {
         public string GetName() => this.GetActionType().GetName();
 
-        public string GetActionName() => this.GetName();
+        public string GetActionName() => this.GetActionType().GetActionId();
 
         public abstract int GetApCost();
 

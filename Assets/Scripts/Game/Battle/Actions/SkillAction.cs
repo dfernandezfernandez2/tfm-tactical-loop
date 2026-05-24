@@ -13,9 +13,9 @@ namespace Game.Battle.Actions {
 
         public Skill Skill { get; }
 
-        public string GetName() => this.Skill.skillName;
+        public string GetName() => this.Skill.GetName();
 
-        public string GetActionName() => ActionType.Skill.GetName() + "Action";
+        public string GetActionName() => this.Skill.GetId();
 
         public int GetApCost() => this.Skill.apCost;
 

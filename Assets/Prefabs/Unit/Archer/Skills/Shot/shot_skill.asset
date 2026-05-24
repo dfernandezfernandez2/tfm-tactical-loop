@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17376d46a3184366974fac18a9911b09, type: 3}
   m_Name: shot_skill
   m_EditorClassIdentifier: Assembly-CSharp::Game.Unit.Skills.Skill
-  skillName: Shot
+  nameId: bow_shot
   apCost: 2
   manaCost: 0
   target: 3
@@ -20,6 +20,7 @@ MonoBehaviour:
   applyHeightLineOfSight: 1
   selectionType: 0
   animationName: Bow
+  soundName: 
   effects:
   - {fileID: 11400000, guid: 6b925a91a90a030488c2f2ad7f66562f, type: 2}
   - {fileID: 11400000, guid: b026d232f7c2b65479d9a6fafe03dcf9, type: 2}

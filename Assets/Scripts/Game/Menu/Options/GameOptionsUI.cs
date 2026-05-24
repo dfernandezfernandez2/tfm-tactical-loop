@@ -2,6 +2,7 @@ namespace Game.Menu.Options {
     using System.Collections.Generic;
     using Controls;
     using TMPro;
+    using Translation;
     using UnityEngine;
 
     [RequireComponent(typeof(GameOptionsManager))]
@@ -36,6 +37,10 @@ namespace Game.Menu.Options {
                 this.SelectPreviousOption();
             }
         }
+
+        private void OnEnable() => TranslatorManager.OnLanguageChanged += this.RefreshTitle;
+
+        private void OnDisable() => TranslatorManager.OnLanguageChanged -= this.RefreshTitle;
 
         public void SelectPreviousOption() {
             this._currentOptionIndex--;
@@ -72,6 +77,12 @@ namespace Game.Menu.Options {
         public void Hide() {
             this.panelOptions.SetActive(false);
             this._isActive = false;
+        }
+
+        private void RefreshTitle() {
+            if (this._currentSection != null) {
+                this.sectionTitle.text = this._currentSection.GetTitle();
+            }
         }
     }
 }

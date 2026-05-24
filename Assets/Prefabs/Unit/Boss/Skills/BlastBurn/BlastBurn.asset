@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17376d46a3184366974fac18a9911b09, type: 3}
   m_Name: BlastBurn
   m_EditorClassIdentifier: Assembly-CSharp::Game.Battle.Unit.Skills.Skill
-  skillName: Blast Burn
+  nameId: blast_burn
   apCost: 2
   manaCost: 2
   target: 1
@@ -20,5 +20,6 @@ MonoBehaviour:
   applyHeightLineOfSight: 0
   selectionType: 2
   animationName: 
+  soundName: 
   effects:
   - {fileID: 11400000, guid: d3197dbf717755348b2752e6954fa7aa, type: 2}

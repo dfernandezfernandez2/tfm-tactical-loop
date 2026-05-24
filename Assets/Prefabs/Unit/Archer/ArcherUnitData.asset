@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: ArcherUnitData
   m_EditorClassIdentifier: Assembly-CSharp::Unit.Data.UnitData
   unitName: Archer
+  nameId: archer
   unitSprite: {fileID: -7603731303480955937, guid: 264fc125772b0c840b4668a740729864, type: 3}
   isRanged: 1
   hp: 25

@@ -39,7 +39,7 @@
 
         public void Init(Unit unit) => this.Unit = unit;
 
-        public string GetName() => this.data.unitName;
+        public string GetName() => this.data.GetName();
         public Sprite GetSprite() => this.data.unitSprite;
 
         public List<KeyValuePair<StatType, float>> GetStatsInfo() => this.data.GetStatsInfo();

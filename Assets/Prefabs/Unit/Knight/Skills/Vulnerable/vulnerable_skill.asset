@@ -12,12 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17376d46a3184366974fac18a9911b09, type: 3}
   m_Name: vulnerable_skill
   m_EditorClassIdentifier: Assembly-CSharp::Game.Unit.Skills.Skill
-  skillName: Vulnerable
+  nameId: vulnerable
   apCost: 3
   manaCost: 0
   target: 3
   range: 1
+  applyHeightLineOfSight: 0
   selectionType: 0
   animationName: 
+  soundName: 
   effects:
   - {fileID: 11400000, guid: 580b796c352235947b370b46dca5afb5, type: 2}

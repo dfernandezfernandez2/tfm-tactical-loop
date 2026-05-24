@@ -18,9 +18,9 @@ namespace Game.Battle.Actions {
             this._onConsume = onConsume;
         }
 
-        public string GetName() => this._item.itemName;
+        public string GetName() => this._item.GetName();
 
-        public string GetActionName() => ActionType.Item.GetName() + "Action";
+        public string GetActionName() => ActionType.Item.GetActionId();
 
         public int GetApCost() => 0;
 
@@ -38,6 +38,8 @@ namespace Game.Battle.Actions {
         public IEnumerator DoEnemyAction(IBattleContext battleContext, UnitObject enemy, DecisionResult decisionResult,
             BattleMapManager battleMapManager) =>
             throw new NotImplementedException(); // at this point never could happen enemy uses object
+
+        public Item GetItem() => this._item;
 
         public int GetAmount() => this._amount;
 

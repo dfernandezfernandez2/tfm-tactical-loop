@@ -2,11 +2,13 @@ namespace Game.Battle.Unit.Skills {
     using System.Collections.Generic;
     using Item;
     using Selection;
+    using Translation;
     using UnityEngine;
 
     [CreateAssetMenu(menuName = "Unit/Skills/Create")]
     public class Skill : ScriptableObject {
-        [Header("General")] public string skillName;
+        [Header("Translation")] [SerializeField]
+        private string nameId;
 
         public int apCost;
         public int manaCost;
@@ -22,5 +24,8 @@ namespace Game.Battle.Unit.Skills {
         [Header("Sound")] public string soundName;
 
         [Header("Effect")] public List<SkillEffect> effects = new();
+
+        public string GetName() => TranslatorManager.Get($"skill.{this.nameId}.name");
+        public string GetId() => this.nameId;
     }
 }
