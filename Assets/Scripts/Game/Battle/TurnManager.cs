@@ -225,9 +225,6 @@ namespace Game.Battle {
 
             UnitObject previousUnitTurn = this._unitsTurnOrder[Math.Max(this._unitsTurnOrderIndex, 0)];
             yield return previousUnitTurn.OnTurnEnd();
-            if (previousUnitTurn.Unit.IsDead()) {
-                // todo: visual en el orden
-            }
 
             if (this.CheckBattleEnd()) {
                 yield break;

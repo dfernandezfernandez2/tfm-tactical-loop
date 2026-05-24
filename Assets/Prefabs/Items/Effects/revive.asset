@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a9c1070312b49c28a0b628bfae353d0, type: 3}
   m_Name: revive
   m_EditorClassIdentifier: Assembly-CSharp::Game.Battle.Item.Effects.ReviveItemEffect
+  amount: 0.2

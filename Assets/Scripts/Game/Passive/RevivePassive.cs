@@ -20,7 +20,7 @@ namespace Game.Passive {
             this._pendingRevives--;
             Unit unit = targetUnit.Unit;
             float maxHp = unit.GetMaxStat(StatType.Hp);
-            float heal = unit.AddStat(StatType.Hp, maxHp * this.percentageOfLife);
+            float heal = unit.AddStat(StatType.Hp, Mathf.Max(1, maxHp * this.percentageOfLife));
             yield return targetUnit.PlayRevive((int)heal);
         }
 
