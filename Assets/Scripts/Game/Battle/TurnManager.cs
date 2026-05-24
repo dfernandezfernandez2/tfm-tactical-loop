@@ -217,6 +217,7 @@ namespace Game.Battle {
 
         private void HandleCancelAction() {
             this._unitTurnState.CancelLastAction(this);
+            this.unitInfoPanelUI.UpdateStats();
             this.unitActionPanelUI.Show();
         }
 
@@ -255,6 +256,7 @@ namespace Game.Battle {
                     yield return new WaitForSeconds(0.5f);
                     yield return decisionResult.Action.DoEnemyAction(this, currentTurnUnit, decisionResult,
                         this.battleMapManager);
+                    this.unitInfoPanelUI.UpdateStats();
                 }
 
                 yield return new WaitForSeconds(0.5f);
@@ -289,6 +291,7 @@ namespace Game.Battle {
 
             IEnumerator Action() {
                 yield return this._unitTurnState.ExecuteAction(battleAction, this);
+                this.unitInfoPanelUI.UpdateStats();
                 this.CheckBattleEnd();
             }
         }

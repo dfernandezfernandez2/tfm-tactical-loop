@@ -3802,7 +3802,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 717e9918b55a406090b096fdb0019bbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Battle.UI.UnitActionPanelUI
-  unitActionPanel: {fileID: 2253625346700560983}
+  unitActionPanel: {fileID: 5857010007997252338}
   unitActionButtonContainer: {fileID: 7886423845157054034}
   buttonPrefab: {fileID: -7847229742282233542, guid: 640a0a79f1e54af4282311054cdb3d56, type: 3}
   turnManager: {fileID: 422319658}
@@ -4869,11 +4869,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!1 &2253625346700560983 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2093760516578832675, guid: 13cabf52c4297f441a55bfdf9d079081, type: 3}
-  m_PrefabInstance: {fileID: 5857010007997252337}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &3267691916312579661 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2885898112410212593, guid: 13cabf52c4297f441a55bfdf9d079081, type: 3}
@@ -5345,6 +5340,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13cabf52c4297f441a55bfdf9d079081, type: 3}
+--- !u!1 &5857010007997252338 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5546291508072081059, guid: 13cabf52c4297f441a55bfdf9d079081, type: 3}
+  m_PrefabInstance: {fileID: 5857010007997252337}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &7886423845157054034 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8611317992359886493, guid: 13cabf52c4297f441a55bfdf9d079081, type: 3}
