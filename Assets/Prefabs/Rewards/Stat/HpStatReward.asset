@@ -17,3 +17,4 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: ba7554c09bd36f945b94cfe95e536006, type: 3}
   statRewardName: Health Boost
   description: Increases the maximum health of all units in the party.
+  id: health

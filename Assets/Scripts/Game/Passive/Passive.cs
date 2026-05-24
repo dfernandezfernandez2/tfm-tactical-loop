@@ -1,11 +1,11 @@
 namespace Game.Passive {
     using System.Collections;
     using Battle.Unit;
+    using Translation;
     using UnityEngine;
 
     public abstract class Passive : ScriptableObject, IPassive {
-        [SerializeField] private string passiveName;
-        [SerializeField] private string description;
+        [SerializeField] private string id;
         [SerializeField] private Sprite icon;
         [SerializeField] private GameObject uiObject;
 
@@ -20,9 +20,9 @@ namespace Game.Passive {
         public virtual void OnMapStart() {
         }
 
-        public string GetName() => this.passiveName;
+        public string GetName() => TranslatorManager.Get($"passive.{this.id}.name");
 
-        public string GetDescription() => this.description;
+        public string GetDescription() => TranslatorManager.Get($"passive.{this.id}.description");
 
         public Sprite GetIcon() => this.icon;
 

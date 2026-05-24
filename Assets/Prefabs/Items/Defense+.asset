@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e14d7742fa9442ad8d1428ea631a74e2, type: 3}
   m_Name: Defense+
   m_EditorClassIdentifier: Assembly-CSharp::Game.Battle.Item.Item
+  id: buff.defense
   itemName: Defense +
   description: Temporarily increases the selected unit's defense.
   target: 1

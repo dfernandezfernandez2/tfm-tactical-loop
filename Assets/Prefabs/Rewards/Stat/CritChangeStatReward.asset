@@ -17,3 +17,4 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 473a5ae6ae593ef4e8d0e06c53ef27f5, type: 3}
   statRewardName: Critical Chance Boost
   description: Increases the critical hit chance of all units in the party.
+  id: critical_chance

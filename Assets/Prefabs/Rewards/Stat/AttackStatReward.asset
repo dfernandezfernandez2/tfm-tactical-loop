@@ -17,3 +17,4 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 53884a7c2c32cb64896b74f8a8eec861, type: 3}
   statRewardName: Attack Boost
   description: Increases the attack stat of all units in the party.
+  id: attack

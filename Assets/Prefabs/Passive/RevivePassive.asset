@@ -12,9 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65ee1c22a8cc44989b8123e978310aad, type: 3}
   m_Name: RevivePassive
   m_EditorClassIdentifier: Assembly-CSharp::Game.Passive.RevivePassive
-  passiveName: Revive
-  description: Two times per combat, the first allied unit that would be defeated
-    survives with 10% of life.
+  id: revive
   icon: {fileID: 21300000, guid: 508db42c03507304ca85c1a148c1ede2, type: 3}
   uiObject: {fileID: 4772392702800256987, guid: c4e7a283b74dfa94cb61a962e01e76b7, type: 3}
   amountByMap: 2

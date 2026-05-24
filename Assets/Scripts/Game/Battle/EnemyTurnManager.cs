@@ -6,6 +6,7 @@ namespace Game.Battle {
     using IA;
     using Map;
     using TMPro;
+    using Translation;
     using Unit;
     using UnityEngine;
 
@@ -57,14 +58,16 @@ namespace Game.Battle {
                 this.actionText.text += "\n";
             }
 
-            this.actionText.text += $"{unit.GetName()} does {decisionResult.Action.GetName()} action";
+            this.actionText.text +=
+                TranslatorManager.Format("battle.enemy_action.text", unit.GetName(), decisionResult.Action.GetName());
             if (decisionResult.TargetPosition == null) {
                 return;
             }
 
             UnitObject target = this.battleMapManager.GetUnit(decisionResult.TargetPosition);
             if (target != null) {
-                this.actionText.text += $" with target {target.GetName()}";
+                this.actionText.text +=
+                    " " + TranslatorManager.Format("battle.enemy_action.target.text", target.GetName());
             }
         }
     }

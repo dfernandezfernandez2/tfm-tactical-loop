@@ -1,4 +1,6 @@
 ﻿namespace Game.Battle.Unit.Data {
+    using Translation;
+
     public enum StatType {
         Hp,
         Mp,
@@ -33,15 +35,6 @@
             };
 
         public static string GetName(this StatType statType) =>
-            statType switch {
-                StatType.Movement => "Mov",
-                StatType.Accuracy => "Acc",
-                StatType.Evasion => "Ev",
-                StatType.CritChance => "CC",
-                StatType.Range => "Range",
-                StatType.Speed => "Sp",
-                StatType.MpRegen => "Mp+",
-                _ => statType.ToString()
-            };
+            TranslatorManager.Get($"stat.{statType.ToString().ToLower()}.name");
     }
 }

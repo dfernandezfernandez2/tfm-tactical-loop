@@ -1,0 +1,107 @@
+id#$#english#$#spanish#$#catalan
+##### UI #####
+main.options.resume#$#RESUME#$#REANUDAR#$#REPRENDRE
+main.options.restart#$#RESTART#$#REINICIAR#$#REINICIAR
+main.options.new_game#$#NEW GAME#$#INICIAR PARTIDA#$#COMENÇAR PARTIDA
+main.options.options#$#OPTIONS#$#OPCIONES#$#OPCIONS
+main.options.credits#$#CREDITS#$#CRÉDITOS#$#CRÈDITS
+main.options.exit#$#EXIT#$#SALIR#$#SORTIR
+menu.options.audio#$#AUDIO#$#AUDIO#$#ÀUDIO
+main.options.audio.effect_volume#$#Effects volume#$#Volumen de efectos#$#Volum d'efectes
+main.options.audio.music_volume#$#Music volume#$#Volumen de música#$#Volum de música
+main.options.audio.mute#$#Mute all audio#$#Silenciar audio#$#Silenciar àudio
+menu.options.video#$#VIDEO#$#VIDEO#$#VÍDEO
+main.options.video.resolution#$#Resolution#$#Resolución#$#Resolució
+main.options.video.fullscreen#$#Fullscreen#$#Pantalla completa#$#Pantalla completa
+main.options.video.fps_limit#$#FPS limit#$#Límite de FPS#$#Límit d'FPS
+menu.options.language#$#LANGUAGE#$#IDIOMA#$#LLENGUA
+team_selector.title#$#SELECT YOUR TEAM#$#SELECCIONA TU EQUIPO#$#SELECCIONA EL TEU EQUIP
+team_selector.team.title#$#TEAM#$#EQUIPO#$#EQUIP
+team_selector.team.select.header#$#SELECT#$#SELECCIONA#$#SELECCIONA
+team_selector.unit.stats.title#$#STATS#$#ESTADÍSTICAS#$#ESTADÍSTIQUES
+team_selector.unit.types.title#$#UNIT TYPES#$#TIPOS DE UNIDADES#$#TIPUS D'UNITATS
+team_selector.confirm#$#CONFIRM#$#CONFIRMAR#$#CONFIRMAR
+loose_screen.title#$#GAME OVER!#$#¡FIN DEL JUEGO!#$#JOC ACABAT!
+loose_screen.text#$#Your party has fallen before reaching the end of the dungeon. Try again!#$#Tu grupo ha caído antes de llegar al final de la mazmorra. ¡Inténtalo de nuevo!#$#El grup ha caigut abans d'arribar al final de la masmorra. Torna-ho a intentar!
+win_screen.title#$#CONGRATULATIONS! YOU WIN!#$#¡FELICIDADES! ¡HAS GANADO!#$#ENHORABONA! HAS GUANYAT!
+win_screen.text#$#The final boss has fallen. Your party has completed the expedition!#$#El jefe final ha caído. ¡Tu grupo ha completado la expedición!#$#El cap final ha caigut. El teu grup ha completat l'expedició!
+game.placement_selector.title#$#SPAWN SELECTION - PLACE UNITS ON GREEN SPAWNS#$#SELECCIÓN DE POSICIONES - COLOCA LAS UNIDADES EN LOS ESPACIOS VERDES#$#SELECCIÓ DE POSICIONS - COL·LOCA LES UNITATS EN ELS ESPAIS VERDS
+game.turn_order.title#$#TURN ORDER#$#ORDEN DE TURNO#$#ORDRE DE TORN
+game.rewards.title#$#CHOOSE THE REWARD#$#ELIGE LA RECOMPENSA#$#TRIA LA RECOMPENSA
+###### ITEMS ######
+item.buff.attack.name#$#Attack +#$#Ataque +#$#Atac +
+item.buff.attack.description#$#Temporarily increases the selected unit's attack.#$#Aumenta temporalmente el ataque de la unidad seleccionada.#$#Augmenta temporalment l'atac de la unitat seleccionada.
+item.buff.defense.name#$#Defense +#$#Defensa +#$#Defensa +
+item.buff.defense.description#$#Temporarily increases the selected unit's defense.#$#Aumenta temporalmente la defensa de la unidad seleccionada.#$#Augmenta temporalment la defensa de la unitat seleccionada.
+item.heal.potion.name#$#Recovery potion#$#Poción de recuperación#$#Poció de recuperació
+item.heal.potion.description#$#Recovers a portion of the selected unit's health.#$#Recupera un porcentaje de vida de la unidad seleccionada.#$#Recupera un percentatge de vida de la unitat seleccionada.
+item.mana.potion.name#$#Mana potion#$#Poción de maná#$#Poció de mana
+item.mana.potion.description#$#Recovers a portion of the selected unit's mana.#$#Recupera un porcentaje del maná de la unidad seleccionada.#$#Recupera un percentatge del mana de la unitat seleccionada.
+item.revive.potion.name#$#Revive potion#$#Poción de resurrección#$#Poció de resurrecció
+item.revive.potion.description#$#Revives a defeated allied unit with a portion of its maximum health.#$#Revive a una unidad aliada derrotada con un percentatge de su vida máxima.#$#Reanima una unitat aliada derrotada amb un percentatge de la seva vida màxima.
+item.slow.potion.name#$#Slow potion#$#Poción de ralentización#$#Poció de ralentització
+item.slow.potion.description#$#Applies slow to the selected enemy, reducing its movement range for a limited number of turns.#$#Aplica ralentización al enemigo seleccionado, reduciendo su rango de movimiento durante un número limitado de turnos.#$#Aplica alentiment a l'enemic seleccionat, reduint el seu rang de moviment durant un nombre limitat de torns.
+###### PASSIVES ######
+passive.execution.name#$#Execution#$#Ejecución#$#Execució
+passive.execution.description#$#When an enemy is reduced below 15% of their maximum health, they are instantly defeated.#$#Cuando la salud de un enemigo se reduce por debajo del 15% de su vida máxima, es derrotado instantáneamente.#$#Quan un enemic es redueix per sota del 15% de la seva vida màxima, és derrotat instantàniament.
+passive.life_steal.name#$#Life Steal#$#Robo de vida#$#Robatori de vida
+passive.life_steal.description#$#When unit deals damage, it restores health equal to 10% of the damage dealt.#$#Cuando una unidad inflige daño, recupera salud equivalente al 10% del daño infligido.#$#Quan una unitat infligeix mal, restaura salut equivalent al 10% del mal infligit.
+passive.revive.name#$#Revive#$#Resurrección#$#Resurrecció
+passive.revive.description#$#Two times per combat, the first allied unit that would be defeated survives with 10% of life.#$#Dos veces por combate, la primera unidad aliada que fuera derrotada sobrevive con un 10% de vida.#$#Dues vegades per combat, la primera unitat aliada que fos derrotada sobreviu amb un 10% de vida.
+###### STATS REWARDS ######
+stat_reward.attack.name#$#Attack boost#$#Bufo de ataque#$#Buf d'atac
+stat_reward.attack.description#$#Increases the attack stat of all units in the party.#$#Aumenta la estadística de ataque de todas las unidades del grupo.#$#Augmenta l'estadística d'atac de totes les unitats del grup.
+stat_reward.defense.name#$#Defense boost#$#Bufo de defensa#$#Buf de defensa
+stat_reward.defense.description#$#Increases the defense stat of all units in the party.#$#Aumenta la estadística de defensa de todas las unidades del grupo.#$#Augmenta l'estadística de defensa de totes les unitats del grup.
+stat_reward.critical_chance.name#$#Critical chance boost#$#Bufo de probabilidad de crítico#$#Buf de probabilitat de crític
+stat_reward.critical_chance.description#$#Increases the critical hit chance of all units in the party.#$#Aumenta la probabilidad de golpe crítico de todas las unidades del grupo.#$#Augmenta la probabilitat de crític de totes les unitats del grup.
+stat_reward.health.name#$#Health boost#$#Bufo de vida#$#Buf de vida
+stat_reward.health.description#$#Increases the maximum health of all units in the party.#$#Aumenta la vida máxima de todas las unidades del grupo.#$#Augmenta la vida màxima de totes les unitats del grup.
+stat_reward.movement.name#$#Movement boost#$#Bufo de movimiento#$#Buf del moviment
+stat_reward.movement.description#$#Increases the movement range of all units in the party.#$#Aumenta el rango de movimiento de todas las unidades del grupo.#$#Augmenta l'abast de moviment de totes les unitats del grup.
+###### STATS #######
+stat.hp.name#$#HP#$#HP#$#HP
+stat.mp.name#$#MP#$#MP#$#MP
+stat.mpregen.name#$#MP+#$#MP+#$#MP+
+stat.movement.name#$#Mov#$#Mov#$#Mov
+stat.ap.name#$#AP#$#AP#$#AP
+stat.atk.name#$#Atk#$#Atk#$#Atk
+stat.def.name#$#Def#$#Def#$#Def
+stat.accuracy.name#$#Acc#$#Prec#$#Prec
+stat.evasion.name#$#Ev#$#Ev#$#Evss
+stat.critchance.name#$#Crit%#$#Crit%#$#Crit%
+stat.range.name#$#Range#$#Rango#$#Rang
+stat.speed.name#$#Sp#$#Vel#$#Vel
+###### UNITS ######
+unit.knight.name#$#Knight#$#Caballero#$#Cavaller
+unit.archer.name#$#Archer#$#Arquero#$#Arquer
+unit.mage.name#$#Mage#$#Maga#$#Maga
+unit.goblin.name#$#Goblin#$#Goblin#$#Goblin
+unit.goblin_lancer.name#$#Goblin lancer#$#Goblin lancero#$#Goblin lancer
+unit.goblin_tank.name#$#Goblin tank#$#Goblin tanque#$#Goblin tanc
+unit.skeleton_boss.name#$#Skeleton boss#$#Jefe esqueleto#$#Cap esquelet
+###### UNIT ACTIONS ######
+battle.action.movement.name#$#Movement#$#Movimiento#$#Moviment
+battle.action.attack.name#$#Attack#$#Atacar#$#Atacar
+battle.action.skill.name#$#Skills#$#Habilidades#$#Habilitats
+battle.action.item.name#$#Items#$#Objetos#$#Objectes
+battle.action.wait.name#$#Wait#$#Esperar#$#Esperar
+###### SKILLS ######
+skill.paralysis_shot.name#$#Paralysis shot#$#Tiro de parálisis#$#Tir de paràlisi
+skill.poison_shot.name#$#Poison shot#$#Tiro venenoso#$#Tir verinós
+skill.bow_shot.name#$#Shot#$#Tiro#$#Tir
+skill.courage.name#$#Courage#$#Valor#$#Valor
+skill.harden.name#$#Harden#$#Endurecer#$#Endurir
+skill.thrust.name#$#Thrust#$#Embestida#$#Envestida
+skill.vulnerable.name#$#Vulnerable#$#Vulnerable#$#Vulnerable
+skill.heal.name#$#Heal#$#Curar#$#Curar
+skill.fire_ball.name#$#Fire ball#$#Bola de fuego#$#Bola de foc
+skill.blow.name#$#Blow#$#Golpe#$#Cop
+skill.spear_thrust.name#$#Spear thrust#$#Embestida de lanza#$#Envestida de llança
+skill.armored_heist.name#$#Armored heist#$#Golpe blindado#$#Cop blindat
+skill.blast_burn.name#$#Blast burn#$#Explosión abrasadora#$#Explosió abrasadora
+skill.spectral_fire.name#$#Spectral fire#$#Fuego espectral#$#Foc espectral
+skill.uprising_flame.name#$#Uprising flame#$#Llama ascendente#$#Flama ascendent
+###### ENEMIES ######
+battle.enemy_action.text#$#{0} does {1} action#$#{0} hace la acción {1}#$#{0} fa l'acció {1}
+battle.enemy_action.target.text#$#with target {0}#$#con el objetivo {0}#$#amb l'objectiu {0}

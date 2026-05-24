@@ -9,7 +9,7 @@ namespace Game.Run {
 
         public void Add(Item item) {
             InventoryItemAction existingItemAction =
-                this.Items.FirstOrDefault(existingItem => existingItem.GetName() == item.itemName);
+                this.Items.FirstOrDefault(existingItem => existingItem.GetItem() == item);
             if (existingItemAction != null) {
                 existingItemAction.Add(1);
             }

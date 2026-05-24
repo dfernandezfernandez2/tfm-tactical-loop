@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e14d7742fa9442ad8d1428ea631a74e2, type: 3}
   m_Name: ReviveItem
   m_EditorClassIdentifier: Assembly-CSharp::Game.Battle.Item.Item
+  id: revive.potion
   itemName: Revive Item
   description: Revives a defeated allied unit with a portion of its maximum health.
   target: 2

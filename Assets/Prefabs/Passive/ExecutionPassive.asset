@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a35abe21f7649bc899d3faedf151552, type: 3}
   m_Name: ExecutionPassive
   m_EditorClassIdentifier: Assembly-CSharp::Game.Passive.ExecutionPassive
+  id: execution
   passiveName: Execution
   description: When an enemy is reduced below 15% of their maximum health, they are
     instantly defeated.

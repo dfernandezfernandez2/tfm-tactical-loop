@@ -154,7 +154,7 @@ namespace Game.UnitSelection {
             this._unitSelectedStats.Clear();
             foreach ((StatType type, float value) in unitObject.GetStatsInfo()) {
                 TMP_Text text = Instantiate(this.statTextPrefab, this.unitStatsPanel.transform);
-                text.text = type + ": " + FormatValue(value);
+                text.text = type.GetName() + ": " + FormatValue(value);
                 this._unitSelectedStats.Add(text);
             }
         }

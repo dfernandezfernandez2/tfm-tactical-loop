@@ -1,5 +1,6 @@
 namespace Game.Menu.Options {
     using Audio;
+    using Translation;
     using UnityEngine;
     using UnityEngine.UI;
 
@@ -15,7 +16,7 @@ namespace Game.Menu.Options {
             this.fullMuteToggle.onValueChanged.AddListener(SetFullMute);
         }
 
-        public override string GetTitle() => "Audio";
+        public override string GetTitle() => TranslatorManager.Get("menu.options.audio");
 
         private void LoadSettings() {
             this.effectsScrollbar.SetValueWithoutNotify(AudioManager.GetCurrentEffectsVolume());

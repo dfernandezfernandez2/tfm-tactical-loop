@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: BossUnitData
   m_EditorClassIdentifier: Assembly-CSharp::Unit.Data.UnitData
   unitName: Boss
+  nameId: skeleton_boss
   unitSprite: {fileID: 3431150416901100092, guid: 198c8773f57ccd141a610733cad4a291, type: 3}
   isRanged: 0
   hp: 50

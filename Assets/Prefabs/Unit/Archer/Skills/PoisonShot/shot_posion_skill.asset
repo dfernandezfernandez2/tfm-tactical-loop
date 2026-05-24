@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17376d46a3184366974fac18a9911b09, type: 3}
   m_Name: shot_posion_skill
   m_EditorClassIdentifier: Assembly-CSharp::Game.Unit.Skills.Skill
-  skillName: Poison shot
+  nameId: poison_shot
   apCost: 3
   manaCost: 0
   target: 3
@@ -20,6 +20,7 @@ MonoBehaviour:
   applyHeightLineOfSight: 1
   selectionType: 0
   animationName: Bow
+  soundName: 
   effects:
   - {fileID: 11400000, guid: e4b5659f12b5af740abc10831cb2e8d2, type: 2}
   - {fileID: 11400000, guid: 1b7094f9221c1d04c97b3b1358c0e5b8, type: 2}

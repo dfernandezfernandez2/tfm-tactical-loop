@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: GoblinBasicUnitData
   m_EditorClassIdentifier: Assembly-CSharp::Unit.Data.UnitData
   unitName: Goblin
+  nameId: goblin
   unitSprite: {fileID: 929150727014594773, guid: e6834fb29ff98444e8c4352a4837a16c, type: 3}
   isRanged: 0
   hp: 30

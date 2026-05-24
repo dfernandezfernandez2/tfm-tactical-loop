@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17376d46a3184366974fac18a9911b09, type: 3}
   m_Name: ArmoredHeist
   m_EditorClassIdentifier: Assembly-CSharp::Game.Battle.Unit.Skills.Skill
-  skillName: Armored Heist
+  nameId: armored_heist
   apCost: 3
   manaCost: 0
   target: 3

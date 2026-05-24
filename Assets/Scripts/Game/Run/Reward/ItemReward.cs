@@ -9,8 +9,8 @@ namespace Game.Run.Reward {
         [SerializeField] private Sprite sprite;
 
         public Sprite GetIcon() => this.sprite;
-        public string GetName() => this.item.itemName;
-        public string GetDescription() => this.item.description;
+        public string GetName() => this.item.GetName();
+        public string GetDescription() => this.item.GetDescription();
         public void ApplyReward(RunData runData) => RunData.GetInstance().Inventory.Add(this.item);
     }
 }

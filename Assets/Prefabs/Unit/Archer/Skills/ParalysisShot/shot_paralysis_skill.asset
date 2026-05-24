@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17376d46a3184366974fac18a9911b09, type: 3}
   m_Name: shot_paralysis_skill
   m_EditorClassIdentifier: Assembly-CSharp::Game.Unit.Skills.Skill
-  skillName: 'Paralysis shot '
+  nameId: paralysis_shot
   apCost: 3
   manaCost: 0
   target: 3
@@ -20,6 +20,7 @@ MonoBehaviour:
   applyHeightLineOfSight: 1
   selectionType: 0
   animationName: Bow
+  soundName: 
   effects:
   - {fileID: 11400000, guid: c3f4abf20b32ab84e90fd23a0ea9ec41, type: 2}
   - {fileID: 11400000, guid: f51a8b7850d6ca848957eab65a432261, type: 2}

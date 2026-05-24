@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e14d7742fa9442ad8d1428ea631a74e2, type: 3}
   m_Name: SlowItem
   m_EditorClassIdentifier: Assembly-CSharp::Game.Battle.Item.Item
+  id: slow.potion
   itemName: Slow Item
   description: Applies Slow to the selected enemy, reducing its movement range for
     a limited number of turns.

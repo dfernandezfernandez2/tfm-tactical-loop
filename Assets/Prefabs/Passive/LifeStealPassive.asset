@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41690555b26f4ed0a98bc821d04e93a3, type: 3}
   m_Name: LifeStealPassive
   m_EditorClassIdentifier: Assembly-CSharp::Game.Passive.LifeStealPassive
+  id: life_steal
   passiveName: Life Steal
   description: When unit deals physical damage, it restores health equal to 10% of
     the damage dealt.

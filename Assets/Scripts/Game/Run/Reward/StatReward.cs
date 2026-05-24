@@ -2,6 +2,7 @@ namespace Game.Run.Reward {
     using Battle.Data;
     using Battle.Unit.Data;
     using Data;
+    using Translation;
     using UnityEngine;
 
     [CreateAssetMenu(menuName = "Reward/Stat")]
@@ -9,12 +10,11 @@ namespace Game.Run.Reward {
         [SerializeField] private StatType stat;
         [SerializeField] private float amount;
         [SerializeField] private Sprite sprite;
-        [SerializeField] private string statRewardName;
-        [SerializeField] private string description;
+        [SerializeField] private string id;
 
         public Sprite GetIcon() => this.sprite;
-        public string GetName() => this.statRewardName;
-        public string GetDescription() => this.description;
+        public string GetName() => TranslatorManager.Get($"stat_reward.{this.id}.name");
+        public string GetDescription() => TranslatorManager.Get($"stat_reward.{this.id}.description");
 
         public void ApplyReward(RunData runData) {
             foreach (TeamUnit teamUnit in runData.Team.GetTeamUnits()) {
