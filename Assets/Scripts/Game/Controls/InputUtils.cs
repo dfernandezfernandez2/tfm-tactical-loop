@@ -35,5 +35,6 @@ namespace Game.Controls {
 
         public static bool IsScrollDownSelected() => Input.mouseScrollDelta.y < -0.5f;
         public static bool IsScrollUpSelected() => Input.mouseScrollDelta.y > 0.5f;
+        public static bool IsPauseKeyboardSelected() => Input.GetKeyDown(KeyCode.P);
     }
 }
