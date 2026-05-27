@@ -82,12 +82,12 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 8824389556528078017, guid: 198c8773f57ccd141a610733cad4a291, type: 3}
+  m_Sprite: {fileID: -2995586936682445406, guid: e045088932b716d4985089749a2db16d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.3, y: 0.42}
+  m_Size: {x: 0.27, y: 0.42}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -147,7 +147,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.89958, y: 2.67736, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 2}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6437875571786880886}
@@ -203,12 +203,12 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 3431150416901100092, guid: 198c8773f57ccd141a610733cad4a291, type: 3}
+  m_Sprite: {fileID: 2380417173169789538, guid: 34d2e167624ff3449a539f5bc6868221, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.28, y: 0.39}
+  m_Size: {x: 0.28, y: 0.36}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -266,8 +266,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 0.27, y: 0.34}
-    newSize: {x: 0.28, y: 0.39}
+    oldSize: {x: 0.64, y: 0.64}
+    newSize: {x: 0.28, y: 0.36}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -308,6 +308,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d2850bd58454a089a64b18bcccac2c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Unit.UnitAnimationController
+  animationSounds:
+    sounds: []
 --- !u!114 &1518966223819640202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -357,12 +359,20 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7087200844622597887, guid: 50db3bb475bfc824b8c5cd984f3a0afd, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 7087200844622597887, guid: 50db3bb475bfc824b8c5cd984f3a0afd, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 7087200844622597887, guid: 50db3bb475bfc824b8c5cd984f3a0afd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7087200844622597887, guid: 50db3bb475bfc824b8c5cd984f3a0afd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.265
       objectReference: {fileID: 0}
     - target: {fileID: 7087200844622597887, guid: 50db3bb475bfc824b8c5cd984f3a0afd, type: 3}
       propertyPath: m_LocalPosition.z

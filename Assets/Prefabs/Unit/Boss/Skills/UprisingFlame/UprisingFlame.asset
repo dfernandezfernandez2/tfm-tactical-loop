@@ -19,7 +19,7 @@ MonoBehaviour:
   range: 0
   applyHeightLineOfSight: 0
   selectionType: 2
-  animationName: 
+  animationName: UprisingFlame
   soundName: 
   effects:
   - {fileID: 11400000, guid: 705afe0c017924d46a76ba38cafca007, type: 2}
