@@ -148,10 +148,10 @@ TextureImporter:
       name: FinalBossIdle_0
       rect:
         serializedVersion: 2
-        x: 12
-        y: 204
-        width: 28
-        height: 36
+        x: 0
+        y: 192
+        width: 64
+        height: 64
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -170,10 +170,10 @@ TextureImporter:
       name: FinalBossIdle_1
       rect:
         serializedVersion: 2
-        x: 76
-        y: 204
-        width: 28
-        height: 36
+        x: 64
+        y: 192
+        width: 64
+        height: 64
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,10 +192,10 @@ TextureImporter:
       name: FinalBossIdle_2
       rect:
         serializedVersion: 2
-        x: 140
-        y: 204
-        width: 28
-        height: 36
+        x: 128
+        y: 192
+        width: 64
+        height: 64
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -214,10 +214,10 @@ TextureImporter:
       name: FinalBossIdle_3
       rect:
         serializedVersion: 2
-        x: 204
-        y: 204
-        width: 28
-        height: 36
+        x: 192
+        y: 192
+        width: 64
+        height: 64
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -236,10 +236,10 @@ TextureImporter:
       name: FinalBossIdle_4
       rect:
         serializedVersion: 2
-        x: 19
-        y: 143
-        width: 28
-        height: 36
+        x: 0
+        y: 128
+        width: 64
+        height: 64
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -258,10 +258,10 @@ TextureImporter:
       name: FinalBossIdle_5
       rect:
         serializedVersion: 2
-        x: 83
-        y: 143
-        width: 28
-        height: 36
+        x: 64
+        y: 128
+        width: 64
+        height: 64
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -280,10 +280,10 @@ TextureImporter:
       name: FinalBossIdle_6
       rect:
         serializedVersion: 2
-        x: 147
-        y: 143
-        width: 28
-        height: 36
+        x: 128
+        y: 128
+        width: 64
+        height: 64
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -302,10 +302,10 @@ TextureImporter:
       name: FinalBossIdle_7
       rect:
         serializedVersion: 2
-        x: 211
-        y: 143
-        width: 28
-        height: 36
+        x: 192
+        y: 128
+        width: 64
+        height: 64
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -324,10 +324,10 @@ TextureImporter:
       name: FinalBossIdle_8
       rect:
         serializedVersion: 2
-        x: 19
-        y: 75
-        width: 28
-        height: 36
+        x: 0
+        y: 64
+        width: 64
+        height: 64
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -346,10 +346,10 @@ TextureImporter:
       name: FinalBossIdle_9
       rect:
         serializedVersion: 2
-        x: 83
-        y: 75
-        width: 28
-        height: 36
+        x: 64
+        y: 64
+        width: 64
+        height: 64
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -368,10 +368,10 @@ TextureImporter:
       name: FinalBossIdle_10
       rect:
         serializedVersion: 2
-        x: 147
-        y: 75
-        width: 28
-        height: 36
+        x: 128
+        y: 64
+        width: 64
+        height: 64
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -390,10 +390,10 @@ TextureImporter:
       name: FinalBossIdle_11
       rect:
         serializedVersion: 2
-        x: 211
-        y: 75
-        width: 28
-        height: 36
+        x: 192
+        y: 64
+        width: 64
+        height: 64
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -412,10 +412,10 @@ TextureImporter:
       name: FinalBossIdle_12
       rect:
         serializedVersion: 2
-        x: 24
-        y: 14
-        width: 28
-        height: 36
+        x: 0
+        y: 0
+        width: 64
+        height: 64
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -434,10 +434,10 @@ TextureImporter:
       name: FinalBossIdle_13
       rect:
         serializedVersion: 2
-        x: 88
-        y: 14
-        width: 28
-        height: 36
+        x: 64
+        y: 0
+        width: 64
+        height: 64
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -456,10 +456,10 @@ TextureImporter:
       name: FinalBossIdle_14
       rect:
         serializedVersion: 2
-        x: 152
-        y: 14
-        width: 28
-        height: 36
+        x: 128
+        y: 0
+        width: 64
+        height: 64
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -478,10 +478,10 @@ TextureImporter:
       name: FinalBossIdle_15
       rect:
         serializedVersion: 2
-        x: 216
-        y: 14
-        width: 28
-        height: 36
+        x: 192
+        y: 0
+        width: 64
+        height: 64
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

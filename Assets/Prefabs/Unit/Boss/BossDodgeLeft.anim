@@ -21,17 +21,19 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -290500017787306464, guid: ddb4c185f47499f4e8f021bc55313c2d, type: 3}
+      value: {fileID: -4936057687056088536, guid: 8dd8e4b7bb61f5c44ba114809029cee9, type: 3}
     - time: 0.1
-      value: {fileID: -6384299190142200219, guid: ddb4c185f47499f4e8f021bc55313c2d, type: 3}
+      value: {fileID: -1178595453647152897, guid: 8dd8e4b7bb61f5c44ba114809029cee9, type: 3}
     - time: 0.2
-      value: {fileID: -4090210233603569804, guid: ddb4c185f47499f4e8f021bc55313c2d, type: 3}
+      value: {fileID: -93365540821551544, guid: 8dd8e4b7bb61f5c44ba114809029cee9, type: 3}
     - time: 0.3
-      value: {fileID: -2737430279126703996, guid: ddb4c185f47499f4e8f021bc55313c2d, type: 3}
+      value: {fileID: 1791783189269943635, guid: 8dd8e4b7bb61f5c44ba114809029cee9, type: 3}
     - time: 0.4
-      value: {fileID: 8982696500961456135, guid: ddb4c185f47499f4e8f021bc55313c2d, type: 3}
+      value: {fileID: -6742664650662535142, guid: 8dd8e4b7bb61f5c44ba114809029cee9, type: 3}
     - time: 0.5
-      value: {fileID: -5233201050291479249, guid: ddb4c185f47499f4e8f021bc55313c2d, type: 3}
+      value: {fileID: -3906177005217261915, guid: 8dd8e4b7bb61f5c44ba114809029cee9, type: 3}
+    - time: 0.6
+      value: {fileID: -9010566072100437258, guid: 8dd8e4b7bb61f5c44ba114809029cee9, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -54,18 +56,19 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -290500017787306464, guid: ddb4c185f47499f4e8f021bc55313c2d, type: 3}
-    - {fileID: -6384299190142200219, guid: ddb4c185f47499f4e8f021bc55313c2d, type: 3}
-    - {fileID: -4090210233603569804, guid: ddb4c185f47499f4e8f021bc55313c2d, type: 3}
-    - {fileID: -2737430279126703996, guid: ddb4c185f47499f4e8f021bc55313c2d, type: 3}
-    - {fileID: 8982696500961456135, guid: ddb4c185f47499f4e8f021bc55313c2d, type: 3}
-    - {fileID: -5233201050291479249, guid: ddb4c185f47499f4e8f021bc55313c2d, type: 3}
+    - {fileID: -4936057687056088536, guid: 8dd8e4b7bb61f5c44ba114809029cee9, type: 3}
+    - {fileID: -1178595453647152897, guid: 8dd8e4b7bb61f5c44ba114809029cee9, type: 3}
+    - {fileID: -93365540821551544, guid: 8dd8e4b7bb61f5c44ba114809029cee9, type: 3}
+    - {fileID: 1791783189269943635, guid: 8dd8e4b7bb61f5c44ba114809029cee9, type: 3}
+    - {fileID: -6742664650662535142, guid: 8dd8e4b7bb61f5c44ba114809029cee9, type: 3}
+    - {fileID: -3906177005217261915, guid: 8dd8e4b7bb61f5c44ba114809029cee9, type: 3}
+    - {fileID: -9010566072100437258, guid: 8dd8e4b7bb61f5c44ba114809029cee9, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.6
+    m_StopTime: 0.70000005
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -85,14 +88,14 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.2
+  - time: 0.4
     functionName: AddSignal
     data: signal.text.dodge
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.5
+  - time: 0.6
     functionName: AddSignal
     data: signal.end.dodge
     objectReferenceParameter: {fileID: 0}

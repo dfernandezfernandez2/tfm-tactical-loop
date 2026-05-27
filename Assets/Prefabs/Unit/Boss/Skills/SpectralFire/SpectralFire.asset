@@ -16,10 +16,10 @@ MonoBehaviour:
   apCost: 2
   manaCost: 2
   target: 3
-  range: 8
+  range: 12
   applyHeightLineOfSight: 0
   selectionType: 0
-  animationName: 
+  animationName: SpectralFire
   soundName: 
   effects:
   - {fileID: 11400000, guid: 160fa92eddd477d41963953fcdc645dd, type: 2}

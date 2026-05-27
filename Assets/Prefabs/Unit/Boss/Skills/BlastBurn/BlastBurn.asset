@@ -19,7 +19,7 @@ MonoBehaviour:
   range: 0
   applyHeightLineOfSight: 0
   selectionType: 2
-  animationName: 
+  animationName: BlastBurn
   soundName: 
   effects:
   - {fileID: 11400000, guid: d3197dbf717755348b2752e6954fa7aa, type: 2}

@@ -13,5 +13,6 @@ namespace Game.Battle.Item {
 
         public string GetName() => TranslatorManager.Get($"item.{this.id}.name");
         public string GetDescription() => TranslatorManager.Get($"item.{this.id}.description");
+        public string GetId() => this.id;
     }
 }

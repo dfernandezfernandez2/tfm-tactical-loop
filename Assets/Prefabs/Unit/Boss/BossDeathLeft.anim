@@ -21,21 +21,27 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -5842158226350103193, guid: 13fc11c7a0a1fd844b61032d69f7c6a5, type: 3}
+      value: {fileID: -8496000926939094436, guid: b7908601062328246bb15258729e0651, type: 3}
     - time: 0.1
-      value: {fileID: 8366054316629957701, guid: 13fc11c7a0a1fd844b61032d69f7c6a5, type: 3}
+      value: {fileID: 4763957226936844090, guid: b7908601062328246bb15258729e0651, type: 3}
     - time: 0.2
-      value: {fileID: -1963375155610145794, guid: 13fc11c7a0a1fd844b61032d69f7c6a5, type: 3}
+      value: {fileID: 5084845500303725058, guid: b7908601062328246bb15258729e0651, type: 3}
     - time: 0.3
-      value: {fileID: -2256609458194983278, guid: 13fc11c7a0a1fd844b61032d69f7c6a5, type: 3}
+      value: {fileID: 213367864921593703, guid: b7908601062328246bb15258729e0651, type: 3}
     - time: 0.4
-      value: {fileID: -8591838926625488116, guid: 13fc11c7a0a1fd844b61032d69f7c6a5, type: 3}
+      value: {fileID: -6053156915834856109, guid: b7908601062328246bb15258729e0651, type: 3}
     - time: 0.5
-      value: {fileID: 5249382177856149526, guid: 13fc11c7a0a1fd844b61032d69f7c6a5, type: 3}
+      value: {fileID: -786582162906130183, guid: b7908601062328246bb15258729e0651, type: 3}
     - time: 0.6
-      value: {fileID: -7250793644943473165, guid: 13fc11c7a0a1fd844b61032d69f7c6a5, type: 3}
+      value: {fileID: -810542643410856830, guid: b7908601062328246bb15258729e0651, type: 3}
     - time: 0.7
-      value: {fileID: -299542266794393223, guid: 13fc11c7a0a1fd844b61032d69f7c6a5, type: 3}
+      value: {fileID: -9184480663594510091, guid: b7908601062328246bb15258729e0651, type: 3}
+    - time: 0.8
+      value: {fileID: 5102733919979734838, guid: b7908601062328246bb15258729e0651, type: 3}
+    - time: 0.9
+      value: {fileID: 446352743909605117, guid: b7908601062328246bb15258729e0651, type: 3}
+    - time: 1
+      value: {fileID: 7931295918413601940, guid: b7908601062328246bb15258729e0651, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -58,20 +64,23 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -5842158226350103193, guid: 13fc11c7a0a1fd844b61032d69f7c6a5, type: 3}
-    - {fileID: 8366054316629957701, guid: 13fc11c7a0a1fd844b61032d69f7c6a5, type: 3}
-    - {fileID: -1963375155610145794, guid: 13fc11c7a0a1fd844b61032d69f7c6a5, type: 3}
-    - {fileID: -2256609458194983278, guid: 13fc11c7a0a1fd844b61032d69f7c6a5, type: 3}
-    - {fileID: -8591838926625488116, guid: 13fc11c7a0a1fd844b61032d69f7c6a5, type: 3}
-    - {fileID: 5249382177856149526, guid: 13fc11c7a0a1fd844b61032d69f7c6a5, type: 3}
-    - {fileID: -7250793644943473165, guid: 13fc11c7a0a1fd844b61032d69f7c6a5, type: 3}
-    - {fileID: -299542266794393223, guid: 13fc11c7a0a1fd844b61032d69f7c6a5, type: 3}
+    - {fileID: -8496000926939094436, guid: b7908601062328246bb15258729e0651, type: 3}
+    - {fileID: 4763957226936844090, guid: b7908601062328246bb15258729e0651, type: 3}
+    - {fileID: 5084845500303725058, guid: b7908601062328246bb15258729e0651, type: 3}
+    - {fileID: 213367864921593703, guid: b7908601062328246bb15258729e0651, type: 3}
+    - {fileID: -6053156915834856109, guid: b7908601062328246bb15258729e0651, type: 3}
+    - {fileID: -786582162906130183, guid: b7908601062328246bb15258729e0651, type: 3}
+    - {fileID: -810542643410856830, guid: b7908601062328246bb15258729e0651, type: 3}
+    - {fileID: -9184480663594510091, guid: b7908601062328246bb15258729e0651, type: 3}
+    - {fileID: 5102733919979734838, guid: b7908601062328246bb15258729e0651, type: 3}
+    - {fileID: 446352743909605117, guid: b7908601062328246bb15258729e0651, type: 3}
+    - {fileID: 7931295918413601940, guid: b7908601062328246bb15258729e0651, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.8
+    m_StopTime: 1.1
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -91,8 +100,8 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.7
-    functionName: Signal
+  - time: 1
+    functionName: AddSignal
     data: signal.end.death
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

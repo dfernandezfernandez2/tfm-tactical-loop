@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baec5e263f954aeb90e95737758e2fca, type: 3}
   m_Name: FireProjectile
   m_EditorClassIdentifier: Assembly-CSharp::Game.Battle.Unit.Skills.Effects.ProjectileSkillEffect
-  projectilePrefab: {fileID: 0}
-  speed: 4
-  heightOffset: 0.45
+  projectilePrefab: {fileID: 9095255082765825921, guid: 53842fca211dfa147999ef365a43b418, type: 3}
+  speed: 4.5
+  heightOffset: 0.85
   forwardStartOffset: 0.35
   distanceToStop: 0.05
   rotateTowardsTarget: 1
   rotationOffset: 0
-  worldRender: {fileID: 0}
+  worldRender: {fileID: 396172803108293899, guid: 48e0b3554fdf9b040b383e267d5e6b36, type: 3}
   projectileSoundRelease: 
   projectileSoundHit: 
   destroyDelay: 0.05
