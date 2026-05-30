@@ -30,7 +30,7 @@ namespace Game.Translation {
 
                 Dictionary<string, string> rowData = new();
                 for (int column = 0; column < row.Length; column++) {
-                    rowData[header[column].Trim()] = row[column];
+                    rowData[header[column].Trim()] = NormalizeValue(row[column]);
                 }
 
                 results.Add(rowData);
@@ -38,5 +38,11 @@ namespace Game.Translation {
 
             return results;
         }
+
+        private static string NormalizeValue(string value) =>
+            value
+                .Replace("\\n", "\n")
+                .Replace("\\r", "\r")
+                .Replace("\\t", "\t");
     }
 }
