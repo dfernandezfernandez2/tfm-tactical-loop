@@ -12,17 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd5af83e4ec341bc93fbe338da2fcbc5, type: 3}
   m_Name: GoblinBasicUnitData
   m_EditorClassIdentifier: Assembly-CSharp::Unit.Data.UnitData
-  unitName: Goblin
   nameId: goblin
   unitSprite: {fileID: 929150727014594773, guid: e6834fb29ff98444e8c4352a4837a16c, type: 3}
   isRanged: 0
-  hp: 30
+  hp: 20
   mp: 0
   mpRegen: 0
   movement: 3
   ap: 3
   atk: 4
-  defense: 5
+  defense: 2
   speed: 1
   range: 1
   accuracy: 0.8

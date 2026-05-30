@@ -20,7 +20,7 @@ namespace Game.Battle.Actions {
 
         public string GetName() => this._item.GetName();
 
-        public string GetActionName() =>  this._item.GetId();
+        public string GetActionName() => this._item.GetId();
 
         public int GetApCost() => 0;
 

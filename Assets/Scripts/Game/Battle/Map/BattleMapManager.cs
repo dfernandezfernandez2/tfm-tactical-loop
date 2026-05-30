@@ -134,5 +134,7 @@ namespace Game.Battle.Map {
 
         public IReadOnlyList<GridPosition> GetPositionsAround(GridPosition origin, int radius,
             bool includeOrigin = false) => this._rangeFinder.GetPositionsAround(origin, radius, includeOrigin);
+
+        public TileData GetTile(Vector2Int position) => this._queryService.GetTile(position);
     }
 }

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: shot_posion_damage_effect
   m_EditorClassIdentifier: Assembly-CSharp::Game.Unit.Skills.Effects.DamageSkillEffect
   damage: 5
-  canFail: 1
+  canFail: 0
   applyDefense: 1

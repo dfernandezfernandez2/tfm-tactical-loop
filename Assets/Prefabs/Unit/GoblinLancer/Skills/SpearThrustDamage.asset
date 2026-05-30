@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59930f545a314fd0a359f83d7c1ec892, type: 3}
   m_Name: SpearThrustDamage
   m_EditorClassIdentifier: Assembly-CSharp::Game.Battle.Unit.Skills.Effects.DamageSkillEffect
-  damage: 5
+  damage: 7
   canFail: 0
   applyDefense: 1

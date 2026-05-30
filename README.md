@@ -113,3 +113,16 @@ El juego permite el uso tanto de ratón como de teclado.
 #### Acciones
 - Confirmar: `Enter` o `Espacio`
 - Cancelar: `Escape`
+
+
+## UNIDADES
+
+| Unidad        | HP | MP | MP+ | Mov | AP | Atk | Def | Speed | Range | Acc |   Ev | CritChance | Skills                                                                                 |
+| ------------- | -: | -: | --: | --: | -: | --: | --: | ----: | ----: | --: | ---: | ---------: | -------------------------------------------------------------------------------------- |
+| Arquero       | 25 |  0 |   0 |   5 |  3 |   6 |   2 |     3 |     1 | 0.8 | 0.08 |       0.05 | Shot: Dmg 10, no fail<br>Shot Poison: Dmg 5, no fail<br>Shot Paralysis: Dmg 5, no fail |
+| Maga          | 20 |  5 |   1 |   2 |  3 |   2 |   2 |     2 |     1 | 0.9 | 0.03 |       0.05 | Fire Ball: Dmg 20, no fail                                                             |
+| Knight        | 30 |  0 |   0 |   5 |  3 |   7 |   3 |     1 |     1 | 0.7 | 0.03 |       0.05 | Thrust: Dmg 10, no def, no fail                                                        |
+| Goblin Basic  | 20 |  0 |   0 |   3 |  3 |   4 |   2 |     1 |     1 | 0.8 | 0.15 |        0.1 | Blow: Dmg 5                                                                            |
+| Goblin Lancer | 25 |  0 |   0 |   3 |  3 |   5 |   2 |     1 |     2 | 0.8 | 0.15 |        0.1 | Thrust: Dmg 7, no fail                                                                 |
+| Goblin Tank   | 35 |  0 |   0 |   3 |  3 |   3 |   5 |     1 |     1 | 0.8 | 0.15 |        0.1 | Thrust: Dmg 3, no fail                                                                 |
+| Boss          | 50 |  5 |   2 |   3 |  3 |   9 |   5 |     2 |     1 |   1 |  0.1 |        0.2 | BlastBurn: Dmg 5, no fail, no def<br>SpectralFire: Dmg 25, no fail                     |
