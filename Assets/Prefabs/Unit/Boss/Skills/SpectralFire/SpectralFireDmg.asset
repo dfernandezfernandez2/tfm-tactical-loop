@@ -9,12 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad756561f3884d0cbf4f659776edde03, type: 3}
-  m_Name: AreaDamage
-  m_EditorClassIdentifier: Assembly-CSharp::Game.Battle.Unit.Skills.Effects.AreaDamageSkillEffect
-  damage: 5
-  radius: 2
+  m_Script: {fileID: 11500000, guid: 59930f545a314fd0a359f83d7c1ec892, type: 3}
+  m_Name: SpectralFireDmg
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Battle.Unit.Skills.Effects.DamageSkillEffect
+  damage: 25
   canFail: 0
-  applyDefense: 0
-  affectAllies: 0
-  affectSelf: 0
+  applyDefense: 1

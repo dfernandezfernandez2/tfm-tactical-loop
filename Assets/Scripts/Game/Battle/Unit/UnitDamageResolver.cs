@@ -56,8 +56,9 @@ namespace Game.Battle.Unit {
             float dmg = isCrit ? atk * 1.5f : atk;
             dmg = this.ApplyHeightDamageModifier(dmg, target);
             float final = Mathf.Max(0, dmg - def);
+            int finalDmg = Mathf.RoundToInt(final);
 
-            return final <= 0 ? 1 : Mathf.RoundToInt(final);
+            return finalDmg <= 0 ? 1 : finalDmg;
         }
 
         private float ApplyHeightDamageModifier(float damage, Unit target) {

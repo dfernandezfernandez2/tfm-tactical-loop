@@ -18,7 +18,7 @@ MonoBehaviour:
   hp: 50
   mp: 5
   mpRegen: 2
-  movement: 2
+  movement: 3
   ap: 3
   atk: 9
   defense: 5

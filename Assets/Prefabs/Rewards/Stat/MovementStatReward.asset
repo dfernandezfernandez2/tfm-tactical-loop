@@ -15,5 +15,4 @@ MonoBehaviour:
   stat: 3
   amount: 5
   sprite: {fileID: 21300000, guid: 6a0b1f39389394d47b50cc2e564fb884, type: 3}
-  statRewardName: Movement Boost
-  description: Increases the movement range of all units in the party.
+  id: movement

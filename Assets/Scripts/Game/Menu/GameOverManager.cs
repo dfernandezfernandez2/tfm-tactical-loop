@@ -4,20 +4,24 @@ namespace Game.Menu {
     using UnityEngine;
     using UnityEngine.SceneManagement;
 
+    [RequireComponent(typeof(CreditsScrollUI))]
     public class GameOverManager : MonoBehaviour {
         [SerializeField] private List<MenuButtonUI> buttons;
         [SerializeField] private Canvas main;
         [SerializeField] private Canvas credits;
+        private CreditsScrollUI _creditsScrollUI;
 
         private int _currentButtonIndex;
         private bool _isCreditsActive;
 
         private void Awake() {
+            this._creditsScrollUI = this.GetComponent<CreditsScrollUI>();
             for (int i = 0; i < this.buttons.Count; i++) {
                 this.buttons[i].Init(i, this.Select);
             }
 
             this.buttons[this._currentButtonIndex].Select();
+            this._creditsScrollUI.OnCreditsFinished += this.ShowMain;
         }
 
         private void Update() {
@@ -61,6 +65,10 @@ namespace Game.Menu {
                 return;
             }
 
+            this.ShowMain();
+        }
+
+        private void ShowMain() {
             this._isCreditsActive = false;
             this.main.gameObject.SetActive(true);
             this.credits.gameObject.SetActive(false);
@@ -70,6 +78,7 @@ namespace Game.Menu {
             this._isCreditsActive = true;
             this.main.gameObject.SetActive(false);
             this.credits.gameObject.SetActive(true);
+            this._creditsScrollUI.PlayFromStart();
         }
     }
 }

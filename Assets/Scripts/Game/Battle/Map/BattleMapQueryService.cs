@@ -43,5 +43,8 @@ namespace Game.Battle.Map {
 
             return cost;
         }
+
+        public TileData GetTile(Vector2Int position) =>
+            this._mapData.GetTile(position.x, position.y);
     }
 }

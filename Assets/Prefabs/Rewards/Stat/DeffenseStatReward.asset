@@ -15,5 +15,4 @@ MonoBehaviour:
   stat: 6
   amount: 5
   sprite: {fileID: 21300000, guid: f3a73b84025383b45aa4a09aefa3ccc3, type: 3}
-  statRewardName: Defense Boost
-  description: Increases the defense stat of all units in the party.
+  id: defense

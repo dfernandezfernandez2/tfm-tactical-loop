@@ -28,12 +28,23 @@ namespace Game.Battle.Unit.Skills.Effects {
             GridPosition current = target;
             List<GridPosition> path = new();
             for (int i = 0; i < this.distance; i++) {
+                Vector2Int nextPosition = current.Position + direction;
+                TileData nextTile = battleMapManager.GetTile(nextPosition);
+                if (nextTile == null) {
+                    break;
+                }
+
                 GridPosition next = new(current.Position + direction, current.Height);
-                if (!battleMapManager.IsAvailablePosition(next)) {
+                if (!battleMapManager.IsAvailablePosition(next) || current.Height < next.Height) {
                     break;
                 }
 
                 path.Add(next);
+                // if the unit fall in above height falls but not continue the push movement
+                if (current.Height > next.Height) {
+                    break;
+                }
+
                 current = next;
             }
 
