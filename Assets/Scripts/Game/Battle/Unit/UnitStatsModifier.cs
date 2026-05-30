@@ -15,6 +15,8 @@ namespace Game.Battle.Unit {
             this._modifiers[statType] = modifier;
         }
 
+        public void ClearModifiers() => this._modifiers.Clear();
+
         public float GetModifier(StatType statType) => this._modifiers.GetValueOrDefault(statType, 0f);
     }
 }

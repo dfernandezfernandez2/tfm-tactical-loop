@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: courage_effect
   m_EditorClassIdentifier: Assembly-CSharp::Game.Unit.Skills.Effects.CourageSkillEffect
   amount: 7
-  duration: 2
+  duration: 1

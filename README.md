@@ -24,7 +24,7 @@ Para esta primera entrega se han implementado las funcionalidades básicas del s
 
 ## PEC 3
 
--  IA de los enemigos.
+- IA de los enemigos.
 - Condiciones de victoria/derrota.
 - Pantalla de inicio y fin de partida.
 - Inventario y objetos.
@@ -33,6 +33,21 @@ Para esta primera entrega se han implementado las funcionalidades básicas del s
 - Mapa de nodos de los encuentros.
 - Ataque en equipo.
 - Recompensas.
+
+---
+
+## PEC 4
+
+- Generación procedural
+- Validación de mapas generados.
+- Gestión de alturas.
+- Líneas de visión.
+- Traducciones.
+- Sonidos y música.
+- Créditos.
+- Jefe final.
+
+---
 
 ## Estructura actual del juego
 
@@ -54,7 +69,7 @@ Una vez confirmada la selección:
 
 ## Interfaz durante la partida
 
-### Panel izquierdo (orden de turnos)
+### Orden de los turnos (esquina abajo izquierda)
 
 - Muestra el orden de actuación de las unidades.
 - Actualmente se visualiza:
@@ -62,9 +77,9 @@ Una vez confirmada la selección:
   - Equipo al que pertenece
   - Indicador de turno actual
 
----
+### Pasivas activas (abajo al centro)
 
-### Panel derecho (acciones)
+### Acciones (esquina abajo derecha)
 
 Acciones disponibles:
 - **Movimiento**
@@ -79,8 +94,8 @@ Acciones disponibles:
 
 #### Atacar
 - Muestra las posiciones dentro del rango de ataque.
-- Permite seleccionar cualquier objetivo (incluye fuego amigo).
-- Si no hay objetivo, el ataque falla pero consume la acción.
+- Permite seleccionar cualquier objetivo.
+- Si no hay objetivo, no puede seleccionar.
 
 #### Habilidades
 - Muestra las habilidades disponibles por la unidad y permite seleccionarlas para usarlas.
@@ -101,6 +116,7 @@ El juego permite el uso tanto de ratón como de teclado.
 - Mover cursor: seleccionar elementos  
 - Click izquierdo: confirmar acción  
 - Click derecho: cancelar acción  
+- Scroll: movimiento entre opciones o zoom en partida
 
 ### Teclado
 
@@ -113,6 +129,9 @@ El juego permite el uso tanto de ratón como de teclado.
 #### Acciones
 - Confirmar: `Enter` o `Espacio`
 - Cancelar: `Escape`
+
+#### Abrir opciones
+- `P`
 
 
 ## UNIDADES

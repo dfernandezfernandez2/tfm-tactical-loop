@@ -49,6 +49,11 @@
             this.UpdateDirection(direction);
             this.transform.position = this.worldRender.GridToWorld(gridPosition);
             this._renderer.sortingOrder = WorldRender.GetSortingOrder(gridPosition);
+            if (this.Unit.IsDead()) {
+                this.Unit.AddStat(StatType.Hp, 1f);
+            }
+
+            this.Unit.UnitStatsModifier.ClearModifiers();
         }
 
         public IEnumerator OnTurnStart() {

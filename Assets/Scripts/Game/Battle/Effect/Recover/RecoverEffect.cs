@@ -26,7 +26,7 @@ namespace Game.Battle.Effect.Recover {
         public override IEnumerator OnApply(UnitObject from, UnitObject to, EffectVisualController controller) {
             to.PlayText(this._amount.ToString(), this._combatTextType);
             yield return controller.PlayEffect(this.CreateEffectData(to, this._color, this._soundEffectName));
-            to.Unit.UnitStatsModifier.AddModifier(this._statType, this._amount);
+            to.Unit.AddStat(this._statType, this._amount);
         }
 
         public override IEnumerator OnExpire(UnitObject target, EffectVisualController controller) {
