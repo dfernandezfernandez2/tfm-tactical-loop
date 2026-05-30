@@ -24,7 +24,7 @@ namespace Game.Battle.Effect.Status {
         }
 
         public override IEnumerator OnTurnStart(UnitObject target, EffectVisualController controller) {
-            target.Unit.UnitStatsModifier.AddModifier(StatType.Hp, -this._currentDamage);
+            target.Unit.AddStat(StatType.Hp, -this._currentDamage);
             yield return AudioManager.Instance.PlaySound(this._soundOnStart);
             yield return target.PlayDamage(this._currentDamage);
             this._currentDamage += this._damagePerTurn;

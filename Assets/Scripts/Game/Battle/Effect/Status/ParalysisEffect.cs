@@ -19,7 +19,7 @@ namespace Game.Battle.Effect.Status {
         }
 
         public override IEnumerator OnExpire(UnitObject target, EffectVisualController controller) {
-            target.Unit.UnitStatsModifier.AddModifier(StatType.Movement, this._amount);
+            target.Unit.UnitStatsModifier.AddModifier(StatType.AP, this._amount);
             controller.RemoveEffect(this, target);
             yield return null;
         }
